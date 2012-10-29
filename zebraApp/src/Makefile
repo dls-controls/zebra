@@ -6,82 +6,21 @@ include $(TOP)/configure/CONFIG
 # Build an Diamond Support Module
 # -------------------------------
 
-#LIBRARY_IOC += xxx
+LIBRARY_IOC += zebra
 
 # xxxRecord.h will be created from xxxRecord.dbd
 #DBDINC += xxx.h
 
 # xxxRecord.dbd will be installed into <top>/dbd
-#DBD += xxx.dbd
+DBD += zebraSupport.dbd
+DBD += zebra_vdct.dbd
+zebra_vdct_DBD += base.dbd
+zebra_vdct_DBD += asyn.dbd
 
 # The following are compiled and added to the support library
-#xxx_SRCS += xxxCodeA.c
-#xxx_SRCS += xxxCodeB.c
+zebra_SRCS += zebra.cpp
 
 # We need to link against the EPICS Base libraries
 #xxx_LIBS += $(EPICS_BASE_IOC_LIBS)
-
-
-# ------------------------
-# Build an IOC Application
-# ------------------------
-
-PROD_IOC = zebra
-
-# zebra.dbd will be installed into <top>/dbd
-DBD += zebra.dbd
-
-# zebra.dbd will be created from these files
-zebra_DBD += base.dbd
-#zebra_DBD += xxx.dbd
-
-# zebra_registerRecordDeviceDriver.cpp will be created
-# zebra.dbd
-zebra_SRCS += zebra_registerRecordDeviceDriver.cpp
-
-# These two lines are needed for non-vxWorks builds, such as Linux
-zebra_SRCS_DEFAULT += zebraMain.cpp
-zebra_SRCS_vxWorks += -nil-
-
-# Add locally compiled object code
-#zebra_SRCS +=
-
-# The following adds object code from base/src/vxWorks
-zebra_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
-
-# This line says that this IOC Application depends on the
-# xxx Support Module
-#zebra_LIBS += xxx
-
-# We need to link this IOC Application against the EPICS Base libraries
-zebra_LIBS += $(EPICS_BASE_IOC_LIBS)
-
-# ---------------------------------------------------
-
-# NOTE: To build SNL programs, SNCSEQ must be defined
-# in the <top>/configure/RELEASE file
-#
-# The difference between a file with an "st" extension
-# and one with an "stt" extension is:
-# The "st" extension files get passed through the C preprocessor
-# whereas the "stt" files do not.
-
-#ifneq ($(SNCSEQ),)
-    # This builds sncExample as a component of zebra
-#    zebra_SNCFLAGS += +r
-#    zebra_DBD      += sncExample.dbd
-#    zebra_SRCS     += sncExample.stt
-#    zebra_LIBS     += seq pv
-
-    # The following builds sncExample as a standalone application
-#    PROD_HOST           += sncExample
-#    sncExample_SNCFLAGS += +m
-#    sncExample_SRCS     += sncExample.stt
-#    sncExample_LIBS     += seq pv
-    # Here, we need to specify the dependency on EPICS Base libraries
-    # again because this is a standalone application and
-    # not part of zebra
-#    sncExample_LIBS     += $(EPICS_BASE_HOST_LIBS)
-#endif
 
 include $(TOP)/configure/RULES

@@ -1,0 +1,627 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 78
+y 58
+w 947
+h 588
+font "arial-medium-r-14.0"
+ctlFont "arial-bold-r-14.0"
+btnFont "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 25
+ctlFgColor2 index 0
+ctlBgColor1 index 3
+ctlBgColor2 index 14
+topShadowColor index 1
+botShadowColor index 11
+title "Device - WBS.CAM"
+showGrid
+snapToGrid
+gridSize 5
+endScreenProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 950
+h 30
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 2
+w 949
+h 25
+lineColor index 1
+fillColor index 0
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1
+y 3
+w 949
+h 25
+lineColor index 11
+fillColor index 0
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 1
+y 3
+w 949
+h 24
+fgColor index 14
+bgColor index 3
+topShadowColor index 0
+botShadowColor index 0
+font "arial-bold-r-14.0"
+xPosOffset 5
+yPosOffset 5
+button3Popup
+invisible
+buttonLabel "tooltip"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "generic-tooltip"
+}
+setPosition {
+  0 "button"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1
+y 3
+w 1046
+h 25
+font "arial-bold-r-16.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 48
+value {
+  "Zebra Setup"
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 50
+h 30
+
+beginGroup
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 48
+h 29
+lineColor index 1
+fillColor index 0
+lineWidth 2
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 2
+y 2
+w 48
+h 29
+lineColor index 11
+fillColor index 0
+lineWidth 2
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 2
+y 2
+w 47
+h 27
+lineColor index 49
+fill
+fillColor index 48
+lineWidth 3
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 12
+y 6
+w 4
+h 3
+lineColor index 1
+fill
+fillColor index 0
+lineWidth 2
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 0
+y 0
+w 50
+h 30
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Setup"
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Exit Button)
+object activeExitButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 850
+y 555
+w 90
+h 25
+fgColor index 46
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+label "EXIT"
+font "arial-medium-r-16.0"
+3d
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 40
+w 642
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "LOC\\$(!W)tab=e:0,Pos Comp,I/O,AND,OR,GATE,DIV,PULSE"
+font "arial-bold-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 11
+y 66
+w 640
+h 480
+fgColor index 14
+bgColor index 3
+topShadowColor index 0
+botShadowColor index 0
+displaySource "menu"
+filePv "LOC\\$(!W)tab"
+sizeOfs 5
+numDsps 7
+displayFileName {
+  0 "zebraPC"
+  1 "zebraIO"
+  2 "zebraANDOR"
+  3 "zebraANDOR"
+  4 "zebraGATE"
+  5 "zebraDIV"
+  6 "zebraPULSE"
+}
+symbols {
+  2 "ANDOR=AND"
+  3 "ANDOR=OR"
+}
+noScroll
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 12
+y 67
+w 640
+h 480
+lineColor index 1
+fillColor index 0
+numPoints 3
+xPoints {
+  0 12
+  1 652
+  2 652
+}
+yPoints {
+  0 547
+  1 547
+  2 67
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 10
+y 66
+w 640
+h 480
+lineColor index 11
+fillColor index 0
+numPoints 3
+xPoints {
+  0 10
+  1 10
+  2 650
+}
+yPoints {
+  0 546
+  1 66
+  2 66
+}
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 660
+y 40
+w 280
+h 510
+
+beginGroup
+
+# (multiLineTextUpdate)
+object multiLineTextUpdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 680
+y 40
+w 120
+h 510
+controlPv "$(zebra):SYS_BUS1"
+fgColour index 14
+fgAlarm
+bgColour index 3
+fill
+font "arial-medium-r-12.0"
+endObjectProperties
+
+# (multiLineTextUpdate)
+object multiLineTextUpdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 820
+y 40
+w 120
+h 510
+controlPv "$(zebra):SYS_BUS2"
+fgColour index 14
+fgAlarm
+bgColour index 3
+fill
+font "arial-medium-r-12.0"
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 660
+y 47
+w 13
+h 240
+controlPv "$(zebra):SYS_STAT1LO"
+lineColor index 14
+onColor index 15
+offColor index 19
+endian "little"
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 660
+y 287
+w 13
+h 240
+controlPv "$(zebra):SYS_STAT1HI"
+lineColor index 14
+onColor index 15
+offColor index 19
+endian "little"
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 800
+y 47
+w 13
+h 240
+controlPv "$(zebra):SYS_STAT2LO"
+lineColor index 14
+onColor index 15
+offColor index 19
+endian "little"
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 800
+y 287
+w 13
+h 240
+controlPv "$(zebra):SYS_STAT2HI"
+lineColor index 14
+onColor index 15
+offColor index 19
+endian "little"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 85
+y 555
+w 110
+h 25
+controlPv "$(zebra):SYS_VER"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 555
+w 75
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Firmware:"
+}
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 615
+y 555
+w 95
+h 25
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):SYS_RESET.PROC"
+pressValue "1"
+onLabel "Reset"
+offLabel "Reset"
+3d
+useEnumNumeric
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 720
+y 555
+w 120
+h 25
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):STORE.PROC"
+pressValue "1"
+onLabel "Store to Flash"
+offLabel "Store to Flash"
+3d
+useEnumNumeric
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 205
+y 555
+w 75
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Error:"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 285
+y 555
+w 110
+h 25
+controlPv "$(zebra):ERROR"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 495
+y 555
+w 110
+h 25
+controlPv "$(zebra):CONNECTED"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 405
+y 555
+w 85
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Connected:"
+}
+endObjectProperties
+
