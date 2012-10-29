@@ -9,13 +9,6 @@ template() {
   #! InputMacro(PARAM,"",200,380,16777215,1,true)
 }
 
-record(ai, "$(P)$(Q):$(PARAM):RBVI") {
-  field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) $(PARAM)")
-  field(SCAN, "I/O Intr")
-}
-
 record(mbbi, "$(P)$(Q):$(PARAM):RBV") {
   field(DESC, "Readback param value")
   field(DTYP, "asynInt32")
@@ -25,7 +18,7 @@ record(mbbi, "$(P)$(Q):$(PARAM):RBV") {
   field(ZRST, "ms")
   field(ZRVL, "50")
   field(ONST, "s")
-  field(ONVL, "50000")      
+  field(ONVL, "50000")
 }
 
 record(calcout, "$(P)$(Q):$(PARAM):SYNC") {
@@ -40,9 +33,9 @@ record(mbbo, "$(P)$(Q):$(PARAM)") {
   field(DTYP, "Raw Soft Channel")
   field(OUT, "$(P)$(Q):$(PARAM):SET PP")
   field(ZRST, "ms")
-  field(ZRVL, "50")  
+  field(ZRVL, "50")
   field(ONST, "s")
-  field(ONVL, "50000")    
+  field(ONVL, "50000")
 }
 
 record(ao, "$(P)$(Q):$(PARAM):SET") {
@@ -53,8 +46,8 @@ record(ao, "$(P)$(Q):$(PARAM):SET") {
 }
 
 #! Further lines contain data used by VisualDCT
-#! View(0,71,1.0)
-#! Record("$(P)$(Q):$(PARAM):RBV",280,312,0,1,"$(P)$(Q):$(PARAM):RBV")
+#! View(235,118,1.0)
+#! Record("$(P)$(Q):$(PARAM):RBV",280,319,0,1,"$(P)$(Q):$(PARAM):RBV")
 #! Field("$(P)$(Q):$(PARAM):RBV.FLNK",16777215,1,"$(P)$(Q):$(PARAM):RBV.FLNK")
 #! Link("$(P)$(Q):$(PARAM):RBV.FLNK","$(P)$(Q):$(PARAM):SYNC")
 #! Field("$(P)$(Q):$(PARAM):RBV.VAL",16777215,1,"$(P)$(Q):$(PARAM):RBV.VAL")
@@ -64,12 +57,11 @@ record(ao, "$(P)$(Q):$(PARAM):SET") {
 #! Field("$(P)$(Q):$(PARAM):SYNC.INPA",16777215,0,"$(P)$(Q):$(PARAM):SYNC.INPA")
 #! Link("$(P)$(Q):$(PARAM):SYNC.INPA","$(P)$(Q):$(PARAM):RBV.VAL")
 #! Field("$(P)$(Q):$(PARAM):SYNC.PACT",16777215,1,"$(P)$(Q):$(PARAM):SYNC.PACT")
-#! Record("$(P)$(Q):$(PARAM)",860,268,0,0,"$(P)$(Q):$(PARAM)")
+#! Record("$(P)$(Q):$(PARAM)",860,266,0,0,"$(P)$(Q):$(PARAM)")
 #! Field("$(P)$(Q):$(PARAM).VAL",16777215,0,"$(P)$(Q):$(PARAM).VAL")
 #! Field("$(P)$(Q):$(PARAM).OUT",16777215,1,"$(P)$(Q):$(PARAM).OUT")
 #! Link("$(P)$(Q):$(PARAM).OUT","$(P)$(Q):$(PARAM):SET.VAL")
-#! Record("$(P)$(Q):$(PARAM):SET",1140,434,0,0,"$(P)$(Q):$(PARAM):SET")
+#! Record("$(P)$(Q):$(PARAM):SET",1140,428,0,0,"$(P)$(Q):$(PARAM):SET")
 #! Field("$(P)$(Q):$(PARAM):SET.VAL",16777215,0,"$(P)$(Q):$(PARAM):SET.VAL")
 #! Field("$(P)$(Q):$(PARAM):SET.SDIS",16777215,0,"$(P)$(Q):$(PARAM):SET.SDIS")
 #! Link("$(P)$(Q):$(PARAM):SET.SDIS","$(P)$(Q):$(PARAM):SYNC.PACT")
-

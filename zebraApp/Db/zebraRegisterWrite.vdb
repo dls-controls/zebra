@@ -6,7 +6,7 @@
 
 template() {
 
-  #! InputMacro(ASLO,"",200,620,16777215,1,true)
+  #! InputMacro(ASLO,"",120,480,16777215,1,true)
   #! InputMacro(PREC,"",480,320,16777215,1,true)
   #! InputMacro(PARAM,"",200,380,16777215,1,true)
 }
@@ -51,8 +51,8 @@ record(ao, "$(P)$(Q):$(PARAM):SET") {
 }
 
 #! Further lines contain data used by VisualDCT
-#! View(0,71,1.0)
-#! Record("$(P)$(Q):$(PARAM):RBV",280,312,0,1,"$(P)$(Q):$(PARAM):RBV")
+#! View(0,0,1.0)
+#! Record("$(P)$(Q):$(PARAM):RBV",280,306,0,1,"$(P)$(Q):$(PARAM):RBV")
 #! Field("$(P)$(Q):$(PARAM):RBV.FLNK",16777215,1,"$(P)$(Q):$(PARAM):RBV.FLNK")
 #! Link("$(P)$(Q):$(PARAM):RBV.FLNK","$(P)$(Q):$(PARAM):SYNC")
 #! Field("$(P)$(Q):$(PARAM):RBV.ASLO",16777215,0,"$(P)$(Q):$(PARAM):RBV.ASLO")
@@ -66,12 +66,18 @@ record(ao, "$(P)$(Q):$(PARAM):SET") {
 #! Field("$(P)$(Q):$(PARAM):SYNC.INPA",16777215,0,"$(P)$(Q):$(PARAM):SYNC.INPA")
 #! Link("$(P)$(Q):$(PARAM):SYNC.INPA","$(P)$(Q):$(PARAM):RBV.VAL")
 #! Field("$(P)$(Q):$(PARAM):SYNC.PACT",16777215,1,"$(P)$(Q):$(PARAM):SYNC.PACT")
+#! Record("$(P)$(Q):$(PARAM):DRVH",520,128,0,0,"$(P)$(Q):$(PARAM):DRVH")
+#! Field("$(P)$(Q):$(PARAM):DRVH.A",16777215,0,"$(P)$(Q):$(PARAM):DRVH.A")
+#! Link("$(P)$(Q):$(PARAM):DRVH.A",ASLO)
+#! Field("$(P)$(Q):$(PARAM):DRVH.OUT",16777215,1,"$(P)$(Q):$(PARAM):DRVH.OUT")
+#! Link("$(P)$(Q):$(PARAM):DRVH.OUT","$(P)$(Q):$(PARAM).DRVH")
 #! Record("$(P)$(Q):$(PARAM)",860,268,0,0,"$(P)$(Q):$(PARAM)")
 #! Field("$(P)$(Q):$(PARAM).VAL",16777215,0,"$(P)$(Q):$(PARAM).VAL")
 #! Field("$(P)$(Q):$(PARAM).OUT",16777215,1,"$(P)$(Q):$(PARAM).OUT")
 #! Link("$(P)$(Q):$(PARAM).OUT","$(P)$(Q):$(PARAM):SET.VAL")
 #! Field("$(P)$(Q):$(PARAM).PREC",16777215,0,"$(P)$(Q):$(PARAM).PREC")
 #! Link("$(P)$(Q):$(PARAM).PREC",PREC)
+#! Field("$(P)$(Q):$(PARAM).DRVH",16777215,0,"$(P)$(Q):$(PARAM).DRVH")
 #! Record("$(P)$(Q):$(PARAM):SET",1140,434,0,0,"$(P)$(Q):$(PARAM):SET")
 #! Field("$(P)$(Q):$(PARAM):SET.VAL",16777215,0,"$(P)$(Q):$(PARAM):SET.VAL")
 #! Field("$(P)$(Q):$(PARAM):SET.SDIS",16777215,0,"$(P)$(Q):$(PARAM):SET.SDIS")

@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1139
-y 322
+x 915
+y 95
 w 640
 h 480
 font "arial-bold-r-12.0"
@@ -37,6 +37,21 @@ h 480
 lineColor index 5
 fill
 fillColor index 5
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 400
+w 625
+h 75
+lineColor index 14
+fill
+fillColor index 3
 endObjectProperties
 
 # (Rectangle)
@@ -2010,6 +2025,446 @@ bgColor index 3
 useDisplayBg
 value {
   "IN3"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 390
+w 247
+h 13
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 7
+value {
+  "  Motor record readbacks, counter values  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 25
+y 410
+w 90
+h 25
+controlPv "$(zebra):M1:RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 25
+y 440
+w 90
+h 25
+controlPv "$(zebra):POS1_SET"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 115
+y 410
+w 45
+h 25
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):M1:SETPOS.PROC"
+pressValue "1"
+onLabel "Copy"
+offLabel "Copy"
+3d
+useEnumNumeric
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 410
+w 15
+h 55
+font "arial-bold-r-18.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "1"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 180
+y 410
+w 90
+h 25
+controlPv "$(zebra):M2:RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 180
+y 440
+w 90
+h 25
+controlPv "$(zebra):POS2_SET"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 270
+y 410
+w 45
+h 25
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):M2:SETPOS.PROC"
+pressValue "1"
+onLabel "Copy"
+offLabel "Copy"
+3d
+useEnumNumeric
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 165
+y 410
+w 15
+h 55
+font "arial-bold-r-18.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "2"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 335
+y 410
+w 90
+h 25
+controlPv "$(zebra):M3:RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 335
+y 440
+w 90
+h 25
+controlPv "$(zebra):POS3_SET"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 425
+y 410
+w 45
+h 25
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):M3:SETPOS.PROC"
+pressValue "1"
+onLabel "Copy"
+offLabel "Copy"
+3d
+useEnumNumeric
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 320
+y 410
+w 15
+h 55
+font "arial-bold-r-18.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "3"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 490
+y 410
+w 90
+h 25
+controlPv "$(zebra):M4:RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 490
+y 440
+w 90
+h 25
+controlPv "$(zebra):POS4_SET"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 580
+y 410
+w 45
+h 25
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):M4:SETPOS.PROC"
+pressValue "1"
+onLabel "Copy"
+offLabel "Copy"
+3d
+useEnumNumeric
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 475
+y 410
+w 15
+h 55
+font "arial-bold-r-18.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "4"
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 430
+y 435
+w 30
+h 15
+lineColor index 14
+fillColor index 3
+arrows "to"
+numPoints 3
+xPoints {
+  0 460
+  1 460
+  2 430
+}
+yPoints {
+  0 435
+  1 450
+  2 450
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 585
+y 435
+w 30
+h 15
+lineColor index 14
+fillColor index 3
+arrows "to"
+numPoints 3
+xPoints {
+  0 615
+  1 615
+  2 585
+}
+yPoints {
+  0 435
+  1 450
+  2 450
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 275
+y 435
+w 30
+h 15
+lineColor index 14
+fillColor index 3
+arrows "to"
+numPoints 3
+xPoints {
+  0 305
+  1 305
+  2 275
+}
+yPoints {
+  0 435
+  1 450
+  2 450
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 120
+y 435
+w 30
+h 15
+lineColor index 14
+fillColor index 3
+arrows "to"
+numPoints 3
+xPoints {
+  0 150
+  1 150
+  2 120
+}
+yPoints {
+  0 435
+  1 450
+  2 450
 }
 endObjectProperties
 

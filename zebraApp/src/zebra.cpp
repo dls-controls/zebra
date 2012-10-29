@@ -24,7 +24,7 @@
 #define NBUFF 255
 
 /* The interval in seconds between each poll of zebra */
-#define POLL 0.1
+#define POLL 0.05
 
 /* This is a lookup table of string->register number */
 struct reg_lookup {
@@ -150,10 +150,12 @@ static const struct reg_lookup reg_lookup[] = {
     { "POS4_SETLO",      0x06 + PC_OFF, 0 },
     { "POS4_SETHI",      0x07 + PC_OFF, 0 },
     { "PC_ENC",          0x08 + PC_OFF, 0 },
+    { "PC_ARM_INP",      0x09 + PC_OFF, 1 },
     { "PC_TSPRE",        0x0A + PC_OFF, 0 },
     { "PC_ARM_SEL",      0x0B + PC_OFF, 0 },
     { "PC_ARM",          0x0C + PC_OFF, 0 },
     { "PC_DISARM",       0x0D + PC_OFF, 0 },
+    { "PC_GATE_INP",     0x0F + PC_OFF, 1 },
     { "PC_GATE_SEL",     0x10 + PC_OFF, 0 },
     { "PC_GATE_STARTLO", 0x11 + PC_OFF, 0 },
     { "PC_GATE_STARTHI", 0x12 + PC_OFF, 0 },
@@ -163,6 +165,8 @@ static const struct reg_lookup reg_lookup[] = {
     { "PC_GATE_NGATEHI", 0x16 + PC_OFF, 0 },
     { "PC_GATE_STEPLO",  0x17 + PC_OFF, 0 },
     { "PC_GATE_STEPHI",  0x18 + PC_OFF, 0 },
+    { "PC_PULSE_INP",    0x1F + PC_OFF, 1 },
+    { "PC_PULSE_SEL",    0x20 + PC_OFF, 0 },
     { "PC_PULSE_DLYLO",  0x21 + PC_OFF, 0 },
     { "PC_PULSE_DLYHI",  0x22 + PC_OFF, 0 },
     { "PC_PULSE_WIDLO",  0x23 + PC_OFF, 0 },
@@ -235,13 +239,13 @@ static const char *bus_lookup[] = {
     "PULSE2",
     "PULSE3",
     "PULSE4",
-    "COUNT1",
-    "COUNT2",
-    "COUNT3",
-    "COUNT4",
+    "52",
+    "53",
+    "54",
+    "55",
+    "PC_ARM",
     "PC_GATE",
     "PC_PULSE",
-    "58",
     "59",
     "60",
     "61",

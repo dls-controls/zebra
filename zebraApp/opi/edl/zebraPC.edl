@@ -1,0 +1,1140 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 130
+y 204
+w 640
+h 480
+font "arial-bold-r-12.0"
+ctlFont "arial-bold-r-12.0"
+btnFont "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 25
+ctlFgColor2 index 25
+ctlBgColor1 index 3
+ctlBgColor2 index 3
+topShadowColor index 1
+botShadowColor index 11
+showGrid
+snapToGrid
+gridSize 5
+endScreenProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 640
+h 480
+lineColor index 5
+fill
+fillColor index 5
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 280
+w 200
+h 160
+lineColor index 14
+fill
+fillColor index 3
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 315
+w 189
+h 25
+
+beginGroup
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 55
+y 315
+w 120
+h 25
+controlPv "$(zebra):PC_ARM_INP:STR"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 15
+y 315
+w 35
+h 25
+controlPv "$(zebra):PC_ARM_INP"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 180
+y 315
+w 24
+h 24
+controlPv "$(zebra):PC_ARM_INP:STA"
+lineColor index 14
+onColor index 15
+offColor index 19
+numBits 1
+endObjectProperties
+
+endGroup
+
+visPv "$(zebra):PC_ARM_SEL:RBV"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 270
+w 46
+h 13
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 7
+value {
+  "  Setup  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 15
+y 410
+w 125
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Arm Status"
+}
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 180
+y 410
+w 24
+h 24
+controlPv "$(zebra):PC_ARM_OUT"
+lineColor index 14
+onColor index 15
+offColor index 19
+numBits 1
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 15
+y 405
+w 190
+h 0
+lineColor index 14
+fillColor index 3
+numPoints 2
+xPoints {
+  0 15
+  1 205
+}
+yPoints {
+  0 405
+  1 405
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 15
+y 285
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Arm signal"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 100
+y 285
+w 105
+h 25
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):PC_ARM_SEL"
+indicatorPv "$(zebra):PC_ARM_SEL:RBV"
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 315
+w 190
+h 25
+
+beginGroup
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 315
+w 190
+h 25
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):PC_ARM"
+pressValue "1"
+onLabel "Arm"
+offLabel "Arm"
+3d
+font "arial-bold-r-14.0"
+endObjectProperties
+
+endGroup
+
+visPv "$(zebra):PC_ARM_SEL:RBV"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 345
+w 190
+h 25
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):PC_DISARM"
+pressValue "1"
+onLabel "Disarm"
+offLabel "Disarm"
+3d
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 100
+y 375
+w 105
+h 25
+fgColor index 25
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):PC_TSPRE"
+indicatorPv "$(zebra):PC_TSPRE:RBV"
+font "arial-bold-r-14.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 15
+y 375
+w 80
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Time Units"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 220
+y 280
+w 200
+h 190
+lineColor index 14
+fill
+fillColor index 3
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 225
+y 315
+w 189
+h 25
+
+beginGroup
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 265
+y 315
+w 120
+h 25
+controlPv "$(zebra):PC_GATE_INP:STR"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 225
+y 315
+w 35
+h 25
+controlPv "$(zebra):PC_GATE_INP"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 315
+w 24
+h 24
+controlPv "$(zebra):PC_GATE_INP:STA"
+lineColor index 14
+onColor index 15
+offColor index 19
+numBits 1
+endObjectProperties
+
+endGroup
+
+visPv "$(zebra):PC_GATE_SEL:RBV"
+visMin "2"
+visMax "3"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 220
+y 270
+w 39
+h 13
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 7
+value {
+  "  Gate  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 225
+y 440
+w 125
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Gate Status"
+}
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 390
+y 440
+w 24
+h 24
+controlPv "$(zebra):PC_GATE_OUT"
+lineColor index 14
+onColor index 15
+offColor index 19
+numBits 1
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 225
+y 435
+w 190
+h 0
+lineColor index 14
+fillColor index 3
+numPoints 2
+xPoints {
+  0 225
+  1 415
+}
+yPoints {
+  0 435
+  1 435
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 225
+y 285
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Gate signal"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 310
+y 285
+w 105
+h 25
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):PC_GATE_SEL"
+indicatorPv "$(zebra):PC_GATE_SEL:RBV"
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 225
+y 315
+w 190
+h 115
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 225
+y 315
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Gate Start"
+}
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 310
+y 315
+w 105
+h 25
+controlPv "$(zebra):PC_GATE_START"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 310
+y 345
+w 105
+h 25
+controlPv "$(zebra):PC_GATE_WID"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 225
+y 345
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Gate Width"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 225
+y 375
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Num Gates"
+}
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 310
+y 375
+w 105
+h 25
+controlPv "$(zebra):PC_GATE_NGATE"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 225
+y 405
+w 190
+h 25
+
+beginGroup
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 310
+y 405
+w 105
+h 25
+controlPv "$(zebra):PC_GATE_STEP"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 225
+y 405
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Gate Step"
+}
+endObjectProperties
+
+endGroup
+
+visPv "$(zebra):PC_GATE_NGATE"
+visInvert
+visMin "1"
+visMax "2"
+endObjectProperties
+
+endGroup
+
+visPv "$(zebra):PC_GATE_SEL"
+visMin "0"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 430
+y 280
+w 200
+h 160
+lineColor index 14
+fill
+fillColor index 3
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 435
+y 315
+w 189
+h 25
+
+beginGroup
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 475
+y 315
+w 120
+h 25
+controlPv "$(zebra):PC_PULSE_INP:STR"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 435
+y 315
+w 35
+h 25
+controlPv "$(zebra):PC_PULSE_INP"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 600
+y 315
+w 24
+h 24
+controlPv "$(zebra):PC_PULSE_INP:STA"
+lineColor index 14
+onColor index 15
+offColor index 19
+numBits 1
+endObjectProperties
+
+endGroup
+
+visPv "$(zebra):PC_PULSE_SEL:RBV"
+visMin "2"
+visMax "3"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 430
+y 270
+w 45
+h 13
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 7
+value {
+  "  Pulse  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 435
+y 410
+w 125
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Pulse Status"
+}
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 600
+y 410
+w 24
+h 24
+controlPv "$(zebra):PC_PULSE_OUT"
+lineColor index 14
+onColor index 15
+offColor index 19
+numBits 1
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 435
+y 405
+w 190
+h 0
+lineColor index 14
+fillColor index 3
+numPoints 2
+xPoints {
+  0 435
+  1 625
+}
+yPoints {
+  0 405
+  1 405
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 435
+y 285
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Pulse signal"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 520
+y 285
+w 105
+h 25
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):PC_PULSE_SEL"
+indicatorPv "$(zebra):PC_PULSE_SEL:RBV"
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 435
+y 315
+w 190
+h 85
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 435
+y 315
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Pulse Delay"
+}
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 520
+y 315
+w 105
+h 25
+controlPv "$(zebra):PC_PULSE_DLY"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 520
+y 345
+w 105
+h 25
+controlPv "$(zebra):PC_PULSE_WID"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 435
+y 345
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Pulse Width"
+}
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 520
+y 375
+w 105
+h 25
+controlPv "$(zebra):PC_PULSE_STEP"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 435
+y 375
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Pulse Step"
+}
+endObjectProperties
+
+endGroup
+
+visPv "$(zebra):PC_PULSE_SEL"
+visMin "0"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 10
+w 620
+h 250
+lineColor index 14
+fill
+fillColor index 0
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 55
+y 45
+w 510
+h 40
+lineColor index 14
+fillColor index 3
+numPoints 10
+xPoints {
+  0 55
+  1 200
+  2 210
+  3 300
+  4 305
+  5 420
+  6 440
+  7 500
+  8 505
+  9 565
+}
+yPoints {
+  0 80
+  1 85
+  2 45
+  3 45
+  4 80
+  5 80
+  6 55
+  7 50
+  8 80
+  9 75
+}
+endObjectProperties
+
