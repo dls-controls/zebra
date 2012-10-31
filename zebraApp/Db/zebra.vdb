@@ -445,10 +445,9 @@ expand("zebraRegisterWriteMux.vdb", DIV1_INP) {
   macro(PARAM, "DIV1_INP")
 }
 
-expand("zebraRegisterWrite.vdb", DIV1_DIV) {
+expand("zebraRegisterWrite32.vdb", DIV1_DIV) {
   macro(PARAM, "DIV1_DIV")
-  macro(ASLO, "1")
-  macro(PREC, "0")
+  macro(MOTOR, "NOMOTOR")
 }
 
 record(calcout, "$(P)$(Q):DIV1_OUTD") {
@@ -467,10 +466,9 @@ expand("zebraRegisterWriteMux.vdb", DIV2_INP) {
   macro(PARAM, "DIV2_INP")
 }
 
-expand("zebraRegisterWrite.vdb", DIV2_DIV) {
+expand("zebraRegisterWrite32.vdb", DIV2_DIV) {
   macro(PARAM, "DIV2_DIV")
-  macro(ASLO, "1")
-  macro(PREC, "0")
+  macro(MOTOR, "NOMOTOR")
 }
 
 record(calcout, "$(P)$(Q):DIV2_OUTD") {
@@ -489,10 +487,9 @@ expand("zebraRegisterWriteMux.vdb", DIV3_INP) {
   macro(PARAM, "DIV3_INP")
 }
 
-expand("zebraRegisterWrite.vdb", DIV3_DIV) {
+expand("zebraRegisterWrite32.vdb", DIV3_DIV) {
   macro(PARAM, "DIV3_DIV")
-  macro(ASLO, "1")
-  macro(PREC, "0")
+  macro(MOTOR, "NOMOTOR")
 }
 
 record(calcout, "$(P)$(Q):DIV3_OUTD") {
@@ -511,10 +508,9 @@ expand("zebraRegisterWriteMux.vdb", DIV4_INP) {
   macro(PARAM, "DIV4_INP")
 }
 
-expand("zebraRegisterWrite.vdb", DIV4_DIV) {
+expand("zebraRegisterWrite32.vdb", DIV4_DIV) {
   macro(PARAM, "DIV4_DIV")
-  macro(ASLO, "1")
-  macro(PREC, "0")
+  macro(MOTOR, "NOMOTOR")
 }
 
 record(calcout, "$(P)$(Q):DIV4_OUTD") {
@@ -1070,7 +1066,7 @@ record(ao, "$(P)$(Q):PC_ARM_SEL:SET") {
 }
 
 #! Further lines contain data used by VisualDCT
-#! View(2294,544,0.7)
+#! View(1398,1898,0.7)
 #! Record("$(P)$(Q):CONNECTED",840,2343,0,0,"$(P)$(Q):CONNECTED")
 #! Record("$(P)$(Q):ERROR",1440,2328,0,0,"$(P)$(Q):ERROR")
 #! Record("$(P)$(Q):STORE",180,2400,0,0,"$(P)$(Q):STORE")
@@ -1396,8 +1392,7 @@ record(ao, "$(P)$(Q):PC_ARM_SEL:SET") {
 
 
 #! TemplateInstance("DIV1_DIV",2800,2280,0,"")
-#! TemplateField("DIV1_DIV","ASLO",16777215,0,1)
-#! TemplateField("DIV1_DIV","PREC",16777215,0,1)
+#! TemplateField("DIV1_DIV","MOTOR",16777215,0,1)
 #! TemplateField("DIV1_DIV","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):DIV1_OUTD",3000,2280,0,0,"$(P)$(Q):DIV1_OUTD")
@@ -1412,8 +1407,7 @@ record(ao, "$(P)$(Q):PC_ARM_SEL:SET") {
 
 
 #! TemplateInstance("DIV2_DIV",2800,2580,0,"")
-#! TemplateField("DIV2_DIV","ASLO",16777215,0,1)
-#! TemplateField("DIV2_DIV","PREC",16777215,0,1)
+#! TemplateField("DIV2_DIV","MOTOR",16777215,0,1)
 #! TemplateField("DIV2_DIV","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):DIV2_OUTD",3000,2580,0,0,"$(P)$(Q):DIV2_OUTD")
@@ -1428,8 +1422,7 @@ record(ao, "$(P)$(Q):PC_ARM_SEL:SET") {
 
 
 #! TemplateInstance("DIV3_DIV",2800,2880,0,"")
-#! TemplateField("DIV3_DIV","ASLO",16777215,0,1)
-#! TemplateField("DIV3_DIV","PREC",16777215,0,1)
+#! TemplateField("DIV3_DIV","MOTOR",16777215,0,1)
 #! TemplateField("DIV3_DIV","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):DIV3_OUTD",3000,2880,0,0,"$(P)$(Q):DIV3_OUTD")
@@ -1444,8 +1437,7 @@ record(ao, "$(P)$(Q):PC_ARM_SEL:SET") {
 
 
 #! TemplateInstance("DIV4_DIV",2800,3180,0,"")
-#! TemplateField("DIV4_DIV","ASLO",16777215,0,1)
-#! TemplateField("DIV4_DIV","PREC",16777215,0,1)
+#! TemplateField("DIV4_DIV","MOTOR",16777215,0,1)
 #! TemplateField("DIV4_DIV","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):DIV4_OUTD",3000,3180,0,0,"$(P)$(Q):DIV4_OUTD")
@@ -1648,19 +1640,19 @@ record(ao, "$(P)$(Q):PC_ARM_SEL:SET") {
 #! TemplateField("SOFT_IN","PREC",16777215,0,1)
 #! TemplateField("SOFT_IN","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):M1:MRES",3460,2549,0,1,"$(P)$(Q):M1:MRES")
+#! Record("$(P)$(Q):M1:MRES",3400,2549,0,1,"$(P)$(Q):M1:MRES")
 #! Field("$(P)$(Q):M1:MRES.INP",16777215,1,"$(P)$(Q):M1:MRES.INP")
 #! Field("$(P)$(Q):M1:MRES.VAL",16777215,1,"$(P)$(Q):M1:MRES.VAL")
-#! Record("$(P)$(Q):M2:MRES",3480,2669,0,1,"$(P)$(Q):M2:MRES")
+#! Record("$(P)$(Q):M2:MRES",3420,2669,0,1,"$(P)$(Q):M2:MRES")
 #! Field("$(P)$(Q):M2:MRES.INP",16777215,1,"$(P)$(Q):M2:MRES.INP")
 #! Field("$(P)$(Q):M2:MRES.VAL",16777215,1,"$(P)$(Q):M2:MRES.VAL")
-#! Record("$(P)$(Q):M3:MRES",3500,2789,0,1,"$(P)$(Q):M3:MRES")
+#! Record("$(P)$(Q):M3:MRES",3440,2789,0,1,"$(P)$(Q):M3:MRES")
 #! Field("$(P)$(Q):M3:MRES.INP",16777215,1,"$(P)$(Q):M3:MRES.INP")
 #! Field("$(P)$(Q):M3:MRES.VAL",16777215,1,"$(P)$(Q):M3:MRES.VAL")
-#! Record("$(P)$(Q):M4:MRES",3520,2909,0,1,"$(P)$(Q):M4:MRES")
+#! Record("$(P)$(Q):M4:MRES",3460,2909,0,1,"$(P)$(Q):M4:MRES")
 #! Field("$(P)$(Q):M4:MRES.INP",16777215,1,"$(P)$(Q):M4:MRES.INP")
-#! Field("$(P)$(Q):M4:MRES.VAL",16777215,0,"$(P)$(Q):M4:MRES.VAL")
-#! Record("$(P)$(Q):NOMOTOR:MRES",3560,3029,0,1,"$(P)$(Q):NOMOTOR:MRES")
+#! Field("$(P)$(Q):M4:MRES.VAL",16777215,1,"$(P)$(Q):M4:MRES.VAL")
+#! Record("$(P)$(Q):NOMOTOR:MRES",3480,3029,0,1,"$(P)$(Q):NOMOTOR:MRES")
 #! Field("$(P)$(Q):NOMOTOR:MRES.VAL",16777215,1,"$(P)$(Q):NOMOTOR:MRES.VAL")
 #! Record("$(P)$(Q):M1:OFF",4660,2549,0,1,"$(P)$(Q):M1:OFF")
 #! Field("$(P)$(Q):M1:OFF.INP",16777215,1,"$(P)$(Q):M1:OFF.INP")
@@ -1707,7 +1699,7 @@ record(ao, "$(P)$(Q):PC_ARM_SEL:SET") {
 #! Link("$(P)$(Q):MOTOR:MRES.INPD","$(P)$(Q):M4:MRES.VAL")
 #! Field("$(P)$(Q):MOTOR:MRES.NVL",16777215,1,"$(P)$(Q):MOTOR:MRES.NVL")
 #! Link("$(P)$(Q):MOTOR:MRES.NVL","$(P)$(Q):PC_ENC:RBV.VAL")
-#! Field("$(P)$(Q):MOTOR:MRES.VAL",16777215,0,"$(P)$(Q):MOTOR:MRES.VAL")
+#! Field("$(P)$(Q):MOTOR:MRES.VAL",16777215,1,"$(P)$(Q):MOTOR:MRES.VAL")
 #! Record("$(P)$(Q):MOTOR:OFF",4300,2483,0,0,"$(P)$(Q):MOTOR:OFF")
 #! Field("$(P)$(Q):MOTOR:OFF.INPA",16777215,1,"$(P)$(Q):MOTOR:OFF.INPA")
 #! Link("$(P)$(Q):MOTOR:OFF.INPA","$(P)$(Q):M1:OFF.VAL")
@@ -1722,8 +1714,8 @@ record(ao, "$(P)$(Q):PC_ARM_SEL:SET") {
 #! Field("$(P)$(Q):MOTOR:OFF.NVL",16777215,0,"$(P)$(Q):MOTOR:OFF.NVL")
 #! Link("$(P)$(Q):MOTOR:OFF.NVL","$(P)$(Q):PC_ENC:RBV.VAL")
 #! Field("$(P)$(Q):MOTOR:OFF.VAL",16777215,0,"$(P)$(Q):MOTOR:OFF.VAL")
-#! Record("$(P)$(Q):GATE:MRES",3820,2792,0,1,"$(P)$(Q):GATE:MRES")
-#! Field("$(P)$(Q):GATE:MRES.INPA",16777215,0,"$(P)$(Q):GATE:MRES.INPA")
+#! Record("$(P)$(Q):GATE:MRES",3760,2792,0,1,"$(P)$(Q):GATE:MRES")
+#! Field("$(P)$(Q):GATE:MRES.INPA",16777215,1,"$(P)$(Q):GATE:MRES.INPA")
 #! Link("$(P)$(Q):GATE:MRES.INPA","$(P)$(Q):MOTOR:MRES.VAL")
 #! Field("$(P)$(Q):GATE:MRES.INPB",16777215,1,"$(P)$(Q):GATE:MRES.INPB")
 #! Field("$(P)$(Q):GATE:MRES.INPC",16777215,0,"$(P)$(Q):GATE:MRES.INPC")
@@ -1737,8 +1729,8 @@ record(ao, "$(P)$(Q):PC_ARM_SEL:SET") {
 #! Field("$(P)$(Q):GATE:OFF.INPC",16777215,1,"$(P)$(Q):GATE:OFF.INPC")
 #! Link("$(P)$(Q):GATE:OFF.INPC","$(P)$(Q):NOMOTOR:OFF.VAL")
 #! Field("$(P)$(Q):GATE:OFF.NVL",16777215,1,"$(P)$(Q):GATE:OFF.NVL")
-#! Record("$(P)$(Q):PULSE:MRES",3840,3032,0,1,"$(P)$(Q):PULSE:MRES")
-#! Field("$(P)$(Q):PULSE:MRES.INPA",16777215,0,"$(P)$(Q):PULSE:MRES.INPA")
+#! Record("$(P)$(Q):PULSE:MRES",3760,3032,0,1,"$(P)$(Q):PULSE:MRES")
+#! Field("$(P)$(Q):PULSE:MRES.INPA",16777215,1,"$(P)$(Q):PULSE:MRES.INPA")
 #! Link("$(P)$(Q):PULSE:MRES.INPA","$(P)$(Q):MOTOR:MRES.VAL")
 #! Field("$(P)$(Q):PULSE:MRES.INPB",16777215,0,"$(P)$(Q):PULSE:MRES.INPB")
 #! Field("$(P)$(Q):PULSE:MRES.INPC",16777215,0,"$(P)$(Q):PULSE:MRES.INPC")
