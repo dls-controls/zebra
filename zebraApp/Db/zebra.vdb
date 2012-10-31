@@ -6,13 +6,12 @@
 
 # % macro, P, Device prefix
 # % macro, Q, Device suffix
-# % macro, PORT, Asyn port name
+# % macro, PORT, Asyn port and object name
 # % macro, M1, Motor 1 PV with trailing .
 # % macro, M2, Motor 2 PV with trailing .
 # % macro, M3, Motor 3 PV with trailing .
 # % macro, M4, Motor 4 PV with trailing .
-# % macro, name, Object and gui association name
-# % gui, $(name=), edm, zebra.edl, zebra=$(P)$(Q)
+# % gui, $(PORT), edm, zebra.edl, zebra=$(P)$(Q)
 record(bi, "$(P)$(Q):CONNECTED") {
   field(DESC, "Is zebra connected")
   field(DTYP, "asynInt32")

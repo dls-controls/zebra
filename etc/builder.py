@@ -11,19 +11,18 @@ class _zebraTemplate(AutoSubstitution):
 class zebra(AsynPort):
     DbdFileList = ["zebraSupport"]
     LibFileList = ["zebra"]
-    def __init__(self, name, serialPort, **args):
-        self.__super.__init__(name)
-        args["PORT"] = name
-        self.name = name
+    UniqueName = "PORT"
+    def __init__(self, serialPort, **args):
+        self.__super.__init__(args["PORT"])
+        self.PORT = args["PORT"]
         self.serialPort = serialPort
         _zebraTemplate(**args)
     
     def Initialise(self):
         print '#zebraConfig(Port, SerialPort)'
-        print 'zebraConfig("%(name)s", "%(serialPort)s")' % self.__dict__
+        print 'zebraConfig("%(PORT)s", "%(serialPort)s")' % self.__dict__
 
-    ArgInfo = _zebraTemplate.ArgInfo.filtered(without=["PORT"]) + makeArgInfo(__init__,
-        name       = Simple("Object and asyn port name"),
+    ArgInfo = _zebraTemplate.ArgInfo + makeArgInfo(__init__,
         serialPort = Ident ("Serial port name", _AsynOctetInterface)) 
 
 

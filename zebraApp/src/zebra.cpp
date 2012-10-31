@@ -24,7 +24,7 @@
 #define NBUFF 255
 
 /* The interval in seconds between each poll of zebra */
-#define POLL 0.05
+#define POLL 0.1
 
 /* This is a lookup table of string->register number */
 struct reg_lookup {
