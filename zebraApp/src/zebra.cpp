@@ -148,6 +148,7 @@ static const struct reg_lookup reg_lookup[] = {
     { "OUT8_ENCB",       0x76,         1 },
     { "OUT8_ENCZ",       0x77,         1 },
     /* Soft input register */
+    { "SYS_RESET",       0x7E,         0 },
     { "SOFT_IN",         0x7F,         0 },
     /* Position compare logic blocks */
 #define PC_OFF 0x80
@@ -196,7 +197,6 @@ static const struct reg_lookup reg_lookup[] = {
     /* System settings */
 #define SYS_OFF 0xF0
     { "SYS_VER",         0x00 + SYS_OFF, 0 },
-    { "SYS_RESET",       0x01 + SYS_OFF, 0 },
     /* Status values we should poll */
     { "SYS_STAT1LO",     0x02 + SYS_OFF, 0 },
     { "SYS_STAT1HI",     0x03 + SYS_OFF, 0 },
