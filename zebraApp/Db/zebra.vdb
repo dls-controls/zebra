@@ -841,7 +841,7 @@ record(sel, "$(P)$(Q):MOTOR:OFF") {
 record(sel, "$(P)$(Q):GATE:MRES") {
   field(SELM, "Specified")
   field(INPA, "$(P)$(Q):MOTOR:MRES CP")
-  field(INPB, "$(P)$(Q):PC_TSPRE:RBV.RVAL CP")
+  field(INPB, "0.001")
   field(INPC, "$(P)$(Q):NOMOTOR:MRES CP")
   field(NVL, "$(P)$(Q):PC_GATE_SEL:RBV CP")
 }
@@ -857,7 +857,7 @@ record(sel, "$(P)$(Q):GATE:OFF") {
 record(sel, "$(P)$(Q):PULSE:MRES") {
   field(SELM, "Specified")
   field(INPA, "$(P)$(Q):MOTOR:MRES CP")
-  field(INPB, "$(P)$(Q):PC_TSPRE:RBV.RVAL CP")
+  field(INPB, "0.001")
   field(INPC, "$(P)$(Q):NOMOTOR:MRES CP")
   field(NVL, "$(P)$(Q):PC_PULSE_SEL:RBV CP")
 }
