@@ -1064,8 +1064,29 @@ record(ao, "$(P)$(Q):PC_ARM_SEL:SET") {
   field(OUT, "@asyn($(PORT),0) PC_ARM_SEL")
 }
 
+
+record(stringin, "$(P)$(Q):M1:EGU") {
+  field(INP, "$(M1=$(P)$(Q):NOMOTOR:)EGU CP")
+}
+
+record(stringin, "$(P)$(Q):M2:EGU") {
+  field(INP, "$(M2=$(P)$(Q):NOMOTOR:)EGU CP")
+}
+
+record(stringin, "$(P)$(Q):M3:EGU") {
+  field(INP, "$(M3=$(P)$(Q):NOMOTOR:)EGU CP")
+}
+
+record(stringin, "$(P)$(Q):M4:EGU") {
+  field(INP, "$(M4=$(P)$(Q):NOMOTOR:)EGU CP")
+}
+
+record(stringin, "$(P)$(Q):NOMOTOR:EGU") {
+  field(VAL, "cts")
+}
+
 #! Further lines contain data used by VisualDCT
-#! View(1398,1898,0.7)
+#! View(2322,1980,0.7)
 #! Record("$(P)$(Q):CONNECTED",840,2343,0,0,"$(P)$(Q):CONNECTED")
 #! Record("$(P)$(Q):ERROR",1440,2328,0,0,"$(P)$(Q):ERROR")
 #! Record("$(P)$(Q):STORE",180,2400,0,0,"$(P)$(Q):STORE")
@@ -1890,3 +1911,12 @@ record(ao, "$(P)$(Q):PC_ARM_SEL:SET") {
 #! Field("$(P)$(Q):PC_ARM_SEL:SET.VAL",16777215,1,"$(P)$(Q):PC_ARM_SEL:SET.VAL")
 #! Field("$(P)$(Q):PC_ARM_SEL:SET.SDIS",16777215,0,"$(P)$(Q):PC_ARM_SEL:SET.SDIS")
 #! Link("$(P)$(Q):PC_ARM_SEL:SET.SDIS","$(P)$(Q):PC_ARM_SEL:SYNC.PACT")
+#! Record("$(P)$(Q):M1:EGU",3620,3509,0,1,"$(P)$(Q):M1:EGU")
+#! Field("$(P)$(Q):M1:EGU.INP",16777215,1,"$(P)$(Q):M1:EGU.INP")
+#! Record("$(P)$(Q):M2:EGU",3880,3509,0,1,"$(P)$(Q):M2:EGU")
+#! Field("$(P)$(Q):M2:EGU.INP",16777215,1,"$(P)$(Q):M2:EGU.INP")
+#! Record("$(P)$(Q):M3:EGU",4140,3509,0,1,"$(P)$(Q):M3:EGU")
+#! Field("$(P)$(Q):M3:EGU.INP",16777215,1,"$(P)$(Q):M3:EGU.INP")
+#! Record("$(P)$(Q):M4:EGU",4400,3509,0,1,"$(P)$(Q):M4:EGU")
+#! Field("$(P)$(Q):M4:EGU.INP",16777215,1,"$(P)$(Q):M4:EGU.INP")
+#! Record("$(P)$(Q):NOMOTOR:EGU",3620,3389,0,1,"$(P)$(Q):NOMOTOR:EGU")
