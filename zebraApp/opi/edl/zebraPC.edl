@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 130
-y 204
+x 955
+y 562
 w 640
 h 480
 font "arial-bold-r-12.0"
@@ -48,7 +48,7 @@ release 0
 x 10
 y 280
 w 200
-h 160
+h 190
 lineColor index 14
 fill
 fillColor index 3
@@ -154,7 +154,7 @@ major 4
 minor 1
 release 0
 x 15
-y 410
+y 440
 w 125
 h 25
 font "arial-bold-r-14.0"
@@ -173,7 +173,7 @@ major 4
 minor 0
 release 0
 x 180
-y 410
+y 440
 w 24
 h 24
 controlPv "$(zebra):PC_ARM_OUT"
@@ -190,7 +190,7 @@ major 4
 minor 0
 release 1
 x 15
-y 405
+y 435
 w 190
 h 0
 lineColor index 14
@@ -201,8 +201,8 @@ xPoints {
   1 205
 }
 yPoints {
-  0 405
-  1 405
+  0 435
+  1 435
 }
 endObjectProperties
 
@@ -221,7 +221,7 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "Arm signal"
+  "Trig Source"
 }
 endObjectProperties
 
@@ -534,7 +534,7 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "Gate signal"
+  "Trig Source"
 }
 endObjectProperties
 
@@ -929,7 +929,7 @@ fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "Pulse signal"
+  "Trig Source"
 }
 endObjectProperties
 
@@ -1136,5 +1136,25 @@ yPoints {
   8 80
   9 75
 }
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 405
+w 190
+h 25
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):PC_ENC"
+indicatorPv "$(zebra):PC_ENC:RBV"
+font "arial-bold-r-14.0"
 endObjectProperties
 

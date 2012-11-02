@@ -2,18 +2,18 @@
 <components arch="linux-x86">
 	<tpmac.pmacAsynIPPort IP="172.23.253.10" name="BRICK1port" simulation="172.23.253.10"/>
 	<tpmac.GeoBrick NAxes="16" Port="BRICK1port" name="BRICK1"/>
-	<motor.basic_asyn_motor ADDR="1" DESC="Motor 1" DHLM="1000" DLLM="0" EGU="mm" M=":M1" MRES="0.001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.M1"/>
-	<motor.basic_asyn_motor ADDR="2" DESC="Motor 2" DHLM="1000" DLLM="0" EGU="mm" M=":M2" MRES="0.001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.M2"/>
-	<motor.basic_asyn_motor ADDR="3" DESC="Motor 3" DHLM="1000" DLLM="0" EGU="mm" M=":M3" MRES="0.001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.M3"/>
-	<motor.basic_asyn_motor ADDR="6" DESC="Motor 4" DHLM="1000" DLLM="0" EGU="mm" M=":M4" MRES="0.001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.M4"/>
-	<motor.basic_asyn_motor ADDR="9" DESC="Encoder 1" DHLM="1000" DLLM="0" EGU="mm" M=":E1" MRES="0.001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.E1"/>
-	<motor.basic_asyn_motor ADDR="10" DESC="Encoder 2" DHLM="1000" DLLM="0" EGU="mm" M=":E2" MRES="0.001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.E2"/>
-	<motor.basic_asyn_motor ADDR="11" DESC="Encoder 3" DHLM="1000" DLLM="0" EGU="mm" M=":E3" MRES="0.001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.E3"/>
-	<motor.basic_asyn_motor ADDR="12" DESC="Encoder 4" DHLM="1000" DLLM="0" EGU="mm" M=":E4" MRES="0.001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.E4"/>
-	<motor.basic_asyn_motor ADDR="13" DESC="Zebra 1" DHLM="1000" DLLM="0" EGU="mm" M=":Z1" MRES="0.001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.Z1"/>
-	<motor.basic_asyn_motor ADDR="14" DESC="Zebra 2" DHLM="1000" DLLM="0" EGU="mm" M=":Z2" MRES="0.001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.Z2"/>
-	<motor.basic_asyn_motor ADDR="15" DESC="Zebra 3" DHLM="1000" DLLM="0" EGU="mm" M=":Z3" MRES="0.001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.Z3"/>
-	<motor.basic_asyn_motor ADDR="16" DESC="Zebra 4" DHLM="1000" DLLM="0" EGU="mm" M=":Z4" MRES="0.001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.Z4"/>
+	<motor.basic_asyn_motor ADDR="1" DESC="Motor 1" DHLM="1000" DLLM="0" EGU="mm" M=":M1" MRES="0.0001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.M1"/>
+	<motor.basic_asyn_motor ADDR="2" DESC="Motor 2" DHLM="1000" DLLM="0" EGU="mm" M=":M2" MRES="0.0001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.M2"/>
+	<motor.basic_asyn_motor ADDR="3" DESC="Motor 3" DHLM="1000" DLLM="0" EGU="mm" M=":M3" MRES="0.0001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.M3"/>
+	<motor.basic_asyn_motor ADDR="6" DESC="Motor 4" DHLM="1000" DLLM="0" EGU="mm" M=":M4" MRES="0.0001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.M4"/>
+	<motor.basic_asyn_motor ADDR="9" DESC="Encoder 1" DHLM="1000" DLLM="0" EGU="mm" M=":E1" MRES="0.0001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.E1"/>
+	<motor.basic_asyn_motor ADDR="10" DESC="Encoder 2" DHLM="1000" DLLM="0" EGU="mm" M=":E2" MRES="0.0001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.E2"/>
+	<motor.basic_asyn_motor ADDR="11" DESC="Encoder 3" DHLM="1000" DLLM="0" EGU="mm" M=":E3" MRES="0.0001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.E3"/>
+	<motor.basic_asyn_motor ADDR="12" DESC="Encoder 4" DHLM="1000" DLLM="0" EGU="mm" M=":E4" MRES="0.0001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.E4"/>
+	<motor.basic_asyn_motor ADDR="13" DESC="Zebra 1" DHLM="1000" DLLM="0" EGU="mm" M=":Z1" MRES="0.0001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.Z1"/>
+	<motor.basic_asyn_motor ADDR="14" DESC="Zebra 2" DHLM="1000" DLLM="0" EGU="mm" M=":Z2" MRES="0.0001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.Z2"/>
+	<motor.basic_asyn_motor ADDR="15" DESC="Zebra 3" DHLM="1000" DLLM="0" EGU="mm" M=":Z3" MRES="0.0001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.Z3"/>
+	<motor.basic_asyn_motor ADDR="16" DESC="Zebra 4" DHLM="1000" DLLM="0" EGU="mm" M=":Z4" MRES="0.0001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.Z4"/>
 	<asyn.AsynSerial baud="115200" bits="8" name="ty_zebra" parity="None" port="/dev/ttyS0" simulation="localhost:7001" stop="1"/>
-	<zebra.zebra M1="TESTZEBRA:E1" M2="TESTZEBRA:E2" M3="TESTZEBRA:E3" M4="TESTZEBRA:E4" P="TESTZEBRA" PORT="Z.box" Q=":ZEBRA" serialPort="ty_zebra"/>
+	<zebra.zebra M1="TESTZEBRA:E1." M2="TESTZEBRA:E2." M3="TESTZEBRA:E3." M4="TESTZEBRA:E4." P="TESTZEBRA" PORT="Z.box" Q=":ZEBRA" serialPort="ty_zebra"/>
 </components>
