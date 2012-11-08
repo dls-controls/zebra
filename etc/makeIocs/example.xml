@@ -15,5 +15,5 @@
 	<motor.basic_asyn_motor ADDR="15" DESC="Zebra 3" DHLM="1000" DLLM="0" EGU="mm" M=":Z3" MRES="0.0001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.Z3"/>
 	<motor.basic_asyn_motor ADDR="16" DESC="Zebra 4" DHLM="1000" DLLM="0" EGU="mm" M=":Z4" MRES="0.0001" P="TESTZEBRA" PORT="BRICK1" PREC="3" TWV="0.1" VELO="1" name="Z.Z4"/>
 	<asyn.AsynSerial baud="115200" bits="8" name="ty_zebra" parity="None" port="/dev/ttyS0" simulation="localhost:7001" stop="1"/>
-	<zebra.zebra M1="TESTZEBRA:E1." M2="TESTZEBRA:E2." M3="TESTZEBRA:E3." M4="TESTZEBRA:E4." P="TESTZEBRA" PORT="Z.box" Q=":ZEBRA" serialPort="ty_zebra"/>
+	<zebra.zebra M1="TESTZEBRA:E1" M2="TESTZEBRA:E2" M3="TESTZEBRA:E3" M4="TESTZEBRA:E4" P="TESTZEBRA" PORT="Z.box" Q=":ZEBRA" serialPort="ty_zebra"/>
 </components>

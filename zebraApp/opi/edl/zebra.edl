@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 78
-y 58
+x 80
+y 84
 w 947
 h 588
 font "arial-medium-r-14.0"
@@ -19,7 +19,7 @@ ctlBgColor1 index 3
 ctlBgColor2 index 14
 topShadowColor index 1
 botShadowColor index 11
-title "Device - WBS.CAM"
+title "Zebra - $(zebra)"
 showGrid
 snapToGrid
 gridSize 5
@@ -33,7 +33,7 @@ minor 0
 release 0
 x 0
 y 0
-w 950
+w 945
 h 30
 
 beginGroup
@@ -46,7 +46,7 @@ minor 0
 release 0
 x 0
 y 2
-w 949
+w 944
 h 25
 lineColor index 1
 fillColor index 0
@@ -60,7 +60,7 @@ minor 0
 release 0
 x 1
 y 3
-w 949
+w 944
 h 25
 lineColor index 11
 fillColor index 0
@@ -74,7 +74,7 @@ minor 2
 release 0
 x 1
 y 3
-w 949
+w 944
 h 24
 fgColor index 14
 bgColor index 3
@@ -104,7 +104,7 @@ minor 1
 release 0
 x 1
 y 3
-w 1046
+w 1041
 h 25
 font "arial-bold-r-16.0"
 fontAlign "center"
