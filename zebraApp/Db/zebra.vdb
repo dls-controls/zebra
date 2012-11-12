@@ -741,6 +741,10 @@ record(motor, "$(P)$(Q):NOMOTOR") {
   field(EGU, "")
 }
 
+record(ai, "$(P)$(Q):NOMOTOR:MRES") {
+  field(VAL, "1")
+}
+
 record(calc, "$(P)$(Q):M1:MRES") {
   field(CALC, "0$(M1DIR=+)A")
   field(INPA, "$(M1=$(P)$(Q):NOMOTOR).MRES CP")
@@ -759,6 +763,10 @@ record(calc, "$(P)$(Q):M3:MRES") {
 record(calc, "$(P)$(Q):M4:MRES") {
   field(CALC, "0$(M4DIR=+)A")
   field(INPA, "$(M4=$(P)$(Q):NOMOTOR).MRES CP")
+}
+
+record(ai, "$(P)$(Q):NOMOTOR:OFF") {
+  field(VAL, "0")
 }
 
 record(ai, "$(P)$(Q):M1:OFF") {

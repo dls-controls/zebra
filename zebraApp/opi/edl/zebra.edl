@@ -342,127 +342,6 @@ yPoints {
 }
 endObjectProperties
 
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 660
-y 40
-w 280
-h 510
-
-beginGroup
-
-# (multiLineTextUpdate)
-object multiLineTextUpdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 680
-y 40
-w 120
-h 510
-controlPv "$(zebra):SYS_BUS1"
-fgColour index 14
-fgAlarm
-bgColour index 3
-fill
-font "arial-medium-r-12.0"
-endObjectProperties
-
-# (multiLineTextUpdate)
-object multiLineTextUpdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 820
-y 40
-w 120
-h 510
-controlPv "$(zebra):SYS_BUS2"
-fgColour index 14
-fgAlarm
-bgColour index 3
-fill
-font "arial-medium-r-12.0"
-endObjectProperties
-
-# (Byte)
-object ByteClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 660
-y 47
-w 13
-h 240
-controlPv "$(zebra):SYS_STAT1LO"
-lineColor index 14
-onColor index 15
-offColor index 19
-endian "little"
-endObjectProperties
-
-# (Byte)
-object ByteClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 660
-y 287
-w 13
-h 240
-controlPv "$(zebra):SYS_STAT1HI"
-lineColor index 14
-onColor index 15
-offColor index 19
-endian "little"
-endObjectProperties
-
-# (Byte)
-object ByteClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 800
-y 47
-w 13
-h 240
-controlPv "$(zebra):SYS_STAT2LO"
-lineColor index 14
-onColor index 15
-offColor index 19
-endian "little"
-endObjectProperties
-
-# (Byte)
-object ByteClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 800
-y 287
-w 13
-h 240
-controlPv "$(zebra):SYS_STAT2HI"
-lineColor index 14
-onColor index 15
-offColor index 19
-endian "little"
-endObjectProperties
-
-endGroup
-
-endObjectProperties
-
 # (Textupdate)
 object TextupdateClass
 beginObjectProperties
@@ -623,5 +502,109 @@ useDisplayBg
 value {
   "Connected:"
 }
+endObjectProperties
+
+# (multiLineTextUpdate)
+object multiLineTextUpdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 680
+y 40
+w 120
+h 465
+controlPv "$(zebra):SYS_BUS1"
+fgColour index 14
+fgAlarm
+bgColour index 3
+fill
+font "courier-medium-r-12.0"
+endObjectProperties
+
+# (multiLineTextUpdate)
+object multiLineTextUpdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 820
+y 40
+w 120
+h 465
+controlPv "$(zebra):SYS_BUS2"
+fgColour index 14
+fgAlarm
+bgColour index 3
+fill
+font "courier-medium-r-12.0"
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 660
+y 45
+w 13
+h 225
+controlPv "$(zebra):SYS_STAT1LO"
+lineColor index 14
+onColor index 15
+offColor index 19
+endian "little"
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 660
+y 270
+w 13
+h 225
+controlPv "$(zebra):SYS_STAT1HI"
+lineColor index 14
+onColor index 15
+offColor index 19
+endian "little"
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 800
+y 47
+w 13
+h 225
+controlPv "$(zebra):SYS_STAT2LO"
+lineColor index 14
+onColor index 15
+offColor index 19
+endian "little"
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 800
+y 270
+w 13
+h 225
+controlPv "$(zebra):SYS_STAT2HI"
+lineColor index 14
+onColor index 15
+offColor index 19
+endian "little"
 endObjectProperties
 
