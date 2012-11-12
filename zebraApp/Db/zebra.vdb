@@ -26,17 +26,6 @@ record(bi, "$(P)$(Q):CONNECTED") {
   field(SCAN, "I/O Intr")
 }
 
-record(mbbi, "$(P)$(Q):ERROR") {
-  field(DESC, "Readback last error")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) ERROR")
-  field(SCAN, "I/O Intr")
-  field(ZRST, "No Error")
-  field(ONST, "1 Error")
-  field(TWST, "2 Error")
-  field(THST, "3 Error")
-}
-
 record(ao, "$(P)$(Q):STORE") {
   field(DESC, "Store register values to flash")
   field(DTYP, "asynInt32")
@@ -738,7 +727,6 @@ record(motor, "$(P)$(Q):NOMOTOR") {
   field(DTYP, "Soft Channel")
   field(MRES, "1")
   field(OFF, "0")
-  field(EGU, "")
 }
 
 record(ai, "$(P)$(Q):NOMOTOR:MRES") {
@@ -1099,10 +1087,22 @@ record(stringin, "$(P)$(Q):NOMOTOR:EGU") {
   field(VAL, "cts")
 }
 
+expand("zebraRegisterWrite.vdb", POLARITY) {
+  macro(PARAM, "POLARITY")
+  macro(ASLO, "1")
+  macro(PREC, "0")
+}
+
+record(ai, "$(P)$(Q):SYS_STATERR") {
+  field(DESC, "Zebra error status")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0) SYS_STATERR")
+  field(SCAN, "I/O Intr")
+}
+
 #! Further lines contain data used by VisualDCT
-#! View(2129,1799,0.7)
+#! View(350,1308,0.7)
 #! Record("$(P)$(Q):CONNECTED",840,2343,0,0,"$(P)$(Q):CONNECTED")
-#! Record("$(P)$(Q):ERROR",1440,2328,0,0,"$(P)$(Q):ERROR")
 #! Record("$(P)$(Q):STORE",180,2400,0,0,"$(P)$(Q):STORE")
 #! Record("$(P)$(Q):SYS_RESET",620,2400,0,0,"$(P)$(Q):SYS_RESET")
 #! Record("$(P)$(Q):SYS_VER",400,2386,0,0,"$(P)$(Q):SYS_VER")
@@ -1674,7 +1674,9 @@ record(stringin, "$(P)$(Q):NOMOTOR:EGU") {
 #! TemplateField("SOFT_IN","PREC",16777215,0,1)
 #! TemplateField("SOFT_IN","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):NOMOTOR",20,15,0,0,"$(P)$(Q):NOMOTOR")
+#! Record("$(P)$(Q):NOMOTOR",4300,3300,0,0,"$(P)$(Q):NOMOTOR")
+#! Record("$(P)$(Q):NOMOTOR:MRES",4040,3309,0,0,"$(P)$(Q):NOMOTOR:MRES")
+#! Field("$(P)$(Q):NOMOTOR:MRES.VAL",16777215,0,"$(P)$(Q):NOMOTOR:MRES.VAL")
 #! Record("$(P)$(Q):M1:MRES",3400,2555,0,1,"$(P)$(Q):M1:MRES")
 #! Field("$(P)$(Q):M1:MRES.VAL",16777215,1,"$(P)$(Q):M1:MRES.VAL")
 #! Field("$(P)$(Q):M1:MRES.INPA",16777215,1,"$(P)$(Q):M1:MRES.INPA")
@@ -1687,6 +1689,8 @@ record(stringin, "$(P)$(Q):NOMOTOR:EGU") {
 #! Record("$(P)$(Q):M4:MRES",3460,2915,0,1,"$(P)$(Q):M4:MRES")
 #! Field("$(P)$(Q):M4:MRES.VAL",16777215,1,"$(P)$(Q):M4:MRES.VAL")
 #! Field("$(P)$(Q):M4:MRES.INPA",16777215,1,"$(P)$(Q):M4:MRES.INPA")
+#! Record("$(P)$(Q):NOMOTOR:OFF",4580,3309,0,0,"$(P)$(Q):NOMOTOR:OFF")
+#! Field("$(P)$(Q):NOMOTOR:OFF.VAL",16777215,0,"$(P)$(Q):NOMOTOR:OFF.VAL")
 #! Record("$(P)$(Q):M1:OFF",4660,2549,0,1,"$(P)$(Q):M1:OFF")
 #! Field("$(P)$(Q):M1:OFF.INP",16777215,1,"$(P)$(Q):M1:OFF.INP")
 #! Field("$(P)$(Q):M1:OFF.VAL",16777215,0,"$(P)$(Q):M1:OFF.VAL")
@@ -1749,25 +1753,31 @@ record(stringin, "$(P)$(Q):NOMOTOR:EGU") {
 #! Field("$(P)$(Q):GATE:MRES.INPA",16777215,1,"$(P)$(Q):GATE:MRES.INPA")
 #! Link("$(P)$(Q):GATE:MRES.INPA","$(P)$(Q):MOTOR:MRES.VAL")
 #! Field("$(P)$(Q):GATE:MRES.INPB",16777215,1,"$(P)$(Q):GATE:MRES.INPB")
-#! Field("$(P)$(Q):GATE:MRES.INPC",16777215,0,"$(P)$(Q):GATE:MRES.INPC")
+#! Field("$(P)$(Q):GATE:MRES.INPC",16777215,1,"$(P)$(Q):GATE:MRES.INPC")
+#! Link("$(P)$(Q):GATE:MRES.INPC","$(P)$(Q):NOMOTOR:MRES.VAL")
 #! Field("$(P)$(Q):GATE:MRES.NVL",16777215,1,"$(P)$(Q):GATE:MRES.NVL")
 #! Record("$(P)$(Q):GATE:OFF",4280,2792,0,1,"$(P)$(Q):GATE:OFF")
 #! Field("$(P)$(Q):GATE:OFF.INPA",16777215,0,"$(P)$(Q):GATE:OFF.INPA")
 #! Link("$(P)$(Q):GATE:OFF.INPA","$(P)$(Q):MOTOR:OFF.VAL")
 #! Field("$(P)$(Q):GATE:OFF.INPB",16777215,1,"$(P)$(Q):GATE:OFF.INPB")
+#! Link("$(P)$(Q):GATE:OFF.INPB","$(P)$(Q):NOMOTOR:OFF.VAL")
 #! Field("$(P)$(Q):GATE:OFF.INPC",16777215,1,"$(P)$(Q):GATE:OFF.INPC")
+#! Link("$(P)$(Q):GATE:OFF.INPC","$(P)$(Q):NOMOTOR:OFF.VAL")
 #! Field("$(P)$(Q):GATE:OFF.NVL",16777215,1,"$(P)$(Q):GATE:OFF.NVL")
 #! Record("$(P)$(Q):PULSE:MRES",3760,3032,0,1,"$(P)$(Q):PULSE:MRES")
 #! Field("$(P)$(Q):PULSE:MRES.INPA",16777215,1,"$(P)$(Q):PULSE:MRES.INPA")
 #! Link("$(P)$(Q):PULSE:MRES.INPA","$(P)$(Q):MOTOR:MRES.VAL")
 #! Field("$(P)$(Q):PULSE:MRES.INPB",16777215,0,"$(P)$(Q):PULSE:MRES.INPB")
-#! Field("$(P)$(Q):PULSE:MRES.INPC",16777215,0,"$(P)$(Q):PULSE:MRES.INPC")
+#! Field("$(P)$(Q):PULSE:MRES.INPC",16777215,1,"$(P)$(Q):PULSE:MRES.INPC")
+#! Link("$(P)$(Q):PULSE:MRES.INPC","$(P)$(Q):NOMOTOR:MRES.VAL")
 #! Field("$(P)$(Q):PULSE:MRES.NVL",16777215,1,"$(P)$(Q):PULSE:MRES.NVL")
 #! Record("$(P)$(Q):PULSE:OFF",4280,3012,0,1,"$(P)$(Q):PULSE:OFF")
 #! Field("$(P)$(Q):PULSE:OFF.INPA",16777215,0,"$(P)$(Q):PULSE:OFF.INPA")
 #! Link("$(P)$(Q):PULSE:OFF.INPA","$(P)$(Q):MOTOR:OFF.VAL")
 #! Field("$(P)$(Q):PULSE:OFF.INPB",16777215,1,"$(P)$(Q):PULSE:OFF.INPB")
+#! Link("$(P)$(Q):PULSE:OFF.INPB","$(P)$(Q):NOMOTOR:OFF.VAL")
 #! Field("$(P)$(Q):PULSE:OFF.INPC",16777215,1,"$(P)$(Q):PULSE:OFF.INPC")
+#! Link("$(P)$(Q):PULSE:OFF.INPC","$(P)$(Q):NOMOTOR:OFF.VAL")
 #! Field("$(P)$(Q):PULSE:OFF.NVL",16777215,1,"$(P)$(Q):PULSE:OFF.NVL")
 
 #! TemplateInstance("POS1_SET",3760,660,0,"")
@@ -1925,3 +1935,10 @@ record(stringin, "$(P)$(Q):NOMOTOR:EGU") {
 #! Record("$(P)$(Q):M4:EGU",4400,3509,0,1,"$(P)$(Q):M4:EGU")
 #! Field("$(P)$(Q):M4:EGU.INP",16777215,1,"$(P)$(Q):M4:EGU.INP")
 #! Record("$(P)$(Q):NOMOTOR:EGU",3620,3389,0,1,"$(P)$(Q):NOMOTOR:EGU")
+
+#! TemplateInstance("POLARITY",2800,4740,0,"")
+#! TemplateField("POLARITY","ASLO",16777215,0,1)
+#! TemplateField("POLARITY","PREC",16777215,0,1)
+#! TemplateField("POLARITY","PARAM",16777215,0,1)
+
+#! Record("$(P)$(Q):SYS_STATERR",1460,2366,0,1,"$(P)$(Q):SYS_STATERR")

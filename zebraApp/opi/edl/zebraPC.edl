@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 163
-y 584
+x 167
+y 636
 w 640
-h 480
+h 510
 font "arial-bold-r-12.0"
 ctlFont "arial-bold-r-12.0"
 btnFont "arial-bold-r-12.0"
@@ -20,7 +20,6 @@ ctlBgColor2 index 3
 topShadowColor index 1
 botShadowColor index 11
 showGrid
-snapToGrid
 gridSize 5
 endScreenProperties
 
@@ -33,7 +32,7 @@ release 0
 x 0
 y 0
 w 640
-h 480
+h 510
 lineColor index 5
 fill
 fillColor index 5
@@ -46,7 +45,7 @@ major 4
 minor 0
 release 0
 x 10
-y 345
+y 315
 w 200
 h 130
 lineColor index 24
@@ -62,7 +61,7 @@ major 4
 minor 0
 release 0
 x 15
-y 380
+y 350
 w 189
 h 25
 
@@ -75,7 +74,7 @@ major 10
 minor 0
 release 0
 x 55
-y 380
+y 350
 w 120
 h 25
 controlPv "$(zebra):PC_ARM_INP:STR"
@@ -93,7 +92,7 @@ major 10
 minor 0
 release 0
 x 15
-y 380
+y 350
 w 35
 h 25
 controlPv "$(zebra):PC_ARM_INP"
@@ -111,7 +110,7 @@ major 4
 minor 0
 release 0
 x 180
-y 380
+y 350
 w 24
 h 24
 controlPv "$(zebra):PC_ARM_INP:STA"
@@ -135,7 +134,7 @@ major 4
 minor 1
 release 0
 x 9
-y 335
+y 305
 w 38
 h 13
 font "arial-bold-r-12.0"
@@ -155,7 +154,7 @@ major 4
 minor 1
 release 0
 x 15
-y 445
+y 415
 w 125
 h 25
 font "arial-bold-r-14.0"
@@ -174,7 +173,7 @@ major 4
 minor 0
 release 0
 x 180
-y 445
+y 415
 w 24
 h 24
 controlPv "$(zebra):PC_ARM_OUT"
@@ -191,7 +190,7 @@ major 4
 minor 0
 release 1
 x 15
-y 440
+y 410
 w 190
 h 0
 lineColor index 14
@@ -202,8 +201,8 @@ xPoints {
   1 205
 }
 yPoints {
-  0 440
-  1 440
+  0 410
+  1 410
 }
 endObjectProperties
 
@@ -214,7 +213,7 @@ major 4
 minor 1
 release 0
 x 15
-y 350
+y 320
 w 85
 h 25
 font "arial-bold-r-14.0"
@@ -233,7 +232,7 @@ major 4
 minor 0
 release 0
 x 100
-y 350
+y 320
 w 105
 h 25
 fgColor index 25
@@ -253,7 +252,7 @@ major 4
 minor 0
 release 0
 x 15
-y 380
+y 350
 w 190
 h 25
 
@@ -266,7 +265,7 @@ major 4
 minor 0
 release 0
 x 15
-y 380
+y 350
 w 190
 h 25
 fgColor index 25
@@ -296,7 +295,7 @@ major 4
 minor 0
 release 0
 x 15
-y 410
+y 380
 w 190
 h 25
 fgColor index 25
@@ -319,7 +318,7 @@ major 4
 minor 0
 release 0
 x 220
-y 265
+y 315
 w 202
 h 192
 lineColor index 19
@@ -334,8 +333,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 220
-y 255
+x 219
+y 305
 w 39
 h 13
 font "arial-bold-r-12.0"
@@ -355,7 +354,7 @@ major 4
 minor 1
 release 0
 x 225
-y 425
+y 475
 w 125
 h 25
 font "arial-bold-r-14.0"
@@ -374,7 +373,7 @@ major 4
 minor 0
 release 0
 x 390
-y 425
+y 475
 w 24
 h 24
 controlPv "$(zebra):PC_GATE_OUT"
@@ -391,7 +390,7 @@ major 4
 minor 0
 release 1
 x 225
-y 420
+y 470
 w 190
 h 0
 lineColor index 14
@@ -402,8 +401,8 @@ xPoints {
   1 415
 }
 yPoints {
-  0 420
-  1 420
+  0 470
+  1 470
 }
 endObjectProperties
 
@@ -414,7 +413,7 @@ major 4
 minor 1
 release 0
 x 225
-y 270
+y 320
 w 85
 h 25
 font "arial-bold-r-14.0"
@@ -433,7 +432,7 @@ major 4
 minor 0
 release 0
 x 310
-y 270
+y 320
 w 105
 h 25
 fgColor index 25
@@ -453,7 +452,7 @@ major 4
 minor 0
 release 0
 x 430
-y 265
+y 315
 w 202
 h 162
 lineColor index 29
@@ -469,7 +468,7 @@ major 4
 minor 0
 release 0
 x 435
-y 300
+y 350
 w 189
 h 25
 
@@ -482,7 +481,7 @@ major 10
 minor 0
 release 0
 x 475
-y 300
+y 350
 w 120
 h 25
 controlPv "$(zebra):PC_PULSE_INP:STR"
@@ -500,7 +499,7 @@ major 10
 minor 0
 release 0
 x 435
-y 300
+y 350
 w 35
 h 25
 controlPv "$(zebra):PC_PULSE_INP"
@@ -518,7 +517,7 @@ major 4
 minor 0
 release 0
 x 600
-y 300
+y 350
 w 24
 h 24
 controlPv "$(zebra):PC_PULSE_INP:STA"
@@ -541,8 +540,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 430
-y 255
+x 429
+y 305
 w 45
 h 13
 font "arial-bold-r-12.0"
@@ -562,7 +561,7 @@ major 4
 minor 1
 release 0
 x 435
-y 395
+y 445
 w 125
 h 25
 font "arial-bold-r-14.0"
@@ -581,7 +580,7 @@ major 4
 minor 0
 release 0
 x 600
-y 395
+y 445
 w 24
 h 24
 controlPv "$(zebra):PC_PULSE_OUT"
@@ -598,7 +597,7 @@ major 4
 minor 0
 release 1
 x 435
-y 390
+y 440
 w 190
 h 0
 lineColor index 14
@@ -609,8 +608,8 @@ xPoints {
   1 625
 }
 yPoints {
-  0 390
-  1 390
+  0 440
+  1 440
 }
 endObjectProperties
 
@@ -621,7 +620,7 @@ major 4
 minor 1
 release 0
 x 435
-y 270
+y 320
 w 85
 h 25
 font "arial-bold-r-14.0"
@@ -640,7 +639,7 @@ major 4
 minor 0
 release 0
 x 520
-y 270
+y 320
 w 105
 h 25
 fgColor index 25
@@ -715,7 +714,7 @@ major 4
 minor 0
 release 0
 x 225
-y 300
+y 350
 w 189
 h 25
 
@@ -728,7 +727,7 @@ major 10
 minor 0
 release 0
 x 265
-y 300
+y 350
 w 120
 h 25
 controlPv "$(zebra):PC_GATE_INP:STR"
@@ -746,7 +745,7 @@ major 10
 minor 0
 release 0
 x 225
-y 300
+y 350
 w 35
 h 25
 controlPv "$(zebra):PC_GATE_INP"
@@ -764,7 +763,7 @@ major 4
 minor 0
 release 0
 x 390
-y 300
+y 350
 w 24
 h 24
 controlPv "$(zebra):PC_GATE_INP:STA"
@@ -788,7 +787,7 @@ major 4
 minor 0
 release 0
 x 385
-y 330
+y 380
 w 35
 h 25
 
@@ -801,7 +800,7 @@ major 10
 minor 0
 release 0
 x 385
-y 330
+y 380
 w 35
 h 25
 controlPv "$(zebra):PC_TSPRE:RBV"
@@ -826,7 +825,7 @@ major 4
 minor 0
 release 0
 x 385
-y 300
+y 350
 w 35
 h 25
 
@@ -839,7 +838,7 @@ major 10
 minor 0
 release 0
 x 385
-y 300
+y 350
 w 35
 h 25
 controlPv "$(zebra):PC_TSPRE:RBV"
@@ -864,7 +863,7 @@ major 4
 minor 0
 release 0
 x 385
-y 330
+y 380
 w 35
 h 25
 
@@ -877,7 +876,7 @@ major 10
 minor 0
 release 0
 x 385
-y 330
+y 380
 w 35
 h 25
 controlPv "$(zebra):M$(M):EGU"
@@ -902,7 +901,7 @@ major 4
 minor 0
 release 0
 x 385
-y 300
+y 350
 w 35
 h 25
 
@@ -915,7 +914,7 @@ major 10
 minor 0
 release 0
 x 385
-y 300
+y 350
 w 35
 h 25
 controlPv "$(zebra):M$(M):EGU"
@@ -940,7 +939,7 @@ major 4
 minor 0
 release 0
 x 385
-y 390
+y 440
 w 35
 h 25
 
@@ -953,7 +952,7 @@ major 10
 minor 0
 release 0
 x 385
-y 390
+y 440
 w 35
 h 25
 controlPv "$(zebra):PC_TSPRE:RBV"
@@ -978,7 +977,7 @@ major 4
 minor 0
 release 0
 x 385
-y 390
+y 440
 w 35
 h 25
 
@@ -991,7 +990,7 @@ major 10
 minor 0
 release 0
 x 385
-y 390
+y 440
 w 35
 h 25
 controlPv "$(zebra):M$(M):EGU"
@@ -1016,7 +1015,7 @@ major 4
 minor 0
 release 0
 x 225
-y 390
+y 440
 w 160
 h 25
 
@@ -1029,7 +1028,7 @@ major 4
 minor 1
 release 0
 x 225
-y 390
+y 440
 w 85
 h 25
 font "arial-bold-r-14.0"
@@ -1048,7 +1047,7 @@ major 10
 minor 0
 release 0
 x 310
-y 390
+y 440
 w 75
 h 25
 controlPv "$(zebra):PC_GATE_STEP"
@@ -1073,7 +1072,7 @@ major 4
 minor 0
 release 0
 x 225
-y 300
+y 350
 w 190
 h 85
 
@@ -1086,7 +1085,7 @@ major 4
 minor 1
 release 0
 x 225
-y 300
+y 350
 w 85
 h 25
 font "arial-bold-r-14.0"
@@ -1105,7 +1104,7 @@ major 10
 minor 0
 release 0
 x 310
-y 300
+y 350
 w 75
 h 25
 controlPv "$(zebra):PC_GATE_START"
@@ -1123,7 +1122,7 @@ major 10
 minor 0
 release 0
 x 310
-y 330
+y 380
 w 75
 h 25
 controlPv "$(zebra):PC_GATE_WID"
@@ -1141,7 +1140,7 @@ major 4
 minor 1
 release 0
 x 225
-y 330
+y 380
 w 85
 h 25
 font "arial-bold-r-14.0"
@@ -1160,7 +1159,7 @@ major 4
 minor 1
 release 0
 x 225
-y 360
+y 410
 w 85
 h 25
 font "arial-bold-r-14.0"
@@ -1179,7 +1178,7 @@ major 10
 minor 0
 release 0
 x 310
-y 360
+y 410
 w 105
 h 25
 controlPv "$(zebra):PC_GATE_NGATE"
@@ -1204,7 +1203,7 @@ major 4
 minor 0
 release 0
 x 435
-y 300
+y 350
 w 160
 h 85
 
@@ -1217,7 +1216,7 @@ major 4
 minor 1
 release 0
 x 435
-y 300
+y 350
 w 85
 h 25
 font "arial-bold-r-14.0"
@@ -1236,7 +1235,7 @@ major 10
 minor 0
 release 0
 x 520
-y 300
+y 350
 w 75
 h 25
 controlPv "$(zebra):PC_PULSE_DLY"
@@ -1254,7 +1253,7 @@ major 10
 minor 0
 release 0
 x 520
-y 330
+y 380
 w 75
 h 25
 controlPv "$(zebra):PC_PULSE_WID"
@@ -1272,7 +1271,7 @@ major 4
 minor 1
 release 0
 x 435
-y 330
+y 380
 w 85
 h 25
 font "arial-bold-r-14.0"
@@ -1291,7 +1290,7 @@ major 4
 minor 1
 release 0
 x 435
-y 360
+y 410
 w 85
 h 25
 font "arial-bold-r-14.0"
@@ -1310,7 +1309,7 @@ major 10
 minor 0
 release 0
 x 520
-y 360
+y 410
 w 75
 h 25
 controlPv "$(zebra):PC_PULSE_STEP"
@@ -1335,7 +1334,7 @@ major 4
 minor 0
 release 0
 x 595
-y 300
+y 350
 w 35
 h 25
 
@@ -1348,7 +1347,7 @@ major 10
 minor 0
 release 0
 x 595
-y 300
+y 350
 w 35
 h 25
 controlPv "$(zebra):M$(M):EGU"
@@ -1373,7 +1372,7 @@ major 4
 minor 0
 release 0
 x 595
-y 300
+y 350
 w 35
 h 25
 
@@ -1386,7 +1385,7 @@ major 10
 minor 0
 release 0
 x 595
-y 300
+y 350
 w 35
 h 25
 controlPv "$(zebra):PC_TSPRE:RBV"
@@ -1411,7 +1410,7 @@ major 4
 minor 0
 release 0
 x 595
-y 330
+y 380
 w 35
 h 25
 
@@ -1424,7 +1423,7 @@ major 10
 minor 0
 release 0
 x 595
-y 330
+y 380
 w 35
 h 25
 controlPv "$(zebra):M$(M):EGU"
@@ -1449,7 +1448,7 @@ major 4
 minor 0
 release 0
 x 595
-y 330
+y 380
 w 35
 h 25
 
@@ -1462,7 +1461,7 @@ major 10
 minor 0
 release 0
 x 595
-y 330
+y 380
 w 35
 h 25
 controlPv "$(zebra):PC_TSPRE:RBV"
@@ -1487,7 +1486,7 @@ major 4
 minor 0
 release 0
 x 595
-y 360
+y 410
 w 35
 h 25
 
@@ -1500,7 +1499,7 @@ major 10
 minor 0
 release 0
 x 595
-y 360
+y 410
 w 35
 h 25
 controlPv "$(zebra):M$(M):EGU"
@@ -1525,7 +1524,7 @@ major 4
 minor 0
 release 0
 x 595
-y 360
+y 410
 w 35
 h 25
 
@@ -1538,7 +1537,7 @@ major 10
 minor 0
 release 0
 x 595
-y 360
+y 410
 w 35
 h 25
 controlPv "$(zebra):PC_TSPRE:RBV"
@@ -1562,21 +1561,21 @@ beginObjectProperties
 major 4
 minor 0
 release 1
-x 65
+x 55
 y 35
-w 545
+w 565
 h 50
 lineColor index 24
 fillColor index 3
 lineWidth 3
 numPoints 6
 xPoints {
-  0 65
-  1 110
-  2 110
-  3 515
-  4 515
-  5 610
+  0 55
+  1 75
+  2 75
+  3 525
+  4 525
+  5 620
 }
 yPoints {
   0 85
@@ -1594,26 +1593,26 @@ beginObjectProperties
 major 4
 minor 0
 release 1
-x 65
+x 55
 y 105
-w 545
+w 565
 h 50
 lineColor index 19
 fillColor index 3
 lineWidth 3
 numPoints 11
 xPoints {
-  0 65
-  1 110
-  2 110
-  3 200
-  4 280
-  5 280
-  6 345
-  7 345
-  8 515
-  9 515
-  10 610
+  0 55
+  1 120
+  2 120
+  3 210
+  4 290
+  5 290
+  6 355
+  7 355
+  8 525
+  9 525
+  10 620
 }
 yPoints {
   0 155
@@ -1636,34 +1635,34 @@ beginObjectProperties
 major 4
 minor 0
 release 1
-x 65
+x 55
 y 175
-w 545
+w 565
 h 50
 lineColor index 29
 fillColor index 3
 lineWidth 3
 numPoints 19
 xPoints {
-  0 65
-  1 170
-  2 170
-  3 220
-  4 220
-  5 245
-  6 245
-  7 245
-  8 280
-  9 280
-  10 405
-  11 405
-  12 455
-  13 455
-  14 480
-  15 480
-  16 515
-  17 515
-  18 610
+  0 55
+  1 180
+  2 180
+  3 230
+  4 230
+  5 255
+  6 255
+  7 255
+  8 290
+  9 290
+  10 415
+  11 415
+  12 465
+  13 465
+  14 490
+  15 490
+  16 525
+  17 525
+  18 620
 }
 yPoints {
   0 225
@@ -1694,7 +1693,7 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 20
+x 15
 y 75
 w 40
 h 20
@@ -1714,7 +1713,7 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 20
+x 15
 y 145
 w 40
 h 20
@@ -1734,7 +1733,7 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 20
+x 15
 y 215
 w 40
 h 20
@@ -1754,7 +1753,7 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 95
+x 60
 y 15
 w 31
 h 16
@@ -1775,7 +1774,7 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 535
+x 545
 y 15
 w 92
 h 64
@@ -1798,7 +1797,7 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 480
+x 490
 y 15
 w 53
 h 16
@@ -1819,7 +1818,7 @@ beginObjectProperties
 major 4
 minor 0
 release 1
-x 110
+x 120
 y 95
 w 170
 h 0
@@ -1828,8 +1827,8 @@ fillColor index 3
 arrows "both"
 numPoints 2
 xPoints {
-  0 110
-  1 280
+  0 120
+  1 290
 }
 yPoints {
   0 95
@@ -1843,7 +1842,7 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 175
+x 185
 y 85
 w 40
 h 16
@@ -1863,7 +1862,7 @@ beginObjectProperties
 major 4
 minor 0
 release 1
-x 110
+x 120
 y 165
 w 235
 h 0
@@ -1872,8 +1871,8 @@ fillColor index 3
 arrows "both"
 numPoints 2
 xPoints {
-  0 110
-  1 345
+  0 120
+  1 355
 }
 yPoints {
   0 165
@@ -1887,7 +1886,7 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 210
+x 220
 y 155
 w 31
 h 16
@@ -1907,7 +1906,7 @@ beginObjectProperties
 major 4
 minor 0
 release 1
-x 405
+x 415
 y 165
 w 50
 h 0
@@ -1916,8 +1915,8 @@ fillColor index 3
 arrows "both"
 numPoints 2
 xPoints {
-  0 405
-  1 455
+  0 415
+  1 465
 }
 yPoints {
   0 165
@@ -1931,7 +1930,7 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 410
+x 420
 y 145
 w 40
 h 16
@@ -1952,7 +1951,7 @@ beginObjectProperties
 major 4
 minor 0
 release 1
-x 405
+x 415
 y 235
 w 75
 h 0
@@ -1961,8 +1960,8 @@ fillColor index 3
 arrows "both"
 numPoints 2
 xPoints {
-  0 405
-  1 480
+  0 415
+  1 490
 }
 yPoints {
   0 235
@@ -1976,7 +1975,7 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 425
+x 435
 y 225
 w 31
 h 16
@@ -1996,7 +1995,7 @@ beginObjectProperties
 major 4
 minor 0
 release 1
-x 345
+x 355
 y 160
 w 0
 h 60
@@ -2006,8 +2005,8 @@ lineWidth 3
 lineStyle "dash"
 numPoints 2
 xPoints {
-  0 345
-  1 345
+  0 355
+  1 355
 }
 yPoints {
   0 160
@@ -2021,7 +2020,7 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 355
+x 365
 y 185
 w 40
 h 16
@@ -2042,7 +2041,7 @@ beginObjectProperties
 major 4
 minor 0
 release 1
-x 345
+x 355
 y 205
 w 55
 h 0
@@ -2051,8 +2050,8 @@ fillColor index 3
 arrows "both"
 numPoints 2
 xPoints {
-  0 345
-  1 400
+  0 355
+  1 410
 }
 yPoints {
   0 205
@@ -2068,8 +2067,8 @@ minor 0
 release 0
 x 10
 y 265
-w 200
-h 65
+w 625
+h 35
 lineColor index 14
 fill
 fillColor index 3
@@ -2122,8 +2121,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 15
-y 300
+x 440
+y 270
 w 190
 h 25
 fgColor index 25
@@ -2154,5 +2153,93 @@ value {
 }
 autoSize
 border
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 75
+y 90
+w 0
+h 60
+lineColor index 24
+fillColor index 3
+lineWidth 3
+lineStyle "dash"
+numPoints 2
+xPoints {
+  0 75
+  1 75
+}
+yPoints {
+  0 90
+  1 150
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 75
+y 165
+w 45
+h 0
+lineColor index 19
+fillColor index 3
+arrows "both"
+numPoints 2
+xPoints {
+  0 75
+  1 120
+}
+yPoints {
+  0 165
+  1 165
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 80
+y 170
+w 33
+h 16
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 19
+bgColor index 0
+value {
+  "Start"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 355
+y 270
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Pos Trigger"
+}
 endObjectProperties
 

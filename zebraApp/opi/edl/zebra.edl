@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 80
-y 84
-w 947
-h 588
+x 88
+y 188
+w 940
+h 610
 font "arial-medium-r-14.0"
 ctlFont "arial-bold-r-14.0"
 btnFont "arial-bold-r-14.0"
@@ -225,8 +225,8 @@ major 4
 minor 1
 release 0
 x 850
-y 555
-w 90
+y 580
+w 85
 h 25
 fgColor index 46
 bgColor index 3
@@ -237,108 +237,28 @@ font "arial-medium-r-16.0"
 3d
 endObjectProperties
 
-# (Choice Button)
-object activeChoiceButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 10
-y 40
-w 642
-h 25
-fgColor index 14
-bgColor index 3
-selectColor index 4
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "LOC\\$(!W)tab=e:0,Pos Comp,I/O,AND,OR,GATE,DIV,PULSE"
-font "arial-bold-r-12.0"
-orientation "horizontal"
-endObjectProperties
-
-# (Embedded Window)
-object activePipClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 11
-y 66
-w 640
-h 480
-fgColor index 14
-bgColor index 3
-topShadowColor index 0
-botShadowColor index 0
-displaySource "menu"
-filePv "LOC\\$(!W)tab"
-sizeOfs 5
-numDsps 7
-displayFileName {
-  0 "zebraPC"
-  1 "zebraIO"
-  2 "zebraANDOR"
-  3 "zebraANDOR"
-  4 "zebraGATE"
-  5 "zebraDIV"
-  6 "zebraPULSE"
-}
-symbols {
-  2 "ANDOR=AND"
-  3 "ANDOR=OR"
-}
-noScroll
-endObjectProperties
-
 # (Lines)
 object activeLineClass
 beginObjectProperties
 major 4
 minor 0
 release 1
-x 12
-y 67
+x 294
+y 64
 w 640
-h 480
-lineColor index 1
-fillColor index 0
-numPoints 3
-xPoints {
-  0 12
-  1 652
-  2 652
-}
-yPoints {
-  0 547
-  1 547
-  2 67
-}
-endObjectProperties
-
-# (Lines)
-object activeLineClass
-beginObjectProperties
-major 4
-minor 0
-release 1
-x 10
-y 66
-w 640
-h 480
+h 510
 lineColor index 11
 fillColor index 0
 numPoints 3
 xPoints {
-  0 10
-  1 10
-  2 650
+  0 294
+  1 294
+  2 934
 }
 yPoints {
-  0 546
-  1 66
-  2 66
+  0 574
+  1 64
+  2 64
 }
 endObjectProperties
 
@@ -348,9 +268,9 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 85
-y 555
-w 110
+x 370
+y 580
+w 80
 h 25
 controlPv "$(zebra):SYS_VER"
 fgColor index 16
@@ -366,12 +286,11 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 5
-y 555
+x 295
+y 580
 w 75
 h 25
 font "arial-bold-r-14.0"
-fontAlign "right"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -386,9 +305,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 615
-y 555
-w 95
+x 655
+y 580
+w 65
 h 25
 fgColor index 25
 onColor index 4
@@ -410,8 +329,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 720
-y 555
+x 725
+y 580
 w 120
 h 25
 fgColor index 25
@@ -428,52 +347,14 @@ useEnumNumeric
 font "arial-bold-r-14.0"
 endObjectProperties
 
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 205
-y 555
-w 75
-h 25
-font "arial-bold-r-14.0"
-fontAlign "right"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Error:"
-}
-endObjectProperties
-
 # (Textupdate)
 object TextupdateClass
 beginObjectProperties
 major 10
 minor 0
 release 0
-x 285
-y 555
-w 110
-h 25
-controlPv "$(zebra):ERROR"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 495
-y 555
+x 540
+y 580
 w 110
 h 25
 controlPv "$(zebra):CONNECTED"
@@ -490,12 +371,11 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 405
-y 555
+x 455
+y 580
 w 85
 h 25
 font "arial-bold-r-14.0"
-fontAlign "right"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -510,10 +390,10 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 680
+x 25
 y 40
 w 120
-h 465
+h 462
 controlPv "$(zebra):SYS_BUS1"
 fgColour index 14
 fgAlarm
@@ -528,10 +408,10 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 820
+x 170
 y 40
 w 120
-h 465
+h 462
 controlPv "$(zebra):SYS_BUS2"
 fgColour index 14
 fgAlarm
@@ -546,7 +426,7 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 660
+x 5
 y 45
 w 13
 h 225
@@ -563,7 +443,7 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 660
+x 5
 y 270
 w 13
 h 225
@@ -580,8 +460,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 800
-y 47
+x 150
+y 45
 w 13
 h 225
 controlPv "$(zebra):SYS_STAT2LO"
@@ -597,7 +477,7 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 800
+x 150
 y 270
 w 13
 h 225
@@ -606,5 +486,176 @@ lineColor index 14
 onColor index 15
 offColor index 19
 endian "little"
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 505
+w 13
+h 103
+controlPv "$(zebra):SYS_STATERR"
+lineColor index 14
+onColor index 15
+offColor index 19
+endian "little"
+numBits 8
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 150
+y 505
+w 13
+h 103
+controlPv "$(zebra):SYS_STATERR"
+lineColor index 14
+onColor index 15
+offColor index 19
+endian "little"
+numBits 8
+shift 8
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 35
+y 505
+w 35
+h 104
+font "courier-medium-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Err 0"
+  "Err 1"
+  "Err 2"
+  "Err 3"
+  "Err 4"
+  "Err 5"
+  "Err 6"
+  "Err 7"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 180
+y 505
+w 42
+h 104
+font "courier-medium-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Err 8"
+  "Err 9"
+  "Err 10"
+  "Err 11"
+  "Err 12"
+  "Err 13"
+  "Err 14"
+  "Err 15"
+}
+autoSize
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 294
+y 40
+w 642
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 5
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "LOC\\$(!W)tab=e:0,Pos Comp,AND,OR,GATE,DIV,PULSE,I/O"
+font "arial-bold-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 295
+y 65
+w 640
+h 510
+fgColor index 14
+bgColor index 3
+topShadowColor index 0
+botShadowColor index 0
+displaySource "menu"
+filePv "LOC\\$(!W)tab"
+sizeOfs 5
+numDsps 7
+displayFileName {
+  0 "zebraPC"
+  1 "zebraANDOR"
+  2 "zebraANDOR"
+  3 "zebraGATE"
+  4 "zebraDIV"
+  5 "zebraPULSE"
+  6 "zebraIO"
+}
+symbols {
+  1 "ANDOR=AND"
+  2 "ANDOR=OR"
+}
+noScroll
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 295
+y 65
+w 640
+h 510
+lineColor index 1
+fillColor index 0
+numPoints 3
+xPoints {
+  0 295
+  1 935
+  2 935
+}
+yPoints {
+  0 575
+  1 575
+  2 65
+}
 endObjectProperties
 

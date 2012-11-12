@@ -26,6 +26,9 @@
 /* The interval in seconds between each poll of zebra */
 #define POLL 0.1
 
+/* The last FASTREGS should be polled quickly */
+#define FASTREGS 5
+
 /* This is a lookup table of string->register number */
 struct reg_lookup {
     const char * str;
@@ -122,6 +125,7 @@ static const struct reg_lookup reg_lookup[] = {
     { "PULSE2_INP",      0x51,         1 },
     { "PULSE3_INP",      0x52,         1 },
     { "PULSE4_INP",      0x53,         1 },
+    { "POLARITY",        0x54,         0 },    
     /* Output multiplexer select */
     { "OUT1_TTL",        0x60,         1 },
     { "OUT1_NIM",        0x61,         1 },
@@ -197,17 +201,18 @@ static const struct reg_lookup reg_lookup[] = {
     /* System settings */
 #define SYS_OFF 0xF0
     { "SYS_VER",         0x00 + SYS_OFF, 0 },
-    /* Status values we should poll */
+    /* Status values we should poll: FASTREGS */
     { "SYS_STAT1LO",     0x02 + SYS_OFF, 0 },
     { "SYS_STAT1HI",     0x03 + SYS_OFF, 0 },
     { "SYS_STAT2LO",     0x04 + SYS_OFF, 0 },
     { "SYS_STAT2HI",     0x05 + SYS_OFF, 0 },
+    { "SYS_STATERR",     0x06 + SYS_OFF, 0 },    
 };
 #define NREGS sizeof(reg_lookup) / sizeof(struct reg_lookup)
 
 /* These are the entries on the system bus */
 static const char *bus_lookup[] = {
-	"CLOCK_1MHZ",
+	"DISCONNECT",
     "IN1_TTL",
     "IN1_NIM",
     "IN1_LVDS",
@@ -232,9 +237,9 @@ static const char *bus_lookup[] = {
     "IN8_ENCA",
     "IN8_ENCB",
     "IN8_ENCZ",
-    "SOFT_IN1",
-    "SOFT_IN2",
-    "SOFT_IN3",
+    "PC_ARM",
+    "PC_GATE",
+    "PC_PULSE",    
     "AND1",
     "AND2",
     "AND3",
@@ -263,14 +268,14 @@ static const char *bus_lookup[] = {
     "53",
     "54",
     "55",
-    "PC_ARM",
-    "PC_GATE",
-    "PC_PULSE",
-    "59",
-    "60",
-    "61",
-    "62",
-    "63",
+    "56",
+    "57",
+    "58",
+    "CLOCK_1KHZ",
+    "CLOCK_1MHZ",
+    "SOFT_IN1",
+    "SOFT_IN2",
+    "SOFT_IN3",
 };
 #define NSYSBUS 64
 
@@ -297,11 +302,10 @@ protected:
     /* Parameter indices */
     #define FIRST_PARAM zebraIsConnected
     int zebraIsConnected;           // int32 read  - is zebra connected?    
-    int zebraStore;                 // int32 write - store config to flash
     int zebraSysBus1;               // string read - system bus key first half
     int zebraSysBus2;               // string read - system bus key second half
-    int zebraError;                 // int32 read  - error
-    #define LAST_PARAM zebraError
+    int zebraStore;                 // int32 write - store config to flash    
+    #define LAST_PARAM zebraStore
     int paramReg[NREGS*2];
     #define NUM_PARAMS (&LAST_PARAM - &FIRST_PARAM + 1) + NREGS*2
 
@@ -345,7 +349,6 @@ zebra::zebra(const char* portName, const char* serialPortName)
     createParam("ISCONNECTED", asynParamInt32, &zebraIsConnected);
     setIntegerParam(zebraIsConnected, 0);
     createParam("STORE",       asynParamInt32, &zebraStore);
-    createParam("ERROR",       asynParamInt32, &zebraError);
     
     /* create a system bus key */
     createParam("SYS_BUS1",     asynParamOctet, &zebraSysBus1);
@@ -358,7 +361,7 @@ zebra::zebra(const char* portName, const char* serialPortName)
     createParam("SYS_BUS2",     asynParamOctet, &zebraSysBus2);
     buffer[0] = '\0';
     for (unsigned int i=NSYSBUS/2; i<NSYSBUS; i++) {
-    	sprintf(str, "%d: %s\n", i, bus_lookup[i]);
+    	sprintf(str, "%2d: %s\n", i, bus_lookup[i]);
     	strcat(buffer, str);
     }
     setStringParam(zebraSysBus2, buffer);
@@ -479,11 +482,11 @@ void zebra::pollTask() {
     while (true) {
         // poll registers in turn, system status more often
     	if (dosys) {
-    		i = NREGS - 4 + sys++;
-	    	if (sys >= 4) sys = 0;
+    		i = NREGS - FASTREGS + sys++;
+	    	if (sys >= FASTREGS) sys = 0;
     	} else {
     		i = poll++;
-    		if (poll >= NREGS - 4) poll = 0;
+    		if (poll >= NREGS - FASTREGS) poll = 0;
     	}
     	dosys = ! dosys;
 		this->lock();
