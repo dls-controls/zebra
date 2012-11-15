@@ -962,14 +962,14 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_STEP) {
 
 record(calcout, "$(P)$(Q):PC_GATE_OUT") {
   field(DESC, "Current output status")
-  field(INPA, "$(P)$(Q):SYS_STAT2 CP")
-  field(CALC, "A>>25&1")
+  field(INPA, "$(P)$(Q):SYS_STAT1 CP")
+  field(CALC, "A>>26&1")
 }
 
 record(calcout, "$(P)$(Q):PC_PULSE_OUT") {
   field(DESC, "Current output status")
-  field(INPA, "$(P)$(Q):SYS_STAT2 CP")
-  field(CALC, "A>>26&1")
+  field(INPA, "$(P)$(Q):SYS_STAT1 CP")
+  field(CALC, "A>>27&1")
 }
 
 record(ai, "$(P)$(Q):M1:RBV") {
@@ -1023,8 +1023,8 @@ record(calcout, "$(P)$(Q):M4:SETPOS") {
 
 record(calcout, "$(P)$(Q):PC_ARM_OUT") {
   field(DESC, "Current output status")
-  field(INPA, "$(P)$(Q):SYS_STAT2 CP")
-  field(CALC, "A>>24&1")
+  field(INPA, "$(P)$(Q):SYS_STAT1 CP")
+  field(CALC, "A>>25&1")
 }
 
 expand("zebraRegisterWriteMux.vdb", PC_ARM_INP) {

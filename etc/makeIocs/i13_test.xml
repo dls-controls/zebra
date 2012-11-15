@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<components arch="linux-x86">
+	<asyn.AsynIP name="asyn_zebra" port="172.23.113.4:4030"/>
+	<zebra.zebra M4="BL13I-MO-STAGE-01:THETA" M4DIR="-" P="TESTZEBRA" PORT="Z.box" Q=":ZEBRA" serialPort="asyn_zebra"/>
+</components>

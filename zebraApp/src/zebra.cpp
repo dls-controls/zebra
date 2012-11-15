@@ -27,7 +27,7 @@
 #define POLL 0.1
 
 /* The last FASTREGS should be polled quickly */
-#define FASTREGS 5
+#define FASTREGS 6
 
 /* This is a lookup table of string->register number */
 struct reg_lookup {
@@ -200,8 +200,8 @@ static const struct reg_lookup reg_lookup[] = {
     { "PC_PULSE_INP",    0x1F + PC_OFF, 1 },
     /* System settings */
 #define SYS_OFF 0xF0
-    { "SYS_VER",         0x00 + SYS_OFF, 0 },
     /* Status values we should poll: FASTREGS */
+    { "SYS_VER",         0x00 + SYS_OFF, 0 },
     { "SYS_STAT1LO",     0x02 + SYS_OFF, 0 },
     { "SYS_STAT1HI",     0x03 + SYS_OFF, 0 },
     { "SYS_STAT2LO",     0x04 + SYS_OFF, 0 },
