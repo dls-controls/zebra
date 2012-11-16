@@ -73,7 +73,7 @@ record(mbbo, "$(P)$(Q):$(PARAM)") {
 record(calcout, "$(P)$(Q):$(PARAM):CSET") {
   field(DESC, "Swap +ve and negative directions")
   field(CALC, "B<0?(A=0?4:A=4?0:A):A"
-  field(INPB, "$(P)$(Q):$(MOTOR):MRES CP")
+  field(INPB, "$(P)$(Q):$(MOTOR):MRES")
   field(OUT, "$(P)$(Q):$(PARAM):SET PP")
 }
 
