@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 88
-y 188
+x 504
+y 78
 w 940
 h 610
 font "arial-medium-r-14.0"
@@ -533,17 +533,17 @@ minor 1
 release 0
 x 35
 y 505
-w 35
+w 112
 h 104
 font "courier-medium-r-12.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "Err 0"
-  "Err 1"
-  "Err 2"
-  "Err 3"
+  "PULSE1 \\  got"
+  "PULSE2  \\ trig"
+  "PULSE3  / while"
+  "PULSE4 /  active"
   "Err 4"
   "Err 5"
   "Err 6"

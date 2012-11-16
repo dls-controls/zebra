@@ -201,12 +201,12 @@ static const struct reg_lookup reg_lookup[] = {
     /* System settings */
 #define SYS_OFF 0xF0
     /* Status values we should poll: FASTREGS */
-    { "SYS_VER",         0x00 + SYS_OFF, 0 },
+    { "SYS_VER",         0x00 + SYS_OFF, 0 },    
+    { "SYS_STATERR",     0x01 + SYS_OFF, 0 },        
     { "SYS_STAT1LO",     0x02 + SYS_OFF, 0 },
     { "SYS_STAT1HI",     0x03 + SYS_OFF, 0 },
     { "SYS_STAT2LO",     0x04 + SYS_OFF, 0 },
     { "SYS_STAT2HI",     0x05 + SYS_OFF, 0 },
-    { "SYS_STATERR",     0x06 + SYS_OFF, 0 },    
 };
 #define NREGS sizeof(reg_lookup) / sizeof(struct reg_lookup)
 
