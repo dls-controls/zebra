@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 167
-y 636
+x 179
+y 330
 w 640
 h 510
 font "arial-bold-r-12.0"
@@ -890,8 +890,9 @@ endObjectProperties
 endGroup
 
 visPv "$(zebra):PC_GATE_SEL"
-visMin "0"
-visMax "1"
+visInvert
+visMin "1"
+visMax "3"
 endObjectProperties
 
 # (Group)
@@ -928,8 +929,9 @@ endObjectProperties
 endGroup
 
 visPv "$(zebra):PC_GATE_SEL"
-visMin "0"
-visMax "1"
+visInvert
+visMin "1"
+visMax "3"
 endObjectProperties
 
 # (Group)
@@ -1003,7 +1005,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A#1&B=0\}($(zebra):PC_GATE_NGATE,$(zebra):PC_GATE_SEL)"
+visPv "CALC\\\{A#1&(B=0|B=3)\}($(zebra):PC_GATE_NGATE,$(zebra):PC_GATE_SEL)"
 visMin "1"
 visMax "2"
 endObjectProperties
@@ -1060,7 +1062,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A#1&B<2\}($(zebra):PC_GATE_NGATE,$(zebra):PC_GATE_SEL)"
+visPv "CALC\\\{A#1&B#2\}($(zebra):PC_GATE_NGATE,$(zebra):PC_GATE_SEL)"
 visMin "1"
 visMax "2"
 endObjectProperties
@@ -1192,8 +1194,9 @@ endObjectProperties
 endGroup
 
 visPv "$(zebra):PC_GATE_SEL"
-visMin "0"
-visMax "2"
+visInvert
+visMin "2"
+visMax "3"
 endObjectProperties
 
 # (Group)

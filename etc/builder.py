@@ -24,7 +24,7 @@ class zebra(AsynPort):
         print '#zebraConfig(Port, SerialPort)'
         print 'zebraConfig("%(PORT)s", "%(serialPort)s")' % self.__dict__
 
-    ArgInfo = _zebraTemplate.ArgInfo + makeArgInfo(__init__,
+    ArgInfo = _zebraTemplate.ArgInfo.filtered(without=["EMPTY"]) + makeArgInfo(__init__,
         serialPort = Ident ("Serial port name", _AsynOctetInterface)) 
 
 

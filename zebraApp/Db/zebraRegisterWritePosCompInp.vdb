@@ -6,21 +6,45 @@
 
 template() {
 
-  #! InputMacro(PARAM,"",200,380,16777215,1,true)
+  #! InputMacro(PARAM,"",820,860,16777215,1,true)
+  #! InputMacro(MOTOR,"",820,960,16777215,1,true)  
+  #! InputMacro(ZRST,"",820,660,16777215,1,true)
+  #! InputMacro(ONST,"",820,700,16777215,1,true)  
+  #! InputMacro(THST,"",820,780,16777215,1,true)
+  #! InputMacro(THVL,"",830,780,16777215,1,true)  
+  #! InputMacro(TWST,"",820,740,16777215,1,true)
+  #! InputMacro(FRST,"",820,820,16777215,1,true)
+}
+
+record(ai, "$(P)$(Q):$(PARAM):RRBV") {
+  field(DESC, "Raw Readback param value")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0) $(PARAM)")
+  field(SCAN, "I/O Intr")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):CRBV") {
+  field(DESC, "Swap +ve and negative directions")
+  field(CALC, "B<0?(A=0?4:A=4?0:A):A"
+  field(INPA, "$(P)$(Q):$(PARAM):RRBV CP")
+  field(INPB, "$(P)$(Q):$(MOTOR):MRES CP")
+  field(OUT, "$(P)$(Q):$(PARAM):RBV.RVAL PP")
 }
 
 record(mbbi, "$(P)$(Q):$(PARAM):RBV") {
   field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
+  field(DTYP, "Raw Soft Channel")  
   field(FLNK, "$(P)$(Q):$(PARAM):SYNC")
-  field(INP, "@asyn($(PORT),0) $(PARAM)")
-  field(SCAN, "I/O Intr")
-  field(ZRST, "Position")
+  field(ZRST, "$(ZRST)")
   field(ZRVL, "0")
-  field(ONST, "Time")
+  field(ONST, "$(ONST)")
   field(ONVL, "1")
-  field(TWST, "External")
-  field(TWVL, "2")  
+  field(TWST, "$(TWST)")
+  field(TWVL, "2")
+  field(THST, "$(THST)")
+  field(THVL, "$(THVL)")
+  field(FRST, "$(FRST)")
+  field(FRVL, "4")
 }
 
 record(calcout, "$(P)$(Q):$(PARAM):SYNC") {
@@ -33,13 +57,24 @@ record(calcout, "$(P)$(Q):$(PARAM):SYNC") {
 record(mbbo, "$(P)$(Q):$(PARAM)") {
   field(DESC, "Demand value for param")
   field(DTYP, "Raw Soft Channel")
-  field(OUT, "$(P)$(Q):$(PARAM):SET PP")
-  field(ZRST, "Position")
+  field(OUT, "$(P)$(Q):$(PARAM):CSET.A PP")
+  field(ZRST, "$(ZRST)")
   field(ZRVL, "0")
-  field(ONST, "Time")
+  field(ONST, "$(ONST)")
   field(ONVL, "1")
-  field(TWST, "External")
+  field(TWST, "$(TWST)")
   field(TWVL, "2")
+  field(THST, "$(THST)")
+  field(THVL, "$(THVL)")
+  field(FRST, "$(FRST)")
+  field(FRVL, "4")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):CSET") {
+  field(DESC, "Swap +ve and negative directions")
+  field(CALC, "B<0?(A=0?4:A=4?0:A):A"
+  field(INPB, "$(P)$(Q):$(MOTOR):MRES CP")
+  field(OUT, "$(P)$(Q):$(PARAM):SET PP")
 }
 
 record(ao, "$(P)$(Q):$(PARAM):SET") {
@@ -50,21 +85,41 @@ record(ao, "$(P)$(Q):$(PARAM):SET") {
 }
 
 #! Further lines contain data used by VisualDCT
-#! View(235,118,1.0)
-#! Record("$(P)$(Q):$(PARAM):RBV",280,319,0,1,"$(P)$(Q):$(PARAM):RBV")
+#! View(0,169,1.0)
+#! Record("$(P)$(Q):$(PARAM):RBV",280,315,0,1,"$(P)$(Q):$(PARAM):RBV")
 #! Field("$(P)$(Q):$(PARAM):RBV.FLNK",16777215,1,"$(P)$(Q):$(PARAM):RBV.FLNK")
 #! Link("$(P)$(Q):$(PARAM):RBV.FLNK","$(P)$(Q):$(PARAM):SYNC")
 #! Field("$(P)$(Q):$(PARAM):RBV.VAL",16777215,1,"$(P)$(Q):$(PARAM):RBV.VAL")
+#! Field("$(P)$(Q):$(PARAM):RBV.ZRST",16777215,1,"$(P)$(Q):$(PARAM):RBV.ZRST")
+#! Link("$(P)$(Q):$(PARAM):RBV.ZRST",ZRST)
+#! Field("$(P)$(Q):$(PARAM):RBV.ONST",16777215,1,"$(P)$(Q):$(PARAM):RBV.ONST")
+#! Link("$(P)$(Q):$(PARAM):RBV.ONST",ONST)
+#! Field("$(P)$(Q):$(PARAM):RBV.TWST",16777215,1,"$(P)$(Q):$(PARAM):RBV.TWST")
+#! Link("$(P)$(Q):$(PARAM):RBV.TWST",TWST)
+#! Field("$(P)$(Q):$(PARAM):RBV.THST",16777215,1,"$(P)$(Q):$(PARAM):RBV.THST")
+#! Link("$(P)$(Q):$(PARAM):RBV.THST",THST)
+#! Field("$(P)$(Q):$(PARAM):RBV.FRST",16777215,1,"$(P)$(Q):$(PARAM):RBV.FRST")
+#! Link("$(P)$(Q):$(PARAM):RBV.FRST",FRST)
 #! Record("$(P)$(Q):$(PARAM):SYNC",580,408,0,0,"$(P)$(Q):$(PARAM):SYNC")
 #! Field("$(P)$(Q):$(PARAM):SYNC.OUT",16777215,1,"$(P)$(Q):$(PARAM):SYNC.OUT")
 #! Link("$(P)$(Q):$(PARAM):SYNC.OUT","$(P)$(Q):$(PARAM).VAL")
 #! Field("$(P)$(Q):$(PARAM):SYNC.INPA",16777215,0,"$(P)$(Q):$(PARAM):SYNC.INPA")
 #! Link("$(P)$(Q):$(PARAM):SYNC.INPA","$(P)$(Q):$(PARAM):RBV.VAL")
 #! Field("$(P)$(Q):$(PARAM):SYNC.PACT",16777215,1,"$(P)$(Q):$(PARAM):SYNC.PACT")
-#! Record("$(P)$(Q):$(PARAM)",860,266,0,0,"$(P)$(Q):$(PARAM)")
+#! Record("$(P)$(Q):$(PARAM)",860,263,0,0,"$(P)$(Q):$(PARAM)")
 #! Field("$(P)$(Q):$(PARAM).VAL",16777215,0,"$(P)$(Q):$(PARAM).VAL")
 #! Field("$(P)$(Q):$(PARAM).OUT",16777215,1,"$(P)$(Q):$(PARAM).OUT")
 #! Link("$(P)$(Q):$(PARAM).OUT","$(P)$(Q):$(PARAM):SET.VAL")
+#! Field("$(P)$(Q):$(PARAM).ZRST",16777215,0,"$(P)$(Q):$(PARAM).ZRST")
+#! Link("$(P)$(Q):$(PARAM).ZRST",ZRST)
+#! Field("$(P)$(Q):$(PARAM).ONST",16777215,0,"$(P)$(Q):$(PARAM).ONST")
+#! Link("$(P)$(Q):$(PARAM).ONST",ONST)
+#! Field("$(P)$(Q):$(PARAM).TWST",16777215,0,"$(P)$(Q):$(PARAM).TWST")
+#! Link("$(P)$(Q):$(PARAM).TWST",TWST)
+#! Field("$(P)$(Q):$(PARAM).THST",16777215,0,"$(P)$(Q):$(PARAM).THST")
+#! Link("$(P)$(Q):$(PARAM).THST",THST)
+#! Field("$(P)$(Q):$(PARAM).FRST",16777215,0,"$(P)$(Q):$(PARAM).FRST")
+#! Link("$(P)$(Q):$(PARAM).FRST",FRST)
 #! Record("$(P)$(Q):$(PARAM):SET",1140,428,0,0,"$(P)$(Q):$(PARAM):SET")
 #! Field("$(P)$(Q):$(PARAM):SET.VAL",16777215,0,"$(P)$(Q):$(PARAM):SET.VAL")
 #! Field("$(P)$(Q):$(PARAM):SET.SDIS",16777215,0,"$(P)$(Q):$(PARAM):SET.SDIS")
