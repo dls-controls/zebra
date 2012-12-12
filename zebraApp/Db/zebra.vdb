@@ -7,6 +7,7 @@
 # % macro, P, Device prefix
 # % macro, Q, Device suffix
 # % macro, PORT, Asyn port and object name
+# % macro, NELM, Maximum number of elements in position compare array
 # % macro, EMPTY, Empty macro to satisfy VDCT
 # % macro, M1, Motor 1 PV
 # % macro, M1DIR, Set to - if motor inverted in geobrick (decode control = 3 instead of 7)
@@ -1079,6 +1080,51 @@ expand("zebraRegisterWritePosCompInp.vdb", PC_ENC) {
   macro(FRST, "Encoder 1+2+3+4")
   macro(TWST, "Encoder 3")
   macro(MOTOR, "NOMOTOR")
+}
+
+record(waveform, "$(P)$(Q):PC_TIME")
+{
+   field(DTYP, "asynFloat64ArrayIn")
+   field(INP,  "@asyn($(PORT),0)PC_TIME")
+   field(NELM, "$(NELM=100000)")
+   field(FTVL, "DOUBLE")
+   field(SCAN, "1 second")
+}
+
+record(waveform, "$(P)$(Q):PC_POS1")
+{
+   field(DTYP, "asynInt32ArrayIn")
+   field(INP,  "@asyn($(PORT),0)PC_POS1")
+   field(NELM, "$(NELM=100000)")
+   field(FTVL, "LONG")
+   field(SCAN, "1 second")
+}
+
+record(waveform, "$(P)$(Q):PC_POS2")
+{
+   field(DTYP, "asynInt32ArrayIn")
+   field(INP,  "@asyn($(PORT),0)PC_POS2")
+   field(NELM, "$(NELM=100000)")
+   field(FTVL, "LONG")
+   field(SCAN, "1 second")
+}
+
+record(waveform, "$(P)$(Q):PC_POS3")
+{
+   field(DTYP, "asynInt32ArrayIn")
+   field(INP,  "@asyn($(PORT),0)PC_POS3")
+   field(NELM, "$(NELM=100000)")
+   field(FTVL, "LONG")
+   field(SCAN, "1 second")
+}
+
+record(waveform, "$(P)$(Q):PC_POS4")
+{
+   field(DTYP, "asynInt32ArrayIn")
+   field(INP,  "@asyn($(PORT),0)PC_POS4")
+   field(NELM, "$(NELM=100000)")
+   field(FTVL, "LONG")
+   field(SCAN, "1 second")
 }
 
 #! Further lines contain data used by VisualDCT

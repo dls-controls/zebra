@@ -16,13 +16,14 @@ class zebra(AsynPort):
     Dependencies = (Asyn, MotorLib)
     def __init__(self, serialPort, **args):
         self.__super.__init__(args["PORT"])
+        z = _zebraTemplate(**args)        
         self.PORT = args["PORT"]
         self.serialPort = serialPort
-        _zebraTemplate(**args)
+        self.NELM = int(z.args["NELM"])
     
     def Initialise(self):
-        print '#zebraConfig(Port, SerialPort)'
-        print 'zebraConfig("%(PORT)s", "%(serialPort)s")' % self.__dict__
+        print '#zebraConfig(Port, SerialPort, MaxPosCompPoints)'
+        print 'zebraConfig("%(PORT)s", "%(serialPort)s", %(NELM)d)' % self.__dict__
 
     ArgInfo = _zebraTemplate.ArgInfo.filtered(without=["EMPTY"]) + makeArgInfo(__init__,
         serialPort = Ident ("Serial port name", _AsynOctetInterface)) 

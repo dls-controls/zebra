@@ -26,6 +26,9 @@
 /* The interval in seconds between each poll of zebra */
 #define POLL 0.1
 
+/* The timeout waiting for a response from zebra */
+#define TIMEOUT 0.1
+
 /* The last FASTREGS should be polled quickly */
 #define FASTREGS 6
 
@@ -125,7 +128,7 @@ static const struct reg_lookup reg_lookup[] = {
     { "PULSE2_INP",      0x51,         1 },
     { "PULSE3_INP",      0x52,         1 },
     { "PULSE4_INP",      0x53,         1 },
-    { "POLARITY",        0x54,         0 },    
+    { "POLARITY",        0x54,         0 },
     /* Output multiplexer select */
     { "OUT1_TTL",        0x60,         1 },
     { "OUT1_NIM",        0x61,         1 },
@@ -201,8 +204,8 @@ static const struct reg_lookup reg_lookup[] = {
     /* System settings */
 #define SYS_OFF 0xF0
     /* Status values we should poll: FASTREGS */
-    { "SYS_VER",         0x00 + SYS_OFF, 0 },    
-    { "SYS_STATERR",     0x01 + SYS_OFF, 0 },        
+    { "SYS_VER",         0x00 + SYS_OFF, 0 },
+    { "SYS_STATERR",     0x01 + SYS_OFF, 0 },
     { "SYS_STAT1LO",     0x02 + SYS_OFF, 0 },
     { "SYS_STAT1HI",     0x03 + SYS_OFF, 0 },
     { "SYS_STAT2LO",     0x04 + SYS_OFF, 0 },
@@ -239,7 +242,7 @@ static const char *bus_lookup[] = {
     "IN8_ENCZ",
     "PC_ARM",
     "PC_GATE",
-    "PC_PULSE",    
+    "PC_PULSE",
     "AND1",
     "AND2",
     "AND3",
@@ -282,10 +285,14 @@ static const char *bus_lookup[] = {
 class zebra : public asynPortDriver
 {
 public:
-    zebra(const char *portName, const char* serialPortName);
+    zebra(const char *portName, const char* serialPortName, int maxPts);
 
     /* These are the methods that we override from asynPortDriver */
     virtual asynStatus writeInt32(asynUser *pasynUser, epicsInt32 value);
+    virtual asynStatus readInt32Array(asynUser *pasynUser, epicsInt32 *value,
+                                size_t nElements, size_t *nIn);    
+    virtual asynStatus readFloat64Array(asynUser *pasynUser, epicsFloat64 *value,
+                                size_t nElements, size_t *nIn);
 
     /** These should be private, but get called from C, so must be public */
     void pollTask();
@@ -301,10 +308,15 @@ protected:
 protected:
     /* Parameter indices */
     #define FIRST_PARAM zebraIsConnected
-    int zebraIsConnected;           // int32 read  - is zebra connected?    
+    int zebraIsConnected;           // int32 read  - is zebra connected?
+    int zebraPCTime;                // float64array read - position compare timestamps
+    int zebraPCPos1;                // int32array read - position compare enc 1 position
+    int zebraPCPos2;                // int32array read - position compare enc 2 position
+    int zebraPCPos3;                // int32array read - position compare enc 3 position
+    int zebraPCPos4;                // int32array read - position compare enc 4 position
     int zebraSysBus1;               // string read - system bus key first half
     int zebraSysBus2;               // string read - system bus key second half
-    int zebraStore;                 // int32 write - store config to flash    
+    int zebraStore;                 // int32 write - store config to flash
     #define LAST_PARAM zebraStore
     int paramReg[NREGS*2];
     #define NUM_PARAMS (&LAST_PARAM - &FIRST_PARAM + 1) + NREGS*2
@@ -317,7 +329,10 @@ private:
     void         *octetPvt;
     asynDrvUser  *pasynDrvUser;
     void         *drvUserPvt;
-    epicsMessageQueueId msgQId;
+    epicsMessageQueueId msgQId, intQId;
+    int          maxPts, currPt;
+    int          *PCPos1, *PCPos2, *PCPos3, *PCPos4;
+    double       *PCTime;
 };
 
 /* C function to call poll task from epicsThreadCreate */
@@ -333,10 +348,10 @@ static void readTaskC(void *userPvt) {
 }
 
 /* Constructor */
-zebra::zebra(const char* portName, const char* serialPortName)
+zebra::zebra(const char* portName, const char* serialPortName, int maxPts)
     : asynPortDriver(portName, 1 /*maxAddr*/, NUM_PARAMS,
-        asynInt32Mask | asynOctetMask | asynDrvUserMask,
-        asynInt32Mask | asynOctetMask,
+        asynInt32ArrayMask | asynFloat64ArrayMask | asynInt32Mask | asynOctetMask | asynDrvUserMask,
+        asynInt32ArrayMask | asynFloat64ArrayMask | asynInt32Mask | asynOctetMask,
         ASYN_CANBLOCK, /*ASYN_CANBLOCK=1, ASYN_MULTIDEVICE=0 */
         1, /*autoConnect*/ 0, /*default priority */ 0 /*default stack size*/ )
 {
@@ -344,12 +359,28 @@ zebra::zebra(const char* portName, const char* serialPortName)
     asynInterface *pasynInterface;
 	char buffer[6400]; /* 100 chars per element on sys bus is overkill... */
 	char str[100];
+	
+	/* For position compare results */
+	this->maxPts = maxPts;
+	this->currPt = 0;
 
     /* create the parameters */
     createParam("ISCONNECTED", asynParamInt32, &zebraIsConnected);
     setIntegerParam(zebraIsConnected, 0);
     createParam("STORE",       asynParamInt32, &zebraStore);
-    
+
+    /* create the position compare arrays */
+    createParam("PC_TIME",     asynParamFloat64Array, &zebraPCTime);
+    this->PCTime = (double *)calloc(maxPts, sizeof(double));
+    createParam("PC_POS1",     asynParamFloat64Array, &zebraPCPos1);
+    this->PCPos1 = (int *)calloc(maxPts, sizeof(int));
+    createParam("PC_POS2",     asynParamFloat64Array, &zebraPCPos2);
+    this->PCPos2 = (int *)calloc(maxPts, sizeof(int));
+    createParam("PC_POS3",     asynParamFloat64Array, &zebraPCPos3);
+    this->PCPos3 = (int *)calloc(maxPts, sizeof(int));
+    createParam("PC_POS4",     asynParamFloat64Array, &zebraPCPos4);
+    this->PCPos4 = (int *)calloc(maxPts, sizeof(int));
+
     /* create a system bus key */
     createParam("SYS_BUS1",     asynParamOctet, &zebraSysBus1);
     buffer[0] = '\0';
@@ -380,6 +411,11 @@ zebra::zebra(const char* portName, const char* serialPortName)
     /* Create a message queue to hold completed messages */
     this->msgQId = epicsMessageQueueCreate(NQUEUE, sizeof(char*));
     if (!this->msgQId) {
+        printf("epicsMessageQueueCreate failure\n");
+        return;
+    }
+    this->intQId = epicsMessageQueueCreate(NQUEUE, sizeof(char*));
+    if (!this->intQId) {
         printf("epicsMessageQueueCreate failure\n");
         return;
     }
@@ -443,30 +479,34 @@ void zebra::readTask() {
     char *rxBuffer;
     size_t nBytesIn;
     int eomReason;
+    epicsMessageQueueId q;
 
     while (true) {
-    	pasynUserRead->timeout = 100000000000000.0;
+        /* No message in 1000s must mean we are disconnected */
+    	pasynUserRead->timeout = 1000.0;
     	rxBuffer = (char *) malloc(NBUFF);
         status = pasynOctet->read(octetPvt, pasynUserRead, rxBuffer, NBUFF,
             &nBytesIn, &eomReason);
         if (status) {
         	printf("Port not connected\n");
         	free(rxBuffer);
-        	epicsThreadSleep(POLL);
+        	epicsThreadSleep(TIMEOUT);
         } else if (eomReason & ASYN_EOM_EOS) {
-        	if (rxBuffer[0] == '~') {
-            	printf("Got an interrupt '%.*s'\n", (int)nBytesIn, rxBuffer);
-        		free(rxBuffer);
-        	} else {
-        		//printf("Got a message '%.*s' %d\n", (int)nBytesIn, rxBuffer, eomReason);
-        		rxBuffer[nBytesIn] = '\0';
-        		if (epicsMessageQueueTrySend(this->msgQId,
-        				&rxBuffer,
-        				sizeof(&rxBuffer))) {
-        			printf("Message queue full, dropped message\n");
-        			free(rxBuffer);
-        		}
+            // Replace the terminator with a null so we can use it as a string
+      		rxBuffer[nBytesIn] = '\0';            
+        	if (rxBuffer[0] == 'P') {        	    
+            	printf("Got an interrupt '%s' %d\n", rxBuffer, eomReason);
+            	q = this->intQId;
+            } else {
+        		printf("Got a message '%s' %d\n", rxBuffer, eomReason);
+        		q = this->msgQId;
             }
+    		if (epicsMessageQueueTrySend(q,
+    				&rxBuffer,
+    				sizeof(&rxBuffer)) != 0) {
+    			printf("Message queue full, dropped message\n");
+    			free(rxBuffer);
+    		}                                        
         } else {
         	printf("Bad message '%.*s'\n", (int)nBytesIn, rxBuffer);
         	free(rxBuffer);
@@ -476,8 +516,9 @@ void zebra::readTask() {
 
 /* This is the function that will be run for the poll thread */
 void zebra::pollTask() {
-    int value;
+    int value, time;
     unsigned int i, poll=0, sys=0, dosys=1;
+    char *rxBuffer;
     asynStatus status = asynSuccess;
     while (true) {
         // poll registers in turn, system status more often
@@ -494,7 +535,7 @@ void zebra::pollTask() {
 		status = this->getReg(reg_lookup[i].reg, &value);
 		if (status) {
 			setIntegerParam(zebraIsConnected, 0);
-			printf("pollTask: zebra not connected\n");
+			printf("pollTask: zebra not connected %s\n", reg_lookup[i].str);
 		} else {
 			setIntegerParam(zebraIsConnected, 1);
 			setIntegerParam(this->paramReg[i], value);
@@ -503,11 +544,68 @@ void zebra::pollTask() {
 			}
 		}
 		callParamCallbacks();
+		// If there are any interrupts, service them
+		while (epicsMessageQueuePending(this->intQId) > 0) {
+		    epicsMessageQueueReceive(this->intQId, &rxBuffer, sizeof(&rxBuffer));	
+        	if (this->currPt < this->maxPts) {
+        	    if (sscanf(rxBuffer, "P%08X%08X%08X%08X%08X", &time,
+        	            &(this->PCPos1[this->currPt]), &(this->PCPos2[this->currPt]),
+        	            &(this->PCPos3[this->currPt]), &(this->PCPos4[this->currPt]))) {
+        	        // Good interrupt, everything ok
+        	        this->PCTime[this->currPt] = (double) time;
+        	        // Don't do these interrupts as we've changed to periodic scanning
+        	        /*
+        	        doCallbacksFloat64Array(this->PCTime, this->currPt, zebraPCTime, 0);
+        	        doCallbacksInt32Array(this->PCPos1, this->currPt, zebraPCPos1, 0);
+        	        doCallbacksInt32Array(this->PCPos2, this->currPt, zebraPCPos2, 0);            	
+        	        doCallbacksInt32Array(this->PCPos3, this->currPt, zebraPCPos3, 0);            	
+        	        doCallbacksInt32Array(this->PCPos4, this->currPt, zebraPCPos4, 0);            	                               	                   
+        	        */ 	         	                    	
+        	    } else {
+                	printf("Bad interrupt '%s'\n", rxBuffer);            	
+        	    }
+        	    this->currPt++;
+        	}            	
+	        free(rxBuffer);		
+        }		
 		this->unlock();
 		// Wait for POLL seconds
 		epicsThreadSleep(POLL);
     }
-}        
+}
+
+asynStatus zebra::readInt32Array(asynUser *pasynUser, epicsInt32 *value,
+                                size_t nElements, size_t *nIn) {
+    int command = pasynUser->reason;    
+    int *array;
+    if (command == zebraPCPos1) {
+        array = this->PCPos1;
+    } else if (command == zebraPCPos2) { 
+        array = this->PCPos2;
+    } else if (command == zebraPCPos3) { 
+        array = this->PCPos3;
+    } else if (command == zebraPCPos4) { 
+        array = this->PCPos4;
+    } else {
+        return asynError;
+    }
+    /* Copy the data */
+    *nIn = this->currPt;
+    memcpy(value, array, *nIn*sizeof(int));    
+    return asynSuccess;
+}
+
+asynStatus zebra::readFloat64Array(asynUser *pasynUser, epicsFloat64 *value,
+                                size_t nElements, size_t *nIn) {
+    int command = pasynUser->reason;    
+    if (command == zebraPCTime) {
+        *nIn = this->currPt;
+        memcpy(value, this->PCTime, *nIn*sizeof(double)); 
+        return asynSuccess;   
+    } else {
+        return asynError;
+    }
+}
 
 /* This function gets the value of a register
    called with the lock taken */
@@ -598,7 +696,7 @@ asynStatus zebra::storeFlash() {
 asynStatus zebra::sendReceive(char *txBuffer, int txSize, char** rxBuffer) {
 	asynStatus status = asynSuccess;
 	size_t nBytesOut;
-    pasynUser->timeout = POLL;
+    pasynUser->timeout = TIMEOUT;
     // If there are any responses on the queue they must be junk
     while (epicsMessageQueuePending(this->msgQId)) {
     	epicsMessageQueueReceive(this->msgQId, rxBuffer, sizeof(rxBuffer));
@@ -608,10 +706,10 @@ asynStatus zebra::sendReceive(char *txBuffer, int txSize, char** rxBuffer) {
     status = pasynOctet->write(octetPvt, pasynUser, txBuffer, txSize, &nBytesOut);
     if(status == asynSuccess) {
         // wait for a response on the message queue
-    	if (epicsMessageQueueReceiveWithTimeout(this->msgQId, rxBuffer, sizeof(rxBuffer), POLL) > 0) {
+    	if (epicsMessageQueueReceiveWithTimeout(this->msgQId, rxBuffer, sizeof(rxBuffer), TIMEOUT) > 0) {
        		status = asynSuccess;
     	} else {
-    		printf("Zebra not connected, no response\n");
+    		printf("Zebra not connected, no response to %.*s\n", txSize, txBuffer);
     		status = asynError;
     	}
     }
@@ -637,6 +735,10 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value)
         printf("Write reg %d\n", reg);
     	setIntegerParam(parameter, value);
     	status = this->setReg(reg, value);
+    	if (strcmp(reg_lookup[i].str, "PC_ARM") == 0) {
+    	    // Asked to arm, reset plot
+    	    this->currPt = 0;
+    	} 
     	if (status == asynSuccess) {
     		status = this->getReg(reg, &value);
     		if (status == asynSuccess) {
@@ -654,20 +756,21 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value)
 }
 
 /** Configuration command, called directly or from iocsh */
-extern "C" int zebraConfig(const char *portName, const char* serialPortName)
+extern "C" int zebraConfig(const char *portName, const char* serialPortName, int maxPts)
 {
-    new zebra(portName, serialPortName);
+    new zebra(portName, serialPortName, maxPts);
     return(asynSuccess);
 }
 
 /** Code for iocsh registration */
 static const iocshArg zebraConfigArg0 = {"Port name", iocshArgString};
 static const iocshArg zebraConfigArg1 = {"Serial port name", iocshArgString};
-static const iocshArg* const zebraConfigArgs[] =  {&zebraConfigArg0, &zebraConfigArg1};
-static const iocshFuncDef configzebra = {"zebraConfig", 2, zebraConfigArgs};
+static const iocshArg zebraConfigArg2 = {"Max number of points to capture in position compare", iocshArgInt};
+static const iocshArg* const zebraConfigArgs[] =  {&zebraConfigArg0, &zebraConfigArg1, &zebraConfigArg2};
+static const iocshFuncDef configzebra = {"zebraConfig", 3, zebraConfigArgs};
 static void configzebraCallFunc(const iocshArgBuf *args)
 {
-    zebraConfig(args[0].sval, args[1].sval);
+    zebraConfig(args[0].sval, args[1].sval, args[2].ival);
 }
 
 static void zebraRegister(void)
