@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 504
-y 78
+x 506
+y 104
 w 940
 h 610
 font "arial-medium-r-14.0"
@@ -544,7 +544,7 @@ value {
   "PULSE2  \\ trig"
   "PULSE3  / while"
   "PULSE4 /  active"
-  "Err 4"
+  "PC buff overflow"
   "Err 5"
   "Err 6"
   "Err 7"
@@ -595,7 +595,7 @@ selectColor index 5
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "LOC\\$(!W)tab=e:0,Pos Comp,AND,OR,GATE,DIV,PULSE,I/O"
+controlPv "LOC\\$(!W)tab=e:0,Pos Comp,AND,OR,GATE,DIV,PULSE,ENC,I/O"
 font "arial-bold-r-12.0"
 orientation "horizontal"
 endObjectProperties
@@ -617,7 +617,7 @@ botShadowColor index 0
 displaySource "menu"
 filePv "LOC\\$(!W)tab"
 sizeOfs 5
-numDsps 7
+numDsps 8
 displayFileName {
   0 "zebraPC"
   1 "zebraANDOR"
@@ -625,7 +625,8 @@ displayFileName {
   3 "zebraGATE"
   4 "zebraDIV"
   5 "zebraPULSE"
-  6 "zebraIO"
+  6 "zebraENC"
+  7 "zebraIO"
 }
 symbols {
   1 "ANDOR=AND"
