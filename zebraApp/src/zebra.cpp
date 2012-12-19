@@ -33,12 +33,18 @@
 #define FASTREGS 6
 
 /* This is a lookup table of string->register number */
-struct reg_lookup {
+struct reg {
     const char * str;
-    int reg;
+    int addr;
     int isMux;
 };
-static const struct reg_lookup reg_lookup[] = {
+
+#define SYS_OFF 0xF0
+#define PC_OFF 0x80
+static const struct reg reg_lookup[] = {
+    /* Which encoders to capture in pos comp */
+    /* Put this first as it is vital for decoding interrupts */
+    { "PC_CAP",          0x1D + PC_OFF, 0 },        
     /* AND4 gate */
     { "AND1_INV",        0x00,         0 },
     { "AND2_INV",        0x01,         0 },
@@ -132,6 +138,10 @@ static const struct reg_lookup reg_lookup[] = {
     /* Quadrature encoder */
     { "QUAD_STEP",       0x55,         1 },
     { "QUAD_DIR",        0x56,         1 },
+    /* External inputs for Arm, Gate, Pulse */
+    { "PC_ARM_INP",      0x57,         1 },
+    { "PC_GATE_INP",     0x58,         1 },
+    { "PC_PULSE_INP",    0x59,         1 },    
     /* Output multiplexer select */
     { "OUT1_TTL",        0x60,         1 },
     { "OUT1_NIM",        0x61,         1 },
@@ -165,7 +175,6 @@ static const struct reg_lookup reg_lookup[] = {
     { "SYS_RESET",       0x7E,         0 },
     { "SOFT_IN",         0x7F,         0 },
     /* Position compare logic blocks */
-#define PC_OFF 0x80
     /* Load position counters */
     { "POS1_SETLO",      0x00 + PC_OFF, 0 },
     { "POS1_SETHI",      0x01 + PC_OFF, 0 },
@@ -204,21 +213,21 @@ static const struct reg_lookup reg_lookup[] = {
     { "PC_PULSE_WIDHI",  0x1A + PC_OFF, 0 },
     { "PC_PULSE_STEPLO", 0x1B + PC_OFF, 0 },
     { "PC_PULSE_STEPHI", 0x1C + PC_OFF, 0 },
-    /* External inputs for Arm, Gate, Pulse */
-    { "PC_ARM_INP",      0x1D + PC_OFF, 1 },
-    { "PC_GATE_INP",     0x1E + PC_OFF, 1 },
-    { "PC_PULSE_INP",    0x1F + PC_OFF, 1 },
     /* System settings */
-#define SYS_OFF 0xF0
-    /* Status values we should poll: FASTREGS */
     { "SYS_VER",         0x00 + SYS_OFF, 0 },
+    /* Status values we should poll: FASTREGS */    
     { "SYS_STATERR",     0x01 + SYS_OFF, 0 },
     { "SYS_STAT1LO",     0x02 + SYS_OFF, 0 },
     { "SYS_STAT1HI",     0x03 + SYS_OFF, 0 },
     { "SYS_STAT2LO",     0x04 + SYS_OFF, 0 },
     { "SYS_STAT2HI",     0x05 + SYS_OFF, 0 },
 };
-#define NREGS sizeof(reg_lookup) / sizeof(struct reg_lookup)
+
+/* useful defines for converting to and from asyn parameters and zebra regs */
+#define NREGS (sizeof(reg_lookup)/sizeof(struct reg))
+#define PARAM2REG(/*int*/param) &(reg_lookup[param-this->paramReg[0]])
+#define REG2PARAM(/*reg**/r) (this->paramReg[0]+(int)(r-reg_lookup))
+#define REG2PARAMSTR(/*reg**/r) ((int) (REG2PARAM(r)+NREGS))
 
 /* These are the entries on the system bus */
 static const char *bus_lookup[] = {
@@ -296,10 +305,6 @@ public:
 
     /* These are the methods that we override from asynPortDriver */
     virtual asynStatus writeInt32(asynUser *pasynUser, epicsInt32 value);
-    virtual asynStatus readInt32Array(asynUser *pasynUser, epicsInt32 *value,
-                                size_t nElements, size_t *nIn);    
-    virtual asynStatus readFloat64Array(asynUser *pasynUser, epicsFloat64 *value,
-                                size_t nElements, size_t *nIn);
 
     /** These should be private, but get called from C, so must be public */
     void pollTask();
@@ -308,8 +313,8 @@ public:
 protected:
     /* These are helper methods for the class */
     asynStatus sendReceive(char *txBuffer, int txSize, char** rxBuffer);
-    asynStatus setReg(int reg, int value);
-    asynStatus getReg(int reg, int *value);
+    asynStatus setReg(const reg *r, int value);
+    asynStatus getReg(const reg *r, int *value);
     asynStatus storeFlash();
 
 protected:
@@ -321,6 +326,7 @@ protected:
     int zebraPCPos2;                // int32array read - position compare enc 2 position
     int zebraPCPos3;                // int32array read - position compare enc 3 position
     int zebraPCPos4;                // int32array read - position compare enc 4 position
+    int zebraArrayUpdate;           // int32 write - update arrays
     int zebraSysBus1;               // string read - system bus key first half
     int zebraSysBus2;               // string read - system bus key second half
     int zebraStore;                 // int32 write - store config to flash
@@ -337,8 +343,8 @@ private:
     asynDrvUser  *pasynDrvUser;
     void         *drvUserPvt;
     epicsMessageQueueId msgQId, intQId;
-    int          maxPts, currPt;
-    int          *PCPos1, *PCPos2, *PCPos3, *PCPos4;
+    int          maxPts, currPt, lastUpdatePt;
+    int          *PCPos[4];
     double       *PCTime;
 };
 
@@ -366,10 +372,12 @@ zebra::zebra(const char* portName, const char* serialPortName, int maxPts)
     asynInterface *pasynInterface;
 	char buffer[6400]; /* 100 chars per element on sys bus is overkill... */
 	char str[100];
+	const reg *r;
 	
 	/* For position compare results */
 	this->maxPts = maxPts;
 	this->currPt = 0;
+	this->lastUpdatePt = -1;
 
     /* create the parameters */
     createParam("ISCONNECTED", asynParamInt32, &zebraIsConnected);
@@ -377,16 +385,18 @@ zebra::zebra(const char* portName, const char* serialPortName, int maxPts)
     createParam("STORE",       asynParamInt32, &zebraStore);
 
     /* create the position compare arrays */
-    createParam("PC_TIME",     asynParamFloat64Array, &zebraPCTime);
+    createParam("PC_TIME",     asynParamFloat64Array, &zebraPCTime);    
     this->PCTime = (double *)calloc(maxPts, sizeof(double));
     createParam("PC_POS1",     asynParamFloat64Array, &zebraPCPos1);
-    this->PCPos1 = (int *)calloc(maxPts, sizeof(int));
     createParam("PC_POS2",     asynParamFloat64Array, &zebraPCPos2);
-    this->PCPos2 = (int *)calloc(maxPts, sizeof(int));
     createParam("PC_POS3",     asynParamFloat64Array, &zebraPCPos3);
-    this->PCPos3 = (int *)calloc(maxPts, sizeof(int));
     createParam("PC_POS4",     asynParamFloat64Array, &zebraPCPos4);
-    this->PCPos4 = (int *)calloc(maxPts, sizeof(int));
+    for (int a=0; a<4; a++) {
+        this->PCPos[a] = (int *)calloc(maxPts, sizeof(int));
+    }
+    
+    /* a parameter that controls polling */
+    createParam("ARRAY_UPDATE", asynParamInt32, &zebraArrayUpdate);
 
     /* create a system bus key */
     createParam("SYS_BUS1",     asynParamOctet, &zebraSysBus1);
@@ -404,18 +414,24 @@ zebra::zebra(const char* portName, const char* serialPortName, int maxPts)
     }
     setStringParam(zebraSysBus2, buffer);
 
-    /* create parameters for registers */
+    /* create parameters for registers */        
     for (unsigned int i=0; i<NREGS; i++) {
-        createParam(reg_lookup[i].str, asynParamInt32, &paramReg[i]);
+        r = &(reg_lookup[i]);
+        createParam(r->str, asynParamInt32, &paramReg[i]);
+        assert(r == PARAM2REG(paramReg[i]));
+        assert(REG2PARAM(r) == paramReg[i]);        
+    }
+    
+    for (unsigned int i=0; i<NREGS; i++) {        
+        /* create parameters for register string values, these are lookups
+           of the string values of mux registers from the system bus */ 
+        r = &(reg_lookup[i]);  
+        sprintf(buffer, "%s_STR", r->str);
+        createParam(buffer, asynParamOctet, &paramReg[i+NREGS]);             
+        assert(REG2PARAMSTR(r) == paramReg[i+NREGS]);
     }
 
-    /* create parameters for register string values */
-    for (unsigned int i=0; i<NREGS; i++) {
-        sprintf(buffer, "%s_STR", reg_lookup[i].str);
-        createParam(buffer, asynParamOctet, &paramReg[i+NREGS]);
-    }
-
-    /* Create a message queue to hold completed messages */
+    /* Create a message queue to hold completed messages and interrupts */
     this->msgQId = epicsMessageQueueCreate(NQUEUE, sizeof(char*));
     if (!this->msgQId) {
         printf("epicsMessageQueueCreate failure\n");
@@ -480,19 +496,18 @@ zebra::zebra(const char* portName, const char* serialPortName, int maxPts)
 
 /* This is the function that will be run for the read thread */
 void zebra::readTask() {
-    asynStatus status = asynSuccess;
-    // Create the receive buffer
-    asynUser *pasynUserRead = pasynManager->duplicateAsynUser(pasynUser, 0, 0);
     char *rxBuffer;
     size_t nBytesIn;
     int eomReason;
     epicsMessageQueueId q;
+    asynStatus status = asynSuccess;
+    asynUser *pasynUserRead = pasynManager->duplicateAsynUser(pasynUser, 0, 0);
 
     while (true) {
         /* No message in 1000s must mean we are disconnected */
     	pasynUserRead->timeout = 1000.0;
     	rxBuffer = (char *) malloc(NBUFF);
-        status = pasynOctet->read(octetPvt, pasynUserRead, rxBuffer, NBUFF,
+        status = pasynOctet->read(octetPvt, pasynUserRead, rxBuffer, NBUFF-1,
             &nBytesIn, &eomReason);
         if (status) {
         	printf("Port not connected\n");
@@ -500,17 +515,17 @@ void zebra::readTask() {
         	epicsThreadSleep(TIMEOUT);
         } else if (eomReason & ASYN_EOM_EOS) {
             // Replace the terminator with a null so we can use it as a string
-      		rxBuffer[nBytesIn] = '\0';            
+      		rxBuffer[nBytesIn] = '\0';         
+      		// This is an interrupt, send it to the interrupt queue   
         	if (rxBuffer[0] == 'P') {        	    
-            	printf("Got an interrupt '%s' %d\n", rxBuffer, eomReason);
+            	//printf("Got an interrupt '%s' %d\n", rxBuffer, eomReason);
             	q = this->intQId;
+            // This a zebra response to a command, send it to the message queue
             } else {
-        		printf("Got a message '%s' %d\n", rxBuffer, eomReason);
+        		//printf("Got a message '%s' %d\n", rxBuffer, eomReason);
         		q = this->msgQId;
             }
-    		if (epicsMessageQueueTrySend(q,
-    				&rxBuffer,
-    				sizeof(&rxBuffer)) != 0) {
+    		if (epicsMessageQueueTrySend(q,	&rxBuffer, sizeof(&rxBuffer)) != 0) {
     			printf("Message queue full, dropped message\n");
     			free(rxBuffer);
     		}                                        
@@ -523,9 +538,10 @@ void zebra::readTask() {
 
 /* This is the function that will be run for the poll thread */
 void zebra::pollTask() {
-    int value, time;
+    int value, time, param;
+    const reg *r;
     unsigned int i, poll=0, sys=0, dosys=1;
-    char *rxBuffer;
+    char *rxBuffer, *ptr;
     asynStatus status = asynSuccess;
     while (true) {
         // poll registers in turn, system status more often
@@ -536,18 +552,22 @@ void zebra::pollTask() {
     		i = poll++;
     		if (poll >= NREGS - FASTREGS) poll = 0;
     	}
-    	dosys = ! dosys;
-		this->lock();
-		// Get the register value
-		status = this->getReg(reg_lookup[i].reg, &value);
+    	dosys = ! dosys;    	
+    	/* Get the reg pointer */
+    	r = &(reg_lookup[i]);
+		// Get the register value from zebra
+		this->lock();		
+		status = this->getReg(r, &value);
+		// set the param value
 		if (status) {
 			setIntegerParam(zebraIsConnected, 0);
-			printf("pollTask: zebra not connected %s\n", reg_lookup[i].str);
+			printf("pollTask: zebra not connected %s\n", r->str);
 		} else {
 			setIntegerParam(zebraIsConnected, 1);
-			setIntegerParam(this->paramReg[i], value);
-			if (reg_lookup[i].isMux && value < NSYSBUS) {
-				setStringParam(this->paramReg[i+NREGS],bus_lookup[value]);
+			setIntegerParam(REG2PARAM(r), value);
+			// If it is a mux, set the string representation from the system bus
+			if (r->isMux && value < NSYSBUS) {
+				setStringParam(REG2PARAMSTR(r), bus_lookup[value]);
 			}
 		}
 		callParamCallbacks();
@@ -555,21 +575,34 @@ void zebra::pollTask() {
 		while (epicsMessageQueuePending(this->intQId) > 0) {
 		    epicsMessageQueueReceive(this->intQId, &rxBuffer, sizeof(&rxBuffer));	
         	if (this->currPt < this->maxPts) {
-        	    if (sscanf(rxBuffer, "P%08X%08X%08X%08X%08X", &time,
-        	            &(this->PCPos1[this->currPt]), &(this->PCPos2[this->currPt]),
-        	            &(this->PCPos3[this->currPt]), &(this->PCPos4[this->currPt]))) {
-        	        // Good interrupt, everything ok
-        	        this->PCTime[this->currPt] = (double) time;
-        	        // Don't do these interrupts as we've changed to periodic scanning
-        	        /*
-        	        doCallbacksFloat64Array(this->PCTime, this->currPt, zebraPCTime, 0);
-        	        doCallbacksInt32Array(this->PCPos1, this->currPt, zebraPCPos1, 0);
-        	        doCallbacksInt32Array(this->PCPos2, this->currPt, zebraPCPos2, 0);            	
-        	        doCallbacksInt32Array(this->PCPos3, this->currPt, zebraPCPos3, 0);            	
-        	        doCallbacksInt32Array(this->PCPos4, this->currPt, zebraPCPos4, 0);            	                               	                   
-        	        */ 	         	                    	
+        	    // First get the timestamp
+        	    ptr = rxBuffer;
+        	    if (sscanf(rxBuffer, "P%08X", &time) == 1) {
+        	        //printf("Time %X ", time);
+            	    this->PCTime[this->currPt] = (double) time;
+            	    ptr += 9;
+            	    // See which encoders are being captured so we can decode the interrupt
+            	    findParam("PC_CAP", &param);
+            	    getIntegerParam(param, &value);
+            	    // Now step through the bytes
+            	    for (int a=0; a<4; a++) {            	    
+            	        if (value>>a & 1) {            	            
+            	            if (sscanf(ptr, "%08X", &(this->PCPos[a][this->currPt])) != 1) {
+            	                printf("Bad interrupt on encoder %d\n", a+1);
+            	                break;
+            	            }
+            	            //printf("Enc%d %X ", a+1, this->PCPos[a][this->currPt]);
+            	            ptr += 8;
+            	        }
+            	     }
+            	     //printf("\n");
+            	     // sanity check
+            	     if (ptr[0] != '\0') {
+            	         printf("Characters remaining in interrupt: %s\n", ptr);
+            	     }
+            	    
         	    } else {
-                	printf("Bad interrupt '%s'\n", rxBuffer);            	
+                	printf("Bad interrupt on time '%s' %d\n", rxBuffer, sscanf(rxBuffer, "P%08X", &time));            	
         	    }
         	    this->currPt++;
         	}            	
@@ -581,57 +614,24 @@ void zebra::pollTask() {
     }
 }
 
-asynStatus zebra::readInt32Array(asynUser *pasynUser, epicsInt32 *value,
-                                size_t nElements, size_t *nIn) {
-    int command = pasynUser->reason;    
-    int *array;
-    if (command == zebraPCPos1) {
-        array = this->PCPos1;
-    } else if (command == zebraPCPos2) { 
-        array = this->PCPos2;
-    } else if (command == zebraPCPos3) { 
-        array = this->PCPos3;
-    } else if (command == zebraPCPos4) { 
-        array = this->PCPos4;
-    } else {
-        return asynError;
-    }
-    /* Copy the data */
-    *nIn = this->currPt;
-    memcpy(value, array, *nIn*sizeof(int));    
-    return asynSuccess;
-}
-
-asynStatus zebra::readFloat64Array(asynUser *pasynUser, epicsFloat64 *value,
-                                size_t nElements, size_t *nIn) {
-    int command = pasynUser->reason;    
-    if (command == zebraPCTime) {
-        *nIn = this->currPt;
-        memcpy(value, this->PCTime, *nIn*sizeof(double)); 
-        return asynSuccess;   
-    } else {
-        return asynError;
-    }
-}
-
 /* This function gets the value of a register
    called with the lock taken */
-asynStatus zebra::getReg(int i, int *value) {
+asynStatus zebra::getReg(const reg *r, int *value) {
     asynStatus status = asynSuccess;
     // Create the transmit buffer
     char txBuffer[NBUFF], *rxBuffer;
-    int txSize, reg;
+    int txSize, addr;
     // Send a write
-    txSize = sprintf(txBuffer, "R%02X", i);
+    txSize = sprintf(txBuffer, "R%02X", r->addr);
     status = this->sendReceive(txBuffer, txSize, &rxBuffer);
     // If we got a response
     if(status == asynSuccess) {
-        if (sscanf(rxBuffer, "R%02X%04X", &reg, value)) {
-        	if (reg == i) {
+        if (sscanf(rxBuffer, "R%02X%04X", &addr, value)) {
+        	if (addr == r->addr) {
         		// Good message, everything ok
         		status = asynSuccess;
         	} else {
-        		printf("Expected reg %02X got %02X\n", i, reg);
+        		printf("Expected addr %02X got %02X\n", r->addr, addr);
         		status = asynError;
         	}
 		} else {
@@ -646,22 +646,22 @@ asynStatus zebra::getReg(int i, int *value) {
 
 /* This function sets the value of a register
    called with the lock taken */
-asynStatus zebra::setReg(int i, int value) {
+asynStatus zebra::setReg(const reg *r, int value) {
     asynStatus status = asynSuccess;
     // Create the transmit buffer
     char txBuffer[NBUFF], *rxBuffer;
-    int txSize, reg;
+    int txSize, addr;
     // Send a write
-    txSize = sprintf(txBuffer, "W%02X%04X", i, value & 0xFFFF);
+    txSize = sprintf(txBuffer, "W%02X%04X", r->addr, value & 0xFFFF);
     status = this->sendReceive(txBuffer, txSize, &rxBuffer);
     // If we got a response
     if(status == asynSuccess) {
-        if (sscanf(rxBuffer, "W%02XOK", &reg)) {
-        	if (reg == i) {
+        if (sscanf(rxBuffer, "W%02XOK", &addr)) {
+        	if (addr == r->addr) {
         		// Good message, everything ok
         		status = asynSuccess;
         	} else {
-        		printf("Expected reg %02X got %02X\n", i, reg);
+        		printf("Expected addr %02X got %02X\n", r->addr, addr);
         		status = asynError;
         	}
 		} else {
@@ -735,29 +735,43 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value)
 	asynStatus status = asynError;
 
     /* Any work we need to do */
-    int parameter = pasynUser->reason;
-    if(parameter >= this->paramReg[0] && parameter < this->paramReg[NREGS-1]) {
-    	int i = parameter-this->paramReg[0];
-    	int reg = reg_lookup[i].reg;
-        printf("Write reg %d\n", reg);
-    	setIntegerParam(parameter, value);
-    	status = this->setReg(reg, value);
-    	if (strcmp(reg_lookup[i].str, "PC_ARM") == 0) {
-    	    // Asked to arm, reset plot
-    	    this->currPt = 0;
-    	} 
+    int param = pasynUser->reason;
+    if(param >= this->paramReg[0] && param < this->paramReg[NREGS-1]) {
+    	const reg *r = PARAM2REG(param);
+        //printf("Write reg %d\n", r->addr);
+    	setIntegerParam(param, value);
+    	status = this->setReg(r, value);
     	if (status == asynSuccess) {
-    		status = this->getReg(reg, &value);
+    		status = this->getReg(r, &value);
     		if (status == asynSuccess) {
-				setIntegerParam(parameter, value);
-				if (reg_lookup[i].isMux && value < NSYSBUS) {
-					printf("Write reg %d isMux\n", reg);
-					setStringParam(parameter+NREGS, bus_lookup[value]);
+				setIntegerParam(param, value);
+				if (r->isMux && value < NSYSBUS) {
+					//printf("Write reg %d isMux\n", r->addr);
+					setStringParam(REG2PARAMSTR(r), bus_lookup[value]);
 				}
+            	if (strcmp(r->str, "PC_ARM") == 0) {
+            	    // Asked to arm, reset plot
+            	    this->currPt = 0;
+            	    this->lastUpdatePt = -1;
+            	    param = zebraArrayUpdate;
+            	} 				
     		}
-    	}
-    } else if (parameter == zebraStore) {
+    	}    	
+    } else if (param == zebraStore) {
     	status = this->storeFlash();
+    }
+    /* Note: if not else if as we signal to do an update if PC_ARM is set */    	
+    if (param == zebraArrayUpdate) {
+        if (this->lastUpdatePt != this->currPt) {
+            // printf("Update %d %d\n", this->lastUpdatePt, this->currPt);        
+	        doCallbacksFloat64Array(this->PCTime, this->currPt, zebraPCTime, 0);
+	        doCallbacksInt32Array(this->PCPos[0], this->currPt, zebraPCPos1, 0);
+	        doCallbacksInt32Array(this->PCPos[1], this->currPt, zebraPCPos2, 0);            	
+	        doCallbacksInt32Array(this->PCPos[2], this->currPt, zebraPCPos3, 0);            	
+	        doCallbacksInt32Array(this->PCPos[3], this->currPt, zebraPCPos4, 0);            	                               	                           
+            this->lastUpdatePt = this->currPt;
+        }
+        status = asynSuccess;
     }
     return status;
 }

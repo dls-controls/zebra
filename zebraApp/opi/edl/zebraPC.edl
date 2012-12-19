@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 181
-y 356
+x 187
+y 434
 w 640
 h 510
 font "arial-bold-r-12.0"
@@ -39,6 +39,39 @@ fill
 fillColor index 5
 endObjectProperties
 
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 10
+y 265
+w 625
+h 90
+lineColor index 14
+fill
+fillColor index 3
+closePolygon
+numPoints 6
+xPoints {
+  0 10
+  1 635
+  2 635
+  3 210
+  4 210
+  5 10
+}
+yPoints {
+  0 265
+  1 265
+  2 300
+  3 300
+  4 355
+  5 355
+}
+endObjectProperties
+
 # (Rectangle)
 object activeRectangleClass
 beginObjectProperties
@@ -46,7 +79,7 @@ major 4
 minor 0
 release 0
 x 10
-y 315
+y 375
 w 200
 h 130
 lineColor index 24
@@ -62,7 +95,7 @@ major 4
 minor 0
 release 0
 x 15
-y 350
+y 410
 w 189
 h 25
 
@@ -75,7 +108,7 @@ major 10
 minor 0
 release 0
 x 55
-y 350
+y 410
 w 120
 h 25
 controlPv "$(zebra):PC_ARM_INP:STR"
@@ -93,7 +126,7 @@ major 10
 minor 0
 release 0
 x 15
-y 350
+y 410
 w 35
 h 25
 controlPv "$(zebra):PC_ARM_INP"
@@ -111,7 +144,7 @@ major 4
 minor 0
 release 0
 x 180
-y 350
+y 410
 w 24
 h 24
 controlPv "$(zebra):PC_ARM_INP:STA"
@@ -135,7 +168,7 @@ major 4
 minor 1
 release 0
 x 9
-y 305
+y 365
 w 38
 h 13
 font "arial-bold-r-12.0"
@@ -155,7 +188,7 @@ major 4
 minor 1
 release 0
 x 15
-y 415
+y 475
 w 125
 h 25
 font "arial-bold-r-14.0"
@@ -174,7 +207,7 @@ major 4
 minor 0
 release 0
 x 180
-y 415
+y 475
 w 24
 h 24
 controlPv "$(zebra):PC_ARM_OUT"
@@ -191,7 +224,7 @@ major 4
 minor 0
 release 1
 x 15
-y 410
+y 470
 w 190
 h 0
 lineColor index 14
@@ -202,8 +235,8 @@ xPoints {
   1 205
 }
 yPoints {
-  0 410
-  1 410
+  0 470
+  1 470
 }
 endObjectProperties
 
@@ -214,7 +247,7 @@ major 4
 minor 1
 release 0
 x 15
-y 320
+y 380
 w 85
 h 25
 font "arial-bold-r-14.0"
@@ -233,7 +266,7 @@ major 4
 minor 0
 release 0
 x 100
-y 320
+y 380
 w 105
 h 25
 fgColor index 25
@@ -253,7 +286,7 @@ major 4
 minor 0
 release 0
 x 15
-y 350
+y 410
 w 190
 h 25
 
@@ -266,7 +299,7 @@ major 4
 minor 0
 release 0
 x 15
-y 350
+y 410
 w 190
 h 25
 fgColor index 25
@@ -284,9 +317,9 @@ endObjectProperties
 
 endGroup
 
-visPv "$(zebra):PC_ARM_SEL"
-visMin "0"
-visMax "1"
+visPv "CALC\\\{A=0&B=0\}($(zebra):PC_ARM_SEL,$(zebra):PC_ARM_OUT)"
+visMin "1"
+visMax "2"
 endObjectProperties
 
 # (Message Button)
@@ -296,7 +329,7 @@ major 4
 minor 0
 release 0
 x 15
-y 380
+y 440
 w 190
 h 25
 fgColor index 25
@@ -2063,21 +2096,6 @@ yPoints {
 }
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 10
-y 265
-w 625
-h 35
-lineColor index 14
-fill
-fillColor index 3
-endObjectProperties
-
 # (Choice Button)
 object activeChoiceButtonClass
 beginObjectProperties
@@ -2085,7 +2103,7 @@ major 4
 minor 0
 release 0
 x 100
-y 270
+y 325
 w 105
 h 25
 fgColor index 25
@@ -2107,7 +2125,7 @@ major 4
 minor 1
 release 0
 x 15
-y 270
+y 325
 w 80
 h 25
 font "arial-bold-r-14.0"
@@ -2125,8 +2143,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 440
-y 270
+x 15
+y 295
 w 190
 h 25
 fgColor index 25
@@ -2234,16 +2252,16 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 355
+x 15
 y 270
-w 85
+w 190
 h 25
 font "arial-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "Pos Trigger"
+  "Pos Trigger / Enc Capture"
 }
 endObjectProperties
 
@@ -2268,5 +2286,193 @@ numDsps 1
 displayFileName {
   0 "zebraPCPlot"
 }
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 270
+y 270
+w 45
+h 25
+fgColor index 25
+onColor index 4
+offColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):PC_CAP"
+indicatorPv "$(zebra):PC_CAP:RBV"
+onLabel "Yes"
+offLabel "No"
+labelType "literal"
+3d
+font "arial-bold-r-14.0"
+objType "controls"
+controlBitPos 0
+readBitPos 0
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 220
+y 270
+w 45
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Enc 1"
+}
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 375
+y 270
+w 45
+h 25
+fgColor index 25
+onColor index 4
+offColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):PC_CAP"
+indicatorPv "$(zebra):PC_CAP:RBV"
+onLabel "Yes"
+offLabel "No"
+labelType "literal"
+3d
+font "arial-bold-r-14.0"
+objType "controls"
+controlBitPos 1
+readBitPos 1
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 325
+y 270
+w 45
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Enc 2"
+}
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 480
+y 270
+w 45
+h 25
+fgColor index 25
+onColor index 4
+offColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):PC_CAP"
+indicatorPv "$(zebra):PC_CAP:RBV"
+onLabel "Yes"
+offLabel "No"
+labelType "literal"
+3d
+font "arial-bold-r-14.0"
+objType "controls"
+controlBitPos 2
+readBitPos 2
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 430
+y 270
+w 45
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Enc 3"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 535
+y 270
+w 45
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Enc 4"
+}
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 585
+y 270
+w 45
+h 25
+fgColor index 25
+onColor index 4
+offColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):PC_CAP"
+indicatorPv "$(zebra):PC_CAP:RBV"
+onLabel "Yes"
+offLabel "No"
+labelType "literal"
+3d
+font "arial-bold-r-14.0"
+objType "controls"
+controlBitPos 3
+readBitPos 3
 endObjectProperties
 
