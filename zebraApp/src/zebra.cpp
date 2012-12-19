@@ -18,7 +18,7 @@
 #include "epicsMessageQueue.h"
 
 /* This is the number of messages on our queue */
-#define NQUEUE 50
+#define NQUEUE 1000
 
 /* The size of our transmit and receive buffers */
 #define NBUFF 255
