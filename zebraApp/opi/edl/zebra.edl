@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 506
-y 104
+x 139
+y 79
 w 940
 h 610
 font "arial-medium-r-14.0"
@@ -268,92 +268,7 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 370
-y 580
-w 80
-h 25
-controlPv "$(zebra):SYS_VER"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 295
-y 580
-w 75
-h 25
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Firmware:"
-}
-endObjectProperties
-
-# (Message Button)
-object activeMessageButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 655
-y 580
-w 65
-h 25
-fgColor index 25
-onColor index 4
-offColor index 3
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(zebra):SYS_RESET.PROC"
-pressValue "1"
-onLabel "Reset"
-offLabel "Reset"
-3d
-useEnumNumeric
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Message Button)
-object activeMessageButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 725
-y 580
-w 120
-h 25
-fgColor index 25
-onColor index 4
-offColor index 3
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(zebra):STORE.PROC"
-pressValue "1"
-onLabel "Store to Flash"
-offLabel "Store to Flash"
-3d
-useEnumNumeric
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 540
+x 380
 y 580
 w 110
 h 25
@@ -371,7 +286,7 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 455
+x 295
 y 580
 w 85
 h 25
@@ -595,7 +510,7 @@ selectColor index 5
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "LOC\\$(!W)tab=e:0,Pos Comp,AND,OR,GATE,DIV,PULSE,ENC,I/O"
+controlPv "LOC\\$(!W)tab=e:0,PC,AND,OR,GATE,DIV,PULSE,ENC,SYS"
 font "arial-bold-r-12.0"
 orientation "horizontal"
 endObjectProperties
@@ -626,7 +541,7 @@ displayFileName {
   4 "zebraDIV"
   5 "zebraPULSE"
   6 "zebraENC"
-  7 "zebraIO"
+  7 "zebraSYS"
 }
 symbols {
   1 "ANDOR=AND"
@@ -658,5 +573,29 @@ yPoints {
   1 575
   2 65
 }
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 755
+y 580
+w 85
+h 25
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):SYS_RESET.PROC"
+pressValue "1"
+onLabel "Reset"
+offLabel "Reset"
+3d
+useEnumNumeric
+font "arial-bold-r-14.0"
 endObjectProperties
 

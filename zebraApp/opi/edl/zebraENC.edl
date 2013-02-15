@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 746
-y 368
+x 1012
+y 643
 w 640
 h 510
 font "arial-bold-r-12.0"
@@ -785,9 +785,9 @@ useDisplayBg
 value {
   "Quadrature encoder. Cycle between 4 states:"
   "* State 1: A=0 B=0"
-  "* State 2: A=0 B=1"
-  "* State 3: A=1 B=0"
-  "* State 4: A=1 B=1"
+  "* State 2: A=1 B=0"
+  "* State 3: A=1 B=1"
+  "* State 4: A=0 B=1"
   ""
   "On each rising edge of STEP:"
   "* if DIR=1 then move the the next state"
