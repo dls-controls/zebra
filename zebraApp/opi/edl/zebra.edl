@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 139
-y 79
+x 141
+y 105
 w 940
 h 610
 font "arial-medium-r-14.0"
@@ -596,6 +596,44 @@ onLabel "Reset"
 offLabel "Reset"
 3d
 useEnumNumeric
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 505
+y 580
+w 135
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Firmware"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 580
+y 580
+w 140
+h 25
+controlPv "$(zebra):SYS_VER"
+displayMode "hex"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
 font "arial-bold-r-14.0"
 endObjectProperties
 

@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 612
-y 601
+x 614
+y 627
 w 640
 h 510
 font "arial-bold-r-12.0"
@@ -55,7 +55,7 @@ bgColor index 3
 useDisplayBg
 value {
   "The DIV block will split pulses between two outputs."
-  "With the first pulse being numbered 1:"
+  "With the intial pulse being numbered 1:"
   "* If the pulse number is divisible by divisor it is sent to OUTD"
   "* Otherwise it is sent to OUTN"
 }

@@ -24,6 +24,7 @@ WORK=/dls_sw/work/R3.14.11/support
 SUPPORT=/dls_sw/prod/R3.14.11/support
 
 ASYN=$(SUPPORT)/asyn/4-17
+CALC=$(SUPPORT)/calc/2-8dls4
 STREAMDEVICE=$(SUPPORT)/streamDevice/2-5
 MOTOR=$(SUPPORT)/motor/6-7-1dls2
 

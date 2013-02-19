@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1017
-y 628
+x 1019
+y 654
 w 640
 h 510
 font "arial-bold-r-12.0"
@@ -888,7 +888,7 @@ major 4
 minor 0
 release 1
 x 25
-y 140
+y 175
 w 280
 h 0
 lineColor index 14
@@ -899,8 +899,8 @@ xPoints {
   1 305
 }
 yPoints {
-  0 140
-  1 140
+  0 175
+  1 175
 }
 endObjectProperties
 

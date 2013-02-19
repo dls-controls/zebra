@@ -12,6 +12,7 @@ include $(TOP)/configure/CONFIG
 # templates like this
 #
 DB += zebra.template
+DB += zebraLastDivDiff.template
 
 #----------------------------------------------------
 # In a Diamond IOC Application, build db files from

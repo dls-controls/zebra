@@ -1,5 +1,6 @@
 from iocbuilder import AutoSubstitution, Device
 from iocbuilder.modules.asyn import Asyn, AsynPort, _AsynOctetInterface
+from iocbuilder.modules.calc import Calc
 from iocbuilder.modules.motor import MotorLib
 from iocbuilder.arginfo import *
 
@@ -13,7 +14,7 @@ class zebra(AsynPort):
     DbdFileList = ["zebraSupport"]
     LibFileList = ["zebra"]
     UniqueName = "PORT"
-    Dependencies = (Asyn, MotorLib)
+    Dependencies = (Asyn, MotorLib, Calc)
     def __init__(self, serialPort, **args):
         self.__super.__init__(args["PORT"])
         z = _zebraTemplate(**args)        
@@ -28,4 +29,7 @@ class zebra(AsynPort):
     ArgInfo = _zebraTemplate.ArgInfo.filtered(without=["EMPTY"]) + makeArgInfo(__init__,
         serialPort = Ident ("Serial port name", _AsynOctetInterface)) 
 
-
+class zebraLastDivDiff(AutoSubstitution):
+    '''Makes a record pointing to DIV$(DIV) that will display the difference
+    between the last two DIV readings in position compare mode'''
+    TemplateFile = 'zebraLastDivDiff.template'

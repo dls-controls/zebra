@@ -9,6 +9,7 @@
 # % macro, PORT, Asyn port and object name
 # % macro, NELM, Maximum number of elements in position compare array
 # % macro, EMPTY, Empty macro to satisfy VDCT
+# % macro, PREC, Precision to show position compare gate and pulse fields
 # % macro, M1, Motor 1 PV
 # % macro, M1DIR, Set to - if motor inverted in geobrick (decode control = 3 instead of 7)
 # % macro, M2, Motor 2 PV
@@ -34,6 +35,36 @@ record(ao, "$(P)$(Q):STORE") {
   field(OUT, "@asyn($(PORT),0) STORE")
 }
 
+record(ao, "$(P)$(Q):CONFIG_WRITE") {
+  field(DESC, "Write reg values to file")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0) CONFIG_WRITE")
+}
+
+record(ao, "$(P)$(Q):CONFIG_READ") {
+  field(DESC, "Read reg values from file")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0) CONFIG_READ")
+}
+
+record(waveform, "$(P)$(Q):CONFIG_FILE") {
+  field(DESC, "Filename of config write/read")
+  field(PINI, "YES")
+  field(DTYP, "asynOctetWrite")
+  field(INP, "@asyn($(PORT),0)CONFIG_FILE")
+  field(FTVL, "CHAR")
+  field(NELM, "256")
+}
+
+record(waveform, "$(P)$(Q):CONFIG_STATUS") {
+  field(DESC, "Status of config write/read")
+  field(DTYP, "asynOctetRead")
+  field(INP, "@asyn($(PORT),0)CONFIG_STATUS")
+  field(FTVL, "CHAR")
+  field(NELM, "256")
+  field(SCAN, "I/O Intr")
+}
+
 record(ao, "$(P)$(Q):SYS_RESET") {
   field(DESC, "Reset Zebra")
   field(DTYP, "asynInt32")
@@ -44,6 +75,20 @@ record(ai, "$(P)$(Q):SYS_VER") {
   field(DESC, "Zebra firmware version")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0) SYS_VER")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P)$(Q):PC_NUM_CAP") {
+  field(DESC, "Points captured")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0) PC_NUM_CAP")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P)$(Q):PC_NUM_DOWN") {
+  field(DESC, "Points downloaded")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0) PC_NUM_DOWN")
   field(SCAN, "I/O Intr")
 }
 
@@ -442,6 +487,7 @@ expand("zebraRegisterWriteMux.vdb", DIV1_INP) {
 expand("zebraRegisterWrite32.vdb", DIV1_DIV) {
   macro(PARAM, "DIV1_DIV")
   macro(MOTOR, "NOMOTOR")
+  macro(PREC, "0")
 }
 
 record(calcout, "$(P)$(Q):DIV1_OUTD") {
@@ -463,6 +509,7 @@ expand("zebraRegisterWriteMux.vdb", DIV2_INP) {
 expand("zebraRegisterWrite32.vdb", DIV2_DIV) {
   macro(PARAM, "DIV2_DIV")
   macro(MOTOR, "NOMOTOR")
+  macro(PREC, "0")  
 }
 
 record(calcout, "$(P)$(Q):DIV2_OUTD") {
@@ -484,6 +531,7 @@ expand("zebraRegisterWriteMux.vdb", DIV3_INP) {
 expand("zebraRegisterWrite32.vdb", DIV3_DIV) {
   macro(PARAM, "DIV3_DIV")
   macro(MOTOR, "NOMOTOR")
+  macro(PREC, "0")  
 }
 
 record(calcout, "$(P)$(Q):DIV3_OUTD") {
@@ -505,6 +553,7 @@ expand("zebraRegisterWriteMux.vdb", DIV4_INP) {
 expand("zebraRegisterWrite32.vdb", DIV4_DIV) {
   macro(PARAM, "DIV4_DIV")
   macro(MOTOR, "NOMOTOR")
+  macro(PREC, "0")  
 }
 
 record(calcout, "$(P)$(Q):DIV4_OUTD") {
@@ -818,21 +867,25 @@ record(sel, "$(P)$(Q):PULSE:MRES") {
 expand("zebraRegisterWrite32.vdb", POS1_SET) {
   macro(PARAM, "POS1_SET")
   macro(MOTOR, "M1")
+  macro(PREC, "$(PREC=4)")  
 }
 
 expand("zebraRegisterWrite32.vdb", POS2_SET) {
   macro(PARAM, "POS2_SET")
   macro(MOTOR, "M2")
+  macro(PREC, "$(PREC=4)")    
 }
 
 expand("zebraRegisterWrite32.vdb", POS3_SET) {
   macro(PARAM, "POS3_SET")
   macro(MOTOR, "M3")
+  macro(PREC, "$(PREC=4)")    
 }
 
 expand("zebraRegisterWrite32.vdb", POS4_SET) {
   macro(PARAM, "POS4_SET")
   macro(MOTOR, "M4")
+  macro(PREC, "$(PREC=4)")    
 }
 
 expand("zebraRegisterWritePrescaler.vdb", PC_TSPRE) {
@@ -869,21 +922,25 @@ expand("zebraRegisterWritePosCompInp.vdb", PC_GATE_SEL) {
 expand("zebraRegisterWrite32.vdb", PC_GATE_START) {
   macro(PARAM, "PC_GATE_START")
   macro(MOTOR, "STARTGATE")
+  macro(PREC, "$(PREC=4)")    
 }
 
 expand("zebraRegisterWrite32.vdb", PC_GATE_WID) {
   macro(PARAM, "PC_GATE_WID")
   macro(MOTOR, "GATE")
+  macro(PREC, "$(PREC=4)")    
 }
 
 expand("zebraRegisterWrite32.vdb", PC_GATE_NGATE) {
   macro(PARAM, "PC_GATE_NGATE")
   macro(MOTOR, "NOMOTOR")
+  macro(PREC, "0")    
 }
 
 expand("zebraRegisterWrite32.vdb", PC_GATE_STEP) {
   macro(PARAM, "PC_GATE_STEP")
   macro(MOTOR, "GATE")
+  macro(PREC, "$(PREC=4)")    
 }
 
 expand("zebraRegisterWriteMux.vdb", PC_PULSE_INP) {
@@ -904,16 +961,19 @@ expand("zebraRegisterWritePosCompInp.vdb", PC_PULSE_SEL) {
 expand("zebraRegisterWrite32.vdb", PC_PULSE_DLY) {
   macro(PARAM, "PC_PULSE_DLY")
   macro(MOTOR, "PULSE")
+  macro(PREC, "$(PREC=4)")    
 }
 
 expand("zebraRegisterWrite32.vdb", PC_PULSE_WID) {
   macro(PARAM, "PC_PULSE_WID")
   macro(MOTOR, "PULSE")
+  macro(PREC, "$(PREC=4)")    
 }
 
 expand("zebraRegisterWrite32.vdb", PC_PULSE_STEP) {
   macro(PARAM, "PC_PULSE_STEP")
   macro(MOTOR, "PULSE")
+  macro(PREC, "$(PREC=4)")    
 }
 
 record(calcout, "$(P)$(Q):PC_GATE_OUT") {
@@ -1020,6 +1080,13 @@ record(ai, "$(P)$(Q):SYS_STATERR") {
   field(SCAN, "I/O Intr")
 }
 
+record(ai, "$(P)$(Q):ARRAY_ACQ") {
+  field(DESC, "Zebra acquiring arrays")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0) ARRAY_ACQ")
+  field(SCAN, "I/O Intr")
+}
+
 expand("zebraRegisterWritePosCompInp.vdb", PC_ARM_SEL) {
   macro(PARAM, "PC_ARM_SEL")
   macro(ZRST, "Soft")
@@ -1073,15 +1140,14 @@ record(sel, "$(P)$(Q):GATE:MRES") {
 
 expand("zebraRegisterWritePosCompInp.vdb", PC_ENC) {
   macro(PARAM, "PC_ENC")
-  macro(ZRST, "Encoder 1")
-  macro(ONST, "Encoder 2")
-  macro(THST, "Encoder 4")
+  macro(ZRST, "Enc1")
+  macro(ONST, "Enc2")
+  macro(THST, "Enc4")
   macro(THVL, "3")
-  macro(FRST, "Encoder 1+2+3+4")
-  macro(TWST, "Encoder 3")
+  macro(FRST, "EncSum")
+  macro(TWST, "Enc3")
   macro(MOTOR, "NOMOTOR")
 }
-
 
 record(waveform, "$(P)$(Q):PC_TIME") {
   field(DTYP, "asynFloat64ArrayIn")
@@ -1091,40 +1157,136 @@ record(waveform, "$(P)$(Q):PC_TIME") {
   field(SCAN, "I/O Intr")
 }
 
-
-record(waveform, "$(P)$(Q):PC_POS1") {
+record(waveform, "$(P)$(Q):PC_SYS1") {
   field(DTYP, "asynInt32ArrayIn")
-  field(INP, "@asyn($(PORT),0)PC_POS1")
+  field(INP, "@asyn($(PORT),0)PC_CAP5")
+  field(NELM, "$(NELM=100000)")
+  field(FTVL, "ULONG")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P)$(Q):PC_SYS1_LAST") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0) PC_CAP5_LAST")
+  field(SCAN, "I/O Intr")
+}
+
+record(waveform, "$(P)$(Q):PC_SYS2") {
+  field(DTYP, "asynInt32ArrayIn")
+  field(INP, "@asyn($(PORT),0)PC_CAP6")
+  field(NELM, "$(NELM=100000)")
+  field(FTVL, "ULONG")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P)$(Q):PC_SYS2_LAST") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0) PC_CAP6_LAST")
+  field(SCAN, "I/O Intr")
+}
+
+record(waveform, "$(P)$(Q):PC_DIV1") {
+  field(DTYP, "asynInt32ArrayIn")
+  field(INP, "@asyn($(PORT),0)PC_CAP7")
+  field(NELM, "$(NELM=100000)")
+  field(FTVL, "ULONG")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P)$(Q):PC_DIV1_LAST") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0) PC_CAP7_LAST")
+  field(SCAN, "I/O Intr")
+}
+
+record(waveform, "$(P)$(Q):PC_DIV2") {
+  field(DTYP, "asynInt32ArrayIn")
+  field(INP, "@asyn($(PORT),0)PC_CAP8")
+  field(NELM, "$(NELM=100000)")
+  field(FTVL, "ULONG")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P)$(Q):PC_DIV2_LAST") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0) PC_CAP8_LAST")
+  field(SCAN, "I/O Intr")
+}
+
+record(waveform, "$(P)$(Q):PC_DIV3") {
+  field(DTYP, "asynInt32ArrayIn")
+  field(INP, "@asyn($(PORT),0)PC_CAP9")
+  field(NELM, "$(NELM=100000)")
+  field(FTVL, "ULONG")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P)$(Q):PC_DIV3_LAST") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0) PC_CAP9_LAST")
+  field(SCAN, "I/O Intr")
+}
+
+record(waveform, "$(P)$(Q):PC_DIV4") {
+  field(DTYP, "asynInt32ArrayIn")
+  field(INP, "@asyn($(PORT),0)PC_CAP10")
+  field(NELM, "$(NELM=100000)")
+  field(FTVL, "ULONG")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P)$(Q):PC_DIV4_LAST") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0) PC_CAP10_LAST")
+  field(SCAN, "I/O Intr")
+}
+
+record(waveform, "$(P)$(Q):PC_FILT1") {
+  field(DTYP, "asynInt32ArrayIn")
+  field(INP, "@asyn($(PORT),0)PC_FILT1")
   field(NELM, "$(NELM=100000)")
   field(FTVL, "LONG")
   field(SCAN, "I/O Intr")
 }
 
+expand("zebraRegisterWriteMux.vdb", PC_FILTSEL1) {
+  macro(PARAM, "PC_FILTSEL1")
+}
 
-record(waveform, "$(P)$(Q):PC_POS2") {
+record(waveform, "$(P)$(Q):PC_FILT2") {
   field(DTYP, "asynInt32ArrayIn")
-  field(INP, "@asyn($(PORT),0)PC_POS2")
+  field(INP, "@asyn($(PORT),0)PC_FILT2")
   field(NELM, "$(NELM=100000)")
   field(FTVL, "LONG")
   field(SCAN, "I/O Intr")
 }
 
+expand("zebraRegisterWriteMux.vdb", PC_FILTSEL2) {
+  macro(PARAM, "PC_FILTSEL2")
+}
 
-record(waveform, "$(P)$(Q):PC_POS3") {
+record(waveform, "$(P)$(Q):PC_FILT3") {
   field(DTYP, "asynInt32ArrayIn")
-  field(INP, "@asyn($(PORT),0)PC_POS3")
+  field(INP, "@asyn($(PORT),0)PC_FILT3")
   field(NELM, "$(NELM=100000)")
   field(FTVL, "LONG")
   field(SCAN, "I/O Intr")
 }
 
+expand("zebraRegisterWriteMux.vdb", PC_FILTSEL3) {
+  macro(PARAM, "PC_FILTSEL3")
+}
 
-record(waveform, "$(P)$(Q):PC_POS4") {
+record(waveform, "$(P)$(Q):PC_FILT4") {
   field(DTYP, "asynInt32ArrayIn")
-  field(INP, "@asyn($(PORT),0)PC_POS4")
+  field(INP, "@asyn($(PORT),0)PC_FILT4")
   field(NELM, "$(NELM=100000)")
   field(FTVL, "LONG")
   field(SCAN, "I/O Intr")
+}
+
+expand("zebraRegisterWriteMux.vdb", PC_FILTSEL4) {
+  macro(PARAM, "PC_FILTSEL4")
 }
 
 record(calcout, "$(P)$(Q):QUAD_OUTA") {
@@ -1169,7 +1331,6 @@ expand("zebraRegisterWrite.vdb", PC_CAP) {
   macro(PREC, "0")
 }
 
-
 record(ao, "$(P)$(Q):ARRAY_UPDATE") {
   field(DESC, "Update array values if new ones exist")
   field(DTYP, "asynInt32")
@@ -1177,617 +1338,743 @@ record(ao, "$(P)$(Q):ARRAY_UPDATE") {
   field(SCAN, "1 second")
 }
 
+record(ai, "$(P)$(Q):PC_ENC1_LAST_CTS") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0) PC_CAP1_LAST")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P)$(Q):PC_ENC2_LAST_CTS") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0) PC_CAP2_LAST")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P)$(Q):PC_ENC3_LAST_CTS") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0) PC_CAP3_LAST")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P)$(Q):PC_ENC4_LAST_CTS") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0) PC_CAP4_LAST")
+  field(SCAN, "I/O Intr")
+}
+
+record(waveform, "$(P)$(Q):PC_ENC1_CTS") {
+  field(DTYP, "asynInt32ArrayIn")
+  field(INP, "@asyn($(PORT),0)PC_CAP1")
+  field(NELM, "$(NELM=100000)")
+  field(FTVL, "LONG")
+  field(SCAN, "I/O Intr")
+}
+
+record(waveform, "$(P)$(Q):PC_ENC2_CTS") {
+  field(DTYP, "asynInt32ArrayIn")
+  field(INP, "@asyn($(PORT),0)PC_CAP2")
+  field(NELM, "$(NELM=100000)")
+  field(FTVL, "LONG")
+  field(SCAN, "I/O Intr")
+}
+
+record(waveform, "$(P)$(Q):PC_ENC3_CTS") {
+  field(DTYP, "asynInt32ArrayIn")
+  field(INP, "@asyn($(PORT),0)PC_CAP3")
+  field(NELM, "$(NELM=100000)")
+  field(FTVL, "LONG")
+  field(SCAN, "I/O Intr")
+}
+
+record(waveform, "$(P)$(Q):PC_ENC4_CTS") {
+  field(DTYP, "asynInt32ArrayIn")
+  field(INP, "@asyn($(PORT),0)PC_CAP4")
+  field(NELM, "$(NELM=100000)")
+  field(FTVL, "LONG")
+  field(SCAN, "I/O Intr")
+}
+
+record(calc, "$(P)$(Q):PC_ENC1_LAST") {
+  field(CALC, "A*B+C")
+  field(INPA, "$(P)$(Q):PC_ENC1_LAST_CTS CP")
+  field(INPB, "$(P)$(Q):M1:MRES CP")
+  field(INPC, "$(P)$(Q):M1:OFF CP")
+  field(PREC, "4")
+}
+
+record(acalcout, "$(P)$(Q):PC_ENC1") {
+  field(NELM, "$(NELM=100000)")
+  field(CALC, "AA*B+C")
+  field(INAA, "$(P)$(Q):PC_ENC1_CTS CP")
+  field(INPB, "$(P)$(Q):M1:MRES CP")
+  field(INPC, "$(P)$(Q):M1:OFF CP")
+}
+
+record(calc, "$(P)$(Q):PC_ENC2_LAST") {
+  field(CALC, "A*B+C")
+  field(INPA, "$(P)$(Q):PC_ENC2_LAST_CTS CP")
+  field(INPB, "$(P)$(Q):M2:MRES CP")
+  field(INPC, "$(P)$(Q):M2:OFF CP")
+  field(PREC, "4")
+}
+
+record(acalcout, "$(P)$(Q):PC_ENC2") {
+  field(NELM, "$(NELM=100000)")
+  field(CALC, "AA*B+C")
+  field(INAA, "$(P)$(Q):PC_ENC2_CTS CP")
+  field(INPB, "$(P)$(Q):M2:MRES CP")
+  field(INPC, "$(P)$(Q):M2:OFF CP")
+}
+
+record(calc, "$(P)$(Q):PC_ENC3_LAST") {
+  field(CALC, "A*B+C")
+  field(INPA, "$(P)$(Q):PC_ENC3_LAST_CTS CP")
+  field(INPB, "$(P)$(Q):M3:MRES CP")
+  field(INPC, "$(P)$(Q):M3:OFF CP")
+  field(PREC, "4")
+}
+
+record(acalcout, "$(P)$(Q):PC_ENC3") {
+  field(NELM, "$(NELM=100000)")
+  field(CALC, "AA*B+C")
+  field(INAA, "$(P)$(Q):PC_ENC3_CTS CP")
+  field(INPB, "$(P)$(Q):M3:MRES CP")
+  field(INPC, "$(P)$(Q):M3:OFF CP")
+}
+
+record(calc, "$(P)$(Q):PC_ENC4_LAST") {
+  field(CALC, "A*B+C")
+  field(INPA, "$(P)$(Q):PC_ENC4_LAST_CTS CP")
+  field(INPB, "$(P)$(Q):M4:MRES CP")
+  field(INPC, "$(P)$(Q):M4:OFF CP")
+  field(PREC, "4")
+}
+
+record(acalcout, "$(P)$(Q):PC_ENC4") {
+  field(NELM, "$(NELM=100000)")
+  field(CALC, "AA*B+C")
+  field(INAA, "$(P)$(Q):PC_ENC4_CTS CP")
+  field(INPB, "$(P)$(Q):M4:MRES CP")
+  field(INPC, "$(P)$(Q):M4:OFF CP")
+}
+
 #! Further lines contain data used by VisualDCT
-#! View(428,3245,0.8)
-#! Record("$(P)$(Q):CONNECTED",4180,2585,0,0,"$(P)$(Q):CONNECTED")
-#! Record("$(P)$(Q):STORE",3520,2642,0,0,"$(P)$(Q):STORE")
-#! Record("$(P)$(Q):SYS_RESET",3960,2642,0,0,"$(P)$(Q):SYS_RESET")
-#! Record("$(P)$(Q):SYS_VER",3740,2627,0,0,"$(P)$(Q):SYS_VER")
-#! Record("$(P)$(Q):SYS_BUS1",4400,2599,0,0,"$(P)$(Q):SYS_BUS1")
-#! Record("$(P)$(Q):SYS_BUS2",4560,2599,0,0,"$(P)$(Q):SYS_BUS2")
-#! Record("$(P)$(Q):SYS_STAT1LO",1780,4227,0,0,"$(P)$(Q):SYS_STAT1LO")
+#! View(3090,2754,1.0)
+#! Record("$(P)$(Q):CONNECTED",4720,2646,0,0,"$(P)$(Q):CONNECTED")
+#! Record("$(P)$(Q):STORE",3860,2802,0,0,"$(P)$(Q):STORE")
+#! Record("$(P)$(Q):CONFIG_WRITE",3860,3042,0,0,"$(P)$(Q):CONFIG_WRITE")
+#! Record("$(P)$(Q):CONFIG_READ",3860,2922,0,0,"$(P)$(Q):CONFIG_READ")
+#! Record("$(P)$(Q):CONFIG_FILE",3860,3160,0,0,"$(P)$(Q):CONFIG_FILE")
+#! Record("$(P)$(Q):CONFIG_STATUS",3860,3320,0,0,"$(P)$(Q):CONFIG_STATUS")
+#! Record("$(P)$(Q):SYS_RESET",4720,2502,0,0,"$(P)$(Q):SYS_RESET")
+#! Record("$(P)$(Q):SYS_VER",4540,2668,0,0,"$(P)$(Q):SYS_VER")
+#! Record("$(P)$(Q):PC_NUM_CAP",180,4228,0,0,"$(P)$(Q):PC_NUM_CAP")
+#! Record("$(P)$(Q):PC_NUM_DOWN",420,4228,0,0,"$(P)$(Q):PC_NUM_DOWN")
+#! Record("$(P)$(Q):SYS_BUS1",4560,2820,0,0,"$(P)$(Q):SYS_BUS1")
+#! Record("$(P)$(Q):SYS_BUS2",4720,2820,0,0,"$(P)$(Q):SYS_BUS2")
+#! Record("$(P)$(Q):SYS_STAT1LO",1640,968,0,0,"$(P)$(Q):SYS_STAT1LO")
 #! Field("$(P)$(Q):SYS_STAT1LO.VAL",16777215,1,"$(P)$(Q):SYS_STAT1LO.VAL")
-#! Record("$(P)$(Q):SYS_STAT1HI",1760,4067,0,0,"$(P)$(Q):SYS_STAT1HI")
+#! Record("$(P)$(Q):SYS_STAT1HI",1620,808,0,0,"$(P)$(Q):SYS_STAT1HI")
 #! Field("$(P)$(Q):SYS_STAT1HI.VAL",16777215,1,"$(P)$(Q):SYS_STAT1HI.VAL")
-#! Record("$(P)$(Q):SYS_STAT1",1740,3867,0,1,"$(P)$(Q):SYS_STAT1")
+#! Record("$(P)$(Q):SYS_STAT1",1600,608,0,1,"$(P)$(Q):SYS_STAT1")
 #! Field("$(P)$(Q):SYS_STAT1.INPA",16777215,1,"$(P)$(Q):SYS_STAT1.INPA")
 #! Link("$(P)$(Q):SYS_STAT1.INPA","$(P)$(Q):SYS_STAT1LO.VAL")
 #! Field("$(P)$(Q):SYS_STAT1.INPB",16777215,1,"$(P)$(Q):SYS_STAT1.INPB")
 #! Link("$(P)$(Q):SYS_STAT1.INPB","$(P)$(Q):SYS_STAT1HI.VAL")
 #! Field("$(P)$(Q):SYS_STAT1.VAL",16777215,0,"$(P)$(Q):SYS_STAT1.VAL")
-#! Record("$(P)$(Q):SYS_STAT2LO",3580,307,0,0,"$(P)$(Q):SYS_STAT2LO")
+#! Record("$(P)$(Q):SYS_STAT2LO",3960,368,0,0,"$(P)$(Q):SYS_STAT2LO")
 #! Field("$(P)$(Q):SYS_STAT2LO.VAL",16777215,0,"$(P)$(Q):SYS_STAT2LO.VAL")
-#! Record("$(P)$(Q):SYS_STAT2HI",3580,447,0,0,"$(P)$(Q):SYS_STAT2HI")
+#! Record("$(P)$(Q):SYS_STAT2HI",3960,508,0,0,"$(P)$(Q):SYS_STAT2HI")
 #! Field("$(P)$(Q):SYS_STAT2HI.VAL",16777215,0,"$(P)$(Q):SYS_STAT2HI.VAL")
-#! Record("$(P)$(Q):SYS_STAT2",3280,427,0,0,"$(P)$(Q):SYS_STAT2")
+#! Record("$(P)$(Q):SYS_STAT2",3660,488,0,0,"$(P)$(Q):SYS_STAT2")
 #! Field("$(P)$(Q):SYS_STAT2.INPA",16777215,1,"$(P)$(Q):SYS_STAT2.INPA")
 #! Link("$(P)$(Q):SYS_STAT2.INPA","$(P)$(Q):SYS_STAT2LO.VAL")
 #! Field("$(P)$(Q):SYS_STAT2.INPB",16777215,1,"$(P)$(Q):SYS_STAT2.INPB")
 #! Link("$(P)$(Q):SYS_STAT2.INPB","$(P)$(Q):SYS_STAT2HI.VAL")
 #! Field("$(P)$(Q):SYS_STAT2.VAL",16777215,1,"$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("AND1_INV",2780,540,0,"")
+#! TemplateInstance("AND1_INV",3180,540,0,"")
 #! TemplateField("AND1_INV","ASLO",16777215,0,1)
 #! TemplateField("AND1_INV","PREC",16777215,0,1)
 #! TemplateField("AND1_INV","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND1_INP1",1780,540,0,"")
+#! TemplateInstance("AND1_INP1",2180,540,0,"")
 #! TemplateField("AND1_INP1","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND1_INP2",1980,540,0,"")
+#! TemplateInstance("AND1_INP2",2380,540,0,"")
 #! TemplateField("AND1_INP2","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND1_INP3",2180,540,0,"")
+#! TemplateInstance("AND1_INP3",2580,540,0,"")
 #! TemplateField("AND1_INP3","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND1_INP4",2380,540,0,"")
+#! TemplateInstance("AND1_INP4",2780,540,0,"")
 #! TemplateField("AND1_INP4","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND1_ENA",2580,540,0,"")
+#! TemplateInstance("AND1_ENA",2980,540,0,"")
 #! TemplateField("AND1_ENA","ASLO",16777215,0,1)
 #! TemplateField("AND1_ENA","PREC",16777215,0,1)
 #! TemplateField("AND1_ENA","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):AND1_OUT",2980,542,0,0,"$(P)$(Q):AND1_OUT")
+#! Record("$(P)$(Q):AND1_OUT",3380,542,0,0,"$(P)$(Q):AND1_OUT")
 #! Field("$(P)$(Q):AND1_OUT.INPA",16777215,1,"$(P)$(Q):AND1_OUT.INPA")
 #! Link("$(P)$(Q):AND1_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("AND2_INV",2780,840,0,"")
+#! TemplateInstance("AND2_INV",3180,840,0,"")
 #! TemplateField("AND2_INV","ASLO",16777215,0,1)
 #! TemplateField("AND2_INV","PREC",16777215,0,1)
 #! TemplateField("AND2_INV","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND2_INP1",1780,840,0,"")
+#! TemplateInstance("AND2_INP1",2180,840,0,"")
 #! TemplateField("AND2_INP1","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND2_INP2",1980,840,0,"")
+#! TemplateInstance("AND2_INP2",2380,840,0,"")
 #! TemplateField("AND2_INP2","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND2_INP3",2180,840,0,"")
+#! TemplateInstance("AND2_INP3",2580,840,0,"")
 #! TemplateField("AND2_INP3","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND2_INP4",2380,840,0,"")
+#! TemplateInstance("AND2_INP4",2780,840,0,"")
 #! TemplateField("AND2_INP4","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND2_ENA",2580,840,0,"")
+#! TemplateInstance("AND2_ENA",2980,840,0,"")
 #! TemplateField("AND2_ENA","ASLO",16777215,0,1)
 #! TemplateField("AND2_ENA","PREC",16777215,0,1)
 #! TemplateField("AND2_ENA","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):AND2_OUT",2980,842,0,0,"$(P)$(Q):AND2_OUT")
+#! Record("$(P)$(Q):AND2_OUT",3380,842,0,0,"$(P)$(Q):AND2_OUT")
 #! Field("$(P)$(Q):AND2_OUT.INPA",16777215,1,"$(P)$(Q):AND2_OUT.INPA")
 #! Link("$(P)$(Q):AND2_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("AND3_INV",2780,1140,0,"")
+#! TemplateInstance("AND3_INV",3180,1140,0,"")
 #! TemplateField("AND3_INV","ASLO",16777215,0,1)
 #! TemplateField("AND3_INV","PREC",16777215,0,1)
 #! TemplateField("AND3_INV","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND3_INP1",1780,1140,0,"")
+#! TemplateInstance("AND3_INP1",2180,1140,0,"")
 #! TemplateField("AND3_INP1","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND3_INP2",1980,1140,0,"")
+#! TemplateInstance("AND3_INP2",2380,1140,0,"")
 #! TemplateField("AND3_INP2","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND3_INP3",2180,1140,0,"")
+#! TemplateInstance("AND3_INP3",2580,1140,0,"")
 #! TemplateField("AND3_INP3","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND3_INP4",2380,1140,0,"")
+#! TemplateInstance("AND3_INP4",2780,1140,0,"")
 #! TemplateField("AND3_INP4","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND3_ENA",2580,1140,0,"")
+#! TemplateInstance("AND3_ENA",2980,1140,0,"")
 #! TemplateField("AND3_ENA","ASLO",16777215,0,1)
 #! TemplateField("AND3_ENA","PREC",16777215,0,1)
 #! TemplateField("AND3_ENA","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):AND3_OUT",2980,1142,0,0,"$(P)$(Q):AND3_OUT")
+#! Record("$(P)$(Q):AND3_OUT",3380,1142,0,0,"$(P)$(Q):AND3_OUT")
 #! Field("$(P)$(Q):AND3_OUT.INPA",16777215,1,"$(P)$(Q):AND3_OUT.INPA")
 #! Link("$(P)$(Q):AND3_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("AND4_INV",2780,1440,0,"")
+#! TemplateInstance("AND4_INV",3180,1440,0,"")
 #! TemplateField("AND4_INV","ASLO",16777215,0,1)
 #! TemplateField("AND4_INV","PREC",16777215,0,1)
 #! TemplateField("AND4_INV","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND4_INP1",1780,1440,0,"")
+#! TemplateInstance("AND4_INP1",2180,1440,0,"")
 #! TemplateField("AND4_INP1","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND4_INP2",1980,1440,0,"")
+#! TemplateInstance("AND4_INP2",2380,1440,0,"")
 #! TemplateField("AND4_INP2","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND4_INP3",2180,1440,0,"")
+#! TemplateInstance("AND4_INP3",2580,1440,0,"")
 #! TemplateField("AND4_INP3","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND4_INP4",2380,1440,0,"")
+#! TemplateInstance("AND4_INP4",2780,1440,0,"")
 #! TemplateField("AND4_INP4","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("AND4_ENA",2580,1440,0,"")
+#! TemplateInstance("AND4_ENA",2980,1440,0,"")
 #! TemplateField("AND4_ENA","ASLO",16777215,0,1)
 #! TemplateField("AND4_ENA","PREC",16777215,0,1)
 #! TemplateField("AND4_ENA","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):AND4_OUT",2980,1442,0,0,"$(P)$(Q):AND4_OUT")
+#! Record("$(P)$(Q):AND4_OUT",3380,1442,0,0,"$(P)$(Q):AND4_OUT")
 #! Field("$(P)$(Q):AND4_OUT.INPA",16777215,1,"$(P)$(Q):AND4_OUT.INPA")
 #! Link("$(P)$(Q):AND4_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("OR1_INV",2780,1760,0,"")
+#! TemplateInstance("OR1_INV",3180,1760,0,"")
 #! TemplateField("OR1_INV","ASLO",16777215,0,1)
 #! TemplateField("OR1_INV","PREC",16777215,0,1)
 #! TemplateField("OR1_INV","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR1_INP1",1780,1760,0,"")
+#! TemplateInstance("OR1_INP1",2180,1760,0,"")
 #! TemplateField("OR1_INP1","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR1_INP2",1980,1760,0,"")
+#! TemplateInstance("OR1_INP2",2380,1760,0,"")
 #! TemplateField("OR1_INP2","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR1_INP3",2180,1760,0,"")
+#! TemplateInstance("OR1_INP3",2580,1760,0,"")
 #! TemplateField("OR1_INP3","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR1_INP4",2380,1760,0,"")
+#! TemplateInstance("OR1_INP4",2780,1760,0,"")
 #! TemplateField("OR1_INP4","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR1_ENA",2580,1760,0,"")
+#! TemplateInstance("OR1_ENA",2980,1760,0,"")
 #! TemplateField("OR1_ENA","ASLO",16777215,0,1)
 #! TemplateField("OR1_ENA","PREC",16777215,0,1)
 #! TemplateField("OR1_ENA","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):OR1_OUT",2980,1762,0,0,"$(P)$(Q):OR1_OUT")
+#! Record("$(P)$(Q):OR1_OUT",3380,1762,0,0,"$(P)$(Q):OR1_OUT")
 #! Field("$(P)$(Q):OR1_OUT.INPA",16777215,1,"$(P)$(Q):OR1_OUT.INPA")
 #! Link("$(P)$(Q):OR1_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("OR2_INV",2780,2060,0,"")
+#! TemplateInstance("OR2_INV",3180,2060,0,"")
 #! TemplateField("OR2_INV","ASLO",16777215,0,1)
 #! TemplateField("OR2_INV","PREC",16777215,0,1)
 #! TemplateField("OR2_INV","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR2_INP1",1780,2060,0,"")
+#! TemplateInstance("OR2_INP1",2180,2060,0,"")
 #! TemplateField("OR2_INP1","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR2_INP2",1980,2060,0,"")
+#! TemplateInstance("OR2_INP2",2380,2060,0,"")
 #! TemplateField("OR2_INP2","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR2_INP3",2180,2060,0,"")
+#! TemplateInstance("OR2_INP3",2580,2060,0,"")
 #! TemplateField("OR2_INP3","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR2_INP4",2380,2060,0,"")
+#! TemplateInstance("OR2_INP4",2780,2060,0,"")
 #! TemplateField("OR2_INP4","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):OR2_OUT",2980,2062,0,0,"$(P)$(Q):OR2_OUT")
+#! Record("$(P)$(Q):OR2_OUT",3380,2062,0,0,"$(P)$(Q):OR2_OUT")
 #! Field("$(P)$(Q):OR2_OUT.INPA",16777215,1,"$(P)$(Q):OR2_OUT.INPA")
 #! Link("$(P)$(Q):OR2_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("OR2_ENA",2580,2060,0,"")
+#! TemplateInstance("OR2_ENA",2980,2060,0,"")
 #! TemplateField("OR2_ENA","ASLO",16777215,0,1)
 #! TemplateField("OR2_ENA","PREC",16777215,0,1)
 #! TemplateField("OR2_ENA","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR3_INV",2780,2360,0,"")
+#! TemplateInstance("OR3_INV",3180,2360,0,"")
 #! TemplateField("OR3_INV","ASLO",16777215,0,1)
 #! TemplateField("OR3_INV","PREC",16777215,0,1)
 #! TemplateField("OR3_INV","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR3_INP1",1780,2360,0,"")
+#! TemplateInstance("OR3_INP1",2180,2360,0,"")
 #! TemplateField("OR3_INP1","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR3_INP2",1980,2360,0,"")
+#! TemplateInstance("OR3_INP2",2380,2360,0,"")
 #! TemplateField("OR3_INP2","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR3_INP3",2180,2360,0,"")
+#! TemplateInstance("OR3_INP3",2580,2360,0,"")
 #! TemplateField("OR3_INP3","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR3_INP4",2380,2360,0,"")
+#! TemplateInstance("OR3_INP4",2780,2360,0,"")
 #! TemplateField("OR3_INP4","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):OR3_OUT",2980,2362,0,0,"$(P)$(Q):OR3_OUT")
+#! Record("$(P)$(Q):OR3_OUT",3380,2362,0,0,"$(P)$(Q):OR3_OUT")
 #! Field("$(P)$(Q):OR3_OUT.INPA",16777215,1,"$(P)$(Q):OR3_OUT.INPA")
 #! Link("$(P)$(Q):OR3_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("OR3_ENA",2580,2360,0,"")
+#! TemplateInstance("OR3_ENA",2980,2360,0,"")
 #! TemplateField("OR3_ENA","ASLO",16777215,0,1)
 #! TemplateField("OR3_ENA","PREC",16777215,0,1)
 #! TemplateField("OR3_ENA","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR4_INV",2780,2660,0,"")
+#! TemplateInstance("OR4_INV",3180,2660,0,"")
 #! TemplateField("OR4_INV","ASLO",16777215,0,1)
 #! TemplateField("OR4_INV","PREC",16777215,0,1)
 #! TemplateField("OR4_INV","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR4_INP1",1780,2660,0,"")
+#! TemplateInstance("OR4_INP1",2180,2660,0,"")
 #! TemplateField("OR4_INP1","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR4_INP2",1980,2660,0,"")
+#! TemplateInstance("OR4_INP2",2380,2660,0,"")
 #! TemplateField("OR4_INP2","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR4_INP3",2180,2660,0,"")
+#! TemplateInstance("OR4_INP3",2580,2660,0,"")
 #! TemplateField("OR4_INP3","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR4_INP4",2380,2660,0,"")
+#! TemplateInstance("OR4_INP4",2780,2660,0,"")
 #! TemplateField("OR4_INP4","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OR4_ENA",2580,2660,0,"")
+#! TemplateInstance("OR4_ENA",2980,2660,0,"")
 #! TemplateField("OR4_ENA","ASLO",16777215,0,1)
 #! TemplateField("OR4_ENA","PREC",16777215,0,1)
 #! TemplateField("OR4_ENA","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):OR4_OUT",2980,2662,0,0,"$(P)$(Q):OR4_OUT")
+#! Record("$(P)$(Q):OR4_OUT",3380,2662,0,0,"$(P)$(Q):OR4_OUT")
 #! Field("$(P)$(Q):OR4_OUT.INPA",16777215,1,"$(P)$(Q):OR4_OUT.INPA")
 #! Link("$(P)$(Q):OR4_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("GATE1_INP1",2580,2960,0,"")
+#! TemplateInstance("GATE1_INP1",2980,2960,0,"")
 #! TemplateField("GATE1_INP1","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("GATE1_INP2",2780,2960,0,"")
+#! TemplateInstance("GATE1_INP2",3180,2960,0,"")
 #! TemplateField("GATE1_INP2","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):GATE1_OUT",2980,2962,0,0,"$(P)$(Q):GATE1_OUT")
+#! Record("$(P)$(Q):GATE1_OUT",3380,2962,0,0,"$(P)$(Q):GATE1_OUT")
 #! Field("$(P)$(Q):GATE1_OUT.INPA",16777215,1,"$(P)$(Q):GATE1_OUT.INPA")
 #! Link("$(P)$(Q):GATE1_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("GATE2_INP1",2580,3160,0,"")
+#! TemplateInstance("GATE2_INP1",2980,3160,0,"")
 #! TemplateField("GATE2_INP1","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("GATE2_INP2",2780,3160,0,"")
+#! TemplateInstance("GATE2_INP2",3180,3160,0,"")
 #! TemplateField("GATE2_INP2","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):GATE2_OUT",2980,3162,0,0,"$(P)$(Q):GATE2_OUT")
+#! Record("$(P)$(Q):GATE2_OUT",3380,3162,0,0,"$(P)$(Q):GATE2_OUT")
 #! Field("$(P)$(Q):GATE2_OUT.INPA",16777215,1,"$(P)$(Q):GATE2_OUT.INPA")
 #! Link("$(P)$(Q):GATE2_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("GATE3_INP1",2580,3360,0,"")
+#! TemplateInstance("GATE3_INP1",2980,3360,0,"")
 #! TemplateField("GATE3_INP1","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("GATE3_INP2",2780,3360,0,"")
+#! TemplateInstance("GATE3_INP2",3180,3360,0,"")
 #! TemplateField("GATE3_INP2","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):GATE3_OUT",2980,3362,0,0,"$(P)$(Q):GATE3_OUT")
+#! Record("$(P)$(Q):GATE3_OUT",3380,3362,0,0,"$(P)$(Q):GATE3_OUT")
 #! Field("$(P)$(Q):GATE3_OUT.INPA",16777215,1,"$(P)$(Q):GATE3_OUT.INPA")
 #! Link("$(P)$(Q):GATE3_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("GATE4_INP1",2580,3560,0,"")
+#! TemplateInstance("GATE4_INP1",2980,3560,0,"")
 #! TemplateField("GATE4_INP1","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("GATE4_INP2",2780,3560,0,"")
+#! TemplateInstance("GATE4_INP2",3180,3560,0,"")
 #! TemplateField("GATE4_INP2","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):GATE4_OUT",2980,3562,0,0,"$(P)$(Q):GATE4_OUT")
+#! Record("$(P)$(Q):GATE4_OUT",3380,3562,0,0,"$(P)$(Q):GATE4_OUT")
 #! Field("$(P)$(Q):GATE4_OUT.INPA",16777215,1,"$(P)$(Q):GATE4_OUT.INPA")
 #! Link("$(P)$(Q):GATE4_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("DIV1_INP",2580,3780,0,"")
+#! TemplateInstance("DIV1_INP",2980,3780,0,"")
 #! TemplateField("DIV1_INP","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("DIV1_DIV",2780,3780,0,"")
+#! TemplateInstance("DIV1_DIV",3180,3780,0,"")
 #! TemplateField("DIV1_DIV","MOTOR",16777215,0,1)
 #! TemplateField("DIV1_DIV","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):DIV1_OUTD",2980,3782,0,0,"$(P)$(Q):DIV1_OUTD")
+#! Record("$(P)$(Q):DIV1_OUTD",3380,3782,0,0,"$(P)$(Q):DIV1_OUTD")
 #! Field("$(P)$(Q):DIV1_OUTD.INPA",16777215,1,"$(P)$(Q):DIV1_OUTD.INPA")
 #! Link("$(P)$(Q):DIV1_OUTD.INPA","$(P)$(Q):SYS_STAT2.VAL")
-#! Record("$(P)$(Q):DIV1_OUTN",2980,3902,0,0,"$(P)$(Q):DIV1_OUTN")
+#! Record("$(P)$(Q):DIV1_OUTN",3380,3902,0,0,"$(P)$(Q):DIV1_OUTN")
 #! Field("$(P)$(Q):DIV1_OUTN.INPA",16777215,1,"$(P)$(Q):DIV1_OUTN.INPA")
 #! Link("$(P)$(Q):DIV1_OUTN.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("DIV2_INP",2580,4080,0,"")
+#! TemplateInstance("DIV2_INP",2980,4080,0,"")
 #! TemplateField("DIV2_INP","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("DIV2_DIV",2780,4080,0,"")
+#! TemplateInstance("DIV2_DIV",3180,4080,0,"")
 #! TemplateField("DIV2_DIV","MOTOR",16777215,0,1)
 #! TemplateField("DIV2_DIV","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):DIV2_OUTD",2980,4082,0,0,"$(P)$(Q):DIV2_OUTD")
+#! Record("$(P)$(Q):DIV2_OUTD",3380,4082,0,0,"$(P)$(Q):DIV2_OUTD")
 #! Field("$(P)$(Q):DIV2_OUTD.INPA",16777215,1,"$(P)$(Q):DIV2_OUTD.INPA")
 #! Link("$(P)$(Q):DIV2_OUTD.INPA","$(P)$(Q):SYS_STAT2.VAL")
-#! Record("$(P)$(Q):DIV2_OUTN",2980,4202,0,0,"$(P)$(Q):DIV2_OUTN")
+#! Record("$(P)$(Q):DIV2_OUTN",3380,4202,0,0,"$(P)$(Q):DIV2_OUTN")
 #! Field("$(P)$(Q):DIV2_OUTN.INPA",16777215,1,"$(P)$(Q):DIV2_OUTN.INPA")
 #! Link("$(P)$(Q):DIV2_OUTN.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("DIV3_INP",2580,4380,0,"")
+#! TemplateInstance("DIV3_INP",2980,4380,0,"")
 #! TemplateField("DIV3_INP","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("DIV3_DIV",2780,4380,0,"")
+#! TemplateInstance("DIV3_DIV",3180,4380,0,"")
 #! TemplateField("DIV3_DIV","MOTOR",16777215,0,1)
 #! TemplateField("DIV3_DIV","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):DIV3_OUTD",2980,4382,0,0,"$(P)$(Q):DIV3_OUTD")
+#! Record("$(P)$(Q):DIV3_OUTD",3380,4382,0,0,"$(P)$(Q):DIV3_OUTD")
 #! Field("$(P)$(Q):DIV3_OUTD.INPA",16777215,1,"$(P)$(Q):DIV3_OUTD.INPA")
 #! Link("$(P)$(Q):DIV3_OUTD.INPA","$(P)$(Q):SYS_STAT2.VAL")
-#! Record("$(P)$(Q):DIV3_OUTN",2980,4502,0,0,"$(P)$(Q):DIV3_OUTN")
+#! Record("$(P)$(Q):DIV3_OUTN",3380,4502,0,0,"$(P)$(Q):DIV3_OUTN")
 #! Field("$(P)$(Q):DIV3_OUTN.INPA",16777215,1,"$(P)$(Q):DIV3_OUTN.INPA")
 #! Link("$(P)$(Q):DIV3_OUTN.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("DIV4_INP",2580,4680,0,"")
+#! TemplateInstance("DIV4_INP",2980,4680,0,"")
 #! TemplateField("DIV4_INP","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("DIV4_DIV",2780,4680,0,"")
+#! TemplateInstance("DIV4_DIV",3180,4680,0,"")
 #! TemplateField("DIV4_DIV","MOTOR",16777215,0,1)
 #! TemplateField("DIV4_DIV","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):DIV4_OUTD",2980,4682,0,0,"$(P)$(Q):DIV4_OUTD")
+#! Record("$(P)$(Q):DIV4_OUTD",3380,4682,0,0,"$(P)$(Q):DIV4_OUTD")
 #! Field("$(P)$(Q):DIV4_OUTD.INPA",16777215,1,"$(P)$(Q):DIV4_OUTD.INPA")
 #! Link("$(P)$(Q):DIV4_OUTD.INPA","$(P)$(Q):SYS_STAT2.VAL")
-#! Record("$(P)$(Q):DIV4_OUTN",2980,4802,0,0,"$(P)$(Q):DIV4_OUTN")
+#! Record("$(P)$(Q):DIV4_OUTN",3380,4802,0,0,"$(P)$(Q):DIV4_OUTN")
 #! Field("$(P)$(Q):DIV4_OUTN.INPA",16777215,1,"$(P)$(Q):DIV4_OUTN.INPA")
 #! Link("$(P)$(Q):DIV4_OUTN.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("PULSE1_DLY",3940,680,0,"")
+#! TemplateInstance("PULSE1_DLY",4300,1020,0,"")
 #! TemplateField("PULSE1_DLY","ASLO",16777215,0,1)
 #! TemplateField("PULSE1_DLY","PREC",16777215,0,1)
 #! TemplateField("PULSE1_DLY","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PULSE1_WID",4140,680,0,"")
+#! TemplateInstance("PULSE1_WID",4500,1020,0,"")
 #! TemplateField("PULSE1_WID","ASLO",16777215,0,1)
 #! TemplateField("PULSE1_WID","PREC",16777215,0,1)
 #! TemplateField("PULSE1_WID","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PULSE1_PRE",4340,680,0,"")
+#! TemplateInstance("PULSE1_PRE",4700,1020,0,"")
 #! TemplateField("PULSE1_PRE","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PULSE1_INP",3740,680,0,"")
+#! TemplateInstance("PULSE1_INP",4100,1020,0,"")
 #! TemplateField("PULSE1_INP","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):PULSE1_OUT",3580,682,0,0,"$(P)$(Q):PULSE1_OUT")
+#! Record("$(P)$(Q):PULSE1_OUT",3940,1022,0,0,"$(P)$(Q):PULSE1_OUT")
 #! Field("$(P)$(Q):PULSE1_OUT.INPA",16777215,0,"$(P)$(Q):PULSE1_OUT.INPA")
 #! Link("$(P)$(Q):PULSE1_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("PULSE2_DLY",3940,980,0,"")
+#! TemplateInstance("PULSE2_DLY",4300,1320,0,"")
 #! TemplateField("PULSE2_DLY","ASLO",16777215,0,1)
 #! TemplateField("PULSE2_DLY","PREC",16777215,0,1)
 #! TemplateField("PULSE2_DLY","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PULSE2_WID",4140,980,0,"")
+#! TemplateInstance("PULSE2_WID",4500,1320,0,"")
 #! TemplateField("PULSE2_WID","ASLO",16777215,0,1)
 #! TemplateField("PULSE2_WID","PREC",16777215,0,1)
 #! TemplateField("PULSE2_WID","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PULSE2_PRE",4340,980,0,"")
+#! TemplateInstance("PULSE2_PRE",4700,1320,0,"")
 #! TemplateField("PULSE2_PRE","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PULSE2_INP",3740,980,0,"")
+#! TemplateInstance("PULSE2_INP",4100,1320,0,"")
 #! TemplateField("PULSE2_INP","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):PULSE2_OUT",3580,982,0,0,"$(P)$(Q):PULSE2_OUT")
+#! Record("$(P)$(Q):PULSE2_OUT",3940,1322,0,0,"$(P)$(Q):PULSE2_OUT")
 #! Field("$(P)$(Q):PULSE2_OUT.INPA",16777215,0,"$(P)$(Q):PULSE2_OUT.INPA")
 #! Link("$(P)$(Q):PULSE2_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("PULSE3_DLY",3940,1280,0,"")
+#! TemplateInstance("PULSE3_DLY",4300,1620,0,"")
 #! TemplateField("PULSE3_DLY","ASLO",16777215,0,1)
 #! TemplateField("PULSE3_DLY","PREC",16777215,0,1)
 #! TemplateField("PULSE3_DLY","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PULSE3_WID",4140,1280,0,"")
+#! TemplateInstance("PULSE3_WID",4500,1620,0,"")
 #! TemplateField("PULSE3_WID","ASLO",16777215,0,1)
 #! TemplateField("PULSE3_WID","PREC",16777215,0,1)
 #! TemplateField("PULSE3_WID","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PULSE3_PRE",4340,1280,0,"")
+#! TemplateInstance("PULSE3_PRE",4700,1620,0,"")
 #! TemplateField("PULSE3_PRE","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PULSE3_INP",3740,1280,0,"")
+#! TemplateInstance("PULSE3_INP",4100,1620,0,"")
 #! TemplateField("PULSE3_INP","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):PULSE3_OUT",3580,1282,0,0,"$(P)$(Q):PULSE3_OUT")
+#! Record("$(P)$(Q):PULSE3_OUT",3940,1622,0,0,"$(P)$(Q):PULSE3_OUT")
 #! Field("$(P)$(Q):PULSE3_OUT.INPA",16777215,0,"$(P)$(Q):PULSE3_OUT.INPA")
 #! Link("$(P)$(Q):PULSE3_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("PULSE4_DLY",3940,1580,0,"")
+#! TemplateInstance("PULSE4_DLY",4300,1920,0,"")
 #! TemplateField("PULSE4_DLY","ASLO",16777215,0,1)
 #! TemplateField("PULSE4_DLY","PREC",16777215,0,1)
 #! TemplateField("PULSE4_DLY","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PULSE4_WID",4140,1580,0,"")
+#! TemplateInstance("PULSE4_WID",4500,1920,0,"")
 #! TemplateField("PULSE4_WID","ASLO",16777215,0,1)
 #! TemplateField("PULSE4_WID","PREC",16777215,0,1)
 #! TemplateField("PULSE4_WID","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PULSE4_PRE",4340,1580,0,"")
+#! TemplateInstance("PULSE4_PRE",4700,1920,0,"")
 #! TemplateField("PULSE4_PRE","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PULSE4_INP",3740,1580,0,"")
+#! TemplateInstance("PULSE4_INP",4100,1920,0,"")
 #! TemplateField("PULSE4_INP","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):PULSE4_OUT",3580,1582,0,0,"$(P)$(Q):PULSE4_OUT")
+#! Record("$(P)$(Q):PULSE4_OUT",3940,1922,0,0,"$(P)$(Q):PULSE4_OUT")
 #! Field("$(P)$(Q):PULSE4_OUT.INPA",16777215,0,"$(P)$(Q):PULSE4_OUT.INPA")
 #! Link("$(P)$(Q):PULSE4_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("OUT1_TTL",4140,2900,0,"")
+#! TemplateInstance("OUT1_TTL",4280,3340,0,"")
 #! TemplateField("OUT1_TTL","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT1_NIM",4340,2900,0,"")
+#! TemplateInstance("OUT1_NIM",4480,3340,0,"")
 #! TemplateField("OUT1_NIM","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT1_LVDS",4540,2900,0,"")
+#! TemplateInstance("OUT1_LVDS",4680,3340,0,"")
 #! TemplateField("OUT1_LVDS","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT2_TTL",4140,3100,0,"")
+#! TemplateInstance("OUT2_TTL",4280,3540,0,"")
 #! TemplateField("OUT2_TTL","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT2_NIM",4340,3100,0,"")
+#! TemplateInstance("OUT2_NIM",4480,3540,0,"")
 #! TemplateField("OUT2_NIM","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT2_LVDS",4540,3100,0,"")
+#! TemplateInstance("OUT2_LVDS",4680,3540,0,"")
 #! TemplateField("OUT2_LVDS","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT3_TTL",4140,3300,0,"")
+#! TemplateInstance("OUT3_TTL",4280,3740,0,"")
 #! TemplateField("OUT3_TTL","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT3_OC",4340,3300,0,"")
+#! TemplateInstance("OUT3_OC",4480,3740,0,"")
 #! TemplateField("OUT3_OC","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT3_LVDS",4540,3300,0,"")
+#! TemplateInstance("OUT3_LVDS",4680,3740,0,"")
 #! TemplateField("OUT3_LVDS","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT4_TTL",4140,3500,0,"")
+#! TemplateInstance("OUT4_TTL",4280,3940,0,"")
 #! TemplateField("OUT4_TTL","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT4_NIM",4340,3500,0,"")
+#! TemplateInstance("OUT4_NIM",4480,3940,0,"")
 #! TemplateField("OUT4_NIM","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT4_PECL",4540,3500,0,"")
+#! TemplateInstance("OUT4_PECL",4680,3940,0,"")
 #! TemplateField("OUT4_PECL","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT5_ENCA",3940,3700,0,"")
+#! TemplateInstance("OUT5_ENCA",4080,4140,0,"")
 #! TemplateField("OUT5_ENCA","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT5_ENCB",4140,3700,0,"")
+#! TemplateInstance("OUT5_ENCB",4280,4140,0,"")
 #! TemplateField("OUT5_ENCB","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT5_ENCZ",4340,3700,0,"")
+#! TemplateInstance("OUT5_ENCZ",4480,4140,0,"")
 #! TemplateField("OUT5_ENCZ","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT6_ENCA",3940,3900,0,"")
+#! TemplateInstance("OUT6_ENCA",4080,4340,0,"")
 #! TemplateField("OUT6_ENCA","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT6_ENCB",4140,3900,0,"")
+#! TemplateInstance("OUT6_ENCB",4280,4340,0,"")
 #! TemplateField("OUT6_ENCB","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT6_ENCZ",4340,3900,0,"")
+#! TemplateInstance("OUT6_ENCZ",4480,4340,0,"")
 #! TemplateField("OUT6_ENCZ","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT7_ENCA",3940,4100,0,"")
+#! TemplateInstance("OUT7_ENCA",4080,4540,0,"")
 #! TemplateField("OUT7_ENCA","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT7_ENCB",4140,4100,0,"")
+#! TemplateInstance("OUT7_ENCB",4280,4540,0,"")
 #! TemplateField("OUT7_ENCB","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT7_ENCZ",4340,4100,0,"")
+#! TemplateInstance("OUT7_ENCZ",4480,4540,0,"")
 #! TemplateField("OUT7_ENCZ","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT8_ENCA",3940,4300,0,"")
+#! TemplateInstance("OUT8_ENCA",4080,4740,0,"")
 #! TemplateField("OUT8_ENCA","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT8_ENCB",4140,4300,0,"")
+#! TemplateInstance("OUT8_ENCB",4280,4740,0,"")
 #! TemplateField("OUT8_ENCB","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT8_ENCZ",4340,4300,0,"")
+#! TemplateInstance("OUT8_ENCZ",4480,4740,0,"")
 #! TemplateField("OUT8_ENCZ","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("SOFT_IN",3680,3300,0,"")
+#! TemplateInstance("SOFT_IN",4680,3040,0,"")
 #! TemplateField("SOFT_IN","ASLO",16777215,0,1)
 #! TemplateField("SOFT_IN","PREC",16777215,0,1)
 #! TemplateField("SOFT_IN","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):NOMOTOR",1260,62,0,0,"$(P)$(Q):NOMOTOR")
-#! Record("$(P)$(Q):NOMOTOR:MRES",280,1809,0,0,"$(P)$(Q):NOMOTOR:MRES")
-#! Record("$(P)$(Q):NOMOTOR:SCALE",1260,209,0,0,"$(P)$(Q):NOMOTOR:SCALE")
-#! Record("$(P)$(Q):M1:MRES",220,1267,0,1,"$(P)$(Q):M1:MRES")
+#! Record("$(P)$(Q):NOMOTOR",1140,2502,0,0,"$(P)$(Q):NOMOTOR")
+#! Record("$(P)$(Q):NOMOTOR:MRES",1740,3930,0,0,"$(P)$(Q):NOMOTOR:MRES")
+#! Record("$(P)$(Q):NOMOTOR:SCALE",1140,2610,0,0,"$(P)$(Q):NOMOTOR:SCALE")
+#! Record("$(P)$(Q):M1:MRES",1680,3048,0,1,"$(P)$(Q):M1:MRES")
 #! Field("$(P)$(Q):M1:MRES.VAL",16777215,1,"$(P)$(Q):M1:MRES.VAL")
 #! Field("$(P)$(Q):M1:MRES.INPA",16777215,1,"$(P)$(Q):M1:MRES.INPA")
 #! Field("$(P)$(Q):M1:MRES.INPB",16777215,1,"$(P)$(Q):M1:MRES.INPB")
 #! Field("$(P)$(Q):M1:MRES.INPC",16777215,1,"$(P)$(Q):M1:MRES.INPC")
-#! Record("$(P)$(Q):M2:MRES",220,1427,0,1,"$(P)$(Q):M2:MRES")
+#! Record("$(P)$(Q):M2:MRES",1680,3268,0,1,"$(P)$(Q):M2:MRES")
 #! Field("$(P)$(Q):M2:MRES.VAL",16777215,1,"$(P)$(Q):M2:MRES.VAL")
 #! Field("$(P)$(Q):M2:MRES.INPA",16777215,1,"$(P)$(Q):M2:MRES.INPA")
 #! Field("$(P)$(Q):M2:MRES.INPB",16777215,1,"$(P)$(Q):M2:MRES.INPB")
 #! Field("$(P)$(Q):M2:MRES.INPC",16777215,1,"$(P)$(Q):M2:MRES.INPC")
-#! Record("$(P)$(Q):M3:MRES",240,1547,0,1,"$(P)$(Q):M3:MRES")
+#! Record("$(P)$(Q):M3:MRES",1700,3488,0,1,"$(P)$(Q):M3:MRES")
 #! Field("$(P)$(Q):M3:MRES.VAL",16777215,1,"$(P)$(Q):M3:MRES.VAL")
 #! Field("$(P)$(Q):M3:MRES.INPA",16777215,1,"$(P)$(Q):M3:MRES.INPA")
 #! Field("$(P)$(Q):M3:MRES.INPB",16777215,1,"$(P)$(Q):M3:MRES.INPB")
 #! Field("$(P)$(Q):M3:MRES.INPC",16777215,1,"$(P)$(Q):M3:MRES.INPC")
-#! Record("$(P)$(Q):M4:MRES",260,1667,0,1,"$(P)$(Q):M4:MRES")
+#! Record("$(P)$(Q):M4:MRES",1720,3708,0,1,"$(P)$(Q):M4:MRES")
 #! Field("$(P)$(Q):M4:MRES.VAL",16777215,1,"$(P)$(Q):M4:MRES.VAL")
 #! Field("$(P)$(Q):M4:MRES.INPA",16777215,1,"$(P)$(Q):M4:MRES.INPA")
 #! Field("$(P)$(Q):M4:MRES.INPB",16777215,1,"$(P)$(Q):M4:MRES.INPB")
 #! Field("$(P)$(Q):M4:MRES.INPC",16777215,1,"$(P)$(Q):M4:MRES.INPC")
-#! Record("$(P)$(Q):NOMOTOR:OFF",1380,1789,0,0,"$(P)$(Q):NOMOTOR:OFF")
-#! Record("$(P)$(Q):M1:OFF",1460,1309,0,1,"$(P)$(Q):M1:OFF")
+#! Record("$(P)$(Q):NOMOTOR:OFF",420,3870,0,0,"$(P)$(Q):NOMOTOR:OFF")
+#! Record("$(P)$(Q):M1:OFF",500,3090,0,1,"$(P)$(Q):M1:OFF")
 #! Field("$(P)$(Q):M1:OFF.INP",16777215,1,"$(P)$(Q):M1:OFF.INP")
-#! Field("$(P)$(Q):M1:OFF.VAL",16777215,0,"$(P)$(Q):M1:OFF.VAL")
-#! Record("$(P)$(Q):M2:OFF",1440,1429,0,1,"$(P)$(Q):M2:OFF")
+#! Field("$(P)$(Q):M1:OFF.VAL",16777215,1,"$(P)$(Q):M1:OFF.VAL")
+#! Record("$(P)$(Q):M2:OFF",480,3310,0,1,"$(P)$(Q):M2:OFF")
 #! Field("$(P)$(Q):M2:OFF.INP",16777215,1,"$(P)$(Q):M2:OFF.INP")
-#! Field("$(P)$(Q):M2:OFF.VAL",16777215,0,"$(P)$(Q):M2:OFF.VAL")
-#! Record("$(P)$(Q):M3:OFF",1420,1549,0,1,"$(P)$(Q):M3:OFF")
+#! Field("$(P)$(Q):M2:OFF.VAL",16777215,1,"$(P)$(Q):M2:OFF.VAL")
+#! Record("$(P)$(Q):M3:OFF",460,3530,0,1,"$(P)$(Q):M3:OFF")
 #! Field("$(P)$(Q):M3:OFF.INP",16777215,1,"$(P)$(Q):M3:OFF.INP")
-#! Field("$(P)$(Q):M3:OFF.VAL",16777215,0,"$(P)$(Q):M3:OFF.VAL")
-#! Record("$(P)$(Q):M4:OFF",1400,1669,0,1,"$(P)$(Q):M4:OFF")
+#! Field("$(P)$(Q):M3:OFF.VAL",16777215,1,"$(P)$(Q):M3:OFF.VAL")
+#! Record("$(P)$(Q):M4:OFF",440,3750,0,1,"$(P)$(Q):M4:OFF")
 #! Field("$(P)$(Q):M4:OFF.INP",16777215,1,"$(P)$(Q):M4:OFF.INP")
-#! Field("$(P)$(Q):M4:OFF.VAL",16777215,0,"$(P)$(Q):M4:OFF.VAL")
-#! Record("$(P)$(Q):MOTOR:MRES",600,1245,0,0,"$(P)$(Q):MOTOR:MRES")
+#! Field("$(P)$(Q):M4:OFF.VAL",16777215,1,"$(P)$(Q):M4:OFF.VAL")
+#! Record("$(P)$(Q):MOTOR:MRES",2060,2986,0,0,"$(P)$(Q):MOTOR:MRES")
 #! Field("$(P)$(Q):MOTOR:MRES.INPA",16777215,0,"$(P)$(Q):MOTOR:MRES.INPA")
 #! Link("$(P)$(Q):MOTOR:MRES.INPA","$(P)$(Q):M1:MRES.VAL")
 #! Field("$(P)$(Q):MOTOR:MRES.INPE",16777215,0,"$(P)$(Q):MOTOR:MRES.INPE")
@@ -1800,7 +2087,7 @@ record(ao, "$(P)$(Q):ARRAY_UPDATE") {
 #! Link("$(P)$(Q):MOTOR:MRES.INPD","$(P)$(Q):M4:MRES.VAL")
 #! Field("$(P)$(Q):MOTOR:MRES.NVL",16777215,1,"$(P)$(Q):MOTOR:MRES.NVL")
 #! Field("$(P)$(Q):MOTOR:MRES.VAL",16777215,1,"$(P)$(Q):MOTOR:MRES.VAL")
-#! Record("$(P)$(Q):MOTOR:OFF",1060,1245,0,0,"$(P)$(Q):MOTOR:OFF")
+#! Record("$(P)$(Q):MOTOR:OFF",100,3026,0,0,"$(P)$(Q):MOTOR:OFF")
 #! Field("$(P)$(Q):MOTOR:OFF.INPA",16777215,1,"$(P)$(Q):MOTOR:OFF.INPA")
 #! Link("$(P)$(Q):MOTOR:OFF.INPA","$(P)$(Q):M1:OFF.VAL")
 #! Field("$(P)$(Q):MOTOR:OFF.INPE",16777215,1,"$(P)$(Q):MOTOR:OFF.INPE")
@@ -1813,54 +2100,54 @@ record(ao, "$(P)$(Q):ARRAY_UPDATE") {
 #! Link("$(P)$(Q):MOTOR:OFF.INPD","$(P)$(Q):M4:OFF.VAL")
 #! Field("$(P)$(Q):MOTOR:OFF.NVL",16777215,0,"$(P)$(Q):MOTOR:OFF.NVL")
 #! Field("$(P)$(Q):MOTOR:OFF.VAL",16777215,0,"$(P)$(Q):MOTOR:OFF.VAL")
-#! Record("$(P)$(Q):PULSE:MRES",560,2173,0,1,"$(P)$(Q):PULSE:MRES")
+#! Record("$(P)$(Q):PULSE:MRES",2020,3934,0,1,"$(P)$(Q):PULSE:MRES")
 #! Field("$(P)$(Q):PULSE:MRES.INPA",16777215,0,"$(P)$(Q):PULSE:MRES.INPA")
 #! Link("$(P)$(Q):PULSE:MRES.INPA","$(P)$(Q):MOTOR:ABSMRES.VAL")
 #! Field("$(P)$(Q):PULSE:MRES.INPB",16777215,0,"$(P)$(Q):PULSE:MRES.INPB")
 #! Field("$(P)$(Q):PULSE:MRES.INPC",16777215,0,"$(P)$(Q):PULSE:MRES.INPC")
 #! Field("$(P)$(Q):PULSE:MRES.NVL",16777215,1,"$(P)$(Q):PULSE:MRES.NVL")
 
-#! TemplateInstance("POS1_SET",220,800,0,"")
+#! TemplateInstance("POS1_SET",100,2500,0,"")
 #! TemplateField("POS1_SET","MOTOR",16777215,0,1)
 #! TemplateField("POS1_SET","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("POS2_SET",480,800,0,"")
+#! TemplateInstance("POS2_SET",360,2500,0,"")
 #! TemplateField("POS2_SET","MOTOR",16777215,0,1)
 #! TemplateField("POS2_SET","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("POS3_SET",740,800,0,"")
+#! TemplateInstance("POS3_SET",620,2500,0,"")
 #! TemplateField("POS3_SET","MOTOR",16777215,0,1)
 #! TemplateField("POS3_SET","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("POS4_SET",1000,800,0,"")
+#! TemplateInstance("POS4_SET",880,2500,0,"")
 #! TemplateField("POS4_SET","MOTOR",16777215,0,1)
 #! TemplateField("POS4_SET","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_TSPRE",1000,2520,0,"")
+#! TemplateInstance("PC_TSPRE",920,200,0,"")
 #! TemplateField("PC_TSPRE","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_ARM",1000,3040,0,"")
+#! TemplateInstance("PC_ARM",920,660,0,"")
 #! TemplateField("PC_ARM","ASLO",16777215,0,1)
 #! TemplateField("PC_ARM","PREC",16777215,0,1)
 #! TemplateField("PC_ARM","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_DISARM",1200,3040,0,"")
+#! TemplateInstance("PC_DISARM",1120,660,0,"")
 #! TemplateField("PC_DISARM","ASLO",16777215,0,1)
 #! TemplateField("PC_DISARM","PREC",16777215,0,1)
 #! TemplateField("PC_DISARM","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_GATE_INP",400,3480,0,"")
+#! TemplateInstance("PC_GATE_INP",320,1100,0,"")
 #! TemplateField("PC_GATE_INP","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_GATE_SEL",200,3480,0,"")
+#! TemplateInstance("PC_GATE_SEL",120,1100,0,"")
 #! TemplateField("PC_GATE_SEL","ZRST",16777215,0,1)
 #! TemplateField("PC_GATE_SEL","THST",16777215,0,1)
 #! TemplateField("PC_GATE_SEL","FRST",16777215,0,1)
@@ -1871,31 +2158,31 @@ record(ao, "$(P)$(Q):ARRAY_UPDATE") {
 #! TemplateField("PC_GATE_SEL","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_GATE_START",600,3480,0,"")
+#! TemplateInstance("PC_GATE_START",520,1100,0,"")
 #! TemplateField("PC_GATE_START","MOTOR",16777215,0,1)
 #! TemplateField("PC_GATE_START","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_GATE_WID",800,3480,0,"")
+#! TemplateInstance("PC_GATE_WID",720,1100,0,"")
 #! TemplateField("PC_GATE_WID","MOTOR",16777215,0,1)
 #! TemplateField("PC_GATE_WID","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_GATE_NGATE",1000,3480,0,"")
+#! TemplateInstance("PC_GATE_NGATE",920,1100,0,"")
 #! TemplateField("PC_GATE_NGATE","MOTOR",16777215,0,1)
 #! TemplateField("PC_GATE_NGATE","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_GATE_STEP",1200,3480,0,"")
+#! TemplateInstance("PC_GATE_STEP",1120,1100,0,"")
 #! TemplateField("PC_GATE_STEP","MOTOR",16777215,0,1)
 #! TemplateField("PC_GATE_STEP","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_PULSE_INP",600,3920,0,"")
+#! TemplateInstance("PC_PULSE_INP",520,1540,0,"")
 #! TemplateField("PC_PULSE_INP","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_PULSE_SEL",400,3920,0,"")
+#! TemplateInstance("PC_PULSE_SEL",320,1540,0,"")
 #! TemplateField("PC_PULSE_SEL","ZRST",16777215,0,1)
 #! TemplateField("PC_PULSE_SEL","THST",16777215,0,1)
 #! TemplateField("PC_PULSE_SEL","FRST",16777215,0,1)
@@ -1906,80 +2193,81 @@ record(ao, "$(P)$(Q):ARRAY_UPDATE") {
 #! TemplateField("PC_PULSE_SEL","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_PULSE_DLY",800,3920,0,"")
+#! TemplateInstance("PC_PULSE_DLY",720,1540,0,"")
 #! TemplateField("PC_PULSE_DLY","MOTOR",16777215,0,1)
 #! TemplateField("PC_PULSE_DLY","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_PULSE_WID",1000,3920,0,"")
+#! TemplateInstance("PC_PULSE_WID",920,1540,0,"")
 #! TemplateField("PC_PULSE_WID","MOTOR",16777215,0,1)
 #! TemplateField("PC_PULSE_WID","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_PULSE_STEP",1200,3920,0,"")
+#! TemplateInstance("PC_PULSE_STEP",1120,1540,0,"")
 #! TemplateField("PC_PULSE_STEP","MOTOR",16777215,0,1)
 #! TemplateField("PC_PULSE_STEP","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):PC_GATE_OUT",1400,3482,0,1,"$(P)$(Q):PC_GATE_OUT")
+#! Record("$(P)$(Q):PC_GATE_OUT",1320,1102,0,1,"$(P)$(Q):PC_GATE_OUT")
 #! Field("$(P)$(Q):PC_GATE_OUT.INPA",16777215,1,"$(P)$(Q):PC_GATE_OUT.INPA")
 #! Link("$(P)$(Q):PC_GATE_OUT.INPA","$(P)$(Q):SYS_STAT1.VAL")
-#! Record("$(P)$(Q):PC_PULSE_OUT",1400,3922,0,1,"$(P)$(Q):PC_PULSE_OUT")
+#! Record("$(P)$(Q):PC_PULSE_OUT",1320,1542,0,1,"$(P)$(Q):PC_PULSE_OUT")
 #! Field("$(P)$(Q):PC_PULSE_OUT.INPA",16777215,1,"$(P)$(Q):PC_PULSE_OUT.INPA")
 #! Link("$(P)$(Q):PC_PULSE_OUT.INPA","$(P)$(Q):SYS_STAT1.VAL")
-#! Record("$(P)$(Q):M1:RBV",240,475,0,0,"$(P)$(Q):M1:RBV")
+#! Record("$(P)$(Q):M1:RBV",120,2176,0,0,"$(P)$(Q):M1:RBV")
 #! Field("$(P)$(Q):M1:RBV.INP",16777215,1,"$(P)$(Q):M1:RBV.INP")
 #! Field("$(P)$(Q):M1:RBV.VAL",16777215,0,"$(P)$(Q):M1:RBV.VAL")
-#! Record("$(P)$(Q):M2:RBV",500,475,0,0,"$(P)$(Q):M2:RBV")
+#! Record("$(P)$(Q):M2:RBV",380,2176,0,0,"$(P)$(Q):M2:RBV")
 #! Field("$(P)$(Q):M2:RBV.INP",16777215,1,"$(P)$(Q):M2:RBV.INP")
 #! Field("$(P)$(Q):M2:RBV.VAL",16777215,0,"$(P)$(Q):M2:RBV.VAL")
-#! Record("$(P)$(Q):M3:RBV",760,475,0,0,"$(P)$(Q):M3:RBV")
+#! Record("$(P)$(Q):M3:RBV",640,2176,0,0,"$(P)$(Q):M3:RBV")
 #! Field("$(P)$(Q):M3:RBV.INP",16777215,1,"$(P)$(Q):M3:RBV.INP")
 #! Field("$(P)$(Q):M3:RBV.VAL",16777215,0,"$(P)$(Q):M3:RBV.VAL")
-#! Record("$(P)$(Q):M4:RBV",1020,475,0,0,"$(P)$(Q):M4:RBV")
+#! Record("$(P)$(Q):M4:RBV",900,2176,0,0,"$(P)$(Q):M4:RBV")
 #! Field("$(P)$(Q):M4:RBV.INP",16777215,1,"$(P)$(Q):M4:RBV.INP")
 #! Field("$(P)$(Q):M4:RBV.VAL",16777215,0,"$(P)$(Q):M4:RBV.VAL")
-#! Record("$(P)$(Q):NOMOTOR:RBV",1260,475,0,0,"$(P)$(Q):NOMOTOR:RBV")
-#! Record("$(P)$(Q):M1:SETPOS",240,622,0,1,"$(P)$(Q):M1:SETPOS")
+#! Record("$(P)$(Q):NOMOTOR:RBV",1140,2176,0,0,"$(P)$(Q):NOMOTOR:RBV")
+#! Record("$(P)$(Q):M1:SETPOS",120,2322,0,1,"$(P)$(Q):M1:SETPOS")
 #! Field("$(P)$(Q):M1:SETPOS.INPA",16777215,0,"$(P)$(Q):M1:SETPOS.INPA")
 #! Link("$(P)$(Q):M1:SETPOS.INPA","$(P)$(Q):M1:RBV.VAL")
 #! Field("$(P)$(Q):M1:SETPOS.OUT",16777215,1,"$(P)$(Q):M1:SETPOS.OUT")
-#! Record("$(P)$(Q):M2:SETPOS",500,622,0,0,"$(P)$(Q):M2:SETPOS")
+#! Record("$(P)$(Q):M2:SETPOS",380,2322,0,0,"$(P)$(Q):M2:SETPOS")
 #! Field("$(P)$(Q):M2:SETPOS.INPA",16777215,0,"$(P)$(Q):M2:SETPOS.INPA")
 #! Link("$(P)$(Q):M2:SETPOS.INPA","$(P)$(Q):M2:RBV.VAL")
 #! Field("$(P)$(Q):M2:SETPOS.OUT",16777215,1,"$(P)$(Q):M2:SETPOS.OUT")
-#! Record("$(P)$(Q):M3:SETPOS",760,622,0,0,"$(P)$(Q):M3:SETPOS")
+#! Record("$(P)$(Q):M3:SETPOS",640,2322,0,0,"$(P)$(Q):M3:SETPOS")
 #! Field("$(P)$(Q):M3:SETPOS.INPA",16777215,0,"$(P)$(Q):M3:SETPOS.INPA")
 #! Link("$(P)$(Q):M3:SETPOS.INPA","$(P)$(Q):M3:RBV.VAL")
 #! Field("$(P)$(Q):M3:SETPOS.OUT",16777215,1,"$(P)$(Q):M3:SETPOS.OUT")
-#! Record("$(P)$(Q):M4:SETPOS",1020,622,0,0,"$(P)$(Q):M4:SETPOS")
+#! Record("$(P)$(Q):M4:SETPOS",900,2322,0,0,"$(P)$(Q):M4:SETPOS")
 #! Field("$(P)$(Q):M4:SETPOS.INPA",16777215,0,"$(P)$(Q):M4:SETPOS.INPA")
 #! Link("$(P)$(Q):M4:SETPOS.INPA","$(P)$(Q):M4:RBV.VAL")
 #! Field("$(P)$(Q):M4:SETPOS.OUT",16777215,1,"$(P)$(Q):M4:SETPOS.OUT")
-#! Record("$(P)$(Q):PC_ARM_OUT",1400,3042,0,1,"$(P)$(Q):PC_ARM_OUT")
+#! Record("$(P)$(Q):PC_ARM_OUT",1320,662,0,1,"$(P)$(Q):PC_ARM_OUT")
 #! Field("$(P)$(Q):PC_ARM_OUT.INPA",16777215,1,"$(P)$(Q):PC_ARM_OUT.INPA")
 #! Link("$(P)$(Q):PC_ARM_OUT.INPA","$(P)$(Q):SYS_STAT1.VAL")
 
-#! TemplateInstance("PC_ARM_INP",800,3040,0,"")
+#! TemplateInstance("PC_ARM_INP",720,660,0,"")
 #! TemplateField("PC_ARM_INP","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):M1:EGU",240,329,0,1,"$(P)$(Q):M1:EGU")
+#! Record("$(P)$(Q):M1:EGU",120,2030,0,1,"$(P)$(Q):M1:EGU")
 #! Field("$(P)$(Q):M1:EGU.INP",16777215,1,"$(P)$(Q):M1:EGU.INP")
-#! Record("$(P)$(Q):M2:EGU",500,329,0,1,"$(P)$(Q):M2:EGU")
+#! Record("$(P)$(Q):M2:EGU",380,2030,0,1,"$(P)$(Q):M2:EGU")
 #! Field("$(P)$(Q):M2:EGU.INP",16777215,1,"$(P)$(Q):M2:EGU.INP")
-#! Record("$(P)$(Q):M3:EGU",760,329,0,1,"$(P)$(Q):M3:EGU")
+#! Record("$(P)$(Q):M3:EGU",640,2030,0,1,"$(P)$(Q):M3:EGU")
 #! Field("$(P)$(Q):M3:EGU.INP",16777215,1,"$(P)$(Q):M3:EGU.INP")
-#! Record("$(P)$(Q):M4:EGU",1020,329,0,1,"$(P)$(Q):M4:EGU")
+#! Record("$(P)$(Q):M4:EGU",900,2030,0,1,"$(P)$(Q):M4:EGU")
 #! Field("$(P)$(Q):M4:EGU.INP",16777215,1,"$(P)$(Q):M4:EGU.INP")
-#! Record("$(P)$(Q):NOMOTOR:EGU",1260,329,0,1,"$(P)$(Q):NOMOTOR:EGU")
+#! Record("$(P)$(Q):NOMOTOR:EGU",1140,2030,0,1,"$(P)$(Q):NOMOTOR:EGU")
 
-#! TemplateInstance("POLARITY",3680,3580,0,"")
+#! TemplateInstance("POLARITY",4280,3040,0,"")
 #! TemplateField("POLARITY","ASLO",16777215,0,1)
 #! TemplateField("POLARITY","PREC",16777215,0,1)
 #! TemplateField("POLARITY","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):SYS_STATERR",3660,2807,0,1,"$(P)$(Q):SYS_STATERR")
+#! Record("$(P)$(Q):SYS_STATERR",4300,2828,0,1,"$(P)$(Q):SYS_STATERR")
+#! Record("$(P)$(Q):ARRAY_ACQ",180,4568,0,0,"$(P)$(Q):ARRAY_ACQ")
 
-#! TemplateInstance("PC_ARM_SEL",600,3040,0,"")
+#! TemplateInstance("PC_ARM_SEL",520,660,0,"")
 #! TemplateField("PC_ARM_SEL","ZRST",16777215,0,1)
 #! TemplateField("PC_ARM_SEL","THST",16777215,0,1)
 #! TemplateField("PC_ARM_SEL","FRST",16777215,0,1)
@@ -1989,8 +2277,8 @@ record(ao, "$(P)$(Q):ARRAY_UPDATE") {
 #! TemplateField("PC_ARM_SEL","TWST",16777215,0,1)
 #! TemplateField("PC_ARM_SEL","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):PULSE:OFF",1080,1969,0,1,"$(P)$(Q):PULSE:OFF")
-#! Record("$(P)$(Q):STARTGATE:MRES",560,1539,0,1,"$(P)$(Q):STARTGATE:MRES")
+#! Record("$(P)$(Q):PULSE:OFF",120,3750,0,1,"$(P)$(Q):PULSE:OFF")
+#! Record("$(P)$(Q):STARTGATE:MRES",2020,3300,0,1,"$(P)$(Q):STARTGATE:MRES")
 #! Field("$(P)$(Q):STARTGATE:MRES.INPA",16777215,1,"$(P)$(Q):STARTGATE:MRES.INPA")
 #! Link("$(P)$(Q):STARTGATE:MRES.INPA","$(P)$(Q):MOTOR:MRES.VAL")
 #! Field("$(P)$(Q):STARTGATE:MRES.INPB",16777215,1,"$(P)$(Q):STARTGATE:MRES.INPB")
@@ -1998,7 +2286,7 @@ record(ao, "$(P)$(Q):ARRAY_UPDATE") {
 #! Field("$(P)$(Q):STARTGATE:MRES.NVL",16777215,1,"$(P)$(Q):STARTGATE:MRES.NVL")
 #! Field("$(P)$(Q):STARTGATE:MRES.INPD",16777215,1,"$(P)$(Q):STARTGATE:MRES.INPD")
 #! Link("$(P)$(Q):STARTGATE:MRES.INPD","$(P)$(Q):MOTOR:MRES.VAL")
-#! Record("$(P)$(Q):STARTGATE:OFF",1100,1559,0,1,"$(P)$(Q):STARTGATE:OFF")
+#! Record("$(P)$(Q):STARTGATE:OFF",140,3340,0,1,"$(P)$(Q):STARTGATE:OFF")
 #! Field("$(P)$(Q):STARTGATE:OFF.INPA",16777215,0,"$(P)$(Q):STARTGATE:OFF.INPA")
 #! Link("$(P)$(Q):STARTGATE:OFF.INPA","$(P)$(Q):MOTOR:OFF.VAL")
 #! Field("$(P)$(Q):STARTGATE:OFF.INPB",16777215,1,"$(P)$(Q):STARTGATE:OFF.INPB")
@@ -2006,12 +2294,12 @@ record(ao, "$(P)$(Q):ARRAY_UPDATE") {
 #! Field("$(P)$(Q):STARTGATE:OFF.NVL",16777215,1,"$(P)$(Q):STARTGATE:OFF.NVL")
 #! Field("$(P)$(Q):STARTGATE:OFF.INPD",16777215,0,"$(P)$(Q):STARTGATE:OFF.INPD")
 #! Link("$(P)$(Q):STARTGATE:OFF.INPD","$(P)$(Q):MOTOR:OFF.VAL")
-#! Record("$(P)$(Q):GATE:OFF",1080,1849,0,1,"$(P)$(Q):GATE:OFF")
-#! Record("$(P)$(Q):MOTOR:ABSMRES",560,1795,0,1,"$(P)$(Q):MOTOR:ABSMRES")
+#! Record("$(P)$(Q):GATE:OFF",120,3630,0,1,"$(P)$(Q):GATE:OFF")
+#! Record("$(P)$(Q):MOTOR:ABSMRES",2020,3556,0,1,"$(P)$(Q):MOTOR:ABSMRES")
 #! Field("$(P)$(Q):MOTOR:ABSMRES.INPA",16777215,1,"$(P)$(Q):MOTOR:ABSMRES.INPA")
 #! Link("$(P)$(Q):MOTOR:ABSMRES.INPA","$(P)$(Q):MOTOR:MRES.VAL")
 #! Field("$(P)$(Q):MOTOR:ABSMRES.VAL",16777215,0,"$(P)$(Q):MOTOR:ABSMRES.VAL")
-#! Record("$(P)$(Q):GATE:MRES",560,1939,0,1,"$(P)$(Q):GATE:MRES")
+#! Record("$(P)$(Q):GATE:MRES",2020,3700,0,1,"$(P)$(Q):GATE:MRES")
 #! Field("$(P)$(Q):GATE:MRES.INPA",16777215,0,"$(P)$(Q):GATE:MRES.INPA")
 #! Link("$(P)$(Q):GATE:MRES.INPA","$(P)$(Q):MOTOR:ABSMRES.VAL")
 #! Field("$(P)$(Q):GATE:MRES.INPC",16777215,0,"$(P)$(Q):GATE:MRES.INPC")
@@ -2019,7 +2307,7 @@ record(ao, "$(P)$(Q):ARRAY_UPDATE") {
 #! Field("$(P)$(Q):GATE:MRES.INPD",16777215,0,"$(P)$(Q):GATE:MRES.INPD")
 #! Link("$(P)$(Q):GATE:MRES.INPD","$(P)$(Q):MOTOR:ABSMRES.VAL")
 
-#! TemplateInstance("PC_ENC",1200,2520,0,"")
+#! TemplateInstance("PC_ENC",1120,200,0,"")
 #! TemplateField("PC_ENC","ZRST",16777215,0,1)
 #! TemplateField("PC_ENC","THST",16777215,0,1)
 #! TemplateField("PC_ENC","FRST",16777215,0,1)
@@ -2029,45 +2317,145 @@ record(ao, "$(P)$(Q):ARRAY_UPDATE") {
 #! TemplateField("PC_ENC","TWST",16777215,0,1)
 #! TemplateField("PC_ENC","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):PC_TIME",420,4553,0,0,"$(P)$(Q):PC_TIME")
-#! Record("$(P)$(Q):PC_POS1",660,4553,0,0,"$(P)$(Q):PC_POS1")
-#! Record("$(P)$(Q):PC_POS2",900,4553,0,0,"$(P)$(Q):PC_POS2")
-#! Record("$(P)$(Q):PC_POS3",1140,4553,0,0,"$(P)$(Q):PC_POS3")
-#! Record("$(P)$(Q):PC_POS4",1380,4553,0,0,"$(P)$(Q):PC_POS4")
-#! Record("$(P)$(Q):QUAD_OUTA",3580,1902,0,1,"$(P)$(Q):QUAD_OUTA")
+#! Record("$(P)$(Q):PC_TIME",380,4734,0,0,"$(P)$(Q):PC_TIME")
+#! Record("$(P)$(Q):PC_SYS1",760,4594,0,0,"$(P)$(Q):PC_SYS1")
+#! Record("$(P)$(Q):PC_SYS1_LAST",600,4602,0,0,"$(P)$(Q):PC_SYS1_LAST")
+#! Record("$(P)$(Q):PC_SYS2",760,4754,0,0,"$(P)$(Q):PC_SYS2")
+#! Record("$(P)$(Q):PC_SYS2_LAST",600,4762,0,0,"$(P)$(Q):PC_SYS2_LAST")
+#! Record("$(P)$(Q):PC_DIV1",1120,4294,0,0,"$(P)$(Q):PC_DIV1")
+#! Record("$(P)$(Q):PC_DIV1_LAST",960,4302,0,0,"$(P)$(Q):PC_DIV1_LAST")
+#! Record("$(P)$(Q):PC_DIV2",1120,4454,0,0,"$(P)$(Q):PC_DIV2")
+#! Record("$(P)$(Q):PC_DIV2_LAST",960,4462,0,0,"$(P)$(Q):PC_DIV2_LAST")
+#! Record("$(P)$(Q):PC_DIV3",1120,4614,0,0,"$(P)$(Q):PC_DIV3")
+#! Record("$(P)$(Q):PC_DIV3_LAST",960,4622,0,0,"$(P)$(Q):PC_DIV3_LAST")
+#! Record("$(P)$(Q):PC_DIV4",1120,4774,0,0,"$(P)$(Q):PC_DIV4")
+#! Record("$(P)$(Q):PC_DIV4_LAST",960,4782,0,0,"$(P)$(Q):PC_DIV4_LAST")
+#! Record("$(P)$(Q):PC_FILT1",1520,4194,0,0,"$(P)$(Q):PC_FILT1")
+
+#! TemplateInstance("PC_FILTSEL1",1320,4180,0,"")
+#! TemplateField("PC_FILTSEL1","PARAM",16777215,0,1)
+
+#! Record("$(P)$(Q):PC_FILT2",1520,4374,0,0,"$(P)$(Q):PC_FILT2")
+
+#! TemplateInstance("PC_FILTSEL2",1320,4360,0,"")
+#! TemplateField("PC_FILTSEL2","PARAM",16777215,0,1)
+
+#! Record("$(P)$(Q):PC_FILT3",1520,4554,0,0,"$(P)$(Q):PC_FILT3")
+
+#! TemplateInstance("PC_FILTSEL3",1320,4540,0,"")
+#! TemplateField("PC_FILTSEL3","PARAM",16777215,0,1)
+
+#! Record("$(P)$(Q):PC_FILT4",1520,4734,0,0,"$(P)$(Q):PC_FILT4")
+
+#! TemplateInstance("PC_FILTSEL4",1320,4720,0,"")
+#! TemplateField("PC_FILTSEL4","PARAM",16777215,0,1)
+
+#! Record("$(P)$(Q):QUAD_OUTA",3940,2242,0,1,"$(P)$(Q):QUAD_OUTA")
 #! Field("$(P)$(Q):QUAD_OUTA.INPA",16777215,0,"$(P)$(Q):QUAD_OUTA.INPA")
 #! Link("$(P)$(Q):QUAD_OUTA.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("QUAD_STEP",3740,1900,0,"")
+#! TemplateInstance("QUAD_STEP",4100,2240,0,"")
 #! TemplateField("QUAD_STEP","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("QUAD_DIR",3940,1900,0,"")
+#! TemplateInstance("QUAD_DIR",4300,2240,0,"")
 #! TemplateField("QUAD_DIR","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):QUAD_OUTB",3580,2042,0,1,"$(P)$(Q):QUAD_OUTB")
+#! Record("$(P)$(Q):QUAD_OUTB",3940,2382,0,1,"$(P)$(Q):QUAD_OUTB")
 #! Field("$(P)$(Q):QUAD_OUTB.INPA",16777215,0,"$(P)$(Q):QUAD_OUTB.INPA")
 #! Link("$(P)$(Q):QUAD_OUTB.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
-#! TemplateInstance("OUT5_CONN",4540,3700,0,"")
+#! TemplateInstance("OUT5_CONN",4680,4140,0,"")
 #! TemplateField("OUT5_CONN","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT6_CONN",4540,3900,0,"")
+#! TemplateInstance("OUT6_CONN",4680,4340,0,"")
 #! TemplateField("OUT6_CONN","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT7_CONN",4540,4100,0,"")
+#! TemplateInstance("OUT7_CONN",4680,4540,0,"")
 #! TemplateField("OUT7_CONN","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("OUT8_CONN",4540,4300,0,"")
+#! TemplateInstance("OUT8_CONN",4680,4740,0,"")
 #! TemplateField("OUT8_CONN","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_CAP",800,2520,0,"")
+#! TemplateInstance("PC_CAP",720,200,0,"")
 #! TemplateField("PC_CAP","ASLO",16777215,0,1)
 #! TemplateField("PC_CAP","PREC",16777215,0,1)
 #! TemplateField("PC_CAP","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):ARRAY_UPDATE",200,4547,0,1,"$(P)$(Q):ARRAY_UPDATE")
+#! Record("$(P)$(Q):ARRAY_UPDATE",180,4728,0,1,"$(P)$(Q):ARRAY_UPDATE")
+#! Record("$(P)$(Q):PC_ENC1_LAST_CTS",720,3042,0,0,"$(P)$(Q):PC_ENC1_LAST_CTS")
+#! Field("$(P)$(Q):PC_ENC1_LAST_CTS.VAL",16777215,1,"$(P)$(Q):PC_ENC1_LAST_CTS.VAL")
+#! Record("$(P)$(Q):PC_ENC2_LAST_CTS",720,3262,0,0,"$(P)$(Q):PC_ENC2_LAST_CTS")
+#! Field("$(P)$(Q):PC_ENC2_LAST_CTS.VAL",16777215,1,"$(P)$(Q):PC_ENC2_LAST_CTS.VAL")
+#! Record("$(P)$(Q):PC_ENC3_LAST_CTS",720,3482,0,0,"$(P)$(Q):PC_ENC3_LAST_CTS")
+#! Field("$(P)$(Q):PC_ENC3_LAST_CTS.VAL",16777215,1,"$(P)$(Q):PC_ENC3_LAST_CTS.VAL")
+#! Record("$(P)$(Q):PC_ENC4_LAST_CTS",720,3702,0,0,"$(P)$(Q):PC_ENC4_LAST_CTS")
+#! Field("$(P)$(Q):PC_ENC4_LAST_CTS.VAL",16777215,1,"$(P)$(Q):PC_ENC4_LAST_CTS.VAL")
+#! Record("$(P)$(Q):PC_ENC1_CTS",1460,3014,0,0,"$(P)$(Q):PC_ENC1_CTS")
+#! Field("$(P)$(Q):PC_ENC1_CTS.VAL",16777215,0,"$(P)$(Q):PC_ENC1_CTS.VAL")
+#! Record("$(P)$(Q):PC_ENC2_CTS",1460,3234,0,0,"$(P)$(Q):PC_ENC2_CTS")
+#! Field("$(P)$(Q):PC_ENC2_CTS.VAL",16777215,1,"$(P)$(Q):PC_ENC2_CTS.VAL")
+#! Record("$(P)$(Q):PC_ENC3_CTS",1460,3454,0,0,"$(P)$(Q):PC_ENC3_CTS")
+#! Field("$(P)$(Q):PC_ENC3_CTS.VAL",16777215,1,"$(P)$(Q):PC_ENC3_CTS.VAL")
+#! Record("$(P)$(Q):PC_ENC4_CTS",1460,3674,0,0,"$(P)$(Q):PC_ENC4_CTS")
+#! Field("$(P)$(Q):PC_ENC4_CTS.VAL",16777215,1,"$(P)$(Q):PC_ENC4_CTS.VAL")
+#! Record("$(P)$(Q):PC_ENC1_LAST",980,3014,0,1,"$(P)$(Q):PC_ENC1_LAST")
+#! Field("$(P)$(Q):PC_ENC1_LAST.INPA",16777215,0,"$(P)$(Q):PC_ENC1_LAST.INPA")
+#! Link("$(P)$(Q):PC_ENC1_LAST.INPA","$(P)$(Q):PC_ENC1_LAST_CTS.VAL")
+#! Field("$(P)$(Q):PC_ENC1_LAST.INPB",16777215,1,"$(P)$(Q):PC_ENC1_LAST.INPB")
+#! Link("$(P)$(Q):PC_ENC1_LAST.INPB","$(P)$(Q):M1:MRES.VAL")
+#! Field("$(P)$(Q):PC_ENC1_LAST.INPC",16777215,0,"$(P)$(Q):PC_ENC1_LAST.INPC")
+#! Link("$(P)$(Q):PC_ENC1_LAST.INPC","$(P)$(Q):M1:OFF.VAL")
+#! Record("$(P)$(Q):PC_ENC1",1200,3014,0,1,"$(P)$(Q):PC_ENC1")
+#! Field("$(P)$(Q):PC_ENC1.INAA",16777215,1,"$(P)$(Q):PC_ENC1.INAA")
+#! Link("$(P)$(Q):PC_ENC1.INAA","$(P)$(Q):PC_ENC1_CTS.VAL")
+#! Field("$(P)$(Q):PC_ENC1.INPB",16777215,1,"$(P)$(Q):PC_ENC1.INPB")
+#! Link("$(P)$(Q):PC_ENC1.INPB","$(P)$(Q):M1:MRES.VAL")
+#! Field("$(P)$(Q):PC_ENC1.INPC",16777215,0,"$(P)$(Q):PC_ENC1.INPC")
+#! Link("$(P)$(Q):PC_ENC1.INPC","$(P)$(Q):M1:OFF.VAL")
+#! Record("$(P)$(Q):PC_ENC2_LAST",980,3234,0,0,"$(P)$(Q):PC_ENC2_LAST")
+#! Field("$(P)$(Q):PC_ENC2_LAST.INPA",16777215,0,"$(P)$(Q):PC_ENC2_LAST.INPA")
+#! Link("$(P)$(Q):PC_ENC2_LAST.INPA","$(P)$(Q):PC_ENC2_LAST_CTS.VAL")
+#! Field("$(P)$(Q):PC_ENC2_LAST.INPB",16777215,1,"$(P)$(Q):PC_ENC2_LAST.INPB")
+#! Link("$(P)$(Q):PC_ENC2_LAST.INPB","$(P)$(Q):M2:MRES.VAL")
+#! Field("$(P)$(Q):PC_ENC2_LAST.INPC",16777215,0,"$(P)$(Q):PC_ENC2_LAST.INPC")
+#! Link("$(P)$(Q):PC_ENC2_LAST.INPC","$(P)$(Q):M2:OFF.VAL")
+#! Record("$(P)$(Q):PC_ENC2",1220,3234,0,0,"$(P)$(Q):PC_ENC2")
+#! Field("$(P)$(Q):PC_ENC2.INAA",16777215,1,"$(P)$(Q):PC_ENC2.INAA")
+#! Link("$(P)$(Q):PC_ENC2.INAA","$(P)$(Q):PC_ENC2_CTS.VAL")
+#! Field("$(P)$(Q):PC_ENC2.INPB",16777215,1,"$(P)$(Q):PC_ENC2.INPB")
+#! Link("$(P)$(Q):PC_ENC2.INPB","$(P)$(Q):M2:MRES.VAL")
+#! Field("$(P)$(Q):PC_ENC2.INPC",16777215,0,"$(P)$(Q):PC_ENC2.INPC")
+#! Link("$(P)$(Q):PC_ENC2.INPC","$(P)$(Q):M2:OFF.VAL")
+#! Record("$(P)$(Q):PC_ENC3_LAST",980,3454,0,0,"$(P)$(Q):PC_ENC3_LAST")
+#! Field("$(P)$(Q):PC_ENC3_LAST.INPA",16777215,0,"$(P)$(Q):PC_ENC3_LAST.INPA")
+#! Link("$(P)$(Q):PC_ENC3_LAST.INPA","$(P)$(Q):PC_ENC3_LAST_CTS.VAL")
+#! Field("$(P)$(Q):PC_ENC3_LAST.INPB",16777215,1,"$(P)$(Q):PC_ENC3_LAST.INPB")
+#! Link("$(P)$(Q):PC_ENC3_LAST.INPB","$(P)$(Q):M3:MRES.VAL")
+#! Field("$(P)$(Q):PC_ENC3_LAST.INPC",16777215,0,"$(P)$(Q):PC_ENC3_LAST.INPC")
+#! Link("$(P)$(Q):PC_ENC3_LAST.INPC","$(P)$(Q):M3:OFF.VAL")
+#! Record("$(P)$(Q):PC_ENC3",1220,3454,0,0,"$(P)$(Q):PC_ENC3")
+#! Field("$(P)$(Q):PC_ENC3.INAA",16777215,1,"$(P)$(Q):PC_ENC3.INAA")
+#! Link("$(P)$(Q):PC_ENC3.INAA","$(P)$(Q):PC_ENC3_CTS.VAL")
+#! Field("$(P)$(Q):PC_ENC3.INPB",16777215,1,"$(P)$(Q):PC_ENC3.INPB")
+#! Link("$(P)$(Q):PC_ENC3.INPB","$(P)$(Q):M3:MRES.VAL")
+#! Field("$(P)$(Q):PC_ENC3.INPC",16777215,0,"$(P)$(Q):PC_ENC3.INPC")
+#! Link("$(P)$(Q):PC_ENC3.INPC","$(P)$(Q):M3:OFF.VAL")
+#! Record("$(P)$(Q):PC_ENC4_LAST",980,3674,0,0,"$(P)$(Q):PC_ENC4_LAST")
+#! Field("$(P)$(Q):PC_ENC4_LAST.INPA",16777215,0,"$(P)$(Q):PC_ENC4_LAST.INPA")
+#! Link("$(P)$(Q):PC_ENC4_LAST.INPA","$(P)$(Q):PC_ENC4_LAST_CTS.VAL")
+#! Field("$(P)$(Q):PC_ENC4_LAST.INPB",16777215,1,"$(P)$(Q):PC_ENC4_LAST.INPB")
+#! Link("$(P)$(Q):PC_ENC4_LAST.INPB","$(P)$(Q):M4:MRES.VAL")
+#! Field("$(P)$(Q):PC_ENC4_LAST.INPC",16777215,0,"$(P)$(Q):PC_ENC4_LAST.INPC")
+#! Link("$(P)$(Q):PC_ENC4_LAST.INPC","$(P)$(Q):M4:OFF.VAL")
+#! Record("$(P)$(Q):PC_ENC4",1220,3674,0,0,"$(P)$(Q):PC_ENC4")
+#! Field("$(P)$(Q):PC_ENC4.INAA",16777215,1,"$(P)$(Q):PC_ENC4.INAA")
+#! Link("$(P)$(Q):PC_ENC4.INAA","$(P)$(Q):PC_ENC4_CTS.VAL")
+#! Field("$(P)$(Q):PC_ENC4.INPB",16777215,1,"$(P)$(Q):PC_ENC4.INPB")
+#! Link("$(P)$(Q):PC_ENC4.INPB","$(P)$(Q):M4:MRES.VAL")
+#! Field("$(P)$(Q):PC_ENC4.INPC",16777215,0,"$(P)$(Q):PC_ENC4.INPC")
+#! Link("$(P)$(Q):PC_ENC4.INPC","$(P)$(Q):M4:OFF.VAL")

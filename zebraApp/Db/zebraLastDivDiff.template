@@ -1,0 +1,13 @@
+# % macro, name, Object and gui association name
+# % macro, P, Device prefix
+# % macro, Q, Device suffix
+# % macro, DIV, DIV number
+# % gui, $(name=), edmembed, zebraLastDivDiff_embed.edl, value=$(P)$(Q):PC_DIV$(DIV)_DIFF
+record(calcout, "$(P)$(Q):PC_DIV$(DIV)_DIFF") {
+  field(INPA, "$(P)$(Q):PC_DIV$(DIV)_LAST CP")
+  field(INPB, "$(P)$(Q):PC_DIV$(DIV)_DIFF.OVAL")  
+  field(INPC, "4294967296")
+  field(CALC, "A>B?A-B:A+C-B")
+  field(OCAL, "A")
+  field(DOPT, "Use OCAL")  
+}

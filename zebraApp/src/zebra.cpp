@@ -16,217 +16,233 @@
 #include "asynPortDriver.h"
 #include "epicsThread.h"
 #include "epicsMessageQueue.h"
+#include "ini.h"
 
 /* This is the number of messages on our queue */
 #define NQUEUE 1000
 
-/* The size of our transmit and receive buffers */
+/* The size of our transmit and receive buffers,
+ * max filename length and string param buffers */
 #define NBUFF 255
 
-/* The interval in seconds between each poll of zebra */
-#define POLL 0.1
-
 /* The timeout waiting for a response from zebra */
-#define TIMEOUT 0.1
+#define TIMEOUT 0.5
 
 /* The last FASTREGS should be polled quickly */
 #define FASTREGS 6
+
+/* This is the number of waveforms to store */
+#define NARRAYS 10
+
+/* This is the number of filtered waveforms to allow */
+#define NFILT 4
+
+enum regType {
+	regRW,
+	regRO,
+	regCmd,
+	regMux
+};
 
 /* This is a lookup table of string->register number */
 struct reg {
     const char * str;
     int addr;
-    int isMux;
+    regType type;
 };
+
 
 #define SYS_OFF 0xF0
 #define PC_OFF 0x80
 static const struct reg reg_lookup[] = {
-    /* Which encoders to capture in pos comp */
+    /* Which encoders/divs + system bus to capture in pos comp */
     /* Put this first as it is vital for decoding interrupts */
-    { "PC_CAP",          0x1D + PC_OFF, 0 },        
+    { "PC_CAP",          0x1D + PC_OFF, regRW },
     /* AND4 gate */
-    { "AND1_INV",        0x00,         0 },
-    { "AND2_INV",        0x01,         0 },
-    { "AND3_INV",        0x02,         0 },
-    { "AND4_INV",        0x03,         0 },
-    { "AND1_ENA",        0x04,         0 },
-    { "AND2_ENA",        0x05,         0 },
-    { "AND3_ENA",        0x06,         0 },
-    { "AND4_ENA",        0x07,         0 },
-    { "AND1_INP1",       0x08,         1 },
-    { "AND1_INP2",       0x09,         1 },
-    { "AND1_INP3",       0x0A,         1 },
-    { "AND1_INP4",       0x0B,         1 },
-    { "AND2_INP1",       0x0C,         1 },
-    { "AND2_INP2",       0x0D,         1 },
-    { "AND2_INP3",       0x0E,         1 },
-    { "AND2_INP4",       0x0F,         1 },
-    { "AND3_INP1",       0x10,         1 },
-    { "AND3_INP2",       0x11,         1 },
-    { "AND3_INP3",       0x12,         1 },
-    { "AND3_INP4",       0x13,         1 },
-    { "AND4_INP1",       0x14,         1 },
-    { "AND4_INP2",       0x15,         1 },
-    { "AND4_INP3",       0x16,         1 },
-    { "AND4_INP4",       0x17,         1 },
+    { "AND1_INV",        0x00,         regRW },
+    { "AND2_INV",        0x01,         regRW },
+    { "AND3_INV",        0x02,         regRW },
+    { "AND4_INV",        0x03,         regRW },
+    { "AND1_ENA",        0x04,         regRW },
+    { "AND2_ENA",        0x05,         regRW },
+    { "AND3_ENA",        0x06,         regRW },
+    { "AND4_ENA",        0x07,         regRW },
+    { "AND1_INP1",       0x08,         regMux },
+    { "AND1_INP2",       0x09,         regMux },
+    { "AND1_INP3",       0x0A,         regMux },
+    { "AND1_INP4",       0x0B,         regMux },
+    { "AND2_INP1",       0x0C,         regMux },
+    { "AND2_INP2",       0x0D,         regMux },
+    { "AND2_INP3",       0x0E,         regMux },
+    { "AND2_INP4",       0x0F,         regMux },
+    { "AND3_INP1",       0x10,         regMux },
+    { "AND3_INP2",       0x11,         regMux },
+    { "AND3_INP3",       0x12,         regMux },
+    { "AND3_INP4",       0x13,         regMux },
+    { "AND4_INP1",       0x14,         regMux },
+    { "AND4_INP2",       0x15,         regMux },
+    { "AND4_INP3",       0x16,         regMux },
+    { "AND4_INP4",       0x17,         regMux },
     /* OR4 gate */
-    { "OR1_INV",         0x18,         0 },
-    { "OR2_INV",         0x19,         0 },
-    { "OR3_INV",         0x1A,         0 },
-    { "OR4_INV",         0x1B,         0 },
-    { "OR1_ENA",         0x1C,         0 },
-    { "OR2_ENA",         0x1D,         0 },
-    { "OR3_ENA",         0x1E,         0 },
-    { "OR4_ENA",         0x1F,         0 },
-    { "OR1_INP1",        0x20,         1 },
-    { "OR1_INP2",        0x21,         1 },
-    { "OR1_INP3",        0x22,         1 },
-    { "OR1_INP4",        0x23,         1 },
-    { "OR2_INP1",        0x24,         1 },
-    { "OR2_INP2",        0x25,         1 },
-    { "OR2_INP3",        0x26,         1 },
-    { "OR2_INP4",        0x27,         1 },
-    { "OR3_INP1",        0x28,         1 },
-    { "OR3_INP2",        0x29,         1 },
-    { "OR3_INP3",        0x2A,         1 },
-    { "OR3_INP4",        0x2B,         1 },
-    { "OR4_INP1",        0x2C,         1 },
-    { "OR4_INP2",        0x2D,         1 },
-    { "OR4_INP3",        0x2E,         1 },
-    { "OR4_INP4",        0x2F,         1 },
+    { "OR1_INV",         0x18,         regRW },
+    { "OR2_INV",         0x19,         regRW },
+    { "OR3_INV",         0x1A,         regRW },
+    { "OR4_INV",         0x1B,         regRW },
+    { "OR1_ENA",         0x1C,         regRW },
+    { "OR2_ENA",         0x1D,         regRW },
+    { "OR3_ENA",         0x1E,         regRW },
+    { "OR4_ENA",         0x1F,         regRW },
+    { "OR1_INP1",        0x20,         regMux },
+    { "OR1_INP2",        0x21,         regMux },
+    { "OR1_INP3",        0x22,         regMux },
+    { "OR1_INP4",        0x23,         regMux },
+    { "OR2_INP1",        0x24,         regMux },
+    { "OR2_INP2",        0x25,         regMux },
+    { "OR2_INP3",        0x26,         regMux },
+    { "OR2_INP4",        0x27,         regMux },
+    { "OR3_INP1",        0x28,         regMux },
+    { "OR3_INP2",        0x29,         regMux },
+    { "OR3_INP3",        0x2A,         regMux },
+    { "OR3_INP4",        0x2B,         regMux },
+    { "OR4_INP1",        0x2C,         regMux },
+    { "OR4_INP2",        0x2D,         regMux },
+    { "OR4_INP3",        0x2E,         regMux },
+    { "OR4_INP4",        0x2F,         regMux },
     /* Gate generator */
-    { "GATE1_INP1",      0x30,         1 },
-    { "GATE2_INP1",      0x31,         1 },
-    { "GATE3_INP1",      0x32,         1 },
-    { "GATE4_INP1",      0x33,         1 },
-    { "GATE1_INP2",      0x34,         1 },
-    { "GATE2_INP2",      0x35,         1 },
-    { "GATE3_INP2",      0x36,         1 },
-    { "GATE4_INP2",      0x37,         1 },
+    { "GATE1_INP1",      0x30,         regMux },
+    { "GATE2_INP1",      0x31,         regMux },
+    { "GATE3_INP1",      0x32,         regMux },
+    { "GATE4_INP1",      0x33,         regMux },
+    { "GATE1_INP2",      0x34,         regMux },
+    { "GATE2_INP2",      0x35,         regMux },
+    { "GATE3_INP2",      0x36,         regMux },
+    { "GATE4_INP2",      0x37,         regMux },
     /* Pulse divider */
-    { "DIV1_DIVLO",      0x38,         0 },
-    { "DIV1_DIVHI",      0x39,         0 },
-    { "DIV2_DIVLO",      0x3A,         0 },
-    { "DIV2_DIVHI",      0x3B,         0 },
-    { "DIV3_DIVLO",      0x3C,         0 },
-    { "DIV3_DIVHI",      0x3D,         0 },
-    { "DIV4_DIVLO",      0x3E,         0 },
-    { "DIV4_DIVHI",      0x3F,         0 },
-    { "DIV1_INP",        0x40,         1 },
-    { "DIV2_INP",        0x41,         1 },
-    { "DIV3_INP",        0x42,         1 },
-    { "DIV4_INP",        0x43,         1 },
+    { "DIV1_DIVLO",      0x38,         regRW },
+    { "DIV1_DIVHI",      0x39,         regRW },
+    { "DIV2_DIVLO",      0x3A,         regRW },
+    { "DIV2_DIVHI",      0x3B,         regRW },
+    { "DIV3_DIVLO",      0x3C,         regRW },
+    { "DIV3_DIVHI",      0x3D,         regRW },
+    { "DIV4_DIVLO",      0x3E,         regRW },
+    { "DIV4_DIVHI",      0x3F,         regRW },
+    { "DIV1_INP",        0x40,         regMux },
+    { "DIV2_INP",        0x41,         regMux },
+    { "DIV3_INP",        0x42,         regMux },
+    { "DIV4_INP",        0x43,         regMux },
     /* Pulse generator */
-    { "PULSE1_DLY",      0x44,         0 },
-    { "PULSE2_DLY",      0x45,         0 },
-    { "PULSE3_DLY",      0x46,         0 },
-    { "PULSE4_DLY",      0x47,         0 },
-    { "PULSE1_WID",      0x48,         0 },
-    { "PULSE2_WID",      0x49,         0 },
-    { "PULSE3_WID",      0x4A,         0 },
-    { "PULSE4_WID",      0x4B,         0 },
-    { "PULSE1_PRE",      0x4C,         0 },
-    { "PULSE2_PRE",      0x4D,         0 },
-    { "PULSE3_PRE",      0x4E,         0 },
-    { "PULSE4_PRE",      0x4F,         0 },
-    { "PULSE1_INP",      0x50,         1 },
-    { "PULSE2_INP",      0x51,         1 },
-    { "PULSE3_INP",      0x52,         1 },
-    { "PULSE4_INP",      0x53,         1 },
-    { "POLARITY",        0x54,         0 },
+    { "PULSE1_DLY",      0x44,         regRW },
+    { "PULSE2_DLY",      0x45,         regRW },
+    { "PULSE3_DLY",      0x46,         regRW },
+    { "PULSE4_DLY",      0x47,         regRW },
+    { "PULSE1_WID",      0x48,         regRW },
+    { "PULSE2_WID",      0x49,         regRW },
+    { "PULSE3_WID",      0x4A,         regRW },
+    { "PULSE4_WID",      0x4B,         regRW },
+    { "PULSE1_PRE",      0x4C,         regRW },
+    { "PULSE2_PRE",      0x4D,         regRW },
+    { "PULSE3_PRE",      0x4E,         regRW },
+    { "PULSE4_PRE",      0x4F,         regRW },
+    { "PULSE1_INP",      0x50,         regMux },
+    { "PULSE2_INP",      0x51,         regMux },
+    { "PULSE3_INP",      0x52,         regMux },
+    { "PULSE4_INP",      0x53,         regMux },
+    { "POLARITY",        0x54,         regRW },
     /* Quadrature encoder */
-    { "QUAD_STEP",       0x55,         1 },
-    { "QUAD_DIR",        0x56,         1 },
+    { "QUAD_DIR",        0x55,         regMux },
+    { "QUAD_STEP",       0x56,         regMux },
     /* External inputs for Arm, Gate, Pulse */
-    { "PC_ARM_INP",      0x57,         1 },
-    { "PC_GATE_INP",     0x58,         1 },
-    { "PC_PULSE_INP",    0x59,         1 },    
+    { "PC_ARM_INP",      0x57,         regMux },
+    { "PC_GATE_INP",     0x58,         regMux },
+    { "PC_PULSE_INP",    0x59,         regMux },
     /* Output multiplexer select */
-    { "OUT1_TTL",        0x60,         1 },
-    { "OUT1_NIM",        0x61,         1 },
-    { "OUT1_LVDS",       0x62,         1 },
-    { "OUT2_TTL",        0x63,         1 },
-    { "OUT2_NIM",        0x64,         1 },
-    { "OUT2_LVDS",       0x65,         1 },
-    { "OUT3_TTL",        0x66,         1 },
-    { "OUT3_OC",         0x67,         1 },
-    { "OUT3_LVDS",       0x68,         1 },
-    { "OUT4_TTL",        0x69,         1 },
-    { "OUT4_NIM",        0x6A,         1 },
-    { "OUT4_PECL",       0x6B,         1 },
-    { "OUT5_ENCA",       0x6C,         1 },
-    { "OUT5_ENCB",       0x6D,         1 },
-    { "OUT5_ENCZ",       0x6E,         1 },
-    { "OUT5_CONN",       0x6F,         1 },
-    { "OUT6_ENCA",       0x70,         1 },
-    { "OUT6_ENCB",       0x71,         1 },
-    { "OUT6_ENCZ",       0x72,         1 },
-    { "OUT6_CONN",       0x73,         1 },
-    { "OUT7_ENCA",       0x74,         1 },
-    { "OUT7_ENCB",       0x75,         1 },
-    { "OUT7_ENCZ",       0x76,         1 },
-    { "OUT7_CONN",       0x77,         1 },
-    { "OUT8_ENCA",       0x78,         1 },
-    { "OUT8_ENCB",       0x79,         1 },
-    { "OUT8_ENCZ",       0x7A,         1 },
-    { "OUT8_CONN",       0x7B,         1 },
+    { "OUT1_TTL",        0x60,         regMux },
+    { "OUT1_NIM",        0x61,         regMux },
+    { "OUT1_LVDS",       0x62,         regMux },
+    { "OUT2_TTL",        0x63,         regMux },
+    { "OUT2_NIM",        0x64,         regMux },
+    { "OUT2_LVDS",       0x65,         regMux },
+    { "OUT3_TTL",        0x66,         regMux },
+    { "OUT3_OC",         0x67,         regMux },
+    { "OUT3_LVDS",       0x68,         regMux },
+    { "OUT4_TTL",        0x69,         regMux },
+    { "OUT4_NIM",        0x6A,         regMux },
+    { "OUT4_PECL",       0x6B,         regMux },
+    { "OUT5_ENCA",       0x6C,         regMux },
+    { "OUT5_ENCB",       0x6D,         regMux },
+    { "OUT5_ENCZ",       0x6E,         regMux },
+    { "OUT5_CONN",       0x6F,         regMux },
+    { "OUT6_ENCA",       0x70,         regMux },
+    { "OUT6_ENCB",       0x71,         regMux },
+    { "OUT6_ENCZ",       0x72,         regMux },
+    { "OUT6_CONN",       0x73,         regMux },
+    { "OUT7_ENCA",       0x74,         regMux },
+    { "OUT7_ENCB",       0x75,         regMux },
+    { "OUT7_ENCZ",       0x76,         regMux },
+    { "OUT7_CONN",       0x77,         regMux },
+    { "OUT8_ENCA",       0x78,         regMux },
+    { "OUT8_ENCB",       0x79,         regMux },
+    { "OUT8_ENCZ",       0x7A,         regMux },
+    { "OUT8_CONN",       0x7B,         regMux },
     /* Soft input register */
-    { "SYS_RESET",       0x7E,         0 },
-    { "SOFT_IN",         0x7F,         0 },
+    { "SYS_RESET",       0x7E,         regCmd },
+    { "SOFT_IN",         0x7F,         regRW },
     /* Position compare logic blocks */
     /* Load position counters */
-    { "POS1_SETLO",      0x00 + PC_OFF, 0 },
-    { "POS1_SETHI",      0x01 + PC_OFF, 0 },
-    { "POS2_SETLO",      0x02 + PC_OFF, 0 },
-    { "POS2_SETHI",      0x03 + PC_OFF, 0 },
-    { "POS3_SETLO",      0x04 + PC_OFF, 0 },
-    { "POS3_SETHI",      0x05 + PC_OFF, 0 },
-    { "POS4_SETLO",      0x06 + PC_OFF, 0 },
-    { "POS4_SETHI",      0x07 + PC_OFF, 0 },
+    { "POS1_SETLO",      0x00 + PC_OFF, regCmd },
+    { "POS1_SETHI",      0x01 + PC_OFF, regCmd },
+    { "POS2_SETLO",      0x02 + PC_OFF, regCmd },
+    { "POS2_SETHI",      0x03 + PC_OFF, regCmd },
+    { "POS3_SETLO",      0x04 + PC_OFF, regCmd },
+    { "POS3_SETHI",      0x05 + PC_OFF, regCmd },
+    { "POS4_SETLO",      0x06 + PC_OFF, regCmd },
+    { "POS4_SETHI",      0x07 + PC_OFF, regCmd },
     /* Select position counter 1,2,3,4,Sum */
-    { "PC_ENC",          0x08 + PC_OFF, 0 },
+    { "PC_ENC",          0x08 + PC_OFF, regRW },
     /* Timestamp clock prescaler */
-    { "PC_TSPRE",        0x09 + PC_OFF, 0 },
+    { "PC_TSPRE",        0x09 + PC_OFF, regRW },
     /* Arm input Soft,External */
-    { "PC_ARM_SEL",      0x0A + PC_OFF, 0 },
+    { "PC_ARM_SEL",      0x0A + PC_OFF, regRW },
     /* Soft arm and disarm commands */
-    { "PC_ARM",          0x0B + PC_OFF, 0 },
-    { "PC_DISARM",       0x0C + PC_OFF, 0 },
+    { "PC_ARM",          0x0B + PC_OFF, regCmd },
+    { "PC_DISARM",       0x0C + PC_OFF, regCmd },
     /* Gate input Position,Time,External */
-    { "PC_GATE_SEL",     0x0D + PC_OFF, 0 },
+    { "PC_GATE_SEL",     0x0D + PC_OFF, regRW },
     /* Gate parameters */
-    { "PC_GATE_STARTLO", 0x0E + PC_OFF, 0 },
-    { "PC_GATE_STARTHI", 0x0F + PC_OFF, 0 },
-    { "PC_GATE_WIDLO",   0x10 + PC_OFF, 0 },
-    { "PC_GATE_WIDHI",   0x11 + PC_OFF, 0 },
-    { "PC_GATE_NGATELO", 0x12 + PC_OFF, 0 },
-    { "PC_GATE_NGATEHI", 0x13 + PC_OFF, 0 },
-    { "PC_GATE_STEPLO",  0x14 + PC_OFF, 0 },
-    { "PC_GATE_STEPHI",  0x15 + PC_OFF, 0 },
+    { "PC_GATE_STARTLO", 0x0E + PC_OFF, regRW },
+    { "PC_GATE_STARTHI", 0x0F + PC_OFF, regRW },
+    { "PC_GATE_WIDLO",   0x10 + PC_OFF, regRW },
+    { "PC_GATE_WIDHI",   0x11 + PC_OFF, regRW },
+    { "PC_GATE_NGATELO", 0x12 + PC_OFF, regRW },
+    { "PC_GATE_NGATEHI", 0x13 + PC_OFF, regRW },
+    { "PC_GATE_STEPLO",  0x14 + PC_OFF, regRW },
+    { "PC_GATE_STEPHI",  0x15 + PC_OFF, regRW },
     /* Pulse input Position,Time,External */
-    { "PC_PULSE_SEL",    0x16 + PC_OFF, 0 },
+    { "PC_PULSE_SEL",    0x16 + PC_OFF, regRW },
     /* Pulse parameters */
-    { "PC_PULSE_DLYLO",  0x17 + PC_OFF, 0 },
-    { "PC_PULSE_DLYHI",  0x18 + PC_OFF, 0 },
-    { "PC_PULSE_WIDLO",  0x19 + PC_OFF, 0 },
-    { "PC_PULSE_WIDHI",  0x1A + PC_OFF, 0 },
-    { "PC_PULSE_STEPLO", 0x1B + PC_OFF, 0 },
-    { "PC_PULSE_STEPHI", 0x1C + PC_OFF, 0 },
+    { "PC_PULSE_DLYLO",  0x17 + PC_OFF, regRW },
+    { "PC_PULSE_DLYHI",  0x18 + PC_OFF, regRW },
+    { "PC_PULSE_WIDLO",  0x19 + PC_OFF, regRW },
+    { "PC_PULSE_WIDHI",  0x1A + PC_OFF, regRW },
+    { "PC_PULSE_STEPLO", 0x1B + PC_OFF, regRW },
+    { "PC_PULSE_STEPHI", 0x1C + PC_OFF, regRW },
+    /* PC_PULSE_CAP moved to top of list */
+    /* PC_NUM_CAP   moved to bottom of list */
     /* System settings */
-    { "SYS_VER",         0x00 + SYS_OFF, 0 },
+    { "SYS_VER",         0x00 + SYS_OFF, regRO },
     /* Status values we should poll: FASTREGS */    
-    { "SYS_STATERR",     0x01 + SYS_OFF, 0 },
-    { "SYS_STAT1LO",     0x02 + SYS_OFF, 0 },
-    { "SYS_STAT1HI",     0x03 + SYS_OFF, 0 },
-    { "SYS_STAT2LO",     0x04 + SYS_OFF, 0 },
-    { "SYS_STAT2HI",     0x05 + SYS_OFF, 0 },
+    { "SYS_STATERR",     0x01 + SYS_OFF, regRO },
+    { "SYS_STAT1LO",     0x02 + SYS_OFF, regRO },
+    { "SYS_STAT1HI",     0x03 + SYS_OFF, regRO },
+    { "SYS_STAT2LO",     0x04 + SYS_OFF, regRO },
+    { "SYS_STAT2HI",     0x05 + SYS_OFF, regRO },
+    { "PC_NUM_CAP",      0x06 + SYS_OFF, regRO },
 };
 
 /* useful defines for converting to and from asyn parameters and zebra regs */
 #define NREGS (sizeof(reg_lookup)/sizeof(struct reg))
-#define PARAM2REG(/*int*/param) &(reg_lookup[param-this->paramReg[0]])
-#define REG2PARAM(/*reg**/r) (this->paramReg[0]+(int)(r-reg_lookup))
+#define PARAM2REG(/*int*/param) &(reg_lookup[param-this->zebraReg[0]])
+#define REG2PARAM(/*reg**/r) (this->zebraReg[0]+(int)(r-reg_lookup))
 #define REG2PARAMSTR(/*reg**/r) ((int) (REG2PARAM(r)+NREGS))
 
 /* These are the entries on the system bus */
@@ -309,6 +325,7 @@ public:
     /** These should be private, but get called from C, so must be public */
     void pollTask();
     void readTask();
+    int configLine(const char* section, const char* name, const char* value);
 
 protected:
     /* These are helper methods for the class */
@@ -316,23 +333,34 @@ protected:
     asynStatus setReg(const reg *r, int value);
     asynStatus getReg(const reg *r, int *value);
     asynStatus storeFlash();
+    asynStatus configRead(const char* str);
+    asynStatus configWrite(const char* str);
+    asynStatus callbackWaveforms();
+    asynStatus writeParam(int param, int value);
 
 protected:
     /* Parameter indices */
     #define FIRST_PARAM zebraIsConnected
     int zebraIsConnected;           // int32 read  - is zebra connected?
     int zebraPCTime;                // float64array read - position compare timestamps
-    int zebraPCPos1;                // int32array read - position compare enc 1 position
-    int zebraPCPos2;                // int32array read - position compare enc 2 position
-    int zebraPCPos3;                // int32array read - position compare enc 3 position
-    int zebraPCPos4;                // int32array read - position compare enc 4 position
     int zebraArrayUpdate;           // int32 write - update arrays
+    int zebraArrayAcq;              // int32 read - when data is acquiring
+    int zebraNumDown;               // int32 read - number of data points downloaded
     int zebraSysBus1;               // string read - system bus key first half
     int zebraSysBus2;               // string read - system bus key second half
     int zebraStore;                 // int32 write - store config to flash
-    #define LAST_PARAM zebraStore
-    int paramReg[NREGS*2];
-    #define NUM_PARAMS (&LAST_PARAM - &FIRST_PARAM + 1) + NREGS*2
+    int zebraConfigFile;            // charArray write - filename to read/write config to
+    int zebraConfigRead;            // int32 write - read config from filename
+    int zebraConfigWrite;           // int32 write - write config to filename
+    int zebraConfigStatus;          // int32 read - config status message
+    #define LAST_PARAM zebraConfigStatus
+    int zebraCapArrays[NARRAYS];    // int32array read - position compare capture array
+    int zebraCapLast[NARRAYS];      // int32 read - last captured value
+    int zebraFiltArrays[NFILT];     // int32array read - position compare sys bus filtered
+    int zebraFiltSel[NFILT];        // int32 read/write - which index of system bus to select for zebraFiltArrays
+    int zebraFiltSelStr[NFILT];     // string read - the name of the entry in the system bus
+    int zebraReg[NREGS*2];          // int32 read/write - all zebra params in reg_lookup
+    #define NUM_PARAMS (&LAST_PARAM - &FIRST_PARAM + 1) + NARRAYS*2 + NFILT*3 + NREGS*2
 
 private:
     asynUser     *pasynUser;
@@ -343,9 +371,10 @@ private:
     asynDrvUser  *pasynDrvUser;
     void         *drvUserPvt;
     epicsMessageQueueId msgQId, intQId;
-    int          maxPts, currPt, lastUpdatePt;
-    int          *PCPos[4];
-    double       *PCTime;
+    int          maxPts, currPt;
+    int          *capArrays[NARRAYS];
+    int          *filtArrays[NFILT];
+    double       *PCTime, tOffset;
 };
 
 /* C function to call poll task from epicsThreadCreate */
@@ -360,75 +389,130 @@ static void readTaskC(void *userPvt) {
     pPvt->readTask();
 }
 
+/* C function to call new message from  task from epicsThreadCreate */
+static int configLineC(void* userPvt, const char* section, const char* name, const char* value) {
+    zebra *pPvt = (zebra *)userPvt;
+    return pPvt->configLine(section, name, value);
+}
+
 /* Constructor */
 zebra::zebra(const char* portName, const char* serialPortName, int maxPts)
     : asynPortDriver(portName, 1 /*maxAddr*/, NUM_PARAMS,
-        asynInt32ArrayMask | asynFloat64ArrayMask | asynInt32Mask | asynOctetMask | asynDrvUserMask,
-        asynInt32ArrayMask | asynFloat64ArrayMask | asynInt32Mask | asynOctetMask,
+        asynInt32ArrayMask | asynFloat64ArrayMask | asynInt32Mask | asynFloat64Mask | asynOctetMask | asynDrvUserMask,
+        asynInt32ArrayMask | asynFloat64ArrayMask | asynInt32Mask | asynFloat64Mask | asynOctetMask,
         ASYN_CANBLOCK, /*ASYN_CANBLOCK=1, ASYN_MULTIDEVICE=0 */
         1, /*autoConnect*/ 0, /*default priority */ 0 /*default stack size*/ )
 {
     asynStatus status = asynSuccess;
     asynInterface *pasynInterface;
 	char buffer[6400]; /* 100 chars per element on sys bus is overkill... */
-	char str[100];
+	char str[NBUFF];
 	const reg *r;
 	
 	/* For position compare results */
 	this->maxPts = maxPts;
 	this->currPt = 0;
-	this->lastUpdatePt = -1;
 
-    /* create the parameters */
+    /* Connection status */
     createParam("ISCONNECTED", asynParamInt32, &zebraIsConnected);
     setIntegerParam(zebraIsConnected, 0);
-    createParam("STORE",       asynParamInt32, &zebraStore);
 
-    /* create the position compare arrays */
-    createParam("PC_TIME",     asynParamFloat64Array, &zebraPCTime);    
-    this->PCTime = (double *)calloc(maxPts, sizeof(double));
-    createParam("PC_POS1",     asynParamFloat64Array, &zebraPCPos1);
-    createParam("PC_POS2",     asynParamFloat64Array, &zebraPCPos2);
-    createParam("PC_POS3",     asynParamFloat64Array, &zebraPCPos3);
-    createParam("PC_POS4",     asynParamFloat64Array, &zebraPCPos4);
-    for (int a=0; a<4; a++) {
-        this->PCPos[a] = (int *)calloc(maxPts, sizeof(int));
-    }
-    
-    /* a parameter that controls polling */
+    /* a parameter that controls polling of waveforms */
     createParam("ARRAY_UPDATE", asynParamInt32, &zebraArrayUpdate);
 
+    /* and one that says when we are acquiring arrays */
+    createParam("ARRAY_ACQ", asynParamInt32, &zebraArrayAcq);
+    setIntegerParam(zebraArrayAcq, 0);
+
+    /* a parameter showing the number of points we have downloaded */
+    createParam("PC_NUM_DOWN", asynParamInt32, &zebraNumDown);
+    setIntegerParam(zebraNumDown, 0);
+
     /* create a system bus key */
-    createParam("SYS_BUS1",     asynParamOctet, &zebraSysBus1);
+    createParam("SYS_BUS1", asynParamOctet, &zebraSysBus1);
     buffer[0] = '\0';
     for (unsigned int i=0; i<NSYSBUS/2; i++) {
-    	sprintf(str, "%d: %s\n", i, bus_lookup[i]);
+    	epicsSnprintf(str, NBUFF, "%2d: %s\n", i, bus_lookup[i]);
     	strcat(buffer, str);
     }
     setStringParam(zebraSysBus1, buffer);
     createParam("SYS_BUS2",     asynParamOctet, &zebraSysBus2);
     buffer[0] = '\0';
     for (unsigned int i=NSYSBUS/2; i<NSYSBUS; i++) {
-    	sprintf(str, "%2d: %s\n", i, bus_lookup[i]);
+    	epicsSnprintf(str, NBUFF, "%2d: %s\n", i, bus_lookup[i]);
     	strcat(buffer, str);
     }
     setStringParam(zebraSysBus2, buffer);
 
+    /* a parameter for a store to flash request */
+    createParam("STORE", asynParamInt32, &zebraStore);
+
+    /* parameters for filename reading/writing config */
+    createParam("CONFIG_FILE", asynParamOctet, &zebraConfigFile);
+    createParam("CONFIG_WRITE", asynParamInt32, &zebraConfigWrite);
+    createParam("CONFIG_READ", asynParamInt32, &zebraConfigRead);
+    createParam("CONFIG_STATUS", asynParamOctet, &zebraConfigStatus);
+
+    /* position compare time array */
+    createParam("PC_TIME", asynParamFloat64Array, &zebraPCTime);
+    this->PCTime = (double *)calloc(maxPts, sizeof(double));
+
+    /* create the position compare arrays */
+    for (int a=0; a<NARRAYS; a++) {
+    	epicsSnprintf(str, NBUFF, "PC_CAP%d", a+1);
+        createParam(str, asynParamInt32Array, &zebraCapArrays[a]);
+        this->capArrays[a] = (int *)calloc(maxPts, sizeof(int));
+    }
+    
+    /* create the last captured interrupt values */
+    for (int a=0; a<NARRAYS; a++) {
+    	epicsSnprintf(str, NBUFF, "PC_CAP%d_LAST", a+1);
+        createParam(str, asynParamFloat64, &zebraCapLast[a]);
+    }
+
+    /* create filter arrays */
+    for (int a=0; a<NFILT; a++) {
+    	epicsSnprintf(str, NBUFF, "PC_FILT%d", a+1);
+        createParam(str, asynParamInt32Array, &zebraFiltArrays[a]);
+        this->filtArrays[a] = (int *)calloc(maxPts, sizeof(int));
+    }
+
+	/* create values that we can use to filter one element on the system bus with */
+	/* NOTE: separate for loop so we get values for params we can do arithmetic with */
+    for (int a=0; a<NFILT; a++) {
+    	epicsSnprintf(str, NBUFF, "PC_FILTSEL%d", a+1);
+        createParam(str, asynParamInt32, &zebraFiltSel[a]);
+		setIntegerParam(zebraFiltSel[a], 0);
+	}
+
+    /* create lookups of string values of these string selects */
+    /* NOTE: separate for loop so we get values for params we can do arithmetic with */
+    for (int a=0; a<NFILT; a++) {
+    	epicsSnprintf(str, NBUFF, "PC_FILTSEL%d_STR", a+1);
+        createParam(str, asynParamOctet, &zebraFiltSelStr[a]);
+        // Check our filter string lookup calcs will work
+        assert(zebraFiltSelStr[a] == zebraFiltSel[a] + NFILT);
+        setStringParam(zebraFiltSelStr[a], bus_lookup[0]);
+    }
+
     /* create parameters for registers */        
     for (unsigned int i=0; i<NREGS; i++) {
         r = &(reg_lookup[i]);
-        createParam(r->str, asynParamInt32, &paramReg[i]);
-        assert(r == PARAM2REG(paramReg[i]));
-        assert(REG2PARAM(r) == paramReg[i]);        
+        createParam(r->str, asynParamInt32, &zebraReg[i]);
+        // Check our param -> reg lookup and inverse will work
+        assert(r == PARAM2REG(zebraReg[i]));
+        assert(REG2PARAM(r) == zebraReg[i]);
     }
     
+    /* create parameters for register string values, these are lookups
+       of the string values of mux registers from the system bus */
+    /* NOTE: separate for loop so we get values for params we can do arithmetic with in REG2PARAMSTR */
     for (unsigned int i=0; i<NREGS; i++) {        
-        /* create parameters for register string values, these are lookups
-           of the string values of mux registers from the system bus */ 
         r = &(reg_lookup[i]);  
-        sprintf(buffer, "%s_STR", r->str);
-        createParam(buffer, asynParamOctet, &paramReg[i+NREGS]);             
-        assert(REG2PARAMSTR(r) == paramReg[i+NREGS]);
+        epicsSnprintf(str, NBUFF, "%s_STR", r->str);
+        createParam(str, asynParamOctet, &zebraReg[i+NREGS]);
+        // Check our reg -> param string lookup will work
+        assert(REG2PARAMSTR(r) == zebraReg[i+NREGS]);
     }
 
     /* Create a message queue to hold completed messages and interrupts */
@@ -538,13 +622,18 @@ void zebra::readTask() {
 
 /* This is the function that will be run for the poll thread */
 void zebra::pollTask() {
-    int value, time, param;
+    int value, cap, param;
+    unsigned int time;
     const reg *r;
     unsigned int i, poll=0, sys=0, dosys=1;
     char *rxBuffer, *ptr;
+    epicsTimeStamp start, end;
     asynStatus status = asynSuccess;
+    // Wait until port is up
+    epicsThreadSleep(1.0);
     while (true) {
         // poll registers in turn, system status more often
+    	epicsTimeGetCurrent(&start);
     	if (dosys) {
     		i = NREGS - FASTREGS + sys++;
 	    	if (sys >= FASTREGS) sys = 0;
@@ -556,7 +645,7 @@ void zebra::pollTask() {
     	/* Get the reg pointer */
     	r = &(reg_lookup[i]);
 		// Get the register value from zebra
-		this->lock();		
+		this->lock();
 		status = this->getReg(r, &value);
 		// set the param value
 		if (status) {
@@ -566,52 +655,176 @@ void zebra::pollTask() {
 			setIntegerParam(zebraIsConnected, 1);
 			setIntegerParam(REG2PARAM(r), value);
 			// If it is a mux, set the string representation from the system bus
-			if (r->isMux && value < NSYSBUS) {
+			if (r->type == regMux && value < NSYSBUS) {
 				setStringParam(REG2PARAMSTR(r), bus_lookup[value]);
 			}
 		}
-		callParamCallbacks();
 		// If there are any interrupts, service them
 		while (epicsMessageQueuePending(this->intQId) > 0) {
-		    epicsMessageQueueReceive(this->intQId, &rxBuffer, sizeof(&rxBuffer));	
-        	if (this->currPt < this->maxPts) {
-        	    // First get the timestamp
+		    epicsMessageQueueReceive(this->intQId, &rxBuffer, sizeof(&rxBuffer));
+		    if (strcmp(rxBuffer, "PR") == 0) {
+		        // This is zebra telling us to reset our buffers
+		        this->currPt = 0;
+           	    this->tOffset = 0.0;
+           	    this->callbackWaveforms();
+           	    setIntegerParam(zebraArrayAcq, 1);
+		        setIntegerParam(zebraNumDown, 0);
+		    } else if (strcmp(rxBuffer, "PX") == 0) {
+		        // This is zebra there is no more data
+		    	this->callbackWaveforms();
+		        setIntegerParam(zebraArrayAcq, 0);
+		    } else {
+        	    // This is a data buffer
         	    ptr = rxBuffer;
+        	    // First get time
         	    if (sscanf(rxBuffer, "P%08X", &time) == 1) {
         	        //printf("Time %X ", time);
-            	    this->PCTime[this->currPt] = (double) time;
+        	    	// put time in time units (s or ms based on TS_PRE)
+            	    this->PCTime[this->currPt] = time / 1000.0 + this->tOffset;
+            	    if (this->currPt > 0 && this->PCTime[this->currPt] < this->PCTime[this->currPt-1]) {
+            	    	// we've rolled over the counter, increment the offset
+            	    	this->tOffset += 4294967.296;
+            	    	this->PCTime[this->currPt] += 4294967.296;
+            	    }
             	    ptr += 9;
-            	    // See which encoders are being captured so we can decode the interrupt
-            	    findParam("PC_CAP", &param);
-            	    getIntegerParam(param, &value);
-            	    // Now step through the bytes
-            	    for (int a=0; a<4; a++) {            	    
-            	        if (value>>a & 1) {            	            
-            	            if (sscanf(ptr, "%08X", &(this->PCPos[a][this->currPt])) != 1) {
-            	                printf("Bad interrupt on encoder %d\n", a+1);
-            	                break;
-            	            }
-            	            //printf("Enc%d %X ", a+1, this->PCPos[a][this->currPt]);
-            	            ptr += 8;
-            	        }
-            	     }
-            	     //printf("\n");
-            	     // sanity check
-            	     if (ptr[0] != '\0') {
-            	         printf("Characters remaining in interrupt: %s\n", ptr);
-            	     }
-            	    
         	    } else {
-                	printf("Bad interrupt on time '%s' %d\n", rxBuffer, sscanf(rxBuffer, "P%08X", &time));            	
+                	printf("Bad interrupt on time '%s' %d\n", rxBuffer, sscanf(rxBuffer, "P%08X", &time));
+                	free(rxBuffer);
+                	continue;
         	    }
-        	    this->currPt++;
-        	}            	
-	        free(rxBuffer);		
+        	    // See which encoders are being captured so we can decode the interrupt
+        	    findParam("PC_CAP", &param);
+        	    getIntegerParam(param, &cap);
+        	    // Now step through the bytes
+        	    for (int a=0; a<NARRAYS; a++) {
+        	        if (cap>>a & 1) {
+        	            if (sscanf(ptr, "%08X", &value) != 1) {
+        	                printf("Bad interrupt on encoder %d\n", a+1);
+        	                break;
+        	            }
+        	            ptr += 8;
+        	        } else {
+        	            value = 0;
+        	        }
+        	        // publish value to double param
+        	        setDoubleParam(zebraCapLast[a], -1);
+        	        if (a < 4) {
+        	        	// encoders are signed
+            	        setDoubleParam(zebraCapLast[a], value);
+            	    } else {
+            	    	// all others are unsigned
+            	        setDoubleParam(zebraCapLast[a], (unsigned int) value);
+            	    }
+        	        // publish value to waveform if we have room
+        	        // don't worry about signed vs unsigned, the waveform record handles it
+    		    	if (this->currPt < this->maxPts) {
+    		    		this->capArrays[a][this->currPt] = value;
+    		    	}
+    		    	// Note: don't do callParamCallbacks here, or we'll swamp asyn
+        	     }
+				 // sanity check
+				 if (ptr[0] != '\0') {
+					 printf("Characters remaining in interrupt: %s\n", ptr);
+				 }
+				 // advance the counter if allowed
+ 		    	 if (this->currPt < this->maxPts) {
+ 		    	 	 this->currPt++;
+ 		    	 }
+		    }
+	        free(rxBuffer);
         }		
+		// Update rate of about
+        callParamCallbacks();
 		this->unlock();
-		// Wait for POLL seconds
-		epicsThreadSleep(POLL);
+		// We try to do all fastregs at 0.5Hz, so waveform last vals get updated at
+		// about 6Hz. This will drop off if we set values
+		epicsTimeGetCurrent(&end);
+		double timeToSleep = 2.0 / (2 * FASTREGS) - epicsTimeDiffInSeconds(&end, &start);
+		if (timeToSleep > 0) {
+			epicsThreadSleep(timeToSleep);
+		} else {
+			printf("Not enough time to poll properly %f\n", timeToSleep);
+		}
     }
+}
+
+/* Write the config of a zebra to a file
+ * called with the lock taken
+ */
+asynStatus zebra::configWrite(const char* str) {
+	asynStatus status = asynSuccess;
+	const reg *r;
+	int value;
+	FILE *file;
+	char buff[NBUFF];
+	epicsSnprintf(buff, NBUFF, "Writing '%s'", str);
+	setStringParam(zebraConfigStatus, buff);
+	callParamCallbacks();
+	file = fopen(str,"w");
+	if (file == NULL) {
+		epicsSnprintf(buff, NBUFF, "Can't open '%s'", str);
+		setStringParam(zebraConfigStatus, buff);
+		callParamCallbacks();
+		return asynError;
+	}
+	fprintf(file,"; Setup for a zebra box\n");
+	fprintf(file,"[regs]\n");
+	for (unsigned int i=0; i<NREGS-FASTREGS; i++) {
+		r = &(reg_lookup[i]);
+		getIntegerParam(REG2PARAM(r), &value);
+		fprintf(file,"%s = %d", r->str, value);
+		if (r->type == regMux && value < NSYSBUS) {
+			fprintf(file," ; %s", bus_lookup[value]);
+		}
+		fprintf(file,"\n");
+	}
+	fclose(file);
+	// Wait so people notice it's doing something!
+	epicsThreadSleep(1);
+	setStringParam(zebraConfigStatus, "Done");
+	callParamCallbacks();
+	return status;
+}
+
+/* Read the config of a zebra from a zebra
+ * called with the lock taken
+ */
+asynStatus zebra::configRead(const char* str) {
+	char buff[NBUFF];
+	epicsSnprintf(buff, NBUFF, "Reading '%s'", str);
+	setStringParam(zebraConfigStatus, buff);
+	callParamCallbacks();
+    if (ini_parse(str, configLineC, this) < 0) {
+    	epicsSnprintf(buff, NBUFF, "Error reading '%s'", str);
+		setStringParam(zebraConfigStatus, buff);
+		callParamCallbacks();
+        return asynError;
+    }
+    setStringParam(zebraConfigStatus, "Done");
+    callParamCallbacks();
+	return asynSuccess;
+}
+
+int zebra::configLine(const char* section, const char* name, const char* value) {
+	char buff[NBUFF];
+	if (strcmp(section, "regs") == 0) {
+		int param;
+	    if (findParam(name, &param) == asynSuccess) {
+	    	regType type = (PARAM2REG(param))->type;
+	    	if (type == regMux || type == regRW) {
+	    		this->writeParam(param, atoi(value));
+	    	}
+	    } else {
+	    	epicsSnprintf(buff, NBUFF, "Can't find param %s", name);
+			setStringParam(zebraConfigStatus, buff);
+			callParamCallbacks();
+	    }
+    	return 1;
+	}
+	epicsSnprintf(buff, NBUFF, "Can't find section %s", section);
+	setStringParam(zebraConfigStatus, buff);
+	callParamCallbacks();
+    return 0;  /* unknown section, error */
 }
 
 /* This function gets the value of a register
@@ -622,7 +835,7 @@ asynStatus zebra::getReg(const reg *r, int *value) {
     char txBuffer[NBUFF], *rxBuffer;
     int txSize, addr;
     // Send a write
-    txSize = sprintf(txBuffer, "R%02X", r->addr);
+    txSize = epicsSnprintf(txBuffer, NBUFF, "R%02X", r->addr);
     status = this->sendReceive(txBuffer, txSize, &rxBuffer);
     // If we got a response
     if(status == asynSuccess) {
@@ -652,7 +865,7 @@ asynStatus zebra::setReg(const reg *r, int value) {
     char txBuffer[NBUFF], *rxBuffer;
     int txSize, addr;
     // Send a write
-    txSize = sprintf(txBuffer, "W%02X%04X", r->addr, value & 0xFFFF);
+    txSize = epicsSnprintf(txBuffer, NBUFF, "W%02X%04X", r->addr, value & 0xFFFF);
     status = this->sendReceive(txBuffer, txSize, &rxBuffer);
     // If we got a response
     if(status == asynSuccess) {
@@ -681,7 +894,7 @@ asynStatus zebra::storeFlash() {
     char txBuffer[NBUFF], *rxBuffer;
     int txSize;
     // Send a write
-    txSize = sprintf(txBuffer, "S");
+    txSize = epicsSnprintf(txBuffer, NBUFF, "S");
     status = this->sendReceive(txBuffer, txSize, &rxBuffer);
     // If we got a response
     if(status == asynSuccess) {
@@ -723,6 +936,31 @@ asynStatus zebra::sendReceive(char *txBuffer, int txSize, char** rxBuffer) {
     return status;
 }
 
+asynStatus zebra::writeParam(int param, int value) {
+	asynStatus status = asynError;
+	const reg *r = PARAM2REG(param);
+    //printf("Write reg %d\n", r->addr);
+	setIntegerParam(param, value);
+	status = this->setReg(r, value);
+	if (status == asynSuccess) {
+		status = this->getReg(r, &value);
+		if (status == asynSuccess) {
+			setIntegerParam(param, value);
+			if (r->type == regMux && value < NSYSBUS) {
+				//printf("Write reg %d isMux\n", r->addr);
+				setStringParam(REG2PARAMSTR(r), bus_lookup[value]);
+			}
+		}
+		if (strcmp(r->str, "SYS_RESET") == 0) {
+			// Reset called, so stop waveform processing
+	    	this->callbackWaveforms();
+	        setIntegerParam(zebraArrayAcq, 0);
+	    }
+	}
+	return status;
+}
+
+
 /** Called when asyn clients call pasynInt32->write().
   * This function performs actions for some parameters
   * For all parameters it sets the value in the parameter library and calls any registered callbacks..
@@ -730,50 +968,78 @@ asynStatus zebra::sendReceive(char *txBuffer, int txSize, char** rxBuffer) {
   * \param[in] value Value to write. */
 asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value)
 {
-    /* Base class does most of the work, including writing to the parameter
-     * library and doing call backs */
 	asynStatus status = asynError;
 
     /* Any work we need to do */
     int param = pasynUser->reason;
-    if(param >= this->paramReg[0] && param < this->paramReg[NREGS-1]) {
-    	const reg *r = PARAM2REG(param);
-        //printf("Write reg %d\n", r->addr);
-    	setIntegerParam(param, value);
-    	status = this->setReg(r, value);
-    	if (status == asynSuccess) {
-    		status = this->getReg(r, &value);
-    		if (status == asynSuccess) {
-				setIntegerParam(param, value);
-				if (r->isMux && value < NSYSBUS) {
-					//printf("Write reg %d isMux\n", r->addr);
-					setStringParam(REG2PARAMSTR(r), bus_lookup[value]);
-				}
-            	if (strcmp(r->str, "PC_ARM") == 0) {
-            	    // Asked to arm, reset plot
-            	    this->currPt = 0;
-            	    this->lastUpdatePt = -1;
-            	    param = zebraArrayUpdate;
-            	} 				
-    		}
-    	}    	
+    if(param >= this->zebraReg[0] && param < this->zebraReg[NREGS-1]) {
+    	status = this->writeParam(param, value);
     } else if (param == zebraStore) {
     	status = this->storeFlash();
+    } else if (param == zebraConfigRead || param == zebraConfigWrite) {
+		char fileName[NBUFF];
+		getStringParam(zebraConfigFile, NBUFF, fileName);
+		if (param == zebraConfigRead) {
+			status = this->configRead(fileName);
+		} else {
+			status = this->configWrite(fileName);
+		}
+    } else if (param == zebraArrayUpdate) {        
+        status = this->callbackWaveforms();
+    } else if (param >= zebraFiltSel[0] && param <= zebraFiltSel[NFILT-1]) {
+    	value = value % NSYSBUS;
+    	setStringParam(param + NFILT, bus_lookup[value]);
+    	status = setIntegerParam(param, value);
+    	setIntegerParam(zebraNumDown, 0);
+    	this->callbackWaveforms();
     }
-    /* Note: if not else if as we signal to do an update if PC_ARM is set */    	
-    if (param == zebraArrayUpdate) {
-        if (this->lastUpdatePt != this->currPt) {
-            // printf("Update %d %d\n", this->lastUpdatePt, this->currPt);        
-	        doCallbacksFloat64Array(this->PCTime, this->currPt, zebraPCTime, 0);
-	        doCallbacksInt32Array(this->PCPos[0], this->currPt, zebraPCPos1, 0);
-	        doCallbacksInt32Array(this->PCPos[1], this->currPt, zebraPCPos2, 0);            	
-	        doCallbacksInt32Array(this->PCPos[2], this->currPt, zebraPCPos3, 0);            	
-	        doCallbacksInt32Array(this->PCPos[3], this->currPt, zebraPCPos4, 0);            	                               	                           
-            this->lastUpdatePt = this->currPt;
-        }
-        status = asynSuccess;
-    }
+    callParamCallbacks();
     return status;
+}    
+    
+/* This function calls back on the time and position waveform values
+   called with the lock taken */
+asynStatus zebra::callbackWaveforms() {
+	int sel, *src, lastUpdatePt;
+	getIntegerParam(zebraNumDown, &lastUpdatePt);
+    if (lastUpdatePt != this->currPt) {
+        // printf("Update %d %d\n", this->lastUpdatePt, this->currPt);  
+        if (this->currPt < this->maxPts) {
+            // horrible hack for edm plotting
+            // set the last+1 time point to be the same as the last, this
+            // means the last point on the time/pos plot is (last, 0), which
+            // gives a straight line back to (0,0) without confusing the user
+            this->PCTime[this->currPt] = this->PCTime[this->currPt-1];                
+	        doCallbacksFloat64Array(this->PCTime, this->currPt+1, zebraPCTime, 0);
+	    } else {
+	        doCallbacksFloat64Array(this->PCTime, this->currPt, zebraPCTime, 0);    	       
+	    }
+
+        // update capture arrays
+        for (int a=0; a<NARRAYS; a++) {
+        	doCallbacksInt32Array(this->capArrays[a], this->currPt, zebraCapArrays[a], 0);
+        }
+
+        /* Filter the relevant sys_bus array with filtSel[a] and put the value in filtArray[a] */
+        for (int a=0; a<NFILT; a++) {
+        	getIntegerParam(zebraFiltSel[a], &sel);
+			if (sel < 32) {
+				src = this->capArrays[4]; // SYS_BUS1
+			} else {
+				src = this->capArrays[5]; // SYS_BUS2
+				sel -= 32;
+			}
+			for (int i=0; i<this->maxPts; i++) {
+				this->filtArrays[a][i] = (src[i] >> sel) & 1;
+			}
+			doCallbacksInt32Array(this->filtArrays[a], this->currPt, zebraFiltArrays[a], 0);
+        }
+
+        // store the last update so we don't get repeated updates
+        setIntegerParam(zebraNumDown, this->currPt);
+        callParamCallbacks();
+    }
+    return asynSuccess;
 }
 
 /** Configuration command, called directly or from iocsh */

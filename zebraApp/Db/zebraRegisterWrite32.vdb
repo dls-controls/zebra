@@ -8,6 +8,7 @@ template() {
 
   #! InputMacro(MOTOR,"",120,360,16777215,1,true)
   #! InputMacro(PARAM,"",120,300,16777215,1,true)
+  #! InputMacro(PREC,"",120,300,16777215,1,true)  
 }
 
 record(ai, "$(P)$(Q):$(PARAM):RBVLO") {
@@ -44,7 +45,7 @@ record(calcout, "$(P)$(Q):$(PARAM):SYNC") {
 record(ao, "$(P)$(Q):$(PARAM)") {
   field(DESC, "Demand value for param")
   field(FLNK, "$(P)$(Q):$(PARAM):CALCLO PP")
-  field(PREC, "4")  
+  field(PREC, "$(PREC)")  
 }
 
 record(calcout, "$(P)$(Q):$(PARAM):CALCLO") {
