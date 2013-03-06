@@ -16,6 +16,7 @@ record(ai, "$(P)$(Q):$(PARAM):RBVLO") {
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0) $(PARAM)LO")
   field(SCAN, "I/O Intr")
+  field(MDEL, "-1")
 }
 
 record(ai, "$(P)$(Q):$(PARAM):RBVHI") {
@@ -23,6 +24,7 @@ record(ai, "$(P)$(Q):$(PARAM):RBVHI") {
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0) $(PARAM)HI")
   field(SCAN, "I/O Intr")
+  field(MDEL, "-1")  
 }
 
 record(calcout, "$(P)$(Q):$(PARAM):RBV") {

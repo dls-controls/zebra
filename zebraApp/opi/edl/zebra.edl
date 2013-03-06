@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 141
-y 105
+x 828
+y 310
 w 940
 h 610
 font "arial-medium-r-14.0"
@@ -224,9 +224,9 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 850
+x 835
 y 580
-w 85
+w 100
 h 25
 fgColor index 46
 bgColor index 3
@@ -268,7 +268,7 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 380
+x 390
 y 580
 w 110
 h 25
@@ -286,7 +286,7 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 295
+x 305
 y 580
 w 85
 h 25
@@ -581,9 +581,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 755
+x 725
 y 580
-w 85
+w 100
 h 25
 fgColor index 25
 onColor index 4
@@ -599,41 +599,62 @@ useEnumNumeric
 font "arial-bold-r-14.0"
 endObjectProperties
 
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 515
+y 580
+w 85
+h 25
+fgColor index 43
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-14.0"
+buttonLabel "PC Plot..."
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "zebraPCPlot"
+}
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 685
+y 580
+w 24
+h 24
+controlPv "$(zebra):ARRAY_ACQ"
+lineColor index 14
+onColor index 15
+offColor index 19
+numBits 1
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 0
-x 505
+x 605
 y 580
-w 135
+w 80
 h 25
 font "arial-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "Firmware"
+  "Download"
 }
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 580
-y 580
-w 140
-h 25
-controlPv "$(zebra):SYS_VER"
-displayMode "hex"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "arial-bold-r-14.0"
 endObjectProperties
 

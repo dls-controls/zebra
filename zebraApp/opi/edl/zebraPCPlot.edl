@@ -61,7 +61,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{(A>>4&B<32)||(A>>5&B>31)\}($(zebra):PC_CAP,$(zebra):PC_FILTSEL1)"
+visPv "CALC\\\{(A>>4&B<32)||(A>>5&B>31)\}($(zebra):PC_BIT_CAP,$(zebra):PC_FILTSEL1)"
 visMin "0"
 visMax "1"
 endObjectProperties
@@ -567,7 +567,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>0&1\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>0&1\}($(zebra):PC_BIT_CAP)"
 visMin "0"
 visMax "1"
 endObjectProperties
@@ -643,7 +643,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>1&1\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>1&1\}($(zebra):PC_BIT_CAP)"
 visMin "0"
 visMax "1"
 endObjectProperties
@@ -719,7 +719,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>2&1\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>2&1\}($(zebra):PC_BIT_CAP)"
 visMin "0"
 visMax "1"
 endObjectProperties
@@ -760,7 +760,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>3&1\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>3&1\}($(zebra):PC_BIT_CAP)"
 visMin "0"
 visMax "1"
 endObjectProperties
@@ -871,7 +871,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>6&1\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>6&1\}($(zebra):PC_BIT_CAP)"
 visMin "0"
 visMax "1"
 endObjectProperties
@@ -947,7 +947,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>7&1\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>7&1\}($(zebra):PC_BIT_CAP)"
 visMin "0"
 visMax "1"
 endObjectProperties
@@ -1023,7 +1023,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>8&1\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>8&1\}($(zebra):PC_BIT_CAP)"
 visMin "0"
 visMax "1"
 endObjectProperties
@@ -1064,7 +1064,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>9&1\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>9&1\}($(zebra):PC_BIT_CAP)"
 visMin "0"
 visMax "1"
 endObjectProperties
@@ -1332,7 +1332,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>6&1\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>6&1\}($(zebra):PC_BIT_CAP)"
 visMin "1"
 visMax "2"
 endObjectProperties
@@ -1389,7 +1389,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>7&1\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>7&1\}($(zebra):PC_BIT_CAP)"
 visMin "1"
 visMax "2"
 endObjectProperties
@@ -1446,7 +1446,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>8&1\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>8&1\}($(zebra):PC_BIT_CAP)"
 visMin "1"
 visMax "2"
 endObjectProperties
@@ -1503,7 +1503,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>9&1\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>9&1\}($(zebra):PC_BIT_CAP)"
 visMin "1"
 visMax "2"
 endObjectProperties
@@ -1578,7 +1578,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>0&1\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>0&1\}($(zebra):PC_BIT_CAP)"
 visMin "1"
 visMax "2"
 endObjectProperties
@@ -1653,7 +1653,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>1&1\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>1&1\}($(zebra):PC_BIT_CAP)"
 visMin "1"
 visMax "2"
 endObjectProperties
@@ -1728,7 +1728,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>2&1\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>2&1\}($(zebra):PC_BIT_CAP)"
 visMin "1"
 visMax "2"
 endObjectProperties
@@ -1803,7 +1803,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>3&1\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>3&1\}($(zebra):PC_BIT_CAP)"
 visMin "1"
 visMax "2"
 endObjectProperties
@@ -1915,7 +1915,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>4&3\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>4&3\}($(zebra):PC_BIT_CAP)"
 visMin "1"
 visMax "4"
 endObjectProperties
@@ -1953,7 +1953,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{(A>>4&B<32)||(A>>5&B>31)\}($(zebra):PC_CAP,$(zebra):PC_FILTSEL1)"
+visPv "CALC\\\{(A>>4&B<32)||(A>>5&B>31)\}($(zebra):PC_BIT_CAP,$(zebra):PC_FILTSEL1)"
 visMin "1"
 visMax "2"
 endObjectProperties
@@ -1994,7 +1994,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{(A>>4&B<32)||(A>>5&B>31)\}($(zebra):PC_CAP,$(zebra):PC_FILTSEL2)"
+visPv "CALC\\\{(A>>4&B<32)||(A>>5&B>31)\}($(zebra):PC_BIT_CAP,$(zebra):PC_FILTSEL2)"
 visMin "0"
 visMax "1"
 endObjectProperties
@@ -2032,7 +2032,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>4&3\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>4&3\}($(zebra):PC_BIT_CAP)"
 visMin "1"
 visMax "4"
 endObjectProperties
@@ -2070,7 +2070,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{(A>>4&B<32)||(A>>5&B>31)\}($(zebra):PC_CAP,$(zebra):PC_FILTSEL2)"
+visPv "CALC\\\{(A>>4&B<32)||(A>>5&B>31)\}($(zebra):PC_BIT_CAP,$(zebra):PC_FILTSEL2)"
 visMin "1"
 visMax "2"
 endObjectProperties
@@ -2111,7 +2111,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{(A>>4&B<32)||(A>>5&B>31)\}($(zebra):PC_CAP,$(zebra):PC_FILTSEL3)"
+visPv "CALC\\\{(A>>4&B<32)||(A>>5&B>31)\}($(zebra):PC_BIT_CAP,$(zebra):PC_FILTSEL3)"
 visMin "0"
 visMax "1"
 endObjectProperties
@@ -2149,7 +2149,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>4&3\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>4&3\}($(zebra):PC_BIT_CAP)"
 visMin "1"
 visMax "4"
 endObjectProperties
@@ -2187,7 +2187,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{(A>>4&B<32)||(A>>5&B>31)\}($(zebra):PC_CAP,$(zebra):PC_FILTSEL3)"
+visPv "CALC\\\{(A>>4&B<32)||(A>>5&B>31)\}($(zebra):PC_BIT_CAP,$(zebra):PC_FILTSEL3)"
 visMin "1"
 visMax "2"
 endObjectProperties
@@ -2228,7 +2228,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{(A>>4&B<32)||(A>>5&B>31)\}($(zebra):PC_CAP,$(zebra):PC_FILTSEL4)"
+visPv "CALC\\\{(A>>4&B<32)||(A>>5&B>31)\}($(zebra):PC_BIT_CAP,$(zebra):PC_FILTSEL4)"
 visMin "0"
 visMax "1"
 endObjectProperties
@@ -2266,7 +2266,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{A>>4&3\}($(zebra):PC_CAP)"
+visPv "CALC\\\{A>>4&3\}($(zebra):PC_BIT_CAP)"
 visMin "1"
 visMax "4"
 endObjectProperties
@@ -2304,7 +2304,7 @@ endObjectProperties
 
 endGroup
 
-visPv "CALC\\\{(A>>4&B<32)||(A>>5&B>31)\}($(zebra):PC_CAP,$(zebra):PC_FILTSEL4)"
+visPv "CALC\\\{(A>>4&B<32)||(A>>5&B>31)\}($(zebra):PC_BIT_CAP,$(zebra):PC_FILTSEL4)"
 visMin "1"
 visMax "2"
 endObjectProperties

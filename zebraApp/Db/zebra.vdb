@@ -78,11 +78,24 @@ record(ai, "$(P)$(Q):SYS_VER") {
   field(SCAN, "I/O Intr")
 }
 
-record(ai, "$(P)$(Q):PC_NUM_CAP") {
+record(ai, "$(P)$(Q):PC_NUM_CAPLO") {
   field(DESC, "Points captured")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_NUM_CAP")
+  field(INP, "@asyn($(PORT),0) PC_NUM_CAPLO")
   field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P)$(Q):PC_NUM_CAPHI") {
+  field(DESC, "Points captured")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0) PC_NUM_CAPHI")
+  field(SCAN, "I/O Intr")
+}
+
+record(calcout, "$(P)$(Q):PC_NUM_CAP") {
+  field(INPA, "$(P)$(Q):PC_NUM_CAPLO CP")
+  field(INPB, "$(P)$(Q):PC_NUM_CAPHI CP")
+  field(CALC, "(A+(B<<16))")
 }
 
 record(ai, "$(P)$(Q):PC_NUM_DOWN") {
@@ -1197,6 +1210,7 @@ record(ai, "$(P)$(Q):PC_DIV1_LAST") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0) PC_CAP7_LAST")
   field(SCAN, "I/O Intr")
+  field(MDEL, "-1")  
 }
 
 record(waveform, "$(P)$(Q):PC_DIV2") {
@@ -1211,6 +1225,7 @@ record(ai, "$(P)$(Q):PC_DIV2_LAST") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0) PC_CAP8_LAST")
   field(SCAN, "I/O Intr")
+  field(MDEL, "-1")  
 }
 
 record(waveform, "$(P)$(Q):PC_DIV3") {
@@ -1225,6 +1240,7 @@ record(ai, "$(P)$(Q):PC_DIV3_LAST") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0) PC_CAP9_LAST")
   field(SCAN, "I/O Intr")
+  field(MDEL, "-1")  
 }
 
 record(waveform, "$(P)$(Q):PC_DIV4") {
@@ -1239,6 +1255,7 @@ record(ai, "$(P)$(Q):PC_DIV4_LAST") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0) PC_CAP10_LAST")
   field(SCAN, "I/O Intr")
+  field(MDEL, "-1")  
 }
 
 record(waveform, "$(P)$(Q):PC_FILT1") {
@@ -1325,8 +1342,8 @@ expand("zebraRegisterWriteMux.vdb", OUT8_CONN) {
   macro(PARAM, "OUT8_CONN")
 }
 
-expand("zebraRegisterWrite.vdb", PC_CAP) {
-  macro(PARAM, "PC_CAP")
+expand("zebraRegisterWrite.vdb", PC_BIT_CAP) {
+  macro(PARAM, "PC_BIT_CAP")
   macro(ASLO, "1")
   macro(PREC, "0")
 }
@@ -1456,6 +1473,12 @@ record(acalcout, "$(P)$(Q):PC_ENC4") {
   field(INAA, "$(P)$(Q):PC_ENC4_CTS CP")
   field(INPB, "$(P)$(Q):M4:MRES CP")
   field(INPC, "$(P)$(Q):M4:OFF CP")
+}
+
+expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
+  macro(PARAM, "PC_PULSE_MAX")
+  macro(MOTOR, "NOMOTOR")
+  macro(PREC, "0") 
 }
 
 #! Further lines contain data used by VisualDCT

@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 137
-y 251
+x 988
+y 285
 w 640
 h 510
 font "arial-bold-r-12.0"
@@ -2469,5 +2469,43 @@ value {
 }
 autoSize
 border
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 235
+w 135
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Version"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 5
+y 260
+w 55
+h 25
+controlPv "$(zebra):SYS_VER"
+displayMode "hex"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
 endObjectProperties
 

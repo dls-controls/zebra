@@ -9,11 +9,11 @@
 	<!--<asyn.AsynSerial baud="115200" bits="8" name="ty_zebra" parity="None" port="/dev/ttyUSB0" simulation="localhost:7001" stop="1"/>-->
 	<asyn.AsynIP name="ty_zebra" port="172.23.241.1:7012"/>
 	<asyn.AsynIP name="ty_fgen" port="172.23.243.241:5025"/>
-	<zebra.zebra M1="TESTZEBRA:M1" M2="TESTZEBRA:M2" M2DIR="-" M3="TESTZEBRA:M3" M3DIR="-" NELM="10" P="TESTZEBRA" PORT="ZEBRA" Q=":ZEBRA" serialPort="ty_zebra"/>
-	<zebra.zebraLastDivDiff DIV="1" P="TESTZEBRA" Q=":ZEBRA" name="DIVS.DIV1"/>
-	<zebra.zebraLastDivDiff DIV="2" P="TESTZEBRA" Q=":ZEBRA" name="DIVS.DIV2"/>
-	<zebra.zebraLastDivDiff DIV="3" P="TESTZEBRA" Q=":ZEBRA" name="DIVS.DIV3"/>
-	<zebra.zebraLastDivDiff DIV="4" P="TESTZEBRA" Q=":ZEBRA" name="DIVS.DIV4"/>
+	<zebra.zebra M1="TESTZEBRA:M1" M2="TESTZEBRA:M2" M2DIR="-" M3="TESTZEBRA:M3" M3DIR="-" P="TESTZEBRA" PORT="ZEBRA" Q=":ZEBRA" serialPort="ty_zebra"/>
+	<zebra.zebraLastDivDiff DIV="1" P="TESTZEBRA" Q=":ZEBRA" name="FREQS.FREQ1"/>
+	<zebra.zebraLastDivDiff DIV="2" P="TESTZEBRA" Q=":ZEBRA" name="FREQS.FREQ2"/>
+	<zebra.zebraLastDivDiff DIV="3" P="TESTZEBRA" Q=":ZEBRA" name="FREQS.FREQ3"/>
+	<zebra.zebraLastDivDiff DIV="4" P="TESTZEBRA" Q=":ZEBRA" name="FREQS.FREQ4"/>
 	<agilent33220A.agilent33220A P="TESTZEBRA" PORT="ty_fgen" Q=":FGEN" name="FGEN"/>
 	<aravisGigE.aravisCamera ADDR="0" CLASS="AVT_Manta_1_44" ID="Allied Vision Technologies-50-0503322702" P="TESTZEBRA" PORT="CAM.CAM" R=":CAM:" TIMEOUT="1"/>
 	<ffmpegServer.diagnosticPlugins CAM="CAM.CAM" P="TESTZEBRA" PORTPREFIX="CAM"/>

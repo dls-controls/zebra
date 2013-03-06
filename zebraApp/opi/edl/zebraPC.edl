@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 193
-y 512
+x 199
+y 590
 w 640
 h 510
 font "arial-bold-r-12.0"
@@ -80,8 +80,8 @@ minor 0
 release 0
 x 10
 y 375
-w 200
-h 130
+w 202
+h 132
 lineColor index 24
 fill
 fillColor index 3
@@ -488,7 +488,7 @@ release 0
 x 430
 y 315
 w 202
-h 162
+h 192
 lineColor index 29
 fill
 fillColor index 3
@@ -595,7 +595,7 @@ major 4
 minor 1
 release 0
 x 435
-y 445
+y 475
 w 125
 h 25
 font "arial-bold-r-14.0"
@@ -614,7 +614,7 @@ major 4
 minor 0
 release 0
 x 600
-y 445
+y 475
 w 24
 h 24
 controlPv "$(zebra):PC_PULSE_OUT"
@@ -631,7 +631,7 @@ major 4
 minor 0
 release 1
 x 435
-y 440
+y 470
 w 190
 h 0
 lineColor index 14
@@ -642,8 +642,8 @@ xPoints {
   1 625
 }
 yPoints {
-  0 440
-  1 440
+  0 470
+  1 470
 }
 endObjectProperties
 
@@ -1231,137 +1231,6 @@ visPv "$(zebra):PC_GATE_SEL"
 visInvert
 visMin "2"
 visMax "3"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 435
-y 350
-w 160
-h 85
-
-beginGroup
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 435
-y 350
-w 85
-h 25
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Pulse Delay"
-}
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 520
-y 350
-w 75
-h 25
-controlPv "$(zebra):PC_PULSE_DLY"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 520
-y 380
-w 75
-h 25
-controlPv "$(zebra):PC_PULSE_WID"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 435
-y 380
-w 85
-h 25
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Pulse Width"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 435
-y 410
-w 85
-h 25
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Pulse Step"
-}
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 520
-y 410
-w 75
-h 25
-controlPv "$(zebra):PC_PULSE_STEP"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-endGroup
-
-visPv "$(zebra):PC_PULSE_SEL"
-visMin "0"
-visMax "2"
 endObjectProperties
 
 # (Group)
@@ -2265,29 +2134,6 @@ value {
 }
 endObjectProperties
 
-# (Related Display)
-object relatedDisplayClass
-beginObjectProperties
-major 4
-minor 2
-release 0
-x 540
-y 480
-w 95
-h 25
-fgColor index 43
-bgColor index 3
-topShadowColor index 1
-botShadowColor index 11
-font "arial-bold-r-14.0"
-buttonLabel "Plot..."
-numPvs 4
-numDsps 1
-displayFileName {
-  0 "zebraPCPlot"
-}
-endObjectProperties
-
 # (Button)
 object activeButtonClass
 beginObjectProperties
@@ -2304,8 +2150,8 @@ offColor index 3
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(zebra):PC_CAP"
-indicatorPv "$(zebra):PC_CAP:RBV"
+controlPv "$(zebra):PC_BIT_CAP"
+indicatorPv "$(zebra):PC_BIT_CAP:RBV"
 onLabel "Enc1"
 offLabel "Enc1"
 labelType "literal"
@@ -2314,42 +2160,6 @@ font "arial-bold-r-14.0"
 objType "controls"
 controlBitPos 0
 readBitPos 0
-endObjectProperties
-
-# (Byte)
-object ByteClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 510
-y 480
-w 24
-h 24
-controlPv "$(zebra):ARRAY_ACQ"
-lineColor index 14
-onColor index 15
-offColor index 19
-numBits 1
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 430
-y 480
-w 80
-h 25
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Download"
-}
 endObjectProperties
 
 # (Static Text)
@@ -2387,8 +2197,8 @@ offColor index 3
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(zebra):PC_CAP"
-indicatorPv "$(zebra):PC_CAP:RBV"
+controlPv "$(zebra):PC_BIT_CAP"
+indicatorPv "$(zebra):PC_BIT_CAP:RBV"
 onLabel "Enc2"
 offLabel "Enc2"
 labelType "literal"
@@ -2415,8 +2225,8 @@ offColor index 3
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(zebra):PC_CAP"
-indicatorPv "$(zebra):PC_CAP:RBV"
+controlPv "$(zebra):PC_BIT_CAP"
+indicatorPv "$(zebra):PC_BIT_CAP:RBV"
 onLabel "Enc3"
 offLabel "Enc3"
 labelType "literal"
@@ -2443,8 +2253,8 @@ offColor index 3
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(zebra):PC_CAP"
-indicatorPv "$(zebra):PC_CAP:RBV"
+controlPv "$(zebra):PC_BIT_CAP"
+indicatorPv "$(zebra):PC_BIT_CAP:RBV"
 onLabel "Enc4"
 offLabel "Enc4"
 labelType "literal"
@@ -2471,8 +2281,8 @@ offColor index 3
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(zebra):PC_CAP"
-indicatorPv "$(zebra):PC_CAP:RBV"
+controlPv "$(zebra):PC_BIT_CAP"
+indicatorPv "$(zebra):PC_BIT_CAP:RBV"
 onLabel "Sys1"
 offLabel "Sys1"
 labelType "literal"
@@ -2499,8 +2309,8 @@ offColor index 3
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(zebra):PC_CAP"
-indicatorPv "$(zebra):PC_CAP:RBV"
+controlPv "$(zebra):PC_BIT_CAP"
+indicatorPv "$(zebra):PC_BIT_CAP:RBV"
 onLabel "Sys2"
 offLabel "Sys2"
 labelType "literal"
@@ -2527,8 +2337,8 @@ offColor index 3
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(zebra):PC_CAP"
-indicatorPv "$(zebra):PC_CAP:RBV"
+controlPv "$(zebra):PC_BIT_CAP"
+indicatorPv "$(zebra):PC_BIT_CAP:RBV"
 onLabel "Div1"
 offLabel "Div1"
 labelType "literal"
@@ -2555,8 +2365,8 @@ offColor index 3
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(zebra):PC_CAP"
-indicatorPv "$(zebra):PC_CAP:RBV"
+controlPv "$(zebra):PC_BIT_CAP"
+indicatorPv "$(zebra):PC_BIT_CAP:RBV"
 onLabel "Div2"
 offLabel "Div2"
 labelType "literal"
@@ -2583,8 +2393,8 @@ offColor index 3
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(zebra):PC_CAP"
-indicatorPv "$(zebra):PC_CAP:RBV"
+controlPv "$(zebra):PC_BIT_CAP"
+indicatorPv "$(zebra):PC_BIT_CAP:RBV"
 onLabel "Div3"
 offLabel "Div3"
 labelType "literal"
@@ -2611,8 +2421,8 @@ offColor index 3
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(zebra):PC_CAP"
-indicatorPv "$(zebra):PC_CAP:RBV"
+controlPv "$(zebra):PC_BIT_CAP"
+indicatorPv "$(zebra):PC_BIT_CAP:RBV"
 onLabel "Div4"
 offLabel "Div4"
 labelType "literal"
@@ -2621,5 +2431,309 @@ font "arial-bold-r-14.0"
 objType "controls"
 controlBitPos 9
 readBitPos 9
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 435
+y 350
+w 190
+h 115
+
+beginGroup
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 520
+y 350
+w 75
+h 25
+controlPv "$(zebra):PC_PULSE_DLY"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 435
+y 350
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Pulse Delay"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 435
+y 380
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Pulse Width"
+}
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 520
+y 380
+w 75
+h 25
+controlPv "$(zebra):PC_PULSE_WID"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 520
+y 410
+w 75
+h 25
+controlPv "$(zebra):PC_PULSE_STEP"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 435
+y 410
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Pulse Step"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 435
+y 440
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Max Pulses"
+}
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 520
+y 440
+w 105
+h 25
+controlPv "$(zebra):PC_PULSE_MAX"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+endGroup
+
+visPv "$(zebra):PC_PULSE_SEL"
+visMin "0"
+visMax "2"
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 290
+y 60
+w 90
+h 40
+lineColor index 19
+fillColor index 3
+arrows "to"
+numPoints 2
+xPoints {
+  0 380
+  1 290
+}
+yPoints {
+  0 60
+  1 100
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 380
+y 60
+w 80
+h 40
+lineColor index 19
+fillColor index 3
+arrows "to"
+numPoints 2
+xPoints {
+  0 380
+  1 460
+}
+yPoints {
+  0 60
+  1 100
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 340
+y 45
+w 79
+h 16
+font "arial-bold-r-14.0"
+fgColor index 19
+bgColor index 3
+useDisplayBg
+value {
+  "Num Gates"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 125
+y 225
+w 217
+h 16
+font "arial-bold-r-14.0"
+fgColor index 29
+bgColor index 3
+useDisplayBg
+value {
+  "Less than Max Pulses per gate"
+}
+autoSize
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 200
+y 170
+w 5
+h 55
+lineColor index 29
+fillColor index 3
+arrows "to"
+numPoints 2
+xPoints {
+  0 205
+  1 200
+}
+yPoints {
+  0 225
+  1 170
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 270
+y 170
+w 10
+h 55
+lineColor index 29
+fillColor index 3
+arrows "to"
+numPoints 2
+xPoints {
+  0 270
+  1 280
+}
+yPoints {
+  0 225
+  1 170
+}
 endObjectProperties
 
