@@ -1421,10 +1421,11 @@ record(calc, "$(P)$(Q):PC_ENC1_LAST") {
 
 record(acalcout, "$(P)$(Q):PC_ENC1") {
   field(NELM, "$(NELM=100000)")
-  field(CALC, "AA*B+C")
+  field(CALC, "AA*B+ARR(C)[0,D-1]")
   field(INAA, "$(P)$(Q):PC_ENC1_CTS CP")
   field(INPB, "$(P)$(Q):M1:MRES CP")
   field(INPC, "$(P)$(Q):M1:OFF CP")
+  field(INPD, "$(P)$(Q):PC_ENC1_CTS.NORD")
 }
 
 record(calc, "$(P)$(Q):PC_ENC2_LAST") {
@@ -1437,10 +1438,11 @@ record(calc, "$(P)$(Q):PC_ENC2_LAST") {
 
 record(acalcout, "$(P)$(Q):PC_ENC2") {
   field(NELM, "$(NELM=100000)")
-  field(CALC, "AA*B+C")
+  field(CALC, "AA*B+ARR(C)[0,D-1]")
   field(INAA, "$(P)$(Q):PC_ENC2_CTS CP")
   field(INPB, "$(P)$(Q):M2:MRES CP")
   field(INPC, "$(P)$(Q):M2:OFF CP")
+  field(INPD, "$(P)$(Q):PC_ENC2_CTS.NORD")
 }
 
 record(calc, "$(P)$(Q):PC_ENC3_LAST") {
@@ -1453,10 +1455,11 @@ record(calc, "$(P)$(Q):PC_ENC3_LAST") {
 
 record(acalcout, "$(P)$(Q):PC_ENC3") {
   field(NELM, "$(NELM=100000)")
-  field(CALC, "AA*B+C")
+  field(CALC, "AA*B+ARR(C)[0,D-1]")
   field(INAA, "$(P)$(Q):PC_ENC3_CTS CP")
   field(INPB, "$(P)$(Q):M3:MRES CP")
   field(INPC, "$(P)$(Q):M3:OFF CP")
+  field(INPD, "$(P)$(Q):PC_ENC3_CTS.NORD")
 }
 
 record(calc, "$(P)$(Q):PC_ENC4_LAST") {
@@ -1469,10 +1472,11 @@ record(calc, "$(P)$(Q):PC_ENC4_LAST") {
 
 record(acalcout, "$(P)$(Q):PC_ENC4") {
   field(NELM, "$(NELM=100000)")
-  field(CALC, "AA*B+C")
+  field(CALC, "AA*B+ARR(C)[0,D-1]")
   field(INAA, "$(P)$(Q):PC_ENC4_CTS CP")
   field(INPB, "$(P)$(Q):M4:MRES CP")
   field(INPC, "$(P)$(Q):M4:OFF CP")
+  field(INPD, "$(P)$(Q):PC_ENC4_CTS.NORD")
 }
 
 expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {

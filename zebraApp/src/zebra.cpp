@@ -679,9 +679,9 @@ void zebra::pollTask() {
             if (strcmp(rxBuffer, "PR") == 0) {
                 // This is zebra telling us to reset our buffers
                 this->currPt = 0;
-                   this->tOffset = 0.0;
-                   this->callbackWaveforms();
-                   setIntegerParam(zebraArrayAcq, 1);
+                this->tOffset = 0.0;
+                this->callbackWaveforms();
+                setIntegerParam(zebraArrayAcq, 1);
                 setIntegerParam(zebraNumDown, 0);
                 // reset num cap
                 findParam("PC_NUM_CAPLO", &param);
