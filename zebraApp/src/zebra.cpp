@@ -605,7 +605,7 @@ void zebra::readTask() {
       		rxBuffer[nBytesIn] = '\0';         
       		// This is an interrupt, send it to the interrupt queue   
         	if (rxBuffer[0] == 'P') {        	    
-            	printf("Got an interrupt '%s' %d\n", rxBuffer, eomReason);
+            	//printf("Got an interrupt '%s' %d\n", rxBuffer, eomReason);
             	q = this->intQId;
             // This a zebra response to a command, send it to the message queue
             } else {
@@ -661,7 +661,7 @@ void zebra::pollTask() {
 				int lastval, hival;
 				getIntegerParam(REG2PARAM(r), &lastval);
 				if (value < lastval) {
-					printf("Rollover!\n");
+					//printf("Rollover!\n");
 					findParam("PC_NUM_CAPHI", &param);
 					this->getReg(PARAM2REG(param), &hival);
 					setIntegerParam(param, hival);
@@ -762,7 +762,7 @@ void zebra::pollTask() {
 		if (timeToSleep > 0) {
 			epicsThreadSleep(timeToSleep);
 		} else {
-			printf("Not enough time to poll properly %f\n", timeToSleep);
+			//printf("Not enough time to poll properly %f\n", timeToSleep);
 		}
     }
 }
@@ -960,11 +960,12 @@ asynStatus zebra::writeParam(int param, int value) {
 	const reg *r = PARAM2REG(param);
     //printf("Write reg %d\n", r->addr);
     // trigger an update every time
+	if (r->type == regRO) return status;
 	setIntegerParam(param, value-1);
 	status = this->setReg(r, value);
 	if (status == asynSuccess) {
 		status = this->getReg(r, &value);
-		if (status == asynSuccess) {
+		if (status == asynSuccess && r->type != regCmd) {
 			setIntegerParam(param, value);
 			if (r->type == regMux && value < NSYSBUS) {
 				//printf("Write reg %d isMux\n", r->addr);
@@ -977,11 +978,10 @@ asynStatus zebra::writeParam(int param, int value) {
 	        setIntegerParam(zebraArrayAcq, 0);
 	    }
 		if (strcmp(r->str, "PC_ARM") == 0) {
-			// Arm called, so reset num cap
-        	findParam("PC_NUM_CAPLO", &param);
-	        setIntegerParam(param, 0);
-        	findParam("PC_NUM_CAPHI", &param);
-	        setIntegerParam(param, 0);
+			// Arm called, so unlock and wait for a poll cycle to start the download
+			this->unlock();
+			epicsThreadSleep(0.1);
+			this->lock();
 	    }	    
 	}
 	return status;
