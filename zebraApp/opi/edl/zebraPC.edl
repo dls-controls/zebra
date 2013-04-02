@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 199
-y 590
+x 201
+y 616
 w 640
 h 510
 font "arial-bold-r-12.0"
@@ -1099,138 +1099,6 @@ endGroup
 visPv "CALC\\\{A#1&B#2\}($(zebra):PC_GATE_NGATE,$(zebra):PC_GATE_SEL)"
 visMin "1"
 visMax "2"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 225
-y 350
-w 190
-h 85
-
-beginGroup
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 225
-y 350
-w 85
-h 25
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Gate Start"
-}
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 310
-y 350
-w 75
-h 25
-controlPv "$(zebra):PC_GATE_START"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 310
-y 380
-w 75
-h 25
-controlPv "$(zebra):PC_GATE_WID"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 225
-y 380
-w 85
-h 25
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Gate Width"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 225
-y 410
-w 85
-h 25
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Num Gates"
-}
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 310
-y 410
-w 105
-h 25
-controlPv "$(zebra):PC_GATE_NGATE"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-endGroup
-
-visPv "$(zebra):PC_GATE_SEL"
-visInvert
-visMin "2"
-visMax "3"
 endObjectProperties
 
 # (Group)
@@ -2433,174 +2301,6 @@ controlBitPos 9
 readBitPos 9
 endObjectProperties
 
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 435
-y 350
-w 190
-h 115
-
-beginGroup
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 520
-y 350
-w 75
-h 25
-controlPv "$(zebra):PC_PULSE_DLY"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 435
-y 350
-w 85
-h 25
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Pulse Delay"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 435
-y 380
-w 85
-h 25
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Pulse Width"
-}
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 520
-y 380
-w 75
-h 25
-controlPv "$(zebra):PC_PULSE_WID"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 520
-y 410
-w 75
-h 25
-controlPv "$(zebra):PC_PULSE_STEP"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 435
-y 410
-w 85
-h 25
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Pulse Step"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 435
-y 440
-w 85
-h 25
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Max Pulses"
-}
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 520
-y 440
-w 105
-h 25
-controlPv "$(zebra):PC_PULSE_MAX"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-endGroup
-
-visPv "$(zebra):PC_PULSE_SEL"
-visMin "0"
-visMax "2"
-endObjectProperties
-
 # (Lines)
 object activeLineClass
 beginObjectProperties
@@ -2735,5 +2435,305 @@ yPoints {
   0 225
   1 170
 }
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 225
+y 410
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Num Gates"
+}
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 310
+y 410
+w 105
+h 25
+controlPv "$(zebra):PC_GATE_NGATE"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 225
+y 350
+w 160
+h 55
+
+beginGroup
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 310
+y 350
+w 75
+h 25
+controlPv "$(zebra):PC_GATE_START"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 225
+y 350
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Gate Start"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 225
+y 380
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Gate Width"
+}
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 310
+y 380
+w 75
+h 25
+controlPv "$(zebra):PC_GATE_WID"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+endGroup
+
+visPv "$(zebra):PC_GATE_SEL"
+visInvert
+visMin "2"
+visMax "3"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 435
+y 440
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Max Pulses"
+}
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 520
+y 440
+w 105
+h 25
+controlPv "$(zebra):PC_PULSE_MAX"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 435
+y 350
+w 160
+h 85
+
+beginGroup
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 520
+y 380
+w 75
+h 25
+controlPv "$(zebra):PC_PULSE_WID"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 520
+y 350
+w 75
+h 25
+controlPv "$(zebra):PC_PULSE_DLY"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 435
+y 350
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Pulse Delay"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 435
+y 380
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Pulse Width"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 435
+y 410
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Pulse Step"
+}
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 520
+y 410
+w 75
+h 25
+controlPv "$(zebra):PC_PULSE_STEP"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+endGroup
+
+visPv "$(zebra):PC_PULSE_SEL"
+visMin "0"
+visMax "2"
 endObjectProperties
 

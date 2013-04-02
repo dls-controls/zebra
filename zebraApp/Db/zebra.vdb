@@ -98,13 +98,6 @@ record(calcout, "$(P)$(Q):PC_NUM_CAP") {
   field(CALC, "(A+(B<<16))")
 }
 
-record(ai, "$(P)$(Q):PC_NUM_DOWN") {
-  field(DESC, "Points downloaded")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_NUM_DOWN")
-  field(SCAN, "I/O Intr")
-}
-
 record(waveform, "$(P)$(Q):SYS_BUS1") {
   field(DESC, "Zebra system bus key")
   field(SCAN, "I/O Intr")
@@ -1168,6 +1161,13 @@ record(waveform, "$(P)$(Q):PC_TIME") {
   field(NELM, "$(NELM=100000)")
   field(FTVL, "DOUBLE")
   field(SCAN, "I/O Intr")
+  field(FLNK, "$(P)$(Q):PC_NUM_DOWN")
+}
+
+record(ai, "$(P)$(Q):PC_NUM_DOWN") {
+  field(DESC, "Points downloaded")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0) PC_NUM_DOWN")
 }
 
 record(waveform, "$(P)$(Q):PC_SYS1") {

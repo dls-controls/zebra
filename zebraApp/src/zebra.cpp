@@ -680,9 +680,8 @@ void zebra::pollTask() {
                 // This is zebra telling us to reset our buffers
                 this->currPt = 0;
                 this->tOffset = 0.0;
-                this->callbackWaveforms();
-                setIntegerParam(zebraArrayAcq, 1);
-                setIntegerParam(zebraNumDown, 0);
+                this->callbackWaveforms();       
+                setIntegerParam(zebraArrayAcq, 1);                         
                 // reset num cap
                 findParam("PC_NUM_CAPLO", &param);
                 setIntegerParam(param, 0);
@@ -961,11 +960,12 @@ asynStatus zebra::writeParam(int param, int value) {
     //printf("Write reg %d\n", r->addr);
     // trigger an update every time
     if (r->type == regRO) return status;
-    setIntegerParam(param, value-1);
     status = this->setReg(r, value);
-    if (status == asynSuccess) {
+    printf("Set %s %d\n", r->str, value);
+    if (status == asynSuccess && r->type != regCmd) {
+        setIntegerParam(param, value-1);
         status = this->getReg(r, &value);
-        if (status == asynSuccess && r->type != regCmd) {
+        if (status == asynSuccess) {
             setIntegerParam(param, value);
             if (r->type == regMux && value < NSYSBUS) {
                 //printf("Write reg %d isMux\n", r->addr);
@@ -1031,16 +1031,8 @@ asynStatus zebra::callbackWaveforms() {
     getIntegerParam(zebraNumDown, &lastUpdatePt);
     if (lastUpdatePt != this->currPt) {
         // printf("Update %d %d\n", this->lastUpdatePt, this->currPt);  
-        if (this->currPt < this->maxPts) {
-            // horrible hack for edm plotting
-            // set the last+1 time point to be the same as the last, this
-            // means the last point on the time/pos plot is (last, 0), which
-            // gives a straight line back to (0,0) without confusing the user
-            this->PCTime[this->currPt] = this->PCTime[this->currPt-1];                
-            doCallbacksFloat64Array(this->PCTime, this->currPt+1, zebraPCTime, 0);
-        } else {
-            doCallbacksFloat64Array(this->PCTime, this->currPt, zebraPCTime, 0);               
-        }
+        // store the last update so we don't get repeated updates
+        setIntegerParam(zebraNumDown, this->currPt);
 
         // update capture arrays
         for (int a=0; a<NARRAYS; a++) {
@@ -1061,10 +1053,20 @@ asynStatus zebra::callbackWaveforms() {
             }
             doCallbacksInt32Array(this->filtArrays[a], this->currPt, zebraFiltArrays[a], 0);
         }
-
-        // store the last update so we don't get repeated updates
-        setIntegerParam(zebraNumDown, this->currPt);
-        callParamCallbacks();
+        
+        if (this->currPt < this->maxPts) {
+            // horrible hack for edm plotting
+            // set the last+1 time point to be the same as the last, this
+            // means the last point on the time/pos plot is (last, 0), which
+            // gives a straight line back to (0,0) without confusing the user
+            this->PCTime[this->currPt] = this->PCTime[this->currPt-1];                
+            doCallbacksFloat64Array(this->PCTime, this->currPt+1, zebraPCTime, 0);
+        } else {
+            doCallbacksFloat64Array(this->PCTime, this->currPt, zebraPCTime, 0);               
+        }      
+        
+        // Note no callParamCallbacks. We will forward link from PCTime to NumDown
+        // so that GDA can monitor NumDown to know when to caget PCTime  
     }
     return asynSuccess;
 }
