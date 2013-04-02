@@ -1034,10 +1034,16 @@ asynStatus zebra::callbackWaveforms() {
         // store the last update so we don't get repeated updates
         setIntegerParam(zebraNumDown, this->currPt);
 
-        // update capture arrays
-        for (int a=0; a<NARRAYS; a++) {
-            doCallbacksInt32Array(this->capArrays[a], this->currPt, zebraCapArrays[a], 0);
-        }
+        if (this->currPt < this->maxPts) {
+            // horrible hack for edm plotting
+            // set the last+1 time point to be the same as the last, this
+            // means the last point on the time/pos plot is (last, 0), which
+            // gives a straight line back to (0,0) without confusing the user
+            this->PCTime[this->currPt] = this->PCTime[this->currPt-1];                
+            doCallbacksFloat64Array(this->PCTime, this->currPt+1, zebraPCTime, 0);
+        } else {
+            doCallbacksFloat64Array(this->PCTime, this->currPt, zebraPCTime, 0);               
+        }      
 
         /* Filter the relevant sys_bus array with filtSel[a] and put the value in filtArray[a] */
         for (int a=0; a<NFILT; a++) {
@@ -1053,20 +1059,14 @@ asynStatus zebra::callbackWaveforms() {
             }
             doCallbacksInt32Array(this->filtArrays[a], this->currPt, zebraFiltArrays[a], 0);
         }
+
+        // update capture arrays, go backwards so we do PC_ENC1 last
+        for (int a=NARRAYS; a>=0; a--) {
+            doCallbacksInt32Array(this->capArrays[a], this->currPt, zebraCapArrays[a], 0);
+        }
         
-        if (this->currPt < this->maxPts) {
-            // horrible hack for edm plotting
-            // set the last+1 time point to be the same as the last, this
-            // means the last point on the time/pos plot is (last, 0), which
-            // gives a straight line back to (0,0) without confusing the user
-            this->PCTime[this->currPt] = this->PCTime[this->currPt-1];                
-            doCallbacksFloat64Array(this->PCTime, this->currPt+1, zebraPCTime, 0);
-        } else {
-            doCallbacksFloat64Array(this->PCTime, this->currPt, zebraPCTime, 0);               
-        }      
-        
-        // Note no callParamCallbacks. We will forward link from PCTime to NumDown
-        // so that GDA can monitor NumDown to know when to caget PCTime  
+        // Note no callParamCallbacks. We will forward link from PC_ENC1 to NumDown
+        // so that GDA can monitor NumDown to know when to caget array values 
     }
     return asynSuccess;
 }
