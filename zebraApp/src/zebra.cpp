@@ -217,8 +217,8 @@ static const struct reg reg_lookup[] = {
     /* Pulse input Position,Time,External */
     { "PC_PULSE_SEL",    0x96, regRW },
     /* Pulse parameters */
-    { "PC_PULSE_DLYLO",  0x97, regRW },
-    { "PC_PULSE_DLYHI",  0x98, regRW },
+    { "PC_PULSE_STARTLO",0x97, regRW },
+    { "PC_PULSE_STARTHI",0x98, regRW },
     { "PC_PULSE_WIDLO",  0x99, regRW },
     { "PC_PULSE_WIDHI",  0x9A, regRW },
     { "PC_PULSE_STEPLO", 0x9B, regRW },
@@ -226,6 +226,9 @@ static const struct reg reg_lookup[] = {
     { "PC_PULSE_MAXLO",  0x9D, regRW },
     { "PC_PULSE_MAXHI",  0x9E, regRW },
     /* PC_BIT_CAP moved to top of list so it is polled first */
+    { "PC_DIR",          0xA0, regRW },
+    { "PC_PULSE_DLYLO",  0xA1, regRW },
+    { "PC_PULSE_DLYHI",  0xA2, regRW },
     /* System version */
     { "SYS_VER",         0xF0, regRO },
     /* SYS_STATE_ERR .. PC_NUM_CAPLO moved to end so they are polled quickly */

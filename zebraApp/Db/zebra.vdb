@@ -515,7 +515,7 @@ expand("zebraRegisterWriteMux.vdb", DIV2_INP) {
 expand("zebraRegisterWrite32.vdb", DIV2_DIV) {
   macro(PARAM, "DIV2_DIV")
   macro(MOTOR, "NOMOTOR")
-  macro(PREC, "0")  
+  macro(PREC, "0")
 }
 
 record(calcout, "$(P)$(Q):DIV2_OUTD") {
@@ -537,7 +537,7 @@ expand("zebraRegisterWriteMux.vdb", DIV3_INP) {
 expand("zebraRegisterWrite32.vdb", DIV3_DIV) {
   macro(PARAM, "DIV3_DIV")
   macro(MOTOR, "NOMOTOR")
-  macro(PREC, "0")  
+  macro(PREC, "0")
 }
 
 record(calcout, "$(P)$(Q):DIV3_OUTD") {
@@ -559,7 +559,7 @@ expand("zebraRegisterWriteMux.vdb", DIV4_INP) {
 expand("zebraRegisterWrite32.vdb", DIV4_DIV) {
   macro(PARAM, "DIV4_DIV")
   macro(MOTOR, "NOMOTOR")
-  macro(PREC, "0")  
+  macro(PREC, "0")
 }
 
 record(calcout, "$(P)$(Q):DIV4_OUTD") {
@@ -862,10 +862,11 @@ record(sel, "$(P)$(Q):MOTOR:OFF") {
   field(NVL, "$(P)$(Q):PC_ENC:RBV CP")
 }
 
+
 record(sel, "$(P)$(Q):PULSE:MRES") {
   field(SELM, "Specified")
   field(INPA, "$(P)$(Q):MOTOR:ABSMRES CP")
-  field(INPB, "0.001")
+  field(INPB, "$(P)$(Q):TIME:MRES CP")
   field(INPC, "1")
   field(NVL, "$(P)$(Q):PC_PULSE_SEL:RBV CP")
 }
@@ -873,25 +874,25 @@ record(sel, "$(P)$(Q):PULSE:MRES") {
 expand("zebraRegisterWrite32.vdb", POS1_SET) {
   macro(PARAM, "POS1_SET")
   macro(MOTOR, "M1")
-  macro(PREC, "$(PREC=4)")  
+  macro(PREC, "$(PREC=4)")
 }
 
 expand("zebraRegisterWrite32.vdb", POS2_SET) {
   macro(PARAM, "POS2_SET")
   macro(MOTOR, "M2")
-  macro(PREC, "$(PREC=4)")    
+  macro(PREC, "$(PREC=4)")
 }
 
 expand("zebraRegisterWrite32.vdb", POS3_SET) {
   macro(PARAM, "POS3_SET")
   macro(MOTOR, "M3")
-  macro(PREC, "$(PREC=4)")    
+  macro(PREC, "$(PREC=4)")
 }
 
 expand("zebraRegisterWrite32.vdb", POS4_SET) {
   macro(PARAM, "POS4_SET")
   macro(MOTOR, "M4")
-  macro(PREC, "$(PREC=4)")    
+  macro(PREC, "$(PREC=4)")
 }
 
 expand("zebraRegisterWritePrescaler.vdb", PC_TSPRE) {
@@ -916,37 +917,35 @@ expand("zebraRegisterWriteMux.vdb", PC_GATE_INP) {
 
 expand("zebraRegisterWritePosCompInp.vdb", PC_GATE_SEL) {
   macro(PARAM, "PC_GATE_SEL")
-  macro(ZRST, "Posn +ve")
+  macro(ZRST, "Position")
   macro(ONST, "Time")
   macro(TWST, "External")
-  macro(THST, "Posn -ve")
-  macro(THVL, "4")
+  macro(THST, "$(EMPTY=)")
   macro(FRST, "$(EMPTY=)")
-  macro(MOTOR, "MOTOR")
 }
 
 expand("zebraRegisterWrite32.vdb", PC_GATE_START) {
   macro(PARAM, "PC_GATE_START")
   macro(MOTOR, "STARTGATE")
-  macro(PREC, "$(PREC=4)")    
+  macro(PREC, "$(PREC=4)")
 }
 
 expand("zebraRegisterWrite32.vdb", PC_GATE_WID) {
   macro(PARAM, "PC_GATE_WID")
   macro(MOTOR, "GATE")
-  macro(PREC, "$(PREC=4)")    
+  macro(PREC, "$(PREC=4)")
 }
 
 expand("zebraRegisterWrite32.vdb", PC_GATE_NGATE) {
   macro(PARAM, "PC_GATE_NGATE")
   macro(MOTOR, "NOMOTOR")
-  macro(PREC, "0")    
+  macro(PREC, "0")
 }
 
 expand("zebraRegisterWrite32.vdb", PC_GATE_STEP) {
   macro(PARAM, "PC_GATE_STEP")
   macro(MOTOR, "GATE")
-  macro(PREC, "$(PREC=4)")    
+  macro(PREC, "$(PREC=4)")
 }
 
 expand("zebraRegisterWriteMux.vdb", PC_PULSE_INP) {
@@ -958,28 +957,33 @@ expand("zebraRegisterWritePosCompInp.vdb", PC_PULSE_SEL) {
   macro(ONST, "Time")
   macro(TWST, "External")
   macro(THST, "$(EMPTY=)")
-  macro(THVL, "3")
   macro(FRST, "$(EMPTY=)")
   macro(PARAM, "PC_PULSE_SEL")
-  macro(MOTOR, "NOMOTOR")
 }
+
+expand("zebraRegisterWrite32.vdb", PC_PULSE_START) {
+  macro(PARAM, "PC_PULSE_START")
+  macro(MOTOR, "PULSE")
+  macro(PREC, "$(PREC=4)")
+}
+
 
 expand("zebraRegisterWrite32.vdb", PC_PULSE_DLY) {
   macro(PARAM, "PC_PULSE_DLY")
-  macro(MOTOR, "PULSE")
-  macro(PREC, "$(PREC=4)")    
+  macro(MOTOR, "TIME")
+  macro(PREC, "$(PREC=4)")
 }
 
 expand("zebraRegisterWrite32.vdb", PC_PULSE_WID) {
   macro(PARAM, "PC_PULSE_WID")
   macro(MOTOR, "PULSE")
-  macro(PREC, "$(PREC=4)")    
+  macro(PREC, "$(PREC=4)")
 }
 
 expand("zebraRegisterWrite32.vdb", PC_PULSE_STEP) {
   macro(PARAM, "PC_PULSE_STEP")
   macro(MOTOR, "PULSE")
-  macro(PREC, "$(PREC=4)")    
+  macro(PREC, "$(PREC=4)")
 }
 
 record(calcout, "$(P)$(Q):PC_GATE_OUT") {
@@ -1098,10 +1102,8 @@ expand("zebraRegisterWritePosCompInp.vdb", PC_ARM_SEL) {
   macro(ZRST, "Soft")
   macro(ONST, "External")
   macro(THST, "$(EMPTY=)")
-  macro(THVL, "3")
   macro(FRST, "$(EMPTY=)")
   macro(TWST, "$(EMPTY=)")
-  macro(MOTOR, "NOMOTOR")
 }
 
 record(ai, "$(P)$(Q):PULSE:OFF") {
@@ -1111,7 +1113,7 @@ record(ai, "$(P)$(Q):PULSE:OFF") {
 record(sel, "$(P)$(Q):STARTGATE:MRES") {
   field(SELM, "Specified")
   field(INPA, "$(P)$(Q):MOTOR:MRES CP")
-  field(INPB, "0.001")
+  field(INPB, "$(P)$(Q):TIME:MRES CP")
   field(INPC, "1")
   field(NVL, "$(P)$(Q):PC_GATE_SEL:RBV CP")
   field(INPD, "$(P)$(Q):MOTOR:MRES CP")
@@ -1138,7 +1140,7 @@ record(calc, "$(P)$(Q):MOTOR:ABSMRES") {
 record(sel, "$(P)$(Q):GATE:MRES") {
   field(SELM, "Specified")
   field(INPA, "$(P)$(Q):MOTOR:ABSMRES CP")
-  field(INPB, "0.001")
+  field(INPB, "$(P)$(Q):TIME:MRES CP")
   field(INPC, "1")
   field(NVL, "$(P)$(Q):PC_GATE_SEL:RBV CP")
   field(INPD, "$(P)$(Q):MOTOR:ABSMRES CP")
@@ -1148,11 +1150,9 @@ expand("zebraRegisterWritePosCompInp.vdb", PC_ENC) {
   macro(PARAM, "PC_ENC")
   macro(ZRST, "Enc1")
   macro(ONST, "Enc2")
-  macro(THST, "Enc4")
-  macro(THVL, "3")
-  macro(FRST, "EncSum")
   macro(TWST, "Enc3")
-  macro(MOTOR, "NOMOTOR")
+  macro(THST, "Enc4")
+  macro(FRST, "EncSum")
 }
 
 record(waveform, "$(P)$(Q):PC_TIME") {
@@ -1203,7 +1203,7 @@ record(ai, "$(P)$(Q):PC_DIV1_LAST") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0) PC_CAP7_LAST")
   field(SCAN, "I/O Intr")
-  field(MDEL, "-1")  
+  field(MDEL, "-1")
 }
 
 record(waveform, "$(P)$(Q):PC_DIV2") {
@@ -1218,7 +1218,7 @@ record(ai, "$(P)$(Q):PC_DIV2_LAST") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0) PC_CAP8_LAST")
   field(SCAN, "I/O Intr")
-  field(MDEL, "-1")  
+  field(MDEL, "-1")
 }
 
 record(waveform, "$(P)$(Q):PC_DIV3") {
@@ -1233,7 +1233,7 @@ record(ai, "$(P)$(Q):PC_DIV3_LAST") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0) PC_CAP9_LAST")
   field(SCAN, "I/O Intr")
-  field(MDEL, "-1")  
+  field(MDEL, "-1")
 }
 
 record(waveform, "$(P)$(Q):PC_DIV4") {
@@ -1248,7 +1248,7 @@ record(ai, "$(P)$(Q):PC_DIV4_LAST") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0) PC_CAP10_LAST")
   field(SCAN, "I/O Intr")
-  field(MDEL, "-1")  
+  field(MDEL, "-1")
 }
 
 record(waveform, "$(P)$(Q):PC_FILT1") {
@@ -1444,7 +1444,7 @@ record(acalcout, "$(P)$(Q):PC_ENC1") {
   field(INPB, "$(P)$(Q):M1:MRES CP")
   field(INPC, "$(P)$(Q):M1:OFF CP")
   field(INPD, "$(P)$(Q):PC_ENC1_CTS.NORD")
-  field(FLNK, "$(P)$(Q):PC_ENC2")    
+  field(FLNK, "$(P)$(Q):PC_ENC2")
 }
 
 record(acalcout, "$(P)$(Q):PC_ENC2") {
@@ -1454,9 +1454,8 @@ record(acalcout, "$(P)$(Q):PC_ENC2") {
   field(INPB, "$(P)$(Q):M2:MRES CP")
   field(INPC, "$(P)$(Q):M2:OFF CP")
   field(INPD, "$(P)$(Q):PC_ENC2_CTS.NORD")
-  field(FLNK, "$(P)$(Q):PC_ENC3")   
+  field(FLNK, "$(P)$(Q):PC_ENC3")
 }
-
 
 record(acalcout, "$(P)$(Q):PC_ENC3") {
   field(NELM, "$(NELM=100000)")
@@ -1465,7 +1464,7 @@ record(acalcout, "$(P)$(Q):PC_ENC3") {
   field(INPB, "$(P)$(Q):M3:MRES CP")
   field(INPC, "$(P)$(Q):M3:OFF CP")
   field(INPD, "$(P)$(Q):PC_ENC3_CTS.NORD")
-  field(FLNK, "$(P)$(Q):PC_ENC4")   
+  field(FLNK, "$(P)$(Q):PC_ENC4")
 }
 
 # we have now done all the acalcouts, so can flnk to get PC_NUM_DOWN
@@ -1476,7 +1475,7 @@ record(acalcout, "$(P)$(Q):PC_ENC4") {
   field(INPB, "$(P)$(Q):M4:MRES CP")
   field(INPC, "$(P)$(Q):M4:OFF CP")
   field(INPD, "$(P)$(Q):PC_ENC4_CTS.NORD")
-  field(FLNK, "$(P)$(Q):PC_NUM_DOWN")   
+  field(FLNK, "$(P)$(Q):PC_NUM_DOWN")
 }
 
 record(ai, "$(P)$(Q):PC_NUM_DOWN") {
@@ -1488,11 +1487,76 @@ record(ai, "$(P)$(Q):PC_NUM_DOWN") {
 expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
   macro(PARAM, "PC_PULSE_MAX")
   macro(MOTOR, "NOMOTOR")
-  macro(PREC, "0") 
+  macro(PREC, "0")
+}
+
+record(ai, "$(P)$(Q):PC_DIR:RRBV") {
+  field(DESC, "Raw Readback param value")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0) PC_DIR")
+  field(FLNK, "$(P)$(Q):PC_DIR:CRBV")
+  field(SCAN, "I/O Intr")
+}
+
+record(calcout, "$(P)$(Q):PC_DIR:CRBV") {
+  field(DESC, "Swap +ve and negative directions")
+  field(CALC, "B<0?(A=0?1:A=1?0:A):A")
+  field(INPA, "$(P)$(Q):PC_DIR:RRBV")
+  field(INPB, "$(P)$(Q):MOTOR:MRES CP")
+  field(OUT, "$(P)$(Q):PC_DIR:RBV.RVAL PP")
+}
+
+record(mbbi, "$(P)$(Q):PC_DIR:RBV") {
+  field(DESC, "Readback param value")
+  field(DTYP, "Raw Soft Channel")
+  field(FLNK, "$(P)$(Q):PC_DIR:SYNC")
+  field(ZRST, "Positive")
+  field(ZRVL, "0")
+  field(ONST, "Negative")
+  field(ONVL, "1")
+}
+
+record(calcout, "$(P)$(Q):PC_DIR:SYNC") {
+  field(DESC, "Sync demand with readback")
+  field(CALC, "A")
+  field(OUT, "$(P)$(Q):PC_DIR PP")
+  field(INPA, "$(P)$(Q):PC_DIR:RBV")
+}
+
+record(mbbo, "$(P)$(Q):PC_DIR") {
+  field(DESC, "Demand value for param")
+  field(DTYP, "Raw Soft Channel")
+  field(OUT, "$(P)$(Q):PC_DIR:CSET.A PP")
+  field(ZRST, "Positive")
+  field(ZRVL, "0")
+  field(ONST, "Negative")
+  field(ONVL, "1")
+}
+
+record(calcout, "$(P)$(Q):PC_DIR:CSET") {
+  field(DESC, "Swap +ve and negative directions")
+  field(CALC, "B<0?(A=0?1:A=1?0:A):A")
+  field(INPB, "$(P)$(Q):MOTOR:MRES")
+  field(OUT, "$(P)$(Q):PC_DIR:SET PP")
+}
+
+record(ao, "$(P)$(Q):PC_DIR:SET") {
+  field(DESC, "Write param value to zebra")
+  field(DTYP, "asynInt32")
+  field(SDIS, "$(P)$(Q):PC_DIR:SYNC.PACT")
+  field(OUT, "@asyn($(PORT),0) PC_DIR")
+}
+
+record(ai, "$(P)$(Q):TIME:MRES") {
+  field(VAL, "0.001")
+}
+
+record(ai, "$(P)$(Q):TIME:OFF") {
+  field(VAL, "0")
 }
 
 #! Further lines contain data used by VisualDCT
-#! View(3090,2754,1.0)
+#! View(378,1160,1.0)
 #! Record("$(P)$(Q):CONNECTED",4720,2646,0,0,"$(P)$(Q):CONNECTED")
 #! Record("$(P)$(Q):STORE",3860,2802,0,0,"$(P)$(Q):STORE")
 #! Record("$(P)$(Q):CONFIG_WRITE",3860,3042,0,0,"$(P)$(Q):CONFIG_WRITE")
@@ -1501,8 +1565,15 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
 #! Record("$(P)$(Q):CONFIG_STATUS",3860,3320,0,0,"$(P)$(Q):CONFIG_STATUS")
 #! Record("$(P)$(Q):SYS_RESET",4720,2502,0,0,"$(P)$(Q):SYS_RESET")
 #! Record("$(P)$(Q):SYS_VER",4540,2668,0,0,"$(P)$(Q):SYS_VER")
-#! Record("$(P)$(Q):PC_NUM_CAP",180,4228,0,0,"$(P)$(Q):PC_NUM_CAP")
-#! Record("$(P)$(Q):PC_NUM_DOWN",420,4228,0,0,"$(P)$(Q):PC_NUM_DOWN")
+#! Record("$(P)$(Q):PC_NUM_CAPLO",400,4008,0,0,"$(P)$(Q):PC_NUM_CAPLO")
+#! Field("$(P)$(Q):PC_NUM_CAPLO.VAL",16777215,1,"$(P)$(Q):PC_NUM_CAPLO.VAL")
+#! Record("$(P)$(Q):PC_NUM_CAPHI",400,4168,0,0,"$(P)$(Q):PC_NUM_CAPHI")
+#! Field("$(P)$(Q):PC_NUM_CAPHI.VAL",16777215,1,"$(P)$(Q):PC_NUM_CAPHI.VAL")
+#! Record("$(P)$(Q):PC_NUM_CAP",700,4022,0,0,"$(P)$(Q):PC_NUM_CAP")
+#! Field("$(P)$(Q):PC_NUM_CAP.INPA",16777215,0,"$(P)$(Q):PC_NUM_CAP.INPA")
+#! Link("$(P)$(Q):PC_NUM_CAP.INPA","$(P)$(Q):PC_NUM_CAPLO.VAL")
+#! Field("$(P)$(Q):PC_NUM_CAP.INPB",16777215,0,"$(P)$(Q):PC_NUM_CAP.INPB")
+#! Link("$(P)$(Q):PC_NUM_CAP.INPB","$(P)$(Q):PC_NUM_CAPHI.VAL")
 #! Record("$(P)$(Q):SYS_BUS1",4560,2820,0,0,"$(P)$(Q):SYS_BUS1")
 #! Record("$(P)$(Q):SYS_BUS2",4720,2820,0,0,"$(P)$(Q):SYS_BUS2")
 #! Record("$(P)$(Q):SYS_STAT1LO",1640,968,0,0,"$(P)$(Q):SYS_STAT1LO")
@@ -1823,6 +1894,7 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
 
 
 #! TemplateInstance("DIV1_DIV",3180,3780,0,"")
+#! TemplateField("DIV1_DIV","PREC",16777215,0,1)
 #! TemplateField("DIV1_DIV","MOTOR",16777215,0,1)
 #! TemplateField("DIV1_DIV","PARAM",16777215,0,1)
 
@@ -1838,6 +1910,7 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
 
 
 #! TemplateInstance("DIV2_DIV",3180,4080,0,"")
+#! TemplateField("DIV2_DIV","PREC",16777215,0,1)
 #! TemplateField("DIV2_DIV","MOTOR",16777215,0,1)
 #! TemplateField("DIV2_DIV","PARAM",16777215,0,1)
 
@@ -1853,6 +1926,7 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
 
 
 #! TemplateInstance("DIV3_DIV",3180,4380,0,"")
+#! TemplateField("DIV3_DIV","PREC",16777215,0,1)
 #! TemplateField("DIV3_DIV","MOTOR",16777215,0,1)
 #! TemplateField("DIV3_DIV","PARAM",16777215,0,1)
 
@@ -1868,6 +1942,7 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
 
 
 #! TemplateInstance("DIV4_DIV",3180,4680,0,"")
+#! TemplateField("DIV4_DIV","PREC",16777215,0,1)
 #! TemplateField("DIV4_DIV","MOTOR",16777215,0,1)
 #! TemplateField("DIV4_DIV","PARAM",16777215,0,1)
 
@@ -2108,6 +2183,7 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
 #! Field("$(P)$(Q):M4:OFF.INP",16777215,1,"$(P)$(Q):M4:OFF.INP")
 #! Field("$(P)$(Q):M4:OFF.VAL",16777215,1,"$(P)$(Q):M4:OFF.VAL")
 #! Record("$(P)$(Q):MOTOR:MRES",2060,2986,0,0,"$(P)$(Q):MOTOR:MRES")
+#! Field("$(P)$(Q):MOTOR:MRES.VAL",16777215,1,"$(P)$(Q):MOTOR:MRES.VAL")
 #! Field("$(P)$(Q):MOTOR:MRES.INPA",16777215,0,"$(P)$(Q):MOTOR:MRES.INPA")
 #! Link("$(P)$(Q):MOTOR:MRES.INPA","$(P)$(Q):M1:MRES.VAL")
 #! Field("$(P)$(Q):MOTOR:MRES.INPE",16777215,0,"$(P)$(Q):MOTOR:MRES.INPE")
@@ -2119,7 +2195,6 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
 #! Field("$(P)$(Q):MOTOR:MRES.INPD",16777215,0,"$(P)$(Q):MOTOR:MRES.INPD")
 #! Link("$(P)$(Q):MOTOR:MRES.INPD","$(P)$(Q):M4:MRES.VAL")
 #! Field("$(P)$(Q):MOTOR:MRES.NVL",16777215,1,"$(P)$(Q):MOTOR:MRES.NVL")
-#! Field("$(P)$(Q):MOTOR:MRES.VAL",16777215,1,"$(P)$(Q):MOTOR:MRES.VAL")
 #! Record("$(P)$(Q):MOTOR:OFF",100,3026,0,0,"$(P)$(Q):MOTOR:OFF")
 #! Field("$(P)$(Q):MOTOR:OFF.INPA",16777215,1,"$(P)$(Q):MOTOR:OFF.INPA")
 #! Link("$(P)$(Q):MOTOR:OFF.INPA","$(P)$(Q):M1:OFF.VAL")
@@ -2133,34 +2208,39 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
 #! Link("$(P)$(Q):MOTOR:OFF.INPD","$(P)$(Q):M4:OFF.VAL")
 #! Field("$(P)$(Q):MOTOR:OFF.NVL",16777215,0,"$(P)$(Q):MOTOR:OFF.NVL")
 #! Field("$(P)$(Q):MOTOR:OFF.VAL",16777215,0,"$(P)$(Q):MOTOR:OFF.VAL")
-#! Record("$(P)$(Q):PULSE:MRES",2020,3934,0,1,"$(P)$(Q):PULSE:MRES")
+#! Record("$(P)$(Q):PULSE:MRES",2020,3954,0,1,"$(P)$(Q):PULSE:MRES")
 #! Field("$(P)$(Q):PULSE:MRES.INPA",16777215,0,"$(P)$(Q):PULSE:MRES.INPA")
 #! Link("$(P)$(Q):PULSE:MRES.INPA","$(P)$(Q):MOTOR:ABSMRES.VAL")
-#! Field("$(P)$(Q):PULSE:MRES.INPB",16777215,0,"$(P)$(Q):PULSE:MRES.INPB")
+#! Field("$(P)$(Q):PULSE:MRES.INPB",16777215,1,"$(P)$(Q):PULSE:MRES.INPB")
+#! Link("$(P)$(Q):PULSE:MRES.INPB","$(P)$(Q):TIME:MRES.VAL")
 #! Field("$(P)$(Q):PULSE:MRES.INPC",16777215,0,"$(P)$(Q):PULSE:MRES.INPC")
 #! Field("$(P)$(Q):PULSE:MRES.NVL",16777215,1,"$(P)$(Q):PULSE:MRES.NVL")
 
 #! TemplateInstance("POS1_SET",100,2500,0,"")
+#! TemplateField("POS1_SET","PREC",16777215,0,1)
 #! TemplateField("POS1_SET","MOTOR",16777215,0,1)
 #! TemplateField("POS1_SET","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("POS2_SET",360,2500,0,"")
+#! TemplateField("POS2_SET","PREC",16777215,0,1)
 #! TemplateField("POS2_SET","MOTOR",16777215,0,1)
 #! TemplateField("POS2_SET","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("POS3_SET",620,2500,0,"")
+#! TemplateField("POS3_SET","PREC",16777215,0,1)
 #! TemplateField("POS3_SET","MOTOR",16777215,0,1)
 #! TemplateField("POS3_SET","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("POS4_SET",880,2500,0,"")
+#! TemplateField("POS4_SET","PREC",16777215,0,1)
 #! TemplateField("POS4_SET","MOTOR",16777215,0,1)
 #! TemplateField("POS4_SET","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_TSPRE",920,200,0,"")
+#! TemplateInstance("PC_TSPRE",700,280,0,"")
 #! TemplateField("PC_TSPRE","PARAM",16777215,0,1)
 
 
@@ -2185,58 +2265,67 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
 #! TemplateField("PC_GATE_SEL","THST",16777215,0,1)
 #! TemplateField("PC_GATE_SEL","FRST",16777215,0,1)
 #! TemplateField("PC_GATE_SEL","ONST",16777215,0,1)
-#! TemplateField("PC_GATE_SEL","THVL",16777215,0,1)
-#! TemplateField("PC_GATE_SEL","MOTOR",16777215,0,1)
 #! TemplateField("PC_GATE_SEL","TWST",16777215,0,1)
 #! TemplateField("PC_GATE_SEL","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PC_GATE_START",520,1100,0,"")
+#! TemplateField("PC_GATE_START","PREC",16777215,0,1)
 #! TemplateField("PC_GATE_START","MOTOR",16777215,0,1)
 #! TemplateField("PC_GATE_START","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PC_GATE_WID",720,1100,0,"")
+#! TemplateField("PC_GATE_WID","PREC",16777215,0,1)
 #! TemplateField("PC_GATE_WID","MOTOR",16777215,0,1)
 #! TemplateField("PC_GATE_WID","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PC_GATE_NGATE",920,1100,0,"")
+#! TemplateField("PC_GATE_NGATE","PREC",16777215,0,1)
 #! TemplateField("PC_GATE_NGATE","MOTOR",16777215,0,1)
 #! TemplateField("PC_GATE_NGATE","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PC_GATE_STEP",1120,1100,0,"")
+#! TemplateField("PC_GATE_STEP","PREC",16777215,0,1)
 #! TemplateField("PC_GATE_STEP","MOTOR",16777215,0,1)
 #! TemplateField("PC_GATE_STEP","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_PULSE_INP",520,1540,0,"")
+#! TemplateInstance("PC_PULSE_INP",320,1540,0,"")
 #! TemplateField("PC_PULSE_INP","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_PULSE_SEL",320,1540,0,"")
+#! TemplateInstance("PC_PULSE_SEL",120,1540,0,"")
 #! TemplateField("PC_PULSE_SEL","ZRST",16777215,0,1)
 #! TemplateField("PC_PULSE_SEL","THST",16777215,0,1)
 #! TemplateField("PC_PULSE_SEL","FRST",16777215,0,1)
 #! TemplateField("PC_PULSE_SEL","ONST",16777215,0,1)
-#! TemplateField("PC_PULSE_SEL","THVL",16777215,0,1)
-#! TemplateField("PC_PULSE_SEL","MOTOR",16777215,0,1)
 #! TemplateField("PC_PULSE_SEL","TWST",16777215,0,1)
 #! TemplateField("PC_PULSE_SEL","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_PULSE_DLY",720,1540,0,"")
+#! TemplateInstance("PC_PULSE_START",520,1540,0,"")
+#! TemplateField("PC_PULSE_START","PREC",16777215,0,1)
+#! TemplateField("PC_PULSE_START","MOTOR",16777215,0,1)
+#! TemplateField("PC_PULSE_START","PARAM",16777215,0,1)
+
+
+#! TemplateInstance("PC_PULSE_DLY",1120,1540,0,"")
+#! TemplateField("PC_PULSE_DLY","PREC",16777215,0,1)
 #! TemplateField("PC_PULSE_DLY","MOTOR",16777215,0,1)
 #! TemplateField("PC_PULSE_DLY","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_PULSE_WID",920,1540,0,"")
+#! TemplateInstance("PC_PULSE_WID",720,1540,0,"")
+#! TemplateField("PC_PULSE_WID","PREC",16777215,0,1)
 #! TemplateField("PC_PULSE_WID","MOTOR",16777215,0,1)
 #! TemplateField("PC_PULSE_WID","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_PULSE_STEP",1120,1540,0,"")
+#! TemplateInstance("PC_PULSE_STEP",920,1540,0,"")
+#! TemplateField("PC_PULSE_STEP","PREC",16777215,0,1)
 #! TemplateField("PC_PULSE_STEP","MOTOR",16777215,0,1)
 #! TemplateField("PC_PULSE_STEP","PARAM",16777215,0,1)
 
@@ -2305,20 +2394,19 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
 #! TemplateField("PC_ARM_SEL","THST",16777215,0,1)
 #! TemplateField("PC_ARM_SEL","FRST",16777215,0,1)
 #! TemplateField("PC_ARM_SEL","ONST",16777215,0,1)
-#! TemplateField("PC_ARM_SEL","THVL",16777215,0,1)
-#! TemplateField("PC_ARM_SEL","MOTOR",16777215,0,1)
 #! TemplateField("PC_ARM_SEL","TWST",16777215,0,1)
 #! TemplateField("PC_ARM_SEL","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):PULSE:OFF",120,3750,0,1,"$(P)$(Q):PULSE:OFF")
-#! Record("$(P)$(Q):STARTGATE:MRES",2020,3300,0,1,"$(P)$(Q):STARTGATE:MRES")
+#! Record("$(P)$(Q):STARTGATE:MRES",2020,3440,0,1,"$(P)$(Q):STARTGATE:MRES")
 #! Field("$(P)$(Q):STARTGATE:MRES.INPA",16777215,1,"$(P)$(Q):STARTGATE:MRES.INPA")
 #! Link("$(P)$(Q):STARTGATE:MRES.INPA","$(P)$(Q):MOTOR:MRES.VAL")
-#! Field("$(P)$(Q):STARTGATE:MRES.INPB",16777215,1,"$(P)$(Q):STARTGATE:MRES.INPB")
 #! Field("$(P)$(Q):STARTGATE:MRES.INPC",16777215,0,"$(P)$(Q):STARTGATE:MRES.INPC")
 #! Field("$(P)$(Q):STARTGATE:MRES.NVL",16777215,1,"$(P)$(Q):STARTGATE:MRES.NVL")
 #! Field("$(P)$(Q):STARTGATE:MRES.INPD",16777215,1,"$(P)$(Q):STARTGATE:MRES.INPD")
 #! Link("$(P)$(Q):STARTGATE:MRES.INPD","$(P)$(Q):MOTOR:MRES.VAL")
+#! Field("$(P)$(Q):STARTGATE:MRES.INPB",16777215,1,"$(P)$(Q):STARTGATE:MRES.INPB")
+#! Link("$(P)$(Q):STARTGATE:MRES.INPB","$(P)$(Q):TIME:MRES.VAL")
 #! Record("$(P)$(Q):STARTGATE:OFF",140,3340,0,1,"$(P)$(Q):STARTGATE:OFF")
 #! Field("$(P)$(Q):STARTGATE:OFF.INPA",16777215,0,"$(P)$(Q):STARTGATE:OFF.INPA")
 #! Link("$(P)$(Q):STARTGATE:OFF.INPA","$(P)$(Q):MOTOR:OFF.VAL")
@@ -2328,7 +2416,7 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
 #! Field("$(P)$(Q):STARTGATE:OFF.INPD",16777215,0,"$(P)$(Q):STARTGATE:OFF.INPD")
 #! Link("$(P)$(Q):STARTGATE:OFF.INPD","$(P)$(Q):MOTOR:OFF.VAL")
 #! Record("$(P)$(Q):GATE:OFF",120,3630,0,1,"$(P)$(Q):GATE:OFF")
-#! Record("$(P)$(Q):MOTOR:ABSMRES",2020,3556,0,1,"$(P)$(Q):MOTOR:ABSMRES")
+#! Record("$(P)$(Q):MOTOR:ABSMRES",2020,3296,0,1,"$(P)$(Q):MOTOR:ABSMRES")
 #! Field("$(P)$(Q):MOTOR:ABSMRES.INPA",16777215,1,"$(P)$(Q):MOTOR:ABSMRES.INPA")
 #! Link("$(P)$(Q):MOTOR:ABSMRES.INPA","$(P)$(Q):MOTOR:MRES.VAL")
 #! Field("$(P)$(Q):MOTOR:ABSMRES.VAL",16777215,0,"$(P)$(Q):MOTOR:ABSMRES.VAL")
@@ -2339,14 +2427,14 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
 #! Field("$(P)$(Q):GATE:MRES.NVL",16777215,1,"$(P)$(Q):GATE:MRES.NVL")
 #! Field("$(P)$(Q):GATE:MRES.INPD",16777215,0,"$(P)$(Q):GATE:MRES.INPD")
 #! Link("$(P)$(Q):GATE:MRES.INPD","$(P)$(Q):MOTOR:ABSMRES.VAL")
+#! Field("$(P)$(Q):GATE:MRES.INPB",16777215,1,"$(P)$(Q):GATE:MRES.INPB")
+#! Link("$(P)$(Q):GATE:MRES.INPB","$(P)$(Q):TIME:MRES.VAL")
 
-#! TemplateInstance("PC_ENC",1120,200,0,"")
+#! TemplateInstance("PC_ENC",900,280,0,"")
 #! TemplateField("PC_ENC","ZRST",16777215,0,1)
 #! TemplateField("PC_ENC","THST",16777215,0,1)
 #! TemplateField("PC_ENC","FRST",16777215,0,1)
 #! TemplateField("PC_ENC","ONST",16777215,0,1)
-#! TemplateField("PC_ENC","THVL",16777215,0,1)
-#! TemplateField("PC_ENC","MOTOR",16777215,0,1)
 #! TemplateField("PC_ENC","TWST",16777215,0,1)
 #! TemplateField("PC_ENC","PARAM",16777215,0,1)
 
@@ -2356,13 +2444,13 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
 #! Record("$(P)$(Q):PC_SYS2",760,4754,0,0,"$(P)$(Q):PC_SYS2")
 #! Record("$(P)$(Q):PC_SYS2_LAST",600,4762,0,0,"$(P)$(Q):PC_SYS2_LAST")
 #! Record("$(P)$(Q):PC_DIV1",1120,4294,0,0,"$(P)$(Q):PC_DIV1")
-#! Record("$(P)$(Q):PC_DIV1_LAST",960,4302,0,0,"$(P)$(Q):PC_DIV1_LAST")
+#! Record("$(P)$(Q):PC_DIV1_LAST",960,4308,0,0,"$(P)$(Q):PC_DIV1_LAST")
 #! Record("$(P)$(Q):PC_DIV2",1120,4454,0,0,"$(P)$(Q):PC_DIV2")
-#! Record("$(P)$(Q):PC_DIV2_LAST",960,4462,0,0,"$(P)$(Q):PC_DIV2_LAST")
+#! Record("$(P)$(Q):PC_DIV2_LAST",960,4468,0,0,"$(P)$(Q):PC_DIV2_LAST")
 #! Record("$(P)$(Q):PC_DIV3",1120,4614,0,0,"$(P)$(Q):PC_DIV3")
-#! Record("$(P)$(Q):PC_DIV3_LAST",960,4622,0,0,"$(P)$(Q):PC_DIV3_LAST")
+#! Record("$(P)$(Q):PC_DIV3_LAST",960,4628,0,0,"$(P)$(Q):PC_DIV3_LAST")
 #! Record("$(P)$(Q):PC_DIV4",1120,4774,0,0,"$(P)$(Q):PC_DIV4")
-#! Record("$(P)$(Q):PC_DIV4_LAST",960,4782,0,0,"$(P)$(Q):PC_DIV4_LAST")
+#! Record("$(P)$(Q):PC_DIV4_LAST",960,4788,0,0,"$(P)$(Q):PC_DIV4_LAST")
 #! Record("$(P)$(Q):PC_FILT1",1520,4194,0,0,"$(P)$(Q):PC_FILT1")
 
 #! TemplateInstance("PC_FILTSEL1",1320,4180,0,"")
@@ -2414,10 +2502,10 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
 #! TemplateField("OUT8_CONN","PARAM",16777215,0,1)
 
 
-#! TemplateInstance("PC_CAP",720,200,0,"")
-#! TemplateField("PC_CAP","ASLO",16777215,0,1)
-#! TemplateField("PC_CAP","PREC",16777215,0,1)
-#! TemplateField("PC_CAP","PARAM",16777215,0,1)
+#! TemplateInstance("PC_BIT_CAP",1100,280,0,"")
+#! TemplateField("PC_BIT_CAP","ASLO",16777215,0,1)
+#! TemplateField("PC_BIT_CAP","PREC",16777215,0,1)
+#! TemplateField("PC_BIT_CAP","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):ARRAY_UPDATE",180,4728,0,1,"$(P)$(Q):ARRAY_UPDATE")
 #! Record("$(P)$(Q):PC_ENC1_LAST_CTS",720,3042,0,0,"$(P)$(Q):PC_ENC1_LAST_CTS")
@@ -2430,12 +2518,16 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
 #! Field("$(P)$(Q):PC_ENC4_LAST_CTS.VAL",16777215,1,"$(P)$(Q):PC_ENC4_LAST_CTS.VAL")
 #! Record("$(P)$(Q):PC_ENC1_CTS",1460,3014,0,0,"$(P)$(Q):PC_ENC1_CTS")
 #! Field("$(P)$(Q):PC_ENC1_CTS.VAL",16777215,0,"$(P)$(Q):PC_ENC1_CTS.VAL")
+#! Field("$(P)$(Q):PC_ENC1_CTS.NORD",16777215,1,"$(P)$(Q):PC_ENC1_CTS.NORD")
 #! Record("$(P)$(Q):PC_ENC2_CTS",1460,3234,0,0,"$(P)$(Q):PC_ENC2_CTS")
 #! Field("$(P)$(Q):PC_ENC2_CTS.VAL",16777215,1,"$(P)$(Q):PC_ENC2_CTS.VAL")
+#! Field("$(P)$(Q):PC_ENC2_CTS.NORD",16777215,1,"$(P)$(Q):PC_ENC2_CTS.NORD")
 #! Record("$(P)$(Q):PC_ENC3_CTS",1460,3454,0,0,"$(P)$(Q):PC_ENC3_CTS")
 #! Field("$(P)$(Q):PC_ENC3_CTS.VAL",16777215,1,"$(P)$(Q):PC_ENC3_CTS.VAL")
+#! Field("$(P)$(Q):PC_ENC3_CTS.NORD",16777215,1,"$(P)$(Q):PC_ENC3_CTS.NORD")
 #! Record("$(P)$(Q):PC_ENC4_CTS",1460,3674,0,0,"$(P)$(Q):PC_ENC4_CTS")
 #! Field("$(P)$(Q):PC_ENC4_CTS.VAL",16777215,1,"$(P)$(Q):PC_ENC4_CTS.VAL")
+#! Field("$(P)$(Q):PC_ENC4_CTS.NORD",16777215,1,"$(P)$(Q):PC_ENC4_CTS.NORD")
 #! Record("$(P)$(Q):PC_ENC1_LAST",980,3014,0,1,"$(P)$(Q):PC_ENC1_LAST")
 #! Field("$(P)$(Q):PC_ENC1_LAST.INPA",16777215,0,"$(P)$(Q):PC_ENC1_LAST.INPA")
 #! Link("$(P)$(Q):PC_ENC1_LAST.INPA","$(P)$(Q):PC_ENC1_LAST_CTS.VAL")
@@ -2443,13 +2535,6 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
 #! Link("$(P)$(Q):PC_ENC1_LAST.INPB","$(P)$(Q):M1:MRES.VAL")
 #! Field("$(P)$(Q):PC_ENC1_LAST.INPC",16777215,0,"$(P)$(Q):PC_ENC1_LAST.INPC")
 #! Link("$(P)$(Q):PC_ENC1_LAST.INPC","$(P)$(Q):M1:OFF.VAL")
-#! Record("$(P)$(Q):PC_ENC1",1200,3014,0,1,"$(P)$(Q):PC_ENC1")
-#! Field("$(P)$(Q):PC_ENC1.INAA",16777215,1,"$(P)$(Q):PC_ENC1.INAA")
-#! Link("$(P)$(Q):PC_ENC1.INAA","$(P)$(Q):PC_ENC1_CTS.VAL")
-#! Field("$(P)$(Q):PC_ENC1.INPB",16777215,1,"$(P)$(Q):PC_ENC1.INPB")
-#! Link("$(P)$(Q):PC_ENC1.INPB","$(P)$(Q):M1:MRES.VAL")
-#! Field("$(P)$(Q):PC_ENC1.INPC",16777215,0,"$(P)$(Q):PC_ENC1.INPC")
-#! Link("$(P)$(Q):PC_ENC1.INPC","$(P)$(Q):M1:OFF.VAL")
 #! Record("$(P)$(Q):PC_ENC2_LAST",980,3234,0,0,"$(P)$(Q):PC_ENC2_LAST")
 #! Field("$(P)$(Q):PC_ENC2_LAST.INPA",16777215,0,"$(P)$(Q):PC_ENC2_LAST.INPA")
 #! Link("$(P)$(Q):PC_ENC2_LAST.INPA","$(P)$(Q):PC_ENC2_LAST_CTS.VAL")
@@ -2457,13 +2542,6 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
 #! Link("$(P)$(Q):PC_ENC2_LAST.INPB","$(P)$(Q):M2:MRES.VAL")
 #! Field("$(P)$(Q):PC_ENC2_LAST.INPC",16777215,0,"$(P)$(Q):PC_ENC2_LAST.INPC")
 #! Link("$(P)$(Q):PC_ENC2_LAST.INPC","$(P)$(Q):M2:OFF.VAL")
-#! Record("$(P)$(Q):PC_ENC2",1220,3234,0,0,"$(P)$(Q):PC_ENC2")
-#! Field("$(P)$(Q):PC_ENC2.INAA",16777215,1,"$(P)$(Q):PC_ENC2.INAA")
-#! Link("$(P)$(Q):PC_ENC2.INAA","$(P)$(Q):PC_ENC2_CTS.VAL")
-#! Field("$(P)$(Q):PC_ENC2.INPB",16777215,1,"$(P)$(Q):PC_ENC2.INPB")
-#! Link("$(P)$(Q):PC_ENC2.INPB","$(P)$(Q):M2:MRES.VAL")
-#! Field("$(P)$(Q):PC_ENC2.INPC",16777215,0,"$(P)$(Q):PC_ENC2.INPC")
-#! Link("$(P)$(Q):PC_ENC2.INPC","$(P)$(Q):M2:OFF.VAL")
 #! Record("$(P)$(Q):PC_ENC3_LAST",980,3454,0,0,"$(P)$(Q):PC_ENC3_LAST")
 #! Field("$(P)$(Q):PC_ENC3_LAST.INPA",16777215,0,"$(P)$(Q):PC_ENC3_LAST.INPA")
 #! Link("$(P)$(Q):PC_ENC3_LAST.INPA","$(P)$(Q):PC_ENC3_LAST_CTS.VAL")
@@ -2471,13 +2549,6 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
 #! Link("$(P)$(Q):PC_ENC3_LAST.INPB","$(P)$(Q):M3:MRES.VAL")
 #! Field("$(P)$(Q):PC_ENC3_LAST.INPC",16777215,0,"$(P)$(Q):PC_ENC3_LAST.INPC")
 #! Link("$(P)$(Q):PC_ENC3_LAST.INPC","$(P)$(Q):M3:OFF.VAL")
-#! Record("$(P)$(Q):PC_ENC3",1220,3454,0,0,"$(P)$(Q):PC_ENC3")
-#! Field("$(P)$(Q):PC_ENC3.INAA",16777215,1,"$(P)$(Q):PC_ENC3.INAA")
-#! Link("$(P)$(Q):PC_ENC3.INAA","$(P)$(Q):PC_ENC3_CTS.VAL")
-#! Field("$(P)$(Q):PC_ENC3.INPB",16777215,1,"$(P)$(Q):PC_ENC3.INPB")
-#! Link("$(P)$(Q):PC_ENC3.INPB","$(P)$(Q):M3:MRES.VAL")
-#! Field("$(P)$(Q):PC_ENC3.INPC",16777215,0,"$(P)$(Q):PC_ENC3.INPC")
-#! Link("$(P)$(Q):PC_ENC3.INPC","$(P)$(Q):M3:OFF.VAL")
 #! Record("$(P)$(Q):PC_ENC4_LAST",980,3674,0,0,"$(P)$(Q):PC_ENC4_LAST")
 #! Field("$(P)$(Q):PC_ENC4_LAST.INPA",16777215,0,"$(P)$(Q):PC_ENC4_LAST.INPA")
 #! Link("$(P)$(Q):PC_ENC4_LAST.INPA","$(P)$(Q):PC_ENC4_LAST_CTS.VAL")
@@ -2485,10 +2556,93 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
 #! Link("$(P)$(Q):PC_ENC4_LAST.INPB","$(P)$(Q):M4:MRES.VAL")
 #! Field("$(P)$(Q):PC_ENC4_LAST.INPC",16777215,0,"$(P)$(Q):PC_ENC4_LAST.INPC")
 #! Link("$(P)$(Q):PC_ENC4_LAST.INPC","$(P)$(Q):M4:OFF.VAL")
-#! Record("$(P)$(Q):PC_ENC4",1220,3674,0,0,"$(P)$(Q):PC_ENC4")
+#! Record("$(P)$(Q):PC_ENC1",1200,3006,0,1,"$(P)$(Q):PC_ENC1")
+#! Field("$(P)$(Q):PC_ENC1.INAA",16777215,1,"$(P)$(Q):PC_ENC1.INAA")
+#! Link("$(P)$(Q):PC_ENC1.INAA","$(P)$(Q):PC_ENC1_CTS.VAL")
+#! Field("$(P)$(Q):PC_ENC1.INPB",16777215,1,"$(P)$(Q):PC_ENC1.INPB")
+#! Link("$(P)$(Q):PC_ENC1.INPB","$(P)$(Q):M1:MRES.VAL")
+#! Field("$(P)$(Q):PC_ENC1.INPC",16777215,0,"$(P)$(Q):PC_ENC1.INPC")
+#! Link("$(P)$(Q):PC_ENC1.INPC","$(P)$(Q):M1:OFF.VAL")
+#! Field("$(P)$(Q):PC_ENC1.INPD",16777215,1,"$(P)$(Q):PC_ENC1.INPD")
+#! Link("$(P)$(Q):PC_ENC1.INPD","$(P)$(Q):PC_ENC1_CTS.NORD")
+#! Field("$(P)$(Q):PC_ENC1.FLNK",16777215,0,"$(P)$(Q):PC_ENC1.FLNK")
+#! Link("$(P)$(Q):PC_ENC1.FLNK","$(P)$(Q):PC_ENC2")
+#! Record("$(P)$(Q):PC_ENC2",1220,3226,0,0,"$(P)$(Q):PC_ENC2")
+#! Field("$(P)$(Q):PC_ENC2.INAA",16777215,1,"$(P)$(Q):PC_ENC2.INAA")
+#! Link("$(P)$(Q):PC_ENC2.INAA","$(P)$(Q):PC_ENC2_CTS.VAL")
+#! Field("$(P)$(Q):PC_ENC2.INPB",16777215,1,"$(P)$(Q):PC_ENC2.INPB")
+#! Link("$(P)$(Q):PC_ENC2.INPB","$(P)$(Q):M2:MRES.VAL")
+#! Field("$(P)$(Q):PC_ENC2.INPC",16777215,0,"$(P)$(Q):PC_ENC2.INPC")
+#! Link("$(P)$(Q):PC_ENC2.INPC","$(P)$(Q):M2:OFF.VAL")
+#! Field("$(P)$(Q):PC_ENC2.INPD",16777215,1,"$(P)$(Q):PC_ENC2.INPD")
+#! Link("$(P)$(Q):PC_ENC2.INPD","$(P)$(Q):PC_ENC2_CTS.NORD")
+#! Field("$(P)$(Q):PC_ENC2.FLNK",16777215,0,"$(P)$(Q):PC_ENC2.FLNK")
+#! Link("$(P)$(Q):PC_ENC2.FLNK","$(P)$(Q):PC_ENC3")
+#! Record("$(P)$(Q):PC_ENC3",1220,3446,0,0,"$(P)$(Q):PC_ENC3")
+#! Field("$(P)$(Q):PC_ENC3.INAA",16777215,1,"$(P)$(Q):PC_ENC3.INAA")
+#! Link("$(P)$(Q):PC_ENC3.INAA","$(P)$(Q):PC_ENC3_CTS.VAL")
+#! Field("$(P)$(Q):PC_ENC3.INPB",16777215,1,"$(P)$(Q):PC_ENC3.INPB")
+#! Link("$(P)$(Q):PC_ENC3.INPB","$(P)$(Q):M3:MRES.VAL")
+#! Field("$(P)$(Q):PC_ENC3.INPC",16777215,0,"$(P)$(Q):PC_ENC3.INPC")
+#! Link("$(P)$(Q):PC_ENC3.INPC","$(P)$(Q):M3:OFF.VAL")
+#! Field("$(P)$(Q):PC_ENC3.INPD",16777215,1,"$(P)$(Q):PC_ENC3.INPD")
+#! Link("$(P)$(Q):PC_ENC3.INPD","$(P)$(Q):PC_ENC3_CTS.NORD")
+#! Field("$(P)$(Q):PC_ENC3.FLNK",16777215,0,"$(P)$(Q):PC_ENC3.FLNK")
+#! Link("$(P)$(Q):PC_ENC3.FLNK","$(P)$(Q):PC_ENC4")
+#! Record("$(P)$(Q):PC_ENC4",1220,3666,0,0,"$(P)$(Q):PC_ENC4")
 #! Field("$(P)$(Q):PC_ENC4.INAA",16777215,1,"$(P)$(Q):PC_ENC4.INAA")
 #! Link("$(P)$(Q):PC_ENC4.INAA","$(P)$(Q):PC_ENC4_CTS.VAL")
 #! Field("$(P)$(Q):PC_ENC4.INPB",16777215,1,"$(P)$(Q):PC_ENC4.INPB")
 #! Link("$(P)$(Q):PC_ENC4.INPB","$(P)$(Q):M4:MRES.VAL")
 #! Field("$(P)$(Q):PC_ENC4.INPC",16777215,0,"$(P)$(Q):PC_ENC4.INPC")
 #! Link("$(P)$(Q):PC_ENC4.INPC","$(P)$(Q):M4:OFF.VAL")
+#! Field("$(P)$(Q):PC_ENC4.INPD",16777215,1,"$(P)$(Q):PC_ENC4.INPD")
+#! Link("$(P)$(Q):PC_ENC4.INPD","$(P)$(Q):PC_ENC4_CTS.NORD")
+#! Field("$(P)$(Q):PC_ENC4.FLNK",16777215,0,"$(P)$(Q):PC_ENC4.FLNK")
+#! Link("$(P)$(Q):PC_ENC4.FLNK","$(P)$(Q):PC_NUM_DOWN")
+#! Record("$(P)$(Q):PC_NUM_DOWN",880,4022,0,1,"$(P)$(Q):PC_NUM_DOWN")
+
+#! TemplateInstance("PC_PULSE_MAX",1320,1680,0,"")
+#! TemplateField("PC_PULSE_MAX","PREC",16777215,0,1)
+#! TemplateField("PC_PULSE_MAX","MOTOR",16777215,0,1)
+#! TemplateField("PC_PULSE_MAX","PARAM",16777215,0,1)
+
+#! Record("$(P)$(Q):PC_DIR:RRBV",40,14,0,0,"$(P)$(Q):PC_DIR:RRBV")
+#! Field("$(P)$(Q):PC_DIR:RRBV.FLNK",16777215,1,"$(P)$(Q):PC_DIR:RRBV.FLNK")
+#! Link("$(P)$(Q):PC_DIR:RRBV.FLNK","$(P)$(Q):PC_DIR:CRBV")
+#! Field("$(P)$(Q):PC_DIR:RRBV.VAL",16777215,1,"$(P)$(Q):PC_DIR:RRBV.VAL")
+#! Record("$(P)$(Q):PC_DIR:CRBV",320,14,0,0,"$(P)$(Q):PC_DIR:CRBV")
+#! Field("$(P)$(Q):PC_DIR:CRBV.INPA",16777215,0,"$(P)$(Q):PC_DIR:CRBV.INPA")
+#! Link("$(P)$(Q):PC_DIR:CRBV.INPA","$(P)$(Q):PC_DIR:RRBV.VAL")
+#! Field("$(P)$(Q):PC_DIR:CRBV.INPB",16777215,1,"$(P)$(Q):PC_DIR:CRBV.INPB")
+#! Link("$(P)$(Q):PC_DIR:CRBV.INPB","$(P)$(Q):MOTOR:MRES.VAL")
+#! Field("$(P)$(Q):PC_DIR:CRBV.OUT",16777215,1,"$(P)$(Q):PC_DIR:CRBV.OUT")
+#! Link("$(P)$(Q):PC_DIR:CRBV.OUT","$(P)$(Q):PC_DIR:RBV.RVAL")
+#! Record("$(P)$(Q):PC_DIR:RBV",660,26,0,0,"$(P)$(Q):PC_DIR:RBV")
+#! Field("$(P)$(Q):PC_DIR:RBV.RVAL",16777215,0,"$(P)$(Q):PC_DIR:RBV.RVAL")
+#! Field("$(P)$(Q):PC_DIR:RBV.FLNK",16777215,1,"$(P)$(Q):PC_DIR:RBV.FLNK")
+#! Link("$(P)$(Q):PC_DIR:RBV.FLNK","$(P)$(Q):PC_DIR:SYNC")
+#! Field("$(P)$(Q):PC_DIR:RBV.VAL",16777215,1,"$(P)$(Q):PC_DIR:RBV.VAL")
+#! Record("$(P)$(Q):PC_DIR:SYNC",1000,88,0,0,"$(P)$(Q):PC_DIR:SYNC")
+#! Field("$(P)$(Q):PC_DIR:SYNC.OUT",16777215,1,"$(P)$(Q):PC_DIR:SYNC.OUT")
+#! Link("$(P)$(Q):PC_DIR:SYNC.OUT","$(P)$(Q):PC_DIR.VAL")
+#! Field("$(P)$(Q):PC_DIR:SYNC.INPA",16777215,0,"$(P)$(Q):PC_DIR:SYNC.INPA")
+#! Link("$(P)$(Q):PC_DIR:SYNC.INPA","$(P)$(Q):PC_DIR:RBV.VAL")
+#! Field("$(P)$(Q):PC_DIR:SYNC.PACT",16777215,1,"$(P)$(Q):PC_DIR:SYNC.PACT")
+#! Record("$(P)$(Q):PC_DIR",1260,46,0,0,"$(P)$(Q):PC_DIR")
+#! Field("$(P)$(Q):PC_DIR.VAL",16777215,0,"$(P)$(Q):PC_DIR.VAL")
+#! Field("$(P)$(Q):PC_DIR.OUT",16777215,1,"$(P)$(Q):PC_DIR.OUT")
+#! Link("$(P)$(Q):PC_DIR.OUT","$(P)$(Q):PC_DIR:CSET.A")
+#! Record("$(P)$(Q):PC_DIR:CSET",1540,68,0,0,"$(P)$(Q):PC_DIR:CSET")
+#! Field("$(P)$(Q):PC_DIR:CSET.A",16777215,0,"$(P)$(Q):PC_DIR:CSET.A")
+#! Field("$(P)$(Q):PC_DIR:CSET.INPB",16777215,1,"$(P)$(Q):PC_DIR:CSET.INPB")
+#! Link("$(P)$(Q):PC_DIR:CSET.INPB","$(P)$(Q):MOTOR:MRES.VAL")
+#! Field("$(P)$(Q):PC_DIR:CSET.OUT",16777215,1,"$(P)$(Q):PC_DIR:CSET.OUT")
+#! Link("$(P)$(Q):PC_DIR:CSET.OUT","$(P)$(Q):PC_DIR:SET.VAL")
+#! Record("$(P)$(Q):PC_DIR:SET",1760,108,0,0,"$(P)$(Q):PC_DIR:SET")
+#! Field("$(P)$(Q):PC_DIR:SET.VAL",16777215,1,"$(P)$(Q):PC_DIR:SET.VAL")
+#! Field("$(P)$(Q):PC_DIR:SET.SDIS",16777215,0,"$(P)$(Q):PC_DIR:SET.SDIS")
+#! Link("$(P)$(Q):PC_DIR:SET.SDIS","$(P)$(Q):PC_DIR:SYNC.PACT")
+#! Record("$(P)$(Q):TIME:MRES",2320,3910,0,1,"$(P)$(Q):TIME:MRES")
+#! Field("$(P)$(Q):TIME:MRES.VAL",16777215,0,"$(P)$(Q):TIME:MRES.VAL")
+#! Record("$(P)$(Q):TIME:OFF",120,3850,0,1,"$(P)$(Q):TIME:OFF")

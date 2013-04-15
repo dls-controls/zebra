@@ -7,33 +7,25 @@
 template() {
 
   #! InputMacro(PARAM,"",820,860,16777215,1,true)
-  #! InputMacro(MOTOR,"",820,960,16777215,1,true)  
   #! InputMacro(ZRST,"",820,660,16777215,1,true)
-  #! InputMacro(ONST,"",820,700,16777215,1,true)  
+  #! InputMacro(ONST,"",820,700,16777215,1,true)
+  #! InputMacro(TWST,"",820,740,16777215,1,true)   
   #! InputMacro(THST,"",820,780,16777215,1,true)
-  #! InputMacro(THVL,"",830,780,16777215,1,true)  
-  #! InputMacro(TWST,"",820,740,16777215,1,true)
   #! InputMacro(FRST,"",820,820,16777215,1,true)
 }
 
 record(ai, "$(P)$(Q):$(PARAM):RRBV") {
   field(DESC, "Raw Readback param value")
   field(DTYP, "asynInt32")
+  field(FLNK, "$(P)$(Q):$(PARAM):RBV")
   field(INP, "@asyn($(PORT),0) $(PARAM)")
   field(SCAN, "I/O Intr")
 }
 
-record(calcout, "$(P)$(Q):$(PARAM):CRBV") {
-  field(DESC, "Swap +ve and negative directions")
-  field(CALC, "B<0?(A=0?4:A=4?0:A):A"
-  field(INPA, "$(P)$(Q):$(PARAM):RRBV CP")
-  field(INPB, "$(P)$(Q):$(MOTOR):MRES CP")
-  field(OUT, "$(P)$(Q):$(PARAM):RBV.RVAL PP")
-}
-
 record(mbbi, "$(P)$(Q):$(PARAM):RBV") {
   field(DESC, "Readback param value")
-  field(DTYP, "Raw Soft Channel")  
+  field(DTYP, "Raw Soft Channel")
+  field(INP, "$(P)$(Q):$(PARAM):RRBV")  
   field(FLNK, "$(P)$(Q):$(PARAM):SYNC")
   field(ZRST, "$(ZRST)")
   field(ZRVL, "0")
@@ -42,7 +34,7 @@ record(mbbi, "$(P)$(Q):$(PARAM):RBV") {
   field(TWST, "$(TWST)")
   field(TWVL, "2")
   field(THST, "$(THST)")
-  field(THVL, "$(THVL)")
+  field(THVL, "3")
   field(FRST, "$(FRST)")
   field(FRVL, "4")
 }
@@ -57,7 +49,7 @@ record(calcout, "$(P)$(Q):$(PARAM):SYNC") {
 record(mbbo, "$(P)$(Q):$(PARAM)") {
   field(DESC, "Demand value for param")
   field(DTYP, "Raw Soft Channel")
-  field(OUT, "$(P)$(Q):$(PARAM):CSET.A PP")
+  field(OUT, "$(P)$(Q):$(PARAM):SET PP")
   field(ZRST, "$(ZRST)")
   field(ZRVL, "0")
   field(ONST, "$(ONST)")
@@ -65,16 +57,9 @@ record(mbbo, "$(P)$(Q):$(PARAM)") {
   field(TWST, "$(TWST)")
   field(TWVL, "2")
   field(THST, "$(THST)")
-  field(THVL, "$(THVL)")
+  field(THVL, "3")
   field(FRST, "$(FRST)")
   field(FRVL, "4")
-}
-
-record(calcout, "$(P)$(Q):$(PARAM):CSET") {
-  field(DESC, "Swap +ve and negative directions")
-  field(CALC, "B<0?(A=0?4:A=4?0:A):A"
-  field(INPB, "$(P)$(Q):$(MOTOR):MRES")
-  field(OUT, "$(P)$(Q):$(PARAM):SET PP")
 }
 
 record(ao, "$(P)$(Q):$(PARAM):SET") {
