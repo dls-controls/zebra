@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 228
-y 274
+x 230
+y 300
 w 640
 h 510
 font "arial-bold-r-12.0"
@@ -1158,7 +1158,7 @@ endObjectProperties
 endGroup
 
 visPv "$(zebra):PC_PULSE_SEL"
-visMin "0"
+visMin "1"
 visMax "2"
 endObjectProperties
 
@@ -1236,44 +1236,6 @@ endGroup
 visPv "$(zebra):PC_PULSE_SEL"
 visMin "0"
 visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 595
-y 410
-w 35
-h 25
-
-beginGroup
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 595
-y 410
-w 35
-h 25
-controlPv "$(zebra):PC_TSPRE:RBV"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-endGroup
-
-visPv "$(zebra):PC_PULSE_SEL"
-visMin "1"
-visMax "2"
 endObjectProperties
 
 # (Choice Button)
@@ -2613,174 +2575,6 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 435
-y 320
-w 160
-h 115
-
-beginGroup
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 520
-y 320
-w 75
-h 25
-controlPv "$(zebra):PC_PULSE_START"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 435
-y 320
-w 85
-h 25
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Pulse Start"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 435
-y 350
-w 85
-h 25
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Capt Delay"
-}
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 520
-y 350
-w 75
-h 25
-controlPv "$(zebra):PC_PULSE_DLY"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 520
-y 380
-w 75
-h 25
-controlPv "$(zebra):PC_PULSE_WID"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 435
-y 380
-w 85
-h 25
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Pulse Width"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 435
-y 410
-w 85
-h 25
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Pulse Step"
-}
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 520
-y 410
-w 75
-h 25
-controlPv "$(zebra):PC_PULSE_STEP"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-endGroup
-
-visPv "$(zebra):PC_PULSE_SEL"
-visMin "0"
-visMax "2"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
 x 595
 y 320
 w 35
@@ -2917,7 +2711,7 @@ major 4
 minor 0
 release 0
 x 595
-y 410
+y 350
 w 35
 h 25
 
@@ -2930,7 +2724,7 @@ major 10
 minor 0
 release 0
 x 595
-y 410
+y 350
 w 35
 h 25
 controlPv "$(zebra):M$(M):EGU"
@@ -3084,5 +2878,211 @@ yPoints {
   0 170
   1 195
 }
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 435
+y 320
+w 160
+h 85
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 435
+y 320
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Pulse Start"
+}
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 520
+y 320
+w 75
+h 25
+controlPv "$(zebra):PC_PULSE_START"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 435
+y 350
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Pulse Width"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 435
+y 380
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Pulse Step"
+}
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 520
+y 380
+w 75
+h 25
+controlPv "$(zebra):PC_PULSE_STEP"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 520
+y 350
+w 75
+h 25
+controlPv "$(zebra):PC_PULSE_WID"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+endGroup
+
+visPv "$(zebra):PC_PULSE_SEL"
+visMin "0"
+visMax "2"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 435
+y 410
+w 195
+h 25
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 435
+y 410
+w 85
+h 25
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Capt Delay"
+}
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 520
+y 410
+w 75
+h 25
+controlPv "$(zebra):PC_PULSE_DLY"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 595
+y 410
+w 35
+h 25
+controlPv "$(zebra):PC_TSPRE:RBV"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+endGroup
+
+visPv "$(zebra):PC_PULSE_SEL"
+visMin "1"
+visMax "2"
 endObjectProperties
 

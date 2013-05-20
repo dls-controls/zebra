@@ -28,5 +28,7 @@ zebra_SRCS += ini.c
 # We need to link against the EPICS Base libraries
 #xxx_LIBS += $(EPICS_BASE_IOC_LIBS)
 
+DATA += zebra_sim.py
+
 include $(TOP)/configure/RULES
 
