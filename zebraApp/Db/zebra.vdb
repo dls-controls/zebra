@@ -899,10 +899,18 @@ expand("zebraRegisterWritePrescaler.vdb", PC_TSPRE) {
   macro(PARAM, "PC_TSPRE")
 }
 
-expand("zebraRegisterWrite.vdb", PC_ARM) {
-  macro(PARAM, "PC_ARM")
-  macro(ASLO, "1")
-  macro(PREC, "0")
+record(ao, "$(P)$(Q):PC_ARM") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0) PC_ARM")
+  field(FLNK, "$(P)$(Q):ARM_SET_BUSY")
+}
+
+record(ao, "$(P)$(Q):ARM_SET_BUSY") {
+  field(OUT, "$(P)$(Q):ARM_BUSY PP")
+  field(VAL, "1")
+}
+
+record(busy, "$(P)$(Q):ARM_BUSY") {
 }
 
 expand("zebraRegisterWrite.vdb", PC_DISARM) {
@@ -1482,6 +1490,12 @@ record(ai, "$(P)$(Q):PC_NUM_DOWN") {
   field(DESC, "Points downloaded")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0) PC_NUM_DOWN")
+  field(FLNK, "$(P)$(Q):ARM_BUSY_DONE")
+}
+
+record(ao, "$(P)$(Q):ARM_BUSY_DONE") {
+  field(VAL, "0")
+  field(OUT, "$(P)$(Q):ARM_BUSY CA")
 }
 
 expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {

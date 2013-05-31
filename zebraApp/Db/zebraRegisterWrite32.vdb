@@ -51,7 +51,7 @@ record(ao, "$(P)$(Q):$(PARAM)") {
 }
 
 record(calcout, "$(P)$(Q):$(PARAM):CALCLO") {
-  field(CALC, "((A-D)/C+0.5)&65535")
+  field(CALC, "((A-D)/C)&65535")
   field(INPA, "$(P)$(Q):$(PARAM)")
   field(INPC, "$(P)$(Q):$(MOTOR):MRES")
   field(INPD, "$(P)$(Q):$(MOTOR):OFF")
@@ -67,7 +67,7 @@ record(ao, "$(P)$(Q):$(PARAM):SETLO") {
 }
 
 record(calcout, "$(P)$(Q):$(PARAM):CALCHI") {
-  field(CALC, "((A-D)/C+0.5)>>16")
+  field(CALC, "((A-D)/C)>>16")
   field(INPA, "$(P)$(Q):$(PARAM)")
   field(INPC, "$(P)$(Q):$(MOTOR):MRES")
   field(INPD, "$(P)$(Q):$(MOTOR):OFF")
