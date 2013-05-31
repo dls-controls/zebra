@@ -14,7 +14,6 @@
 	<zebra.zebraLastDivDiff DIV="2" P="TESTZEBRA" Q=":ZEBRA" name="FREQS.FREQ2"/>
 	<zebra.zebraLastDivDiff DIV="3" P="TESTZEBRA" Q=":ZEBRA" name="FREQS.FREQ3"/>
 	<zebra.zebraLastDivDiff DIV="4" P="TESTZEBRA" Q=":ZEBRA" name="FREQS.FREQ4"/>
-	<!--<agilent33220A.agilent33220A P="TESTZEBRA" PORT="ty_fgen" Q=":FGEN" name="FGEN"/>-->
 	<aravisGigE.aravisCamera ADDR="0" CLASS="Prosilica_GC" ID="Allied Vision Technologies-02-2166A-06844" P="TESTZEBRA" PORT="CAM.CAM" R=":CAM:" TIMEOUT="1"/>
 	<ffmpegServer.diagnosticPlugins CAM="CAM.CAM" P="TESTZEBRA" PORTPREFIX="CAM"/>
 </components>
