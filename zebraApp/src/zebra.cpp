@@ -426,6 +426,9 @@ void zebra::pollTask() {
                 // This is zebra telling us to reset our buffers
                 this->currPt = 0;
                 this->tOffset = 0.0;
+                // We need to trigger a waveform update so that PC_NUM_DOWN
+                // will unset the busy record set by the arm
+                setIntegerParam(zebraNumDown, -1);
                 this->callbackWaveforms();       
                 setIntegerParam(zebraArrayAcq, 1);                         
                 // reset num cap
