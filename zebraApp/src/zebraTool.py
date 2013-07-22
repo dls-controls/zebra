@@ -146,6 +146,12 @@ class zebraConnection:
     def systemBus(self):
         return self.regs.bus_lookup
 
+    def getStatus(self, name):
+        i = self.regs.bus_index(name)
+        stat_reg = "SYS_STAT" + (["1LO", "1HI", "2LO", "2HI"][i / 16])
+        stat_off = i % 16
+        return self.readReg(stat_reg) >> stat_off & 1          
+
     def writeCommand(self, cmd):
         self.port.write("%s\n" % cmd)
         expected = "%sOK" % cmd
@@ -155,6 +161,7 @@ class zebraConnection:
 class zebraTool:
     def __init__(self, portstr):
         self.zebra = zebraConnection("/dev/ttyS0")
+        self.errors = 0
         
     def uploadFile(self, fname):
         parser = ConfigParser()
@@ -163,35 +170,93 @@ class zebraTool:
         for reg, value in parser.items("regs"):
             self.zebra.writeReg(reg, int(value))
 
-    def doTest(self):
+    def doTest(self, bad="BAD", ok="OK", sleep=0.2):
         version = self.zebra.readReg("SYS_VER")                    
         assert version >= 0x20, "Can only firmware test zebras with 0x20 firmware or higher"
+
+        # first disconnect all the outputs
+        for name in self.zebra.regs.names():
+            if name.startswith("OUT"):
+                self.zebra.writeReg(name, "DISCONNECT")   
         
+        # now do the front panel inputs
         for i, signal in enumerate(self.zebra.systemBus()):
             # test inputs against outputs in system bus
-            if not signal.startswith("IN") or signal == "IN4_CMP":
-                continue
-            out = signal.replace("IN", "OUT")
-            print "Testing %s and %s..." % (signal, out),
-            # set output to soft input
-            self.zebra.writeReg(out, "SOFT_IN1")
-            # check if we get the input on the system bus
-            stat_reg = "SYS_STAT" + (["1LO", "1HI", "2LO", "2HI"][i / 16])
-            stat_off = i % 16
-            for expected in (0, 1):
-                self.zebra.writeReg("SOFT_IN", expected)
-                stat = self.zebra.readReg(stat_reg) >> stat_off & 1            
-                assert stat == expected, "%s should be %d" % (signal, expected)
-            print "OK"
+            match = re.match(r"IN(\d)", signal)
+            if match and int(match.group(1)) < 5:
+                # find corresponding output
+                if signal == "IN4_CMP":
+                    out = "OUT4_NIM"
+                else:
+                    out = signal.replace("IN", "OUT")
+                print "%40s"%("Testing %s and %s..." % (signal, out)),
+                # set output to soft input
+                self.zebra.writeReg(out, "SOFT_IN1")
+                ret = ok
+                for expected in (1, 0):
+                    # check if we get the input on the system bus                                    
+                    # special for PECL
+                    if signal == "IN4_PECL":
+                        # Latch the PECL inputs
+                        self.zebra.writeReg("GATE1_INP1", signal)
+                        # Reset on SOFT_IN2
+                        self.zebra.writeReg("GATE1_INP2", "SOFT_IN2")
+                        # Reset gate                        
+                        self.zebra.writeReg("SOFT_IN", 2)                        
+                        # Send pulse
+                        self.zebra.writeReg("SOFT_IN", expected)
+                        # Get pulse
+                        if (self.zebra.getStatus("GATE1") != expected):
+                            ret = bad                                            
+                    else:
+                        self.zebra.writeReg("SOFT_IN", expected)                    
+                        if (self.zebra.getStatus(signal) != expected):
+                            ret = bad
+                    # slow it down so we can see it
+                    time.sleep(sleep)    
+                self.zebra.writeReg(out, "DISCONNECT")
+                if ret == "BAD":        
+                    self.errors += 1
+                print ret
 
+        # now do the encoder inputs
+        for i in range(5,9):
+            # enable with soft in 2
+            self.zebra.writeReg("OUT%d_CONN" % i, "SOFT_IN2")
+            for suff in "ABZ":
+                signal = "IN%d_ENC%s" % (i, suff)
+                out = "OUT%d_ENC%s" % (i, suff)                
+                print "%40s"%("Testing %s and %s..." % (signal, out)),
+                self.zebra.writeReg(out, "SOFT_IN1")
+                ret = ok
+                for conn in (1,0):
+                    for expected in (0,1):
+                        # bit mask, conn is soft2, input is soft1
+                        if conn == 0:
+                            expected = 1
+                        self.zebra.writeReg("SOFT_IN", 2*conn+expected)
+                        if (self.zebra.getStatus(signal) != expected):
+                            ret = bad  
+                    time.sleep(sleep) 
+                self.zebra.writeReg(out, "DISCONNECT")         
+                if ret == "BAD":        
+                    self.errors += 1                             
+                print ret
+            self.zebra.writeReg("OUT%d_CONN" % i, "DISCONNECT")
+            
     def save(self):
         self.zebra.writeCommand("S")
 
 if __name__=="__main__":
     tool = zebraTool("/dev/ttyS0")
+    print "Downloading defaults..."
     tool.uploadFile(os.path.realpath(os.path.join(__file__, "..", "..", "..", "etc", "defaults.ini")))
-    tool.save()    
+    tool.save()        
+    print "Doing hardware test with cables unplugged..."
+    tool.doTest(bad="OK", ok="BAD")
+    raw_input("Plug in shorting cables and press return when done...")
     tool.doTest()
+    print "Test complete: %d Errors" % tool.errors
 
         
     
