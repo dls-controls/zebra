@@ -804,7 +804,7 @@ asynStatus zebra::callbackWaveforms() {
         }
 
         // update capture arrays, go backwards so we do PC_ENC1 last
-        for (int a=NARRAYS; a>=0; a--) {
+        for (int a=NARRAYS-1; a>=0; a--) {
             doCallbacksInt32Array(this->capArrays[a], this->currPt, zebraCapArrays[a], 0);
         }
         
