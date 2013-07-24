@@ -161,7 +161,6 @@ class zebraConnection:
 class zebraTool:
     def __init__(self, portstr):
         self.zebra = zebraConnection("/dev/ttyS0")
-        self.errors = 0
         
     def uploadFile(self, fname):
         parser = ConfigParser()
@@ -170,7 +169,8 @@ class zebraTool:
         for reg, value in parser.items("regs"):
             self.zebra.writeReg(reg, int(value))
 
-    def doTest(self, bad="BAD", ok="OK", sleep=0.2):
+    def doTest(self, mismatch="BAD", match="OK", sleep=0.2):
+        errors = 0
         version = self.zebra.readReg("SYS_VER")                    
         assert version >= 0x20, "Can only firmware test zebras with 0x20 firmware or higher"
 
@@ -182,8 +182,8 @@ class zebraTool:
         # now do the front panel inputs
         for i, signal in enumerate(self.zebra.systemBus()):
             # test inputs against outputs in system bus
-            match = re.match(r"IN(\d)", signal)
-            if match and int(match.group(1)) < 5:
+            m = re.match(r"IN(\d)", signal)
+            if m and int(m.group(1)) < 5:
                 # find corresponding output
                 if signal == "IN4_CMP":
                     out = "OUT4_NIM"
@@ -192,7 +192,7 @@ class zebraTool:
                 print "%40s"%("Testing %s and %s..." % (signal, out)),
                 # set output to soft input
                 self.zebra.writeReg(out, "SOFT_IN1")
-                ret = ok
+                ret = match
                 for expected in (1, 0):
                     # check if we get the input on the system bus                                    
                     # special for PECL
@@ -207,16 +207,16 @@ class zebraTool:
                         self.zebra.writeReg("SOFT_IN", expected)
                         # Get pulse
                         if (self.zebra.getStatus("GATE1") != expected):
-                            ret = bad                                            
+                            ret = mismatch                                            
                     else:
                         self.zebra.writeReg("SOFT_IN", expected)                    
                         if (self.zebra.getStatus(signal) != expected):
-                            ret = bad
+                            ret = mismatch
                     # slow it down so we can see it
                     time.sleep(sleep)    
                 self.zebra.writeReg(out, "DISCONNECT")
                 if ret == "BAD":        
-                    self.errors += 1
+                    errors += 1
                 print ret
 
         # now do the encoder inputs
@@ -228,7 +228,7 @@ class zebraTool:
                 out = "OUT%d_ENC%s" % (i, suff)                
                 print "%40s"%("Testing %s and %s..." % (signal, out)),
                 self.zebra.writeReg(out, "SOFT_IN1")
-                ret = ok
+                ret = match
                 for conn in (1,0):
                     for expected in (0,1):
                         # bit mask, conn is soft2, input is soft1
@@ -236,28 +236,40 @@ class zebraTool:
                             expected = 1
                         self.zebra.writeReg("SOFT_IN", 2*conn+expected)
                         if (self.zebra.getStatus(signal) != expected):
-                            ret = bad  
+                            ret = mismatch  
                     time.sleep(sleep) 
                 self.zebra.writeReg(out, "DISCONNECT")         
                 if ret == "BAD":        
-                    self.errors += 1                             
+                    errors += 1                             
                 print ret
             self.zebra.writeReg("OUT%d_CONN" % i, "DISCONNECT")
+        
+        return errors
             
     def save(self):
         self.zebra.writeCommand("S")
 
-if __name__=="__main__":
-    tool = zebraTool("/dev/ttyS0")
+def twoTests(tool):
     print "Downloading defaults..."
     tool.uploadFile(os.path.realpath(os.path.join(__file__, "..", "..", "..", "etc", "defaults.ini")))
     tool.save()        
-    print "Doing hardware test with cables unplugged..."
-    tool.doTest(bad="OK", ok="BAD")
-    raw_input("Plug in shorting cables and press return when done...")
-    tool.doTest()
-    print "Test complete: %d Errors" % tool.errors
-
-        
+    toterrors = 0
+    for test, mismatch, match in (("unplugged", "OK", "BAD"),
+                                  ("plugged in", "BAD", "OK")):  
+        raw_input("Ensure signal cables are %s and press return when ready." % test)
+        repeat = "y"
+        while repeat.lower() == "y":        
+            print "Doing hardware test with cables %s..." % test
+            errors = tool.doTest(mismatch=mismatch, match=match)
+            repeat = raw_input("Repeat 'cable %s' test? (y/n): " % test)
+        toterrors += errors
+    print "Test complete: %d Errors" % toterrors
     
+if __name__=="__main__":
+    repeat = "y"
+    while repeat.lower() == "y":         
+        twoTests(zebraTool("/dev/ttyS0") )
+        repeat = raw_input("Test another zebra? (y/n): ")   
+
+
 
