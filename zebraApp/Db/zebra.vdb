@@ -862,7 +862,6 @@ record(sel, "$(P)$(Q):MOTOR:OFF") {
   field(NVL, "$(P)$(Q):PC_ENC:RBV CP")
 }
 
-
 record(sel, "$(P)$(Q):PULSE:MRES") {
   field(SELM, "Specified")
   field(INPA, "$(P)$(Q):MOTOR:ABSMRES CP")
@@ -974,7 +973,6 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_START) {
   macro(MOTOR, "PULSE")
   macro(PREC, "$(PREC=4)")
 }
-
 
 expand("zebraRegisterWrite32.vdb", PC_PULSE_DLY) {
   macro(PARAM, "PC_PULSE_DLY")
@@ -1569,8 +1567,14 @@ record(ai, "$(P)$(Q):TIME:OFF") {
   field(VAL, "0")
 }
 
+record(busy, "$(P)$(Q):WRITE_BUSY") {
+}
+
+record(ai, "$(P)$(Q):SCAN_TYPE") {
+}
+
 #! Further lines contain data used by VisualDCT
-#! View(378,1160,1.0)
+#! View(118,3973,1.0)
 #! Record("$(P)$(Q):CONNECTED",4720,2646,0,0,"$(P)$(Q):CONNECTED")
 #! Record("$(P)$(Q):STORE",3860,2802,0,0,"$(P)$(Q):STORE")
 #! Record("$(P)$(Q):CONFIG_WRITE",3860,3042,0,0,"$(P)$(Q):CONFIG_WRITE")
@@ -2257,12 +2261,14 @@ record(ai, "$(P)$(Q):TIME:OFF") {
 #! TemplateInstance("PC_TSPRE",700,280,0,"")
 #! TemplateField("PC_TSPRE","PARAM",16777215,0,1)
 
-
-#! TemplateInstance("PC_ARM",920,660,0,"")
-#! TemplateField("PC_ARM","ASLO",16777215,0,1)
-#! TemplateField("PC_ARM","PREC",16777215,0,1)
-#! TemplateField("PC_ARM","PARAM",16777215,0,1)
-
+#! Record("$(P)$(Q):PC_ARM",20,22,0,0,"$(P)$(Q):PC_ARM")
+#! Field("$(P)$(Q):PC_ARM.FLNK",16777215,1,"$(P)$(Q):PC_ARM.FLNK")
+#! Link("$(P)$(Q):PC_ARM.FLNK","$(P)$(Q):ARM_SET_BUSY")
+#! Record("$(P)$(Q):ARM_SET_BUSY",260,16,0,1,"$(P)$(Q):ARM_SET_BUSY")
+#! Field("$(P)$(Q):ARM_SET_BUSY.OUT",16777215,1,"$(P)$(Q):ARM_SET_BUSY.OUT")
+#! Link("$(P)$(Q):ARM_SET_BUSY.OUT","$(P)$(Q):ARM_BUSY.VAL")
+#! Record("$(P)$(Q):ARM_BUSY",500,23,0,0,"$(P)$(Q):ARM_BUSY")
+#! Field("$(P)$(Q):ARM_BUSY.VAL",16777215,1,"$(P)$(Q):ARM_BUSY.VAL")
 
 #! TemplateInstance("PC_DISARM",1120,660,0,"")
 #! TemplateField("PC_DISARM","ASLO",16777215,0,1)
@@ -2614,7 +2620,12 @@ record(ai, "$(P)$(Q):TIME:OFF") {
 #! Link("$(P)$(Q):PC_ENC4.INPD","$(P)$(Q):PC_ENC4_CTS.NORD")
 #! Field("$(P)$(Q):PC_ENC4.FLNK",16777215,0,"$(P)$(Q):PC_ENC4.FLNK")
 #! Link("$(P)$(Q):PC_ENC4.FLNK","$(P)$(Q):PC_NUM_DOWN")
-#! Record("$(P)$(Q):PC_NUM_DOWN",880,4022,0,1,"$(P)$(Q):PC_NUM_DOWN")
+#! Record("$(P)$(Q):PC_NUM_DOWN",880,4028,0,1,"$(P)$(Q):PC_NUM_DOWN")
+#! Field("$(P)$(Q):PC_NUM_DOWN.FLNK",16777215,0,"$(P)$(Q):PC_NUM_DOWN.FLNK")
+#! Link("$(P)$(Q):PC_NUM_DOWN.FLNK","$(P)$(Q):ARM_BUSY_DONE")
+#! Record("$(P)$(Q):ARM_BUSY_DONE",740,16,0,0,"$(P)$(Q):ARM_BUSY_DONE")
+#! Field("$(P)$(Q):ARM_BUSY_DONE.OUT",16777215,0,"$(P)$(Q):ARM_BUSY_DONE.OUT")
+#! Link("$(P)$(Q):ARM_BUSY_DONE.OUT","$(P)$(Q):ARM_BUSY.VAL")
 
 #! TemplateInstance("PC_PULSE_MAX",1320,1680,0,"")
 #! TemplateField("PC_PULSE_MAX","PREC",16777215,0,1)
@@ -2660,3 +2671,5 @@ record(ai, "$(P)$(Q):TIME:OFF") {
 #! Record("$(P)$(Q):TIME:MRES",2320,3910,0,1,"$(P)$(Q):TIME:MRES")
 #! Field("$(P)$(Q):TIME:MRES.VAL",16777215,0,"$(P)$(Q):TIME:MRES.VAL")
 #! Record("$(P)$(Q):TIME:OFF",120,3850,0,1,"$(P)$(Q):TIME:OFF")
+#! Record("$(P)$(Q):WRITE_BUSY",180,4463,0,1,"$(P)$(Q):WRITE_BUSY")
+#! Record("$(P)$(Q):SCAN_TYPE",360,4463,0,1,"$(P)$(Q):SCAN_TYPE")
