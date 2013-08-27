@@ -163,6 +163,7 @@ class zebraTool:
         self.zebra = zebraConnection("/dev/ttyS0")
         
     def uploadFile(self, fname):
+        assert os.path.isfile(fname), "File %s does not exist" % fname
         parser = ConfigParser()
         parser.read(fname)
         assert parser.has_section("regs"), "Cannot find reg section in %s" % fname
@@ -251,7 +252,7 @@ class zebraTool:
 
 def twoTests(tool):
     print "Downloading defaults..."
-    tool.uploadFile(os.path.realpath(os.path.join(__file__, "..", "..", "..", "etc", "defaults.ini")))
+    tool.uploadFile(os.path.realpath(os.path.join(__file__, "..", "configs", "defaults.ini")))
     tool.save()        
     toterrors = 0
     for test, mismatch, match in (("unplugged", "OK", "BAD"),
