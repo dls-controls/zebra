@@ -19,6 +19,7 @@
 # % macro, M4, Motor 4 PV
 # % macro, M4DIR, Set to - if motor inverted in geobrick (decode control = 3 instead of 7)
 # % gui, $(PORT), edm, zebra.edl, zebra=$(P)$(Q)
+# % gui, $(PORT), sevr
 record(bi, "$(P)$(Q):CONNECTED") {
   field(DESC, "Is zebra connected")
   field(DTYP, "asynInt32")
@@ -576,14 +577,14 @@ record(calcout, "$(P)$(Q):DIV4_OUTN") {
 
 expand("zebraRegisterWrite.vdb", PULSE1_DLY) {
   macro(PARAM, "PULSE1_DLY")
-  macro(ASLO, "0.001")
-  macro(PREC, "3")
+  macro(ASLO, "0.0001")
+  macro(PREC, "4")
 }
 
 expand("zebraRegisterWrite.vdb", PULSE1_WID) {
   macro(PARAM, "PULSE1_WID")
-  macro(ASLO, "0.001")
-  macro(PREC, "3")
+  macro(ASLO, "0.0001")
+  macro(PREC, "4")
 }
 
 expand("zebraRegisterWritePrescaler.vdb", PULSE1_PRE) {
@@ -602,14 +603,14 @@ record(calcout, "$(P)$(Q):PULSE1_OUT") {
 
 expand("zebraRegisterWrite.vdb", PULSE2_DLY) {
   macro(PARAM, "PULSE2_DLY")
-  macro(ASLO, "0.001")
-  macro(PREC, "3")
+  macro(ASLO, "0.0001")
+  macro(PREC, "4")
 }
 
 expand("zebraRegisterWrite.vdb", PULSE2_WID) {
   macro(PARAM, "PULSE2_WID")
-  macro(ASLO, "0.001")
-  macro(PREC, "3")
+  macro(ASLO, "0.0001")
+  macro(PREC, "4")
 }
 
 expand("zebraRegisterWritePrescaler.vdb", PULSE2_PRE) {
@@ -628,14 +629,14 @@ record(calcout, "$(P)$(Q):PULSE2_OUT") {
 
 expand("zebraRegisterWrite.vdb", PULSE3_DLY) {
   macro(PARAM, "PULSE3_DLY")
-  macro(ASLO, "0.001")
-  macro(PREC, "3")
+  macro(ASLO, "0.0001")
+  macro(PREC, "4")
 }
 
 expand("zebraRegisterWrite.vdb", PULSE3_WID) {
   macro(PARAM, "PULSE3_WID")
-  macro(ASLO, "0.001")
-  macro(PREC, "3")
+  macro(ASLO, "0.0001")
+  macro(PREC, "4")
 }
 
 expand("zebraRegisterWritePrescaler.vdb", PULSE3_PRE) {
@@ -654,14 +655,14 @@ record(calcout, "$(P)$(Q):PULSE3_OUT") {
 
 expand("zebraRegisterWrite.vdb", PULSE4_DLY) {
   macro(PARAM, "PULSE4_DLY")
-  macro(ASLO, "0.001")
-  macro(PREC, "3")
+  macro(ASLO, "0.0001")
+  macro(PREC, "4")
 }
 
 expand("zebraRegisterWrite.vdb", PULSE4_WID) {
   macro(PARAM, "PULSE4_WID")
-  macro(ASLO, "0.001")
-  macro(PREC, "3")
+  macro(ASLO, "0.0001")
+  macro(PREC, "4")
 }
 
 expand("zebraRegisterWritePrescaler.vdb", PULSE4_PRE) {
@@ -1096,6 +1097,7 @@ record(ai, "$(P)$(Q):SYS_STATERR") {
   field(SCAN, "I/O Intr")
 }
 
+# % gui, $(PORT), stat
 record(ai, "$(P)$(Q):ARRAY_ACQ") {
   field(DESC, "Zebra acquiring arrays")
   field(DTYP, "asynInt32")
@@ -1465,12 +1467,13 @@ record(acalcout, "$(P)$(Q):PC_ENC2") {
 
 record(acalcout, "$(P)$(Q):PC_ENC3") {
   field(NELM, "$(NELM=100000)")
-  field(CALC, "AA*B+ARR(C)[0,D-1]")
+  field(CALC, "E>>2&1?AA*B+ARR(C)[0,D-1]:AA")
   field(INAA, "$(P)$(Q):PC_ENC3_CTS")
   field(INPB, "$(P)$(Q):M3:MRES CP")
   field(INPC, "$(P)$(Q):M3:OFF CP")
   field(INPD, "$(P)$(Q):PC_ENC3_CTS.NORD")
   field(FLNK, "$(P)$(Q):PC_ENC4")
+  field(INPE, "$(P)$(Q):PC_BIT_CAP CP")
 }
 
 # we have now done all the acalcouts, so can flnk to get PC_NUM_DOWN
@@ -1560,7 +1563,7 @@ record(ao, "$(P)$(Q):PC_DIR:SET") {
 }
 
 record(ai, "$(P)$(Q):TIME:MRES") {
-  field(VAL, "0.001")
+  field(VAL, "0.0001")
 }
 
 record(ai, "$(P)$(Q):TIME:OFF") {
@@ -1574,7 +1577,7 @@ record(ai, "$(P)$(Q):SCAN_TYPE") {
 }
 
 #! Further lines contain data used by VisualDCT
-#! View(118,3973,1.0)
+#! View(518,3323,1.0)
 #! Record("$(P)$(Q):CONNECTED",4720,2646,0,0,"$(P)$(Q):CONNECTED")
 #! Record("$(P)$(Q):STORE",3860,2802,0,0,"$(P)$(Q):STORE")
 #! Record("$(P)$(Q):CONFIG_WRITE",3860,3042,0,0,"$(P)$(Q):CONFIG_WRITE")
@@ -2598,7 +2601,7 @@ record(ai, "$(P)$(Q):SCAN_TYPE") {
 #! Link("$(P)$(Q):PC_ENC2.INPD","$(P)$(Q):PC_ENC2_CTS.NORD")
 #! Field("$(P)$(Q):PC_ENC2.FLNK",16777215,0,"$(P)$(Q):PC_ENC2.FLNK")
 #! Link("$(P)$(Q):PC_ENC2.FLNK","$(P)$(Q):PC_ENC3")
-#! Record("$(P)$(Q):PC_ENC3",1220,3446,0,0,"$(P)$(Q):PC_ENC3")
+#! Record("$(P)$(Q):PC_ENC3",1220,3432,0,0,"$(P)$(Q):PC_ENC3")
 #! Field("$(P)$(Q):PC_ENC3.INAA",16777215,1,"$(P)$(Q):PC_ENC3.INAA")
 #! Link("$(P)$(Q):PC_ENC3.INAA","$(P)$(Q):PC_ENC3_CTS.VAL")
 #! Field("$(P)$(Q):PC_ENC3.INPB",16777215,1,"$(P)$(Q):PC_ENC3.INPB")
@@ -2609,6 +2612,7 @@ record(ai, "$(P)$(Q):SCAN_TYPE") {
 #! Link("$(P)$(Q):PC_ENC3.INPD","$(P)$(Q):PC_ENC3_CTS.NORD")
 #! Field("$(P)$(Q):PC_ENC3.FLNK",16777215,0,"$(P)$(Q):PC_ENC3.FLNK")
 #! Link("$(P)$(Q):PC_ENC3.FLNK","$(P)$(Q):PC_ENC4")
+#! Field("$(P)$(Q):PC_ENC3.INPE",16777215,1,"$(P)$(Q):PC_ENC3.INPE")
 #! Record("$(P)$(Q):PC_ENC4",1220,3666,0,0,"$(P)$(Q):PC_ENC4")
 #! Field("$(P)$(Q):PC_ENC4.INAA",16777215,1,"$(P)$(Q):PC_ENC4.INAA")
 #! Link("$(P)$(Q):PC_ENC4.INAA","$(P)$(Q):PC_ENC4_CTS.VAL")

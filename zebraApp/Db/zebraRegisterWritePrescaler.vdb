@@ -16,9 +16,11 @@ record(mbbi, "$(P)$(Q):$(PARAM):RBV") {
   field(INP, "@asyn($(PORT),0) $(PARAM)")
   field(SCAN, "I/O Intr")
   field(ZRST, "ms")
-  field(ZRVL, "50")
+  field(ZRVL, "5")
   field(ONST, "s")
-  field(ONVL, "50000")
+  field(ONVL, "5000")
+  field(TWST, "10s")
+  field(TWVL, "50000")  
 }
 
 record(calcout, "$(P)$(Q):$(PARAM):SYNC") {
@@ -33,9 +35,11 @@ record(mbbo, "$(P)$(Q):$(PARAM)") {
   field(DTYP, "Raw Soft Channel")
   field(OUT, "$(P)$(Q):$(PARAM):SET PP")
   field(ZRST, "ms")
-  field(ZRVL, "50")
+  field(ZRVL, "5")
   field(ONST, "s")
-  field(ONVL, "50000")
+  field(ONVL, "5000")
+  field(TWST, "10s")
+  field(TWVL, "50000")  
 }
 
 record(ao, "$(P)$(Q):$(PARAM):SET") {
