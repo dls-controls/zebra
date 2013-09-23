@@ -361,7 +361,7 @@ void zebra::readTask() {
 			rxBuffer[nBytesIn] = '\0';
 			// This is an interrupt, send it to the interrupt queue
 			if (rxBuffer[0] == 'P') {
-				printf("Got an interrupt '%s' %d\n", rxBuffer, eomReason);
+				//printf("Got an interrupt '%s' %d\n", rxBuffer, eomReason);
 				q = this->intQId;
 				// This a zebra response to a command, send it to the message queue
 			} else {
@@ -460,7 +460,6 @@ void zebra::pollTask() {
 				ptr = rxBuffer;
 				// First get time
 				nfound = sscanf(rxBuffer, "P%08X%n", &time, &incr);
-				printf("Time: %d\n", time);
 				if (nfound == 1) {
 					// put time in time units (10s, s or ms based on TS_PRE)
 					this->PCTime[this->currPt] = time / 10000.0 + this->tOffset;
