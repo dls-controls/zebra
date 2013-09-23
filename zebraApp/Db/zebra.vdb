@@ -1097,7 +1097,7 @@ record(ai, "$(P)$(Q):SYS_STATERR") {
   field(SCAN, "I/O Intr")
 }
 
-# % gui, $(PORT), stat
+# % gui, $(PORT), status
 record(ai, "$(P)$(Q):ARRAY_ACQ") {
   field(DESC, "Zebra acquiring arrays")
   field(DTYP, "asynInt32")
