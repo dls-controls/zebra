@@ -7,9 +7,9 @@ x 1012
 y 643
 w 640
 h 510
-font "arial-bold-r-12.0"
-ctlFont "arial-bold-r-12.0"
-btnFont "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
+ctlFont "helvetica-bold-r-12.0"
+btnFont "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 textColor index 14
@@ -64,7 +64,7 @@ x 5
 y 390
 w 247
 h 13
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
 value {
@@ -89,7 +89,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -107,7 +107,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Message Button)
@@ -131,7 +131,7 @@ onLabel "Copy"
 offLabel "Copy"
 3d
 useEnumNumeric
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -144,7 +144,7 @@ x 10
 y 410
 w 15
 h 55
-font "arial-bold-r-18.0"
+font "helvetica-bold-r-18.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -168,7 +168,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -186,7 +186,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Message Button)
@@ -210,7 +210,7 @@ onLabel "Copy"
 offLabel "Copy"
 3d
 useEnumNumeric
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -223,7 +223,7 @@ x 165
 y 410
 w 15
 h 55
-font "arial-bold-r-18.0"
+font "helvetica-bold-r-18.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -247,7 +247,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -265,7 +265,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Message Button)
@@ -289,7 +289,7 @@ onLabel "Copy"
 offLabel "Copy"
 3d
 useEnumNumeric
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -302,7 +302,7 @@ x 320
 y 410
 w 15
 h 55
-font "arial-bold-r-18.0"
+font "helvetica-bold-r-18.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -326,7 +326,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -344,7 +344,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Message Button)
@@ -368,7 +368,7 @@ onLabel "Copy"
 offLabel "Copy"
 3d
 useEnumNumeric
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -381,7 +381,7 @@ x 475
 y 410
 w 15
 h 55
-font "arial-bold-r-18.0"
+font "helvetica-bold-r-18.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -524,7 +524,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -542,7 +542,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -555,7 +555,7 @@ x 20
 y 25
 w 100
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -574,7 +574,7 @@ x 15
 y 10
 w 49
 h 13
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
 value {
@@ -599,7 +599,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -617,7 +617,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -630,7 +630,7 @@ x 20
 y 55
 w 100
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -683,7 +683,7 @@ x 20
 y 120
 w 45
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -742,7 +742,7 @@ x 20
 y 90
 w 45
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -778,7 +778,7 @@ x 15
 y 165
 w 316
 h 144
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg

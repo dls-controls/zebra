@@ -7,9 +7,9 @@ x 710
 y 140
 w 640
 h 510
-font "arial-bold-r-12.0"
-ctlFont "arial-bold-r-12.0"
-btnFont "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
+ctlFont "helvetica-bold-r-12.0"
+btnFont "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 textColor index 14
@@ -49,7 +49,7 @@ x 80
 y 405
 w 426
 h 64
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -92,7 +92,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -110,7 +110,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -123,7 +123,7 @@ x 25
 y 35
 w 80
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -142,7 +142,7 @@ x 20
 y 20
 w 40
 h 13
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
 value {
@@ -167,7 +167,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -180,7 +180,7 @@ x 25
 y 95
 w 95
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -233,7 +233,7 @@ x 25
 y 130
 w 250
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -292,7 +292,7 @@ x 25
 y 160
 w 250
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -331,7 +331,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -349,7 +349,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -362,7 +362,7 @@ x 335
 y 220
 w 80
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -381,7 +381,7 @@ x 330
 y 205
 w 39
 h 13
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
 value {
@@ -406,7 +406,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -419,7 +419,7 @@ x 335
 y 280
 w 95
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -472,7 +472,7 @@ x 335
 y 315
 w 250
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -531,7 +531,7 @@ x 335
 y 345
 w 250
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -570,7 +570,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -588,7 +588,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -601,7 +601,7 @@ x 335
 y 35
 w 80
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -620,7 +620,7 @@ x 330
 y 20
 w 39
 h 13
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
 value {
@@ -645,7 +645,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -658,7 +658,7 @@ x 335
 y 95
 w 95
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -711,7 +711,7 @@ x 335
 y 130
 w 250
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -770,7 +770,7 @@ x 335
 y 160
 w 250
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -801,7 +801,7 @@ onLabel "Falling Edge"
 offLabel "Rising Edge"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 8
 readBitPos 8
@@ -817,7 +817,7 @@ x 25
 y 65
 w 95
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -836,7 +836,7 @@ x 335
 y 65
 w 95
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -867,7 +867,7 @@ onLabel "Falling Edge"
 offLabel "Rising Edge"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 9
 readBitPos 9
@@ -883,7 +883,7 @@ x 335
 y 250
 w 95
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -914,7 +914,7 @@ onLabel "Falling Edge"
 offLabel "Rising Edge"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 11
 readBitPos 11
@@ -950,7 +950,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -968,7 +968,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -981,7 +981,7 @@ x 25
 y 220
 w 80
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1000,7 +1000,7 @@ x 20
 y 205
 w 40
 h 13
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
 value {
@@ -1025,7 +1025,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -1038,7 +1038,7 @@ x 25
 y 280
 w 95
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1091,7 +1091,7 @@ x 25
 y 315
 w 250
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1150,7 +1150,7 @@ x 25
 y 345
 w 250
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1181,7 +1181,7 @@ onLabel "Falling Edge"
 offLabel "Rising Edge"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 10
 readBitPos 10
@@ -1197,7 +1197,7 @@ x 25
 y 250
 w 95
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg

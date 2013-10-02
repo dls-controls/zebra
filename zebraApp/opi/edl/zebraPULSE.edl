@@ -7,9 +7,9 @@ x 711
 y 196
 w 640
 h 510
-font "arial-bold-r-12.0"
-ctlFont "arial-bold-r-12.0"
-btnFont "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
+ctlFont "helvetica-bold-r-12.0"
+btnFont "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 textColor index 14
@@ -49,7 +49,7 @@ x 120
 y 430
 w 331
 h 48
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -91,7 +91,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -109,7 +109,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -122,7 +122,7 @@ x 335
 y 230
 w 80
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -141,7 +141,7 @@ x 330
 y 215
 w 60
 h 13
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
 value {
@@ -161,7 +161,7 @@ x 335
 y 355
 w 80
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -185,7 +185,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -203,7 +203,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -216,7 +216,7 @@ x 335
 y 290
 w 95
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -235,7 +235,7 @@ x 335
 y 325
 w 90
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -262,7 +262,7 @@ topShadowColor index 1
 botShadowColor index 11
 controlPv "$(zebra):PULSE4_PRE"
 indicatorPv "$(zebra):PULSE4_PRE:RBV"
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 orientation "horizontal"
 endObjectProperties
 
@@ -293,7 +293,7 @@ x 335
 y 390
 w 125
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -372,7 +372,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -390,7 +390,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -403,7 +403,7 @@ x 25
 y 20
 w 80
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -422,7 +422,7 @@ x 20
 y 5
 w 61
 h 13
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
 value {
@@ -442,7 +442,7 @@ x 25
 y 145
 w 80
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -466,7 +466,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -484,7 +484,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -497,7 +497,7 @@ x 25
 y 80
 w 95
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -516,7 +516,7 @@ x 25
 y 115
 w 90
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -543,7 +543,7 @@ topShadowColor index 1
 botShadowColor index 11
 controlPv "$(zebra):PULSE1_PRE"
 indicatorPv "$(zebra):PULSE1_PRE:RBV"
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 orientation "horizontal"
 endObjectProperties
 
@@ -574,7 +574,7 @@ x 25
 y 180
 w 125
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -653,7 +653,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -671,7 +671,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -684,7 +684,7 @@ x 25
 y 230
 w 80
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -703,7 +703,7 @@ x 20
 y 215
 w 61
 h 13
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
 value {
@@ -723,7 +723,7 @@ x 25
 y 355
 w 80
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -747,7 +747,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -765,7 +765,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -778,7 +778,7 @@ x 25
 y 290
 w 95
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -797,7 +797,7 @@ x 25
 y 325
 w 90
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -824,7 +824,7 @@ topShadowColor index 1
 botShadowColor index 11
 controlPv "$(zebra):PULSE3_PRE"
 indicatorPv "$(zebra):PULSE3_PRE:RBV"
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 orientation "horizontal"
 endObjectProperties
 
@@ -855,7 +855,7 @@ x 25
 y 390
 w 125
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -914,7 +914,7 @@ x 25
 y 50
 w 95
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -945,7 +945,7 @@ onLabel "Falling Edge"
 offLabel "Rising Edge"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 12
 readBitPos 12
@@ -973,7 +973,7 @@ onLabel "Falling Edge"
 offLabel "Rising Edge"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 14
 readBitPos 14
@@ -989,7 +989,7 @@ x 25
 y 260
 w 95
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1008,7 +1008,7 @@ x 335
 y 260
 w 95
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1039,7 +1039,7 @@ onLabel "Falling Edge"
 offLabel "Rising Edge"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 15
 readBitPos 15
@@ -1075,7 +1075,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -1093,7 +1093,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -1106,7 +1106,7 @@ x 335
 y 20
 w 80
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1125,7 +1125,7 @@ x 330
 y 5
 w 60
 h 13
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
 value {
@@ -1145,7 +1145,7 @@ x 335
 y 145
 w 80
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1169,7 +1169,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -1187,7 +1187,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -1200,7 +1200,7 @@ x 335
 y 80
 w 95
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1219,7 +1219,7 @@ x 335
 y 115
 w 90
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1246,7 +1246,7 @@ topShadowColor index 1
 botShadowColor index 11
 controlPv "$(zebra):PULSE2_PRE"
 indicatorPv "$(zebra):PULSE2_PRE:RBV"
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 orientation "horizontal"
 endObjectProperties
 
@@ -1277,7 +1277,7 @@ x 335
 y 180
 w 125
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1336,7 +1336,7 @@ x 335
 y 50
 w 95
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1367,7 +1367,7 @@ onLabel "Falling Edge"
 offLabel "Rising Edge"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 13
 readBitPos 13

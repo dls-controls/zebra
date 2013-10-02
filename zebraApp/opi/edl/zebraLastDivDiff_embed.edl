@@ -7,9 +7,9 @@ x 250
 y 205
 w 190
 h 20
-font "arial-medium-r-18.0"
-ctlFont "arial-medium-r-18.0"
-btnFont "arial-medium-r-18.0"
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-18.0"
+btnFont "helvetica-medium-r-18.0"
 fgColor index 14
 bgColor index 3
 textColor index 14
@@ -40,7 +40,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -53,7 +53,7 @@ x 0
 y 0
 w 75
 h 20
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg

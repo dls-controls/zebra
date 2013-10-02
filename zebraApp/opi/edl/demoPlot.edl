@@ -7,9 +7,9 @@ x 197
 y 722
 w 962
 h 302
-font "arial-medium-r-14.0"
-ctlFont "arial-bold-r-14.0"
-btnFont "arial-bold-r-14.0"
+font "helvetica-medium-r-14.0"
+ctlFont "helvetica-bold-r-14.0"
+btnFont "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 textColor index 14
@@ -41,7 +41,7 @@ border
 fgColor index 0
 bgColor index 0
 gridColor index 14
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 # Operating Modes
 nPts 2
 # X axis properties
@@ -91,7 +91,7 @@ border
 fgColor index 0
 bgColor index 0
 gridColor index 14
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 # Operating Modes
 nPts 2
 # X axis properties
@@ -141,7 +141,7 @@ border
 fgColor index 0
 bgColor index 0
 gridColor index 14
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 # Operating Modes
 nPts 2
 # X axis properties

@@ -7,9 +7,9 @@ x 914
 y 659
 w 640
 h 510
-font "arial-bold-r-12.0"
-ctlFont "arial-bold-r-12.0"
-btnFont "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
+ctlFont "helvetica-bold-r-12.0"
+btnFont "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 3
 textColor index 14
@@ -49,7 +49,7 @@ x 65
 y 420
 w 515
 h 48
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -121,7 +121,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -139,7 +139,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textupdate)
@@ -157,7 +157,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -175,7 +175,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textupdate)
@@ -193,7 +193,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -211,7 +211,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textupdate)
@@ -229,7 +229,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -247,7 +247,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -260,7 +260,7 @@ x 15
 y 45
 w 35
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -279,7 +279,7 @@ x 10
 y 10
 w 81
 h 13
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
 value {
@@ -299,7 +299,7 @@ x 90
 y 25
 w 180
 h 20
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fontAlign "center"
 fgColor index 14
 bgColor index 3
@@ -319,7 +319,7 @@ x 15
 y 75
 w 35
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -338,7 +338,7 @@ x 15
 y 105
 w 35
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -357,7 +357,7 @@ x 15
 y 135
 w 35
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -376,7 +376,7 @@ x 270
 y 25
 w 40
 h 20
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fontAlign "center"
 fgColor index 14
 bgColor index 3
@@ -408,7 +408,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 0
 readBitPos 0
@@ -424,7 +424,7 @@ x 50
 y 25
 w 40
 h 20
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fontAlign "center"
 fgColor index 14
 bgColor index 3
@@ -456,7 +456,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 0
 readBitPos 0
@@ -484,7 +484,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 1
 readBitPos 1
@@ -512,7 +512,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 1
 readBitPos 1
@@ -540,7 +540,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 2
 readBitPos 2
@@ -568,7 +568,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 2
 readBitPos 2
@@ -596,7 +596,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 3
 readBitPos 3
@@ -624,7 +624,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 3
 readBitPos 3
@@ -708,7 +708,7 @@ x 15
 y 170
 w 45
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -804,7 +804,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -822,7 +822,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textupdate)
@@ -840,7 +840,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -858,7 +858,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textupdate)
@@ -876,7 +876,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -894,7 +894,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textupdate)
@@ -912,7 +912,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -930,7 +930,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -943,7 +943,7 @@ x 330
 y 45
 w 35
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -962,7 +962,7 @@ x 325
 y 10
 w 80
 h 13
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
 value {
@@ -982,7 +982,7 @@ x 405
 y 25
 w 180
 h 20
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fontAlign "center"
 fgColor index 14
 bgColor index 3
@@ -1002,7 +1002,7 @@ x 330
 y 75
 w 35
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1021,7 +1021,7 @@ x 330
 y 105
 w 35
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1040,7 +1040,7 @@ x 330
 y 135
 w 35
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1059,7 +1059,7 @@ x 585
 y 25
 w 40
 h 20
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fontAlign "center"
 fgColor index 14
 bgColor index 3
@@ -1091,7 +1091,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 0
 readBitPos 0
@@ -1107,7 +1107,7 @@ x 365
 y 25
 w 40
 h 20
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fontAlign "center"
 fgColor index 14
 bgColor index 3
@@ -1139,7 +1139,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 0
 readBitPos 0
@@ -1167,7 +1167,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 1
 readBitPos 1
@@ -1195,7 +1195,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 1
 readBitPos 1
@@ -1223,7 +1223,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 2
 readBitPos 2
@@ -1251,7 +1251,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 2
 readBitPos 2
@@ -1279,7 +1279,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 3
 readBitPos 3
@@ -1307,7 +1307,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 3
 readBitPos 3
@@ -1391,7 +1391,7 @@ x 330
 y 170
 w 45
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1487,7 +1487,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -1505,7 +1505,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textupdate)
@@ -1523,7 +1523,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -1541,7 +1541,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textupdate)
@@ -1559,7 +1559,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -1577,7 +1577,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textupdate)
@@ -1595,7 +1595,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -1613,7 +1613,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -1626,7 +1626,7 @@ x 330
 y 245
 w 35
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1645,7 +1645,7 @@ x 325
 y 210
 w 80
 h 13
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
 value {
@@ -1665,7 +1665,7 @@ x 405
 y 225
 w 180
 h 20
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fontAlign "center"
 fgColor index 14
 bgColor index 3
@@ -1685,7 +1685,7 @@ x 330
 y 275
 w 35
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1704,7 +1704,7 @@ x 330
 y 305
 w 35
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1723,7 +1723,7 @@ x 330
 y 335
 w 35
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -1742,7 +1742,7 @@ x 585
 y 225
 w 40
 h 20
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fontAlign "center"
 fgColor index 14
 bgColor index 3
@@ -1774,7 +1774,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 0
 readBitPos 0
@@ -1790,7 +1790,7 @@ x 365
 y 225
 w 40
 h 20
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fontAlign "center"
 fgColor index 14
 bgColor index 3
@@ -1822,7 +1822,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 0
 readBitPos 0
@@ -1850,7 +1850,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 1
 readBitPos 1
@@ -1878,7 +1878,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 1
 readBitPos 1
@@ -1906,7 +1906,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 2
 readBitPos 2
@@ -1934,7 +1934,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 2
 readBitPos 2
@@ -1962,7 +1962,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 3
 readBitPos 3
@@ -1990,7 +1990,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 3
 readBitPos 3
@@ -2074,7 +2074,7 @@ x 330
 y 370
 w 45
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -2170,7 +2170,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -2188,7 +2188,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textupdate)
@@ -2206,7 +2206,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -2224,7 +2224,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textupdate)
@@ -2242,7 +2242,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -2260,7 +2260,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textupdate)
@@ -2278,7 +2278,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Textentry)
@@ -2296,7 +2296,7 @@ fgColor index 25
 fgAlarm
 bgColor index 3
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -2309,7 +2309,7 @@ x 15
 y 245
 w 35
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -2328,7 +2328,7 @@ x 10
 y 210
 w 81
 h 13
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
 value {
@@ -2348,7 +2348,7 @@ x 90
 y 225
 w 180
 h 20
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fontAlign "center"
 fgColor index 14
 bgColor index 3
@@ -2368,7 +2368,7 @@ x 15
 y 275
 w 35
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -2387,7 +2387,7 @@ x 15
 y 305
 w 35
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -2406,7 +2406,7 @@ x 15
 y 335
 w 35
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -2425,7 +2425,7 @@ x 270
 y 225
 w 40
 h 20
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fontAlign "center"
 fgColor index 14
 bgColor index 3
@@ -2457,7 +2457,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 0
 readBitPos 0
@@ -2473,7 +2473,7 @@ x 50
 y 225
 w 40
 h 20
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fontAlign "center"
 fgColor index 14
 bgColor index 3
@@ -2505,7 +2505,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 0
 readBitPos 0
@@ -2533,7 +2533,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 1
 readBitPos 1
@@ -2561,7 +2561,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 1
 readBitPos 1
@@ -2589,7 +2589,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 2
 readBitPos 2
@@ -2617,7 +2617,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 2
 readBitPos 2
@@ -2645,7 +2645,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 3
 readBitPos 3
@@ -2673,7 +2673,7 @@ onLabel "Yes"
 offLabel "No"
 labelType "literal"
 3d
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 objType "controls"
 controlBitPos 3
 readBitPos 3
@@ -2757,7 +2757,7 @@ x 15
 y 370
 w 45
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg

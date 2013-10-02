@@ -3,13 +3,13 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 830
-y 336
+x 834
+y 388
 w 940
 h 610
-font "arial-medium-r-14.0"
-ctlFont "arial-bold-r-14.0"
-btnFont "arial-bold-r-14.0"
+font "helvetica-medium-r-14.0"
+ctlFont "helvetica-bold-r-14.0"
+btnFont "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 textColor index 14
@@ -80,7 +80,7 @@ fgColor index 14
 bgColor index 3
 topShadowColor index 0
 botShadowColor index 0
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 xPosOffset 5
 yPosOffset 5
 button3Popup
@@ -106,12 +106,12 @@ x 1
 y 3
 w 1041
 h 25
-font "arial-bold-r-16.0"
+font "helvetica-medium-r-14.0"
 fontAlign "center"
 fgColor index 14
 bgColor index 48
 value {
-  "Zebra Setup - $(P)"
+  "Zebra Setup - $(zebra)"
 }
 endObjectProperties
 
@@ -204,7 +204,7 @@ x 0
 y 0
 w 50
 h 30
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fontAlign "center"
 fgColor index 14
 bgColor index 3
@@ -233,7 +233,7 @@ bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
 label "EXIT"
-font "arial-medium-r-16.0"
+font "helvetica-bold-r-14.0"
 3d
 endObjectProperties
 
@@ -277,7 +277,7 @@ fgColor index 16
 fgAlarm
 bgColor index 10
 fill
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Static Text)
@@ -290,7 +290,7 @@ x 305
 y 580
 w 85
 h 25
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
@@ -511,7 +511,7 @@ inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
 controlPv "LOC\\$(!W)tab=e:0,PC,AND,OR,GATE,DIV,PULSE,ENC,SYS"
-font "arial-bold-r-12.0"
+font "helvetica-bold-r-12.0"
 orientation "horizontal"
 endObjectProperties
 
@@ -596,6 +596,6 @@ onLabel "Reset"
 offLabel "Reset"
 3d
 useEnumNumeric
-font "arial-bold-r-14.0"
+font "helvetica-bold-r-14.0"
 endObjectProperties
 
