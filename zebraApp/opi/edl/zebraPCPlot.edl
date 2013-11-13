@@ -3,11 +3,11 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 2
-y 53
+x 573
+y 317
 w 1081
 h 576
-font "helvetica-medium-r-14.0"
+font "helvetica-bold-r-14.0"
 ctlFont "helvetica-bold-r-14.0"
 btnFont "helvetica-bold-r-14.0"
 fgColor index 14
@@ -147,7 +147,7 @@ x 2
 y 3
 w 1163
 h 25
-font "helvetica-bold-r-16.0"
+font "helvetica-bold-r-14.0"
 fontAlign "center"
 fgColor index 14
 bgColor index 48
@@ -179,7 +179,7 @@ y2Label "SysFilt"
 fgColor index 14
 bgColor index 0
 gridColor index 14
-font "helvetica-bold-r-12.0"
+font "helvetica-bold-r-14.0"
 # Operating Modes
 nPts 2
 # X axis properties
@@ -402,7 +402,7 @@ bgColor index 3
 topShadowColor index 1
 botShadowColor index 11
 label "EXIT"
-font "helvetica-medium-r-16.0"
+font "helvetica-bold-r-14.0"
 3d
 endObjectProperties
 
