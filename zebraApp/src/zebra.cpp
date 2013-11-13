@@ -740,7 +740,7 @@ asynStatus zebra::sendReceive(char *txBuffer, int txSize, char** rxBuffer) {
 		if (epicsMessageQueueReceiveWithTimeout(this->msgQId, rxBuffer, sizeof(rxBuffer), TIMEOUT) > 0) {
 			status = asynSuccess;
 		} else {
-			asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+			asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
 							"%s:%s: Zebra not connected, no response to '%.*s'\n",
 							driverName, functionName, txSize, txBuffer);
 			status = asynError;
