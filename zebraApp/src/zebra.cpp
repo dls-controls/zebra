@@ -532,6 +532,8 @@ void zebra::pollTask() {
 		if (timeToSleep > 0) {
 			epicsThreadSleep(timeToSleep);
 		} else {
+			// Got to sleep for a bit in case something else is waiting for the lock
+			epicsThreadSleep(0.01);		
 			//printf("Not enough time to poll properly %f\n", timeToSleep);
 		}
 	}
