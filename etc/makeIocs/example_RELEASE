@@ -1,5 +1,6 @@
 # Place any example specific dependencies here
-TPMAC=$(SUPPORT)/tpmac/3-10dls14
+TPMAC=$(SUPPORT)/tpmac/3-10dls15
+PMACUTIL=$(SUPPORT)/pmacUtil/4-24-1
 #AGILENT33220A=$(SUPPORT)/agilent33220A/1-4-1
 ARAVISGIGE=$(SUPPORT)/aravisGigE/0-1-15dls8
-FFMPEGSERVER=$(SUPPORT)/ffmpegServer/1-16-3
+FFMPEGSERVER=$(SUPPORT)/ffmpegServer/2-1-1dls1
