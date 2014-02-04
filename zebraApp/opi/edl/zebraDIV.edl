@@ -795,16 +795,15 @@ offColor index 3
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(zebra):POLARITY"
-indicatorPv "$(zebra):POLARITY:RBV"
+controlPv "$(zebra):POLARITY:B8"
 onLabel "Falling Edge"
 offLabel "Rising Edge"
 labelType "literal"
 3d
 font "helvetica-bold-r-14.0"
 objType "controls"
-controlBitPos 8
-readBitPos 8
+controlBitPos 0
+readBitPos 0
 endObjectProperties
 
 # (Static Text)
@@ -861,16 +860,15 @@ offColor index 3
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(zebra):POLARITY"
-indicatorPv "$(zebra):POLARITY:RBV"
+controlPv "$(zebra):POLARITY:B9"
 onLabel "Falling Edge"
 offLabel "Rising Edge"
 labelType "literal"
 3d
 font "helvetica-bold-r-14.0"
 objType "controls"
-controlBitPos 9
-readBitPos 9
+controlBitPos 0
+readBitPos 0
 endObjectProperties
 
 # (Static Text)
@@ -908,16 +906,15 @@ offColor index 3
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(zebra):POLARITY"
-indicatorPv "$(zebra):POLARITY:RBV"
+controlPv "$(zebra):POLARITY:BB"
 onLabel "Falling Edge"
 offLabel "Rising Edge"
 labelType "literal"
 3d
 font "helvetica-bold-r-14.0"
 objType "controls"
-controlBitPos 11
-readBitPos 11
+controlBitPos 0
+readBitPos 0
 endObjectProperties
 
 # (Rectangle)
@@ -1175,16 +1172,15 @@ offColor index 3
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(zebra):POLARITY"
-indicatorPv "$(zebra):POLARITY:RBV"
+controlPv "$(zebra):POLARITY:BA"
 onLabel "Falling Edge"
 offLabel "Rising Edge"
 labelType "literal"
 3d
 font "helvetica-bold-r-14.0"
 objType "controls"
-controlBitPos 10
-readBitPos 10
+controlBitPos 0
+readBitPos 0
 endObjectProperties
 
 # (Static Text)

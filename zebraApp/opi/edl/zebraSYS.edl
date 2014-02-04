@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 992
-y 337
+x 1063
+y 248
 w 640
 h 510
 font "helvetica-bold-r-12.0"
@@ -2279,105 +2279,6 @@ useEnumNumeric
 font "helvetica-bold-r-14.0"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 5
-y 15
-w 55
-h 125
-lineColor index 14
-fill
-fillColor index 3
-endObjectProperties
-
-# (Button)
-object activeButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 10
-y 20
-w 45
-h 25
-fgColor index 25
-onColor index 4
-offColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(zebra):SOFT_IN"
-indicatorPv "$(zebra):SOFT_IN:RBV"
-onLabel "IN1"
-offLabel "IN1"
-labelType "literal"
-3d
-font "helvetica-bold-r-14.0"
-objType "controls"
-controlBitPos 0
-readBitPos 0
-endObjectProperties
-
-# (Button)
-object activeButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 10
-y 50
-w 45
-h 25
-fgColor index 25
-onColor index 4
-offColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(zebra):SOFT_IN"
-indicatorPv "$(zebra):SOFT_IN:RBV"
-onLabel "IN2"
-offLabel "IN2"
-labelType "literal"
-3d
-font "helvetica-bold-r-14.0"
-objType "controls"
-controlBitPos 1
-readBitPos 1
-endObjectProperties
-
-# (Button)
-object activeButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 10
-y 80
-w 45
-h 25
-fgColor index 25
-onColor index 4
-offColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(zebra):SOFT_IN"
-indicatorPv "$(zebra):SOFT_IN:RBV"
-onLabel "IN3"
-offLabel "IN3"
-labelType "literal"
-3d
-font "helvetica-bold-r-14.0"
-objType "controls"
-controlBitPos 2
-readBitPos 2
-endObjectProperties
-
 # (Related Display)
 object relatedDisplayClass
 beginObjectProperties
@@ -2385,7 +2286,7 @@ major 4
 minor 2
 release 0
 x 5
-y 150
+y 60
 w 55
 h 80
 fgColor index 14
@@ -2407,7 +2308,7 @@ major 4
 minor 1
 release 0
 x 5
-y 150
+y 60
 w 55
 h 80
 font "helvetica-bold-r-14.0"
@@ -2423,34 +2324,6 @@ value {
 }
 endObjectProperties
 
-# (Button)
-object activeButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 10
-y 110
-w 45
-h 25
-fgColor index 25
-onColor index 4
-offColor index 3
-inconsistentColor index 0
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(zebra):SOFT_IN"
-indicatorPv "$(zebra):SOFT_IN:RBV"
-onLabel "IN4"
-offLabel "IN4"
-labelType "literal"
-3d
-font "helvetica-bold-r-14.0"
-objType "controls"
-controlBitPos 3
-readBitPos 3
-endObjectProperties
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
@@ -2459,26 +2332,6 @@ minor 1
 release 0
 x 5
 y 5
-w 57
-h 14
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 7
-value {
-  "  Soft In  "
-}
-autoSize
-border
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 5
-y 235
 w 90
 h 25
 font "helvetica-bold-r-14.0"
@@ -2497,7 +2350,7 @@ major 10
 minor 0
 release 0
 x 5
-y 260
+y 30
 w 55
 h 25
 controlPv "$(zebra):SYS_VER"

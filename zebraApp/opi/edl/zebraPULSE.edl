@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 711
-y 196
+x 1196
+y 550
 w 640
 h 510
 font "helvetica-bold-r-12.0"
@@ -47,7 +47,7 @@ minor 1
 release 0
 x 120
 y 430
-w 331
+w 326
 h 48
 font "helvetica-bold-r-14.0"
 fgColor index 14
@@ -139,8 +139,8 @@ minor 1
 release 0
 x 330
 y 215
-w 60
-h 13
+w 64
+h 14
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
@@ -283,42 +283,6 @@ offColor index 19
 numBits 1
 endObjectProperties
 
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 335
-y 390
-w 125
-h 25
-font "helvetica-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Output Pulse"
-}
-endObjectProperties
-
-# (Byte)
-object ByteClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 590
-y 390
-w 24
-h 24
-controlPv "$(zebra):PULSE4_OUT"
-lineColor index 14
-onColor index 15
-offColor index 19
-numBits 1
-endObjectProperties
-
 # (Lines)
 object activeLineClass
 beginObjectProperties
@@ -420,8 +384,8 @@ minor 1
 release 0
 x 20
 y 5
-w 61
-h 13
+w 64
+h 14
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
@@ -564,25 +528,6 @@ offColor index 19
 numBits 1
 endObjectProperties
 
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 25
-y 180
-w 125
-h 25
-font "helvetica-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Output Pulse"
-}
-endObjectProperties
-
 # (Byte)
 object ByteClass
 beginObjectProperties
@@ -701,8 +646,8 @@ minor 1
 release 0
 x 20
 y 215
-w 61
-h 13
+w 64
+h 14
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
@@ -845,42 +790,6 @@ offColor index 19
 numBits 1
 endObjectProperties
 
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 25
-y 390
-w 125
-h 25
-font "helvetica-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Output Pulse"
-}
-endObjectProperties
-
-# (Byte)
-object ByteClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 280
-y 390
-w 24
-h 24
-controlPv "$(zebra):PULSE3_OUT"
-lineColor index 14
-onColor index 15
-offColor index 19
-numBits 1
-endObjectProperties
-
 # (Lines)
 object activeLineClass
 beginObjectProperties
@@ -939,16 +848,15 @@ offColor index 3
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(zebra):POLARITY"
-indicatorPv "$(zebra):POLARITY:RBV"
+controlPv "$(zebra):POLARITY:BC"
 onLabel "Falling Edge"
 offLabel "Rising Edge"
 labelType "literal"
 3d
 font "helvetica-bold-r-14.0"
 objType "controls"
-controlBitPos 12
-readBitPos 12
+controlBitPos 0
+readBitPos 0
 endObjectProperties
 
 # (Button)
@@ -967,16 +875,15 @@ offColor index 3
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(zebra):POLARITY"
-indicatorPv "$(zebra):POLARITY:RBV"
+controlPv "$(zebra):POLARITY:BE"
 onLabel "Falling Edge"
 offLabel "Rising Edge"
 labelType "literal"
 3d
 font "helvetica-bold-r-14.0"
 objType "controls"
-controlBitPos 14
-readBitPos 14
+controlBitPos 0
+readBitPos 0
 endObjectProperties
 
 # (Static Text)
@@ -1033,16 +940,15 @@ offColor index 3
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(zebra):POLARITY"
-indicatorPv "$(zebra):POLARITY:RBV"
+controlPv "$(zebra):POLARITY:BF"
 onLabel "Falling Edge"
 offLabel "Rising Edge"
 labelType "literal"
 3d
 font "helvetica-bold-r-14.0"
 objType "controls"
-controlBitPos 15
-readBitPos 15
+controlBitPos 0
+readBitPos 0
 endObjectProperties
 
 # (Rectangle)
@@ -1123,8 +1029,8 @@ minor 1
 release 0
 x 330
 y 5
-w 60
-h 13
+w 64
+h 14
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
@@ -1267,42 +1173,6 @@ offColor index 19
 numBits 1
 endObjectProperties
 
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 335
-y 180
-w 125
-h 25
-font "helvetica-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Output Pulse"
-}
-endObjectProperties
-
-# (Byte)
-object ByteClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 590
-y 180
-w 24
-h 24
-controlPv "$(zebra):PULSE2_OUT"
-lineColor index 14
-onColor index 15
-offColor index 19
-numBits 1
-endObjectProperties
-
 # (Lines)
 object activeLineClass
 beginObjectProperties
@@ -1361,15 +1231,285 @@ offColor index 3
 inconsistentColor index 0
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(zebra):POLARITY"
-indicatorPv "$(zebra):POLARITY:RBV"
+controlPv "$(zebra):POLARITY:BD"
 onLabel "Falling Edge"
 offLabel "Rising Edge"
 labelType "literal"
 3d
 font "helvetica-bold-r-14.0"
 objType "controls"
-controlBitPos 13
-readBitPos 13
+controlBitPos 0
+readBitPos 0
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 25
+y 180
+w 24
+h 24
+controlPv "$(zebra):SYS_STATERR.B0"
+lineColor index 14
+onColor index 20
+offColor index 24
+numBits 1
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 55
+y 180
+w 115
+h 25
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Trig while active"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 185
+y 180
+w 95
+h 25
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Output Pulse"
+}
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 335
+y 180
+w 24
+h 24
+controlPv "$(zebra):SYS_STATERR.B1"
+lineColor index 14
+onColor index 20
+offColor index 24
+numBits 1
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 365
+y 180
+w 115
+h 25
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Trig while active"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 495
+y 180
+w 95
+h 25
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Output Pulse"
+}
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 590
+y 180
+w 24
+h 24
+controlPv "$(zebra):PULSE2_OUT"
+lineColor index 14
+onColor index 15
+offColor index 19
+numBits 1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 280
+y 390
+w 24
+h 24
+controlPv "$(zebra):PULSE3_OUT"
+lineColor index 14
+onColor index 15
+offColor index 19
+numBits 1
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 185
+y 390
+w 95
+h 25
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Output Pulse"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 55
+y 390
+w 115
+h 25
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Trig while active"
+}
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 25
+y 390
+w 24
+h 24
+controlPv "$(zebra):SYS_STATERR.B2"
+lineColor index 14
+onColor index 20
+offColor index 24
+numBits 1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 335
+y 390
+w 24
+h 24
+controlPv "$(zebra):SYS_STATERR.B3"
+lineColor index 14
+onColor index 20
+offColor index 24
+numBits 1
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 365
+y 390
+w 115
+h 25
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Trig while active"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 495
+y 390
+w 95
+h 25
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Output Pulse"
+}
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 590
+y 390
+w 24
+h 24
+controlPv "$(zebra):PULSE4_OUT"
+lineColor index 14
+onColor index 15
+offColor index 19
+numBits 1
 endObjectProperties
 

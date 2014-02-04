@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 834
-y 388
+x 836
+y 208
 w 940
 h 610
 font "helvetica-medium-r-14.0"
@@ -70,7 +70,7 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
 x 1
 y 3
@@ -101,7 +101,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 1
 y 3
 w 1041
@@ -199,7 +199,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 0
 y 0
 w 50
@@ -224,9 +224,9 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 835
+x 880
 y 580
-w 100
+w 55
 h 25
 fgColor index 46
 bgColor index 3
@@ -268,7 +268,7 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 390
+x 355
 y 580
 w 110
 h 25
@@ -285,17 +285,17 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 305
+release 1
+x 295
 y 580
-w 85
+w 60
 h 25
 font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "Connected:"
+  "Comms:"
 }
 endObjectProperties
 
@@ -306,7 +306,7 @@ major 10
 minor 0
 release 0
 x 25
-y 40
+y 65
 w 120
 h 462
 controlPv "$(zebra):SYS_BUS1"
@@ -324,7 +324,7 @@ major 10
 minor 0
 release 0
 x 170
-y 40
+y 65
 w 120
 h 462
 controlPv "$(zebra):SYS_BUS2"
@@ -342,7 +342,7 @@ major 4
 minor 0
 release 0
 x 5
-y 45
+y 70
 w 13
 h 225
 controlPv "$(zebra):SYS_STAT1LO"
@@ -359,7 +359,7 @@ major 4
 minor 0
 release 0
 x 5
-y 270
+y 295
 w 13
 h 225
 controlPv "$(zebra):SYS_STAT1HI"
@@ -376,7 +376,7 @@ major 4
 minor 0
 release 0
 x 150
-y 45
+y 70
 w 13
 h 225
 controlPv "$(zebra):SYS_STAT2LO"
@@ -393,7 +393,7 @@ major 4
 minor 0
 release 0
 x 150
-y 270
+y 295
 w 13
 h 225
 controlPv "$(zebra):SYS_STAT2HI"
@@ -410,15 +410,15 @@ major 4
 minor 0
 release 0
 x 5
-y 505
+y 550
 w 13
-h 103
+h 52
 controlPv "$(zebra):SYS_STATERR"
 lineColor index 14
-onColor index 15
-offColor index 19
+onColor index 20
+offColor index 24
 endian "little"
-numBits 8
+numBits 4
 endObjectProperties
 
 # (Byte)
@@ -428,16 +428,16 @@ major 4
 minor 0
 release 0
 x 150
-y 505
+y 550
 w 13
-h 103
+h 52
 controlPv "$(zebra):SYS_STATERR"
 lineColor index 14
-onColor index 15
-offColor index 19
+onColor index 20
+offColor index 24
 endian "little"
-numBits 8
-shift 8
+numBits 4
+shift 4
 endObjectProperties
 
 # (Static Text)
@@ -445,11 +445,11 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 35
-y 505
+y 550
 w 112
-h 104
+h 52
 font "courier-medium-r-12.0"
 fgColor index 14
 bgColor index 3
@@ -459,37 +459,6 @@ value {
   "PULSE2  \\ trig"
   "PULSE3  / while"
   "PULSE4 /  active"
-  "PC buff overflow"
-  "Err 5"
-  "Err 6"
-  "Err 7"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 180
-y 505
-w 42
-h 104
-font "courier-medium-r-12.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Err 8"
-  "Err 9"
-  "Err 10"
-  "Err 11"
-  "Err 12"
-  "Err 13"
-  "Err 14"
-  "Err 15"
 }
 autoSize
 endObjectProperties
@@ -579,11 +548,11 @@ endObjectProperties
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
-x 725
+x 815
 y 580
-w 100
+w 55
 h 25
 fgColor index 25
 onColor index 4
@@ -597,5 +566,231 @@ offLabel "Reset"
 3d
 useEnumNumeric
 font "helvetica-bold-r-14.0"
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 525
+y 580
+w 45
+h 25
+fgColor index 25
+onColor index 4
+offColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):SOFT_IN:B0"
+onLabel "IN1"
+offLabel "IN1"
+labelType "literal"
+3d
+font "helvetica-bold-r-14.0"
+objType "controls"
+controlBitPos 0
+readBitPos 0
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 575
+y 580
+w 45
+h 25
+fgColor index 25
+onColor index 4
+offColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):SOFT_IN:B1"
+onLabel "IN2"
+offLabel "IN2"
+labelType "literal"
+3d
+font "helvetica-bold-r-14.0"
+objType "controls"
+controlBitPos 0
+readBitPos 0
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 625
+y 580
+w 45
+h 25
+fgColor index 25
+onColor index 4
+offColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):SOFT_IN:B2"
+onLabel "IN3"
+offLabel "IN3"
+labelType "literal"
+3d
+font "helvetica-bold-r-14.0"
+objType "controls"
+controlBitPos 0
+readBitPos 0
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 675
+y 580
+w 45
+h 25
+fgColor index 25
+onColor index 4
+offColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(zebra):SOFT_IN:B3"
+onLabel "IN4"
+offLabel "IN4"
+labelType "literal"
+3d
+font "helvetica-bold-r-14.0"
+objType "controls"
+controlBitPos 0
+readBitPos 0
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 470
+y 580
+w 50
+h 25
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Soft In:"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 725
+y 580
+w 90
+h 25
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Block State:"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 170
+y 550
+w 112
+h 52
+font "courier-medium-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "PC buff overflow"
+  "Err 5"
+  "Err 6"
+  "Err 7"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 5
+y 40
+w 60
+h 25
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "SYS1"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 150
+y 40
+w 60
+h 25
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "SYS2"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 5
+y 530
+w 100
+h 20
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Error state"
+}
 endObjectProperties
 
