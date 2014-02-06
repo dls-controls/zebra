@@ -8,6 +8,13 @@ signals (RS422 quadrature with Z channel), pass them through the FPGA to impleme
 and position capture circuitry, and output them to front and rear panel outputs of the same format
 as inputs.
 
+\section bugs Known Bugs
+- When Zebra is outputting position data at maximum rate it can overwhelm the buffers on the serial port. This has been observed on Red Hat Enterprise Linux 6 with an Intel Corporation 6 Series/C200 Series Chipset Family KT Controller (rev 04). USB serial dongles seem to be unaffected, as do connections via a terminal server. The problem manifests as error messages on the console like:
+
+<code>
+zebra:interruptTask: Bad interrupt on encoder 7 in 'P0000440200000000EE6000F00012A1A'
+</code>
+
 \section user_sec User Manual
 The user manual is available <a href="../TDI-CTRL-TNO-042-Zebra-Manual.pdf">here</a>
 
