@@ -20,7 +20,7 @@
 #include "zebraRegs.h"
 
 /* This is the number of messages on our queue */
-#define NQUEUE 1000
+#define NQUEUE 10000
 
 /* The size of our transmit and receive buffers,
  * max filename length and string param buffers */
@@ -393,7 +393,7 @@ void zebra::readTask() {
 			if (epicsMessageQueueTrySend(q, &rxBuffer, sizeof(&rxBuffer))
 					!= 0) {
 				asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
-						"%s:%s: Message queue full, dropped message", driverName, functionName);
+						"%s:%s: Message queue full, dropped message\n", driverName, functionName);
 				free(rxBuffer);
 			}
 		} else {
@@ -428,7 +428,8 @@ void zebra::interruptTask() {
 				// will unset the busy record set by the arm
 				setIntegerParam(zebraNumDown, -1);
 				this->callbackWaveforms();
-				setIntegerParam(zebraArrayAcq, 1);
+				// Set it acquiring
+                setIntegerParam(zebraArrayAcq, 1);				
 				// reset num cap
 				findParam("PC_NUM_CAPLO", &param);
 				setIntegerParam(param, 0);
@@ -467,8 +468,8 @@ void zebra::interruptTask() {
 				for (int a = 0; a < NARRAYS; a++) {
 					if (cap >> a & 1) {
 						if (sscanf(ptr, "%08X%n", &value, &incr) != 1) {
-							epicsStrnEscapedFromRaw(escapedbuff, NBUFF, ptr,
-									strlen(ptr));
+							epicsStrnEscapedFromRaw(escapedbuff, NBUFF, rxBuffer,
+									strlen(rxBuffer));
 							asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
 									"%s:%s: Bad interrupt on encoder %d in '%s'\n", driverName, functionName, a+1, escapedbuff);
 							break;

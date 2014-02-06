@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1063
-y 248
+x 1065
+y 274
 w 640
 h 510
 font "helvetica-bold-r-12.0"
@@ -95,7 +95,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 355
 y 20
 w 90
@@ -114,7 +114,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 350
 y 5
 w 132
@@ -202,7 +202,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 70
 y 20
 w 90
@@ -221,7 +221,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 65
 y 5
 w 135
@@ -277,7 +277,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 70
 y 50
 w 90
@@ -332,7 +332,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 70
 y 80
 w 90
@@ -387,7 +387,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 70
 y 110
 w 90
@@ -442,7 +442,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 70
 y 140
 w 90
@@ -497,7 +497,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 70
 y 170
 w 90
@@ -516,7 +516,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 70
 y 260
 w 90
@@ -571,7 +571,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 70
 y 230
 w 85
@@ -626,7 +626,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 70
 y 200
 w 90
@@ -717,7 +717,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 70
 y 290
 w 90
@@ -772,7 +772,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 70
 y 320
 w 90
@@ -827,7 +827,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 70
 y 350
 w 90
@@ -1086,7 +1086,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 355
 y 50
 w 90
@@ -1139,7 +1139,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 355
 y 80
 w 90
@@ -1230,7 +1230,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 355
 y 140
 w 90
@@ -1302,7 +1302,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 355
 y 170
 w 90
@@ -1355,7 +1355,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 355
 y 200
 w 90
@@ -1446,7 +1446,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 355
 y 320
 w 90
@@ -1499,7 +1499,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 355
 y 290
 w 90
@@ -1571,7 +1571,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 355
 y 260
 w 90
@@ -1662,7 +1662,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 355
 y 380
 w 90
@@ -1734,7 +1734,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 355
 y 410
 w 90
@@ -1787,7 +1787,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 355
 y 440
 w 90
@@ -1859,7 +1859,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 355
 y 470
 w 90
@@ -1931,7 +1931,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 355
 y 350
 w 90
@@ -2003,7 +2003,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 355
 y 230
 w 90
@@ -2075,7 +2075,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 355
 y 110
 w 90
@@ -2145,7 +2145,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 5
 y 390
 w 163
@@ -2164,7 +2164,7 @@ endObjectProperties
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 10
 y 430
@@ -2188,7 +2188,7 @@ endObjectProperties
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 115
 y 430
@@ -2212,7 +2212,7 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 5
+minor 6
 release 0
 x 10
 y 405
@@ -2238,7 +2238,7 @@ endObjectProperties
 object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
-minor 5
+minor 6
 release 0
 x 10
 y 460
@@ -2259,7 +2259,7 @@ endObjectProperties
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 215
 y 430
@@ -2283,7 +2283,7 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 2
+minor 4
 release 0
 x 5
 y 60
@@ -2306,7 +2306,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 5
 y 60
 w 55
@@ -2329,7 +2329,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 5
 y 5
 w 90
