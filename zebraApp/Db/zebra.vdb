@@ -20,6 +20,7 @@
 # % macro, M4DIR, Set to - if motor inverted in geobrick (decode control = 3 instead of 7)
 # % gui, $(PORT), edm, zebra.edl, zebra=$(P)$(Q)
 # % gui, $(PORT), sevr
+# % archiver 10 Monitor
 record(bi, "$(P)$(Q):CONNECTED") {
   field(DESC, "Is zebra connected")
   field(DTYP, "asynInt32")
@@ -72,6 +73,7 @@ record(ao, "$(P)$(Q):SYS_RESET") {
   field(OUT, "@asyn($(PORT),0) SYS_RESET")
 }
 
+# % archiver 10 Monitor
 record(ai, "$(P)$(Q):SYS_VER") {
   field(DESC, "Zebra firmware version")
   field(DTYP, "asynInt32")
@@ -93,6 +95,7 @@ record(ai, "$(P)$(Q):PC_NUM_CAPHI") {
   field(SCAN, "I/O Intr")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):PC_NUM_CAP") {
   field(INPA, "$(P)$(Q):PC_NUM_CAPLO CP")
   field(INPB, "$(P)$(Q):PC_NUM_CAPHI CP")
@@ -117,6 +120,7 @@ record(waveform, "$(P)$(Q):SYS_BUS2") {
   field(NELM, "1024")
 }
 
+# % archiver 1 Monitor
 record(ai, "$(P)$(Q):SYS_STAT1LO") {
   field(DESC, "Zebra system bus status 1 Lo")
   field(DTYP, "asynInt32")
@@ -124,6 +128,7 @@ record(ai, "$(P)$(Q):SYS_STAT1LO") {
   field(SCAN, "I/O Intr")
 }
 
+# % archiver 1 Monitor
 record(ai, "$(P)$(Q):SYS_STAT1HI") {
   field(DESC, "Zebra system bus status 1 Hi")
   field(DTYP, "asynInt32")
@@ -138,6 +143,7 @@ record(calc, "$(P)$(Q):SYS_STAT1") {
   field(CALC, "A+(B<<16)")
 }
 
+# % archiver 1 Monitor
 record(ai, "$(P)$(Q):SYS_STAT2LO") {
   field(DESC, "Zebra system bus status 2 Lo")
   field(DTYP, "asynInt32")
@@ -145,6 +151,7 @@ record(ai, "$(P)$(Q):SYS_STAT2LO") {
   field(SCAN, "I/O Intr")
 }
 
+# % archiver 1 Monitor
 record(ai, "$(P)$(Q):SYS_STAT2HI") {
   field(DESC, "Zebra system bus status 2 Hi")
   field(DTYP, "asynInt32")
@@ -183,6 +190,7 @@ expand("zebraRegisterWriteMux.vdb", AND1_INP4) {
   macro(PARAM, "AND1_INP4")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):AND1_OUT") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -213,6 +221,7 @@ expand("zebraRegisterWriteMux.vdb", AND2_INP4) {
   macro(PARAM, "AND2_INP4")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):AND2_OUT") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -243,6 +252,7 @@ expand("zebraRegisterWriteMux.vdb", AND3_INP4) {
   macro(PARAM, "AND3_INP4")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):AND3_OUT") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -273,6 +283,7 @@ expand("zebraRegisterWriteMux.vdb", AND4_INP4) {
   macro(PARAM, "AND4_INP4")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):AND4_OUT") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -303,6 +314,7 @@ expand("zebraRegisterWriteMux.vdb", OR1_INP4) {
   macro(PARAM, "OR1_INP4")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):OR1_OUT") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -333,6 +345,7 @@ expand("zebraRegisterWriteMux.vdb", OR2_INP4) {
   macro(PARAM, "OR2_INP4")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):OR2_OUT") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -363,6 +376,7 @@ expand("zebraRegisterWriteMux.vdb", OR3_INP4) {
   macro(PARAM, "OR3_INP4")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):OR3_OUT") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -393,6 +407,7 @@ expand("zebraRegisterWriteMux.vdb", OR4_INP4) {
   macro(PARAM, "OR4_INP4")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):OR4_OUT") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -407,6 +422,7 @@ expand("zebraRegisterWriteMux.vdb", GATE1_INP2) {
   macro(PARAM, "GATE1_INP2")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):GATE1_OUT") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -421,6 +437,7 @@ expand("zebraRegisterWriteMux.vdb", GATE2_INP2) {
   macro(PARAM, "GATE2_INP2")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):GATE2_OUT") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -435,6 +452,7 @@ expand("zebraRegisterWriteMux.vdb", GATE3_INP2) {
   macro(PARAM, "GATE3_INP2")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):GATE3_OUT") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -449,6 +467,7 @@ expand("zebraRegisterWriteMux.vdb", GATE4_INP2) {
   macro(PARAM, "GATE4_INP2")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):GATE4_OUT") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -466,12 +485,14 @@ expand("zebraRegisterWrite32.vdb", DIV1_DIV) {
   macro(DRVL, "0")  
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):DIV1_OUTD") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
   field(CALC, "A>>12&1")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):DIV1_OUTN") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -489,12 +510,14 @@ expand("zebraRegisterWrite32.vdb", DIV2_DIV) {
   macro(DRVL, "0")  
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):DIV2_OUTD") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
   field(CALC, "A>>13&1")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):DIV2_OUTN") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -512,12 +535,14 @@ expand("zebraRegisterWrite32.vdb", DIV3_DIV) {
   macro(DRVL, "0")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):DIV3_OUTD") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
   field(CALC, "A>>14&1")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):DIV3_OUTN") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -535,12 +560,14 @@ expand("zebraRegisterWrite32.vdb", DIV4_DIV) {
   macro(DRVL, "0")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):DIV4_OUTD") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
   field(CALC, "A>>15&1")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):DIV4_OUTN") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -567,6 +594,7 @@ expand("zebraRegisterWriteMux.vdb", PULSE1_INP) {
   macro(PARAM, "PULSE1_INP")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):PULSE1_OUT") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -593,6 +621,7 @@ expand("zebraRegisterWriteMux.vdb", PULSE2_INP) {
   macro(PARAM, "PULSE2_INP")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):PULSE2_OUT") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -619,6 +648,7 @@ expand("zebraRegisterWriteMux.vdb", PULSE3_INP) {
   macro(PARAM, "PULSE3_INP")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):PULSE3_OUT") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -645,6 +675,7 @@ expand("zebraRegisterWriteMux.vdb", PULSE4_INP) {
   macro(PARAM, "PULSE4_INP")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):PULSE4_OUT") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -884,6 +915,7 @@ record(ao, "$(P)$(Q):ARM_SET_BUSY") {
   field(VAL, "1")
 }
 
+# % archiver 10 Monitor
 record(busy, "$(P)$(Q):ARM_BUSY") {
 }
 
@@ -974,12 +1006,21 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_STEP) {
   macro(DRVL, "0")
 }
 
+# % archiver 10 Monitor
+record(calcout, "$(P)$(Q):PC_ARM_OUT") {
+  field(DESC, "Current output status")
+  field(INPA, "$(P)$(Q):SYS_STAT1 CP")
+  field(CALC, "A>>29&1")
+}
+
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):PC_GATE_OUT") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT1 CP")
   field(CALC, "A>>30&1")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):PC_PULSE_OUT") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT1 CP")
@@ -1011,34 +1052,32 @@ record(ai, "$(P)$(Q):NOMOTOR:RBV") {
   field(PREC, "4")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):M1:SETPOS") {
   field(CALC, "A")
   field(INPA, "$(P)$(Q):M1:RBV")
   field(OUT, "$(P)$(Q):POS1_SET PP")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):M2:SETPOS") {
   field(CALC, "A")
   field(INPA, "$(P)$(Q):M2:RBV")
   field(OUT, "$(P)$(Q):POS2_SET PP")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):M3:SETPOS") {
   field(CALC, "A")
   field(INPA, "$(P)$(Q):M3:RBV")
   field(OUT, "$(P)$(Q):POS3_SET PP")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):M4:SETPOS") {
   field(CALC, "A")
   field(INPA, "$(P)$(Q):M4:RBV")
   field(OUT, "$(P)$(Q):POS4_SET PP")
-}
-
-record(calcout, "$(P)$(Q):PC_ARM_OUT") {
-  field(DESC, "Current output status")
-  field(INPA, "$(P)$(Q):SYS_STAT1 CP")
-  field(CALC, "A>>29&1")
 }
 
 expand("zebraRegisterWriteMux.vdb", PC_ARM_INP) {
@@ -1077,17 +1116,10 @@ record(ai, "$(P)$(Q):SYS_STATERR:RBVA") {
   field(SCAN, "I/O Intr")
 }
 
+# % archiver 10 Monitor
 record(mbbiDirect, "$(P)$(Q):SYS_STATERR") {
   field(DESC, "Zebra error status")
   field(INP, "$(P)$(Q):SYS_STATERR:RBVA")
-}
-
-# % gui, $(PORT), status
-record(ai, "$(P)$(Q):ARRAY_ACQ") {
-  field(DESC, "Zebra acquiring arrays")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) ARRAY_ACQ")
-  field(SCAN, "I/O Intr")
 }
 
 expand("zebraRegisterWritePosCompInp.vdb", PC_ARM_SEL) {
@@ -1292,6 +1324,7 @@ expand("zebraRegisterWriteMux.vdb", PC_FILTSEL4) {
   macro(PARAM, "PC_FILTSEL4")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):QUAD_OUTA") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -1306,6 +1339,7 @@ expand("zebraRegisterWriteMux.vdb", QUAD_DIR) {
   macro(PARAM, "QUAD_DIR")
 }
 
+# % archiver 10 Monitor
 record(calcout, "$(P)$(Q):QUAD_OUTB") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
@@ -1470,11 +1504,23 @@ record(acalcout, "$(P)$(Q):PC_ENC4") {
   field(FLNK, "$(P)$(Q):PC_NUM_DOWN")
 }
 
+# % archiver 10 Monitor
+# Note Passive scan, will be triggered from PC_ENC4
 record(ai, "$(P)$(Q):PC_NUM_DOWN") {
   field(DESC, "Points downloaded")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0) PC_NUM_DOWN")
-  field(FLNK, "$(P)$(Q):ARM_BUSY_DONE")
+  field(FLNK, "$(P)$(Q):ARRAY_ACQ")
+}
+
+# % archiver 10 Monitor
+# % gui, $(PORT), status
+# Note Passive scan, will be triggered from NUM_DOWN
+record(ai, "$(P)$(Q):ARRAY_ACQ") {
+  field(DESC, "Zebra acquiring arrays")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0) ARRAY_ACQ")
+  field(FLNK, "$(P)$(Q):ARM_BUSY_DONE")  
 }
 
 record(ao, "$(P)$(Q):ARM_BUSY_DONE") {
@@ -1522,6 +1568,7 @@ record(calcout, "$(P)$(Q):PC_DIR:SYNC") {
   field(INPA, "$(P)$(Q):PC_DIR:RBV")
 }
 
+# % archiver 10 Monitor
 record(mbbo, "$(P)$(Q):PC_DIR") {
   field(DESC, "Demand value for param")
   field(DTYP, "Raw Soft Channel")
@@ -1555,23 +1602,32 @@ record(ai, "$(P)$(Q):TIME:OFF") {
 }
 
 # Used for GDA
+# % archiver 10 Monitor
 record(busy, "$(P)$(Q):WRITE_BUSY") {
 }
 
 # Used for GDA
+# % archiver 10 Monitor
 record(ai, "$(P)$(Q):SCAN_TYPE") {
 }
 
 record(calcout, "$(P)$(Q):PC_PULSE_STEP:DRVL") {
   field(CALC, "A=1?B=0?C>2**6?F:G:H:I")
   field(INPA, "$(P)$(Q):PC_PULSE_SEL:RBV CP")
-  field(INPB, "$(P)$(Q):PC_TSPRE CP")
+  field(INPB, "$(P)$(Q):PC_TSPRE:RBV CP")
   field(INPC, "$(P)$(Q):PC_BIT_CAP CP")
   field(INPF, "0.0016")
   field(INPG, "0.0012")
   field(INPH, "0.0003")
   field(INPI, "$(P)$(Q):PULSE:MRES CP")
   field(OUT, "$(P)$(Q):PC_PULSE_STEP.DRVL")
+}
+
+record(calcout, "$(P)$(Q):PC_PULSE:VALID") {
+  field(CALC, "A>MAX(B,C)+0.0001")
+  field(INPA, "$(P)$(Q):PC_PULSE_STEP CP")
+  field(INPB, "$(P)$(Q):PC_PULSE_WID CP")
+  field(INPC, "$(P)$(Q):PC_PULSE_DLY CP")  
 }
 
 #! Further lines contain data used by VisualDCT

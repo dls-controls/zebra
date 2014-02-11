@@ -424,21 +424,26 @@ void zebra::interruptTask() {
 				// This is zebra telling us to reset our buffers
 				this->currPt = 0;
 				this->tOffset = 0.0;
+				// Set it acquiring
+                setIntegerParam(zebraArrayAcq, 1);								
 				// We need to trigger a waveform update so that PC_NUM_DOWN
 				// will unset the busy record set by the arm
+				// Setting NumDown to -1 will trigger a waveform update even if
+				// the last waveform sent was the same as this one
 				setIntegerParam(zebraNumDown, -1);
 				this->callbackWaveforms();
-				// Set it acquiring
-                setIntegerParam(zebraArrayAcq, 1);				
 				// reset num cap
 				findParam("PC_NUM_CAPLO", &param);
 				setIntegerParam(param, 0);
 				findParam("PC_NUM_CAPHI", &param);
 				setIntegerParam(param, 0);
 			} else if (strcmp(rxBuffer, "PX") == 0) {
-				// This is zebra there is no more data
+				// This is zebra saying there is no more data
+				setIntegerParam(zebraArrayAcq, 0);				
+				// Setting NumDown to -1 will trigger a waveform update even if
+				// the last waveform sent was the same as this one
+				setIntegerParam(zebraNumDown, -1);
 				this->callbackWaveforms();
-				setIntegerParam(zebraArrayAcq, 0);
 			} else {
 				// This is a data buffer
 				ptr = rxBuffer;
@@ -947,12 +952,17 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value) {
 		const reg *r = PARAM2REG(param);
 		status = this->setReg(r, value);
 		if (status == asynSuccess && r->type != regCmd) {
+		    // do this so we always get an update on the RBV field, essential for clamping 32-bit fields to MRES
+    		setIntegerParam(param, -1);
 			status = this->getReg(r, &value);
 		}
 		if (strcmp(r->str, "SYS_RESET") == 0) {
 			// Reset called, so stop waveform processing
+			setIntegerParam(zebraArrayAcq, 0);						
+			// Setting NumDown to -1 will trigger a waveform update even if
+			// the last waveform sent was the same as this one
+			setIntegerParam(zebraNumDown, -1);
 			this->callbackWaveforms();
-			setIntegerParam(zebraArrayAcq, 0);
 		}
 	} else if (param == zebraStore) {
 		status = this->storeFlash();
@@ -976,6 +986,7 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value) {
 		value = value % NSYSBUS;
 		setStringParam(param + NFILT, bus_lookup[value]);
 		status = setIntegerParam(param, value);
+		// Resend all the waveforms as we have changed the filter
 		setIntegerParam(zebraNumDown, 0);
 		this->callbackWaveforms();
 	}
@@ -1029,6 +1040,7 @@ asynStatus zebra::callbackWaveforms() {
 
 		// Note no callParamCallbacks. We will forward link from PC_ENC1 to NumDown
 		// so that GDA can monitor NumDown to know when to caget array values
+		// This will then FLNK to ARRAY_ACQ so it knows when acquisition is finished
 	}
 	return asynSuccess;
 }

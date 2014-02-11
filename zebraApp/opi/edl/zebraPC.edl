@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 631
-y 620
+x 586
+y 220
 w 640
 h 510
 font "helvetica-bold-r-12.0"
@@ -20,7 +20,6 @@ ctlBgColor2 index 3
 topShadowColor index 1
 botShadowColor index 11
 showGrid
-snapToGrid
 gridSize 5
 endScreenProperties
 
@@ -37,6 +36,22 @@ h 510
 lineColor index 5
 fill
 fillColor index 5
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 430
+y 285
+w 205
+h 220
+lineColor index 29
+fill
+fillColor index 3
+lineWidth 3
 endObjectProperties
 
 # (Lines)
@@ -166,7 +181,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 5
 y 365
 w 40
@@ -186,7 +201,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 10
 y 475
 w 125
@@ -245,7 +260,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 10
 y 380
 w 85
@@ -296,7 +311,7 @@ beginGroup
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 10
 y 410
@@ -327,7 +342,7 @@ endObjectProperties
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 10
 y 440
@@ -367,7 +382,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 215
 y 275
 w 45
@@ -387,7 +402,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 220
 y 445
 w 125
@@ -446,7 +461,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 220
 y 290
 w 85
@@ -478,22 +493,6 @@ botShadowColor index 11
 controlPv "$(zebra):PC_GATE_SEL"
 indicatorPv "$(zebra):PC_GATE_SEL:RBV"
 font "helvetica-bold-r-14.0"
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 430
-y 285
-w 205
-h 220
-lineColor index 29
-fill
-fillColor index 3
-lineWidth 3
 endObjectProperties
 
 # (Group)
@@ -574,7 +573,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 430
 y 275
 w 48
@@ -594,7 +593,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 435
 y 475
 w 125
@@ -653,7 +652,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 435
 y 290
 w 85
@@ -1048,7 +1047,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 220
 y 410
 w 85
@@ -1266,7 +1265,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 10
 y 330
 w 80
@@ -1305,7 +1304,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 5
 y 225
 w 51
@@ -1325,7 +1324,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 10
 y 240
 w 190
@@ -1343,7 +1342,7 @@ endObjectProperties
 object activeButtonClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 95
 y 240
@@ -1371,7 +1370,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 10
 y 270
 w 80
@@ -1389,7 +1388,7 @@ endObjectProperties
 object activeButtonClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 150
 y 240
@@ -1416,7 +1415,7 @@ endObjectProperties
 object activeButtonClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 205
 y 240
@@ -1443,7 +1442,7 @@ endObjectProperties
 object activeButtonClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 260
 y 240
@@ -1470,7 +1469,7 @@ endObjectProperties
 object activeButtonClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 315
 y 240
@@ -1497,7 +1496,7 @@ endObjectProperties
 object activeButtonClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 370
 y 240
@@ -1524,7 +1523,7 @@ endObjectProperties
 object activeButtonClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 425
 y 240
@@ -1551,7 +1550,7 @@ endObjectProperties
 object activeButtonClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 475
 y 240
@@ -1578,7 +1577,7 @@ endObjectProperties
 object activeButtonClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 525
 y 240
@@ -1605,7 +1604,7 @@ endObjectProperties
 object activeButtonClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 580
 y 240
@@ -1633,7 +1632,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 220
 y 380
 w 85
@@ -1701,7 +1700,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 220
 y 320
 w 85
@@ -1720,7 +1719,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 220
 y 350
 w 85
@@ -1765,7 +1764,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 435
 y 440
 w 85
@@ -1949,7 +1948,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 15
 y 60
 w 40
@@ -1969,7 +1968,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 15
 y 120
 w 40
@@ -1989,7 +1988,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 15
 y 190
 w 40
@@ -2009,7 +2008,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 60
 y 5
 w 28
@@ -2030,7 +2029,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 540
 y 5
 w 89
@@ -2053,7 +2052,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 485
 y 5
 w 49
@@ -2098,7 +2097,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 185
 y 60
 w 41
@@ -2142,7 +2141,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 220
 y 130
 w 32
@@ -2186,7 +2185,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 420
 y 120
 w 41
@@ -2231,7 +2230,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 435
 y 200
 w 32
@@ -2276,7 +2275,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 365
 y 160
 w 34
@@ -2370,7 +2369,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 80
 y 145
 w 34
@@ -2438,7 +2437,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 340
 y 25
 w 76
@@ -2458,7 +2457,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 125
 y 205
 w 211
@@ -2526,7 +2525,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 10
 y 300
 w 80
@@ -2658,7 +2657,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 305
 y 480
 w 80
@@ -2676,7 +2675,7 @@ endObjectProperties
 object relatedDisplayClass
 beginObjectProperties
 major 4
-minor 4
+minor 2
 release 0
 x 220
 y 480
@@ -2787,7 +2786,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 415
 y 165
 w 39
@@ -2808,7 +2807,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 540
 y 145
 w 60
@@ -2889,7 +2888,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 435
 y 320
 w 85
@@ -2926,7 +2925,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 435
 y 350
 w 85
@@ -2945,7 +2944,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 435
 y 380
 w 85
@@ -3020,7 +3019,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 1
+release 0
 x 435
 y 410
 w 85
@@ -3075,5 +3074,80 @@ endGroup
 visPv "$(zebra):PC_PULSE_SEL"
 visMin "1"
 visMax "2"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 433
+y 350
+w 87
+h 85
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 433
+y 370
+w 87
+h 10
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 20
+bgColor index 3
+useDisplayBg
+value {
+  "+ 0.0001 isn't <"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 433
+y 400
+w 87
+h 10
+font "helvetica-bold-r-10.0"
+fontAlign "center"
+fgColor index 20
+bgColor index 3
+useDisplayBg
+value {
+  "isn't > 0.0001 +"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 433
+y 350
+w 87
+h 85
+lineColor index 20
+fillColor index 3
+lineWidth 3
+endObjectProperties
+
+endGroup
+
+visPv "$(zebra):PC_PULSE:VALID"
+visMin "0"
+visMax "1"
 endObjectProperties
 

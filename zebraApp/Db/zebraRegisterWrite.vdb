@@ -35,6 +35,7 @@ record(calcout, "$(P)$(Q):$(PARAM):DRVH") {
   field(PINI, "YES")
 }
 
+# % archiver 10 Monitor
 record(ao, "$(P)$(Q):$(PARAM)") {
   field(DESC, "Demand value for param")
   field(OUT, "$(P)$(Q):$(PARAM):SET PP")

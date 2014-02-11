@@ -12,8 +12,6 @@ template() {
   #! InputMacro(DRVL,"",120,300,16777215,1,true)    
 }
 
-#-A*2**31+B
-
 record(ai, "$(P)$(Q):$(PARAM):RBVLO") {
   field(DESC, "Readback param value")
   field(DTYP, "asynInt32")
@@ -70,6 +68,7 @@ record(calcout, "$(P)$(Q):$(PARAM):DRVL") {
   field(OUT, "$(P)$(Q):$(PARAM).DRVL")
 }
 
+# % archiver 10 Monitor
 record(ao, "$(P)$(Q):$(PARAM)") {
   field(DESC, "Demand value for param")
   field(FLNK, "$(P)$(Q):$(PARAM):CALCLO PP")
@@ -106,6 +105,7 @@ record(ao, "$(P)$(Q):$(PARAM):SETHI") {
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):$(PARAM):SYNC.PACT")
   field(OUT, "@asyn($(PORT),0) $(PARAM)HI")
+  field(FLNK, "$(P)$(Q):$(PARAM):RBVLO PP")  
 }
 
 #! Further lines contain data used by VisualDCT

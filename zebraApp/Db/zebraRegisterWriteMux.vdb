@@ -31,6 +31,7 @@ record(calcout, "$(P)$(Q):$(PARAM):SYNC") {
   field(INPA, "$(P)$(Q):$(PARAM):RBV")
 }
 
+# % archiver 10 Monitor
 record(ao, "$(P)$(Q):$(PARAM)") {
   field(DESC, "Demand value for param")
   field(OUT, "$(P)$(Q):$(PARAM):SET PP")

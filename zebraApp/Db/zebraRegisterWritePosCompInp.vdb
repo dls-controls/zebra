@@ -46,6 +46,7 @@ record(calcout, "$(P)$(Q):$(PARAM):SYNC") {
   field(INPA, "$(P)$(Q):$(PARAM):RBV")
 }
 
+# % archiver 10 Monitor
 record(mbbo, "$(P)$(Q):$(PARAM)") {
   field(DESC, "Demand value for param")
   field(DTYP, "Raw Soft Channel")

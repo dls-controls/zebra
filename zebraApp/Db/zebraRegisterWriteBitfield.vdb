@@ -271,6 +271,7 @@ record(bo, "$(P)$(Q):$(PARAM):BF") {
   field(OUT, "$(P)$(Q):$(PARAM).BF PP")
 }
 
+# % archiver 10 Monitor
 record(mbboDirect, "$(P)$(Q):$(PARAM)") {
   field(DESC, "Demand value for param")
   field(OUT, "$(P)$(Q):$(PARAM):SET PP")
