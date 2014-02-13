@@ -17,7 +17,6 @@ DBD += zebra_vdct.dbd
 zebra_vdct_DBD += base.dbd
 zebra_vdct_DBD += asyn.dbd
 zebra_vdct_DBD += busySupport.dbd
-zebra_vdct_DBD += calcSupport.dbd
 zebra_vdct_DBD += motorRecord.dbd
 zebra_vdct_DBD += motorSupport.dbd
 zebra_vdct_DBD += devSoftMotor.dbd

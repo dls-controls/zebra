@@ -97,26 +97,28 @@ protected:
 protected:
 	/* Parameter indices */
 #define FIRST_PARAM zebraIsConnected
-	int zebraIsConnected;           // int32 read  - is zebra connected?
-	int zebraPCTime;          // float64array read - position compare timestamps
-	int zebraArrayUpdate;           // int32 write - update arrays
-	int zebraArrayAcq;              // int32 read - when data is acquiring
-	int zebraNumDown;           // int32 read - number of data points downloaded
-	int zebraSysBus1;               // string read - system bus key first half
-	int zebraSysBus2;               // string read - system bus key second half
-	int zebraStore;                 // int32 write - store config to flash
-	int zebraConfigFile;   // charArray write - filename to read/write config to
-	int zebraConfigRead;            // int32 write - read config from filename
-	int zebraConfigWrite;           // int32 write - write config to filename
-	int zebraConfigStatus;          // int32 read - config status message
-#define LAST_PARAM zebraConfigStatus
-	int zebraCapArrays[NARRAYS]; // int32array read - position compare capture array
-	int zebraCapLast[NARRAYS];      // int32 read - last captured value
-	int zebraFiltArrays[NFILT]; // int32array read - position compare sys bus filtered
-	int zebraFiltSel[NFILT]; // int32 read/write - which index of system bus to select for zebraFiltArrays
-	int zebraFiltSelStr[NFILT]; // string read - the name of the entry in the system bus
-	int zebraReg[NREGS * 2]; // int32 read/write - all zebra params in reg_lookup
-#define NUM_PARAMS (&LAST_PARAM - &FIRST_PARAM + 1) + NARRAYS*2 + NFILT*3 + NREGS*2
+	int zebraIsConnected;        // int32 read  - is zebra connected?
+	int zebraArrayUpdate;        // int32 write - update arrays
+	int zebraArrayAcq;           // int32 read - when data is acquiring
+	int zebraNumDown;            // int32 read - number of data points downloaded
+	int zebraSysBus1;            // string read - system bus key first half
+	int zebraSysBus2;            // string read - system bus key second half
+	int zebraStore;              // int32 write - store config to flash
+	int zebraConfigFile;         // charArray write - filename to read/write config to
+	int zebraConfigRead;         // int32 write - read config from filename
+	int zebraConfigWrite;        // int32 write - write config to filename
+	int zebraConfigStatus;       // int32 read - config status message
+	int zebraPCTime;             // float64array read - position compare timestamps
+#define LAST_PARAM zebraPCTime
+	int zebraScale[NARRAYS];     // float64 write - Scale (MRES) of motors
+	int zebraOff[NARRAYS];       // float64 write - offset of motors
+	int zebraCapArrays[NARRAYS]; // float64array read - position compare capture array
+	int zebraCapLast[NARRAYS];   // float64 read - last captured value
+	int zebraFiltArrays[NFILT];  // int8array read - position compare sys bus filtered
+	int zebraFiltSel[NFILT];     // int32 read/write - which index of system bus to select for zebraFiltArrays
+	int zebraFiltSelStr[NFILT];  // string read - the name of the entry in the system bus
+	int zebraReg[NREGS * 2];     // int32 read/write - all zebra params in reg_lookup
+#define NUM_PARAMS (&LAST_PARAM - &FIRST_PARAM + 1) + NARRAYS*4 + NFILT*3 + NREGS*2
 
 private:
 	asynUser *pasynUser;
@@ -128,9 +130,8 @@ private:
 	void *drvUserPvt;
 	epicsMessageQueueId msgQId, intQId;
 	int maxPts, currPt, configPhase, doneInit;
-	int *capArrays[NARRAYS];
-	int *filtArrays[NFILT];
-	double *PCTime, tOffset;
+	char *filtArrays[NFILT];
+	double *PCTime, tOffset, *capArrays[NARRAYS];
 };
 
 /* C function to call poll task from epicsThreadCreate */
@@ -161,9 +162,9 @@ static int configLineC(void* userPvt, const char* section, const char* name,
 /* Constructor */
 zebra::zebra(const char* portName, const char* serialPortName, int maxPts) :
 		asynPortDriver(portName, 1 /*maxAddr*/, NUM_PARAMS,
-				asynInt32ArrayMask | asynFloat64ArrayMask | asynInt32Mask
+				asynInt8ArrayMask | asynFloat64ArrayMask | asynInt32Mask
 						| asynFloat64Mask | asynOctetMask | asynDrvUserMask,
-				asynInt32ArrayMask | asynFloat64ArrayMask | asynInt32Mask
+				asynInt8ArrayMask | asynFloat64ArrayMask | asynInt32Mask
 						| asynFloat64Mask | asynOctetMask, ASYN_CANBLOCK, /*ASYN_CANBLOCK=1, ASYN_MULTIDEVICE=0 */
 				1, /*autoConnect*/0, /*default priority */
 				0 /*default stack size*/) {
@@ -217,19 +218,33 @@ zebra::zebra(const char* portName, const char* serialPortName, int maxPts) :
 
 	/* parameters for filename reading/writing config */
 	createParam("CONFIG_FILE", asynParamOctet, &zebraConfigFile);
-	createParam("CONFIG_WRITE", asynParamInt32, &zebraConfigWrite);
 	createParam("CONFIG_READ", asynParamInt32, &zebraConfigRead);
+	createParam("CONFIG_WRITE", asynParamInt32, &zebraConfigWrite);
 	createParam("CONFIG_STATUS", asynParamOctet, &zebraConfigStatus);
 
 	/* position compare time array */
 	createParam("PC_TIME", asynParamFloat64Array, &zebraPCTime);
 	this->PCTime = (double *) calloc(maxPts, sizeof(double));
 
+	/* position compare array scale (motor resolution) */
+	for (int a = 0; a < NARRAYS; a++) {
+		epicsSnprintf(str, NBUFF, "M%d_SCALE", a + 1);
+		createParam(str, asynParamFloat64, &zebraScale[a]);
+		setDoubleParam(zebraScale[a], 1.0);
+	}
+
+	/* position compare array offset (motor offset) */
+	for (int a = 0; a < NARRAYS; a++) {
+		epicsSnprintf(str, NBUFF, "M%d_OFF", a + 1);
+		createParam(str, asynParamFloat64, &zebraOff[a]);
+		setDoubleParam(zebraOff[a], 0.0);
+	}
+
 	/* create the position compare arrays */
 	for (int a = 0; a < NARRAYS; a++) {
 		epicsSnprintf(str, NBUFF, "PC_CAP%d", a + 1);
-		createParam(str, asynParamInt32Array, &zebraCapArrays[a]);
-		this->capArrays[a] = (int *) calloc(maxPts, sizeof(int));
+		createParam(str, asynParamFloat64Array, &zebraCapArrays[a]);
+		this->capArrays[a] = (double *) calloc(maxPts, sizeof(double));
 	}
 
 	/* create the last captured interrupt values */
@@ -241,8 +256,8 @@ zebra::zebra(const char* portName, const char* serialPortName, int maxPts) :
 	/* create filter arrays */
 	for (int a = 0; a < NFILT; a++) {
 		epicsSnprintf(str, NBUFF, "PC_FILT%d", a + 1);
-		createParam(str, asynParamInt32Array, &zebraFiltArrays[a]);
-		this->filtArrays[a] = (int *) calloc(maxPts, sizeof(int));
+		createParam(str, asynParamInt8Array, &zebraFiltArrays[a]);
+		this->filtArrays[a] = (char *) calloc(maxPts, sizeof(char));
 	}
 
 	/* create values that we can use to filter one element on the system bus with */
@@ -407,7 +422,7 @@ void zebra::readTask() {
 /* This is the function that will be run for the interrupt service thread */
 void zebra::interruptTask() {
 	const char *functionName = "interruptTask";
-	int value, cap, param, incr;
+	int cap, param, incr;
 	unsigned int time, nfound;
 	char *rxBuffer, *ptr, escapedbuff[NBUFF];
 	epicsTimeStamp start, end;
@@ -451,7 +466,7 @@ void zebra::interruptTask() {
 				nfound = sscanf(rxBuffer, "P%08X%n", &time, &incr);
 				if (nfound == 1) {
 					// put time in time units (10s, s or ms based on TS_PRE)
-					this->PCTime[this->currPt] = time / 10000.0 + this->tOffset;
+					this->PCTime[this->currPt] = time * 0.0001 + this->tOffset;
 					if (this->currPt > 0
 							&& this->PCTime[this->currPt]
 									< this->PCTime[this->currPt - 1]) {
@@ -471,31 +486,28 @@ void zebra::interruptTask() {
 				getIntegerParam(param, &cap);
 				// Now step through the bytes
 				for (int a = 0; a < NARRAYS; a++) {
+					double scale, off, dvalue = 0;
+					int ivalue;
 					if (cap >> a & 1) {
-						if (sscanf(ptr, "%08X%n", &value, &incr) != 1) {
+						if (sscanf(ptr, "%08X%n", &ivalue, &incr) == 1) {
+							getDoubleParam(zebraScale[a], &scale);
+							getDoubleParam(zebraOff[a], &off);
+							dvalue = ivalue * scale + off;
+							ptr += incr;
+						} else {
 							epicsStrnEscapedFromRaw(escapedbuff, NBUFF, rxBuffer,
 									strlen(rxBuffer));
 							asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
 									"%s:%s: Bad interrupt on encoder %d in '%s'\n", driverName, functionName, a+1, escapedbuff);
 							break;
 						}
-						ptr += incr;
-					} else {
-						value = 0;
 					}
 					// publish value to double param
-					setDoubleParam(zebraCapLast[a], -1);
-					if (a < 4) {
-						// encoders are signed
-						setDoubleParam(zebraCapLast[a], value);
-					} else {
-						// all others are unsigned
-						setDoubleParam(zebraCapLast[a], (unsigned int) value);
-					}
+					setDoubleParam(zebraCapLast[a], dvalue-1);
+					setDoubleParam(zebraCapLast[a], dvalue);
 					// publish value to waveform if we have room
-					// don't worry about signed vs unsigned, the waveform record handles it
 					if (this->currPt < this->maxPts) {
-						this->capArrays[a][this->currPt] = value;
+						this->capArrays[a][this->currPt] = dvalue;
 					}
 					// Note: don't do callParamCallbacks here, or we'll swamp asyn
 				}
@@ -997,7 +1009,8 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value) {
 /* This function calls back on the time and position waveform values
  called with the lock taken */
 asynStatus zebra::callbackWaveforms() {
-	int sel, *src, lastUpdatePt;
+	int sel, lastUpdatePt;
+	double *src;
 	getIntegerParam(zebraNumDown, &lastUpdatePt);
 	if (lastUpdatePt != this->currPt) {
 		// printf("Update %d %d\n", this->lastUpdatePt, this->currPt);
@@ -1010,8 +1023,7 @@ asynStatus zebra::callbackWaveforms() {
 			// means the last point on the time/pos plot is (last, 0), which
 			// gives a straight line back to (0,0) without confusing the user
 			this->PCTime[this->currPt] = this->PCTime[this->currPt - 1];
-			doCallbacksFloat64Array(this->PCTime, this->currPt + 1, zebraPCTime,
-					0);
+			doCallbacksFloat64Array(this->PCTime, this->currPt + 1, zebraPCTime, 0);
 		} else {
 			doCallbacksFloat64Array(this->PCTime, this->currPt, zebraPCTime, 0);
 		}
@@ -1026,15 +1038,15 @@ asynStatus zebra::callbackWaveforms() {
 				sel -= 32;
 			}
 			for (int i = 0; i < this->maxPts; i++) {
-				this->filtArrays[a][i] = (src[i] >> sel) & 1;
+				this->filtArrays[a][i] = (((int)(src[i]+0.5)) >> sel) & 1;
 			}
-			doCallbacksInt32Array(this->filtArrays[a], this->currPt,
+			doCallbacksInt8Array(this->filtArrays[a], this->currPt,
 					zebraFiltArrays[a], 0);
 		}
 
-		// update capture arrays, go backwards so we do PC_ENC1 last
-		for (int a = NARRAYS - 1; a >= 0; a--) {
-			doCallbacksInt32Array(this->capArrays[a], this->currPt,
+		// update capture arrays
+		for (int a = 0; a < NARRAYS; a++) {
+			doCallbacksFloat64Array(this->capArrays[a], this->currPt,
 					zebraCapArrays[a], 0);
 		}
 

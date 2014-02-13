@@ -1,6 +1,5 @@
 from iocbuilder import AutoSubstitution, Device
 from iocbuilder.modules.asyn import Asyn, AsynPort, _AsynOctetInterface
-from iocbuilder.modules.calc import Calc
 from iocbuilder.modules.busy import Busy
 from iocbuilder.modules.motor import MotorLib
 from iocbuilder.arginfo import *
@@ -15,7 +14,7 @@ class zebra(AsynPort):
     DbdFileList = ["zebraSupport"]
     LibFileList = ["zebra"]
     UniqueName = "PORT"
-    Dependencies = (Asyn, MotorLib, Calc, Busy)
+    Dependencies = (Asyn, MotorLib, Busy)
     def __init__(self, serialPort, **args):
         self.__super.__init__(args["PORT"])
         z = _zebraTemplate(**args)        
