@@ -147,6 +147,8 @@ static const struct reg reg_lookup[] = {
     { "OUT8_ENCB",       0x79, regMux },
     { "OUT8_ENCZ",       0x7A, regMux },
     { "OUT8_CONN",       0x7B, regMux },
+    /* Div blocks first pulse select */
+    { "DIV_FIRST",       0x7C, regRW },
     /* Soft input register */
     { "SYS_RESET",       0x7E, regCmd },
     { "SOFT_IN",         0x7F, regRW },

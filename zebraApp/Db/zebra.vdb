@@ -37,6 +37,12 @@ record(ao, "$(P)$(Q):STORE") {
   field(OUT, "@asyn($(PORT),0) STORE")
 }
 
+record(ao, "$(P)$(Q):RESTORE") {
+  field(DESC, "Restore register values from flash")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0) RESTORE")
+}
+
 record(ao, "$(P)$(Q):CONFIG_WRITE") {
   field(DESC, "Write reg values to file")
   field(DTYP, "asynInt32")
@@ -472,6 +478,10 @@ record(calcout, "$(P)$(Q):GATE4_OUT") {
   field(DESC, "Current output status")
   field(INPA, "$(P)$(Q):SYS_STAT2 CP")
   field(CALC, "A>>11&1")
+}
+
+expand("zebraRegisterWriteBitfield.vdb", DIV_FIRST) {
+  macro(PARAM, "DIV_FIRST")
 }
 
 expand("zebraRegisterWriteMux.vdb", DIV1_INP) {
@@ -1598,7 +1608,7 @@ record(calcout, "$(P)$(Q):PC_PULSE:VALID") {
 }
 
 #! Further lines contain data used by VisualDCT
-#! View(620,2500,1.0)
+#! View(2306,3582,1.0)
 #! Record("$(P)$(Q):CONNECTED",4720,2646,0,0,"$(P)$(Q):CONNECTED")
 #! Record("$(P)$(Q):STORE",3860,2802,0,0,"$(P)$(Q):STORE")
 #! Record("$(P)$(Q):CONFIG_WRITE",3860,3042,0,0,"$(P)$(Q):CONFIG_WRITE")
@@ -1899,6 +1909,10 @@ record(calcout, "$(P)$(Q):PC_PULSE:VALID") {
 #! Field("$(P)$(Q):GATE4_OUT.INPA",16777215,1,"$(P)$(Q):GATE4_OUT.INPA")
 #! Link("$(P)$(Q):GATE4_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
+#! TemplateInstance("DIV_FIRST",3660,3780,0,"")
+#! TemplateField("DIV_FIRST","PARAM",16777215,0,1)
+
+
 #! TemplateInstance("DIV1_INP",2980,3780,0,"")
 #! TemplateField("DIV1_INP","PARAM",16777215,0,1)
 
@@ -2181,23 +2195,29 @@ record(calcout, "$(P)$(Q):PC_PULSE:VALID") {
 #! Field("$(P)$(Q):M4:MRES.INPA",16777215,1,"$(P)$(Q):M4:MRES.INPA")
 #! Field("$(P)$(Q):M4:MRES.INPB",16777215,1,"$(P)$(Q):M4:MRES.INPB")
 #! Field("$(P)$(Q):M4:MRES.INPC",16777215,1,"$(P)$(Q):M4:MRES.INPC")
-#! Record("$(P)$(Q):M1:MRES:OUT",1420,3034,0,0,"$(P)$(Q):M1:MRES:OUT")
+#! Record("$(P)$(Q):M1:MRES:OUT",1420,3048,0,0,"$(P)$(Q):M1:MRES:OUT")
 #! Field("$(P)$(Q):M1:MRES:OUT.DOL",16777215,1,"$(P)$(Q):M1:MRES:OUT.DOL")
 #! Link("$(P)$(Q):M1:MRES:OUT.DOL","$(P)$(Q):M1:MRES.VAL")
-#! Record("$(P)$(Q):M2:MRES:OUT",260,16,0,0,"$(P)$(Q):M2:MRES:OUT")
-#! Record("$(P)$(Q):M3:MRES:OUT",500,16,0,0,"$(P)$(Q):M3:MRES:OUT")
-#! Record("$(P)$(Q):M4:MRES:OUT",740,16,0,0,"$(P)$(Q):M4:MRES:OUT")
+#! Record("$(P)$(Q):M2:MRES:OUT",1440,3268,0,0,"$(P)$(Q):M2:MRES:OUT")
+#! Field("$(P)$(Q):M2:MRES:OUT.DOL",16777215,1,"$(P)$(Q):M2:MRES:OUT.DOL")
+#! Link("$(P)$(Q):M2:MRES:OUT.DOL","$(P)$(Q):M2:MRES.VAL")
+#! Record("$(P)$(Q):M3:MRES:OUT",1480,3488,0,0,"$(P)$(Q):M3:MRES:OUT")
+#! Field("$(P)$(Q):M3:MRES:OUT.DOL",16777215,1,"$(P)$(Q):M3:MRES:OUT.DOL")
+#! Link("$(P)$(Q):M3:MRES:OUT.DOL","$(P)$(Q):M3:MRES.VAL")
+#! Record("$(P)$(Q):M4:MRES:OUT",1480,3708,0,0,"$(P)$(Q):M4:MRES:OUT")
+#! Field("$(P)$(Q):M4:MRES:OUT.DOL",16777215,1,"$(P)$(Q):M4:MRES:OUT.DOL")
+#! Link("$(P)$(Q):M4:MRES:OUT.DOL","$(P)$(Q):M4:MRES.VAL")
 #! Record("$(P)$(Q):NOMOTOR:OFF",380,3750,0,0,"$(P)$(Q):NOMOTOR:OFF")
-#! Record("$(P)$(Q):M1:OFF",500,3082,0,1,"$(P)$(Q):M1:OFF")
+#! Record("$(P)$(Q):M1:OFF",500,3088,0,1,"$(P)$(Q):M1:OFF")
 #! Field("$(P)$(Q):M1:OFF.DOL",16777215,1,"$(P)$(Q):M1:OFF.DOL")
 #! Field("$(P)$(Q):M1:OFF.VAL",16777215,0,"$(P)$(Q):M1:OFF.VAL")
-#! Record("$(P)$(Q):M2:OFF",480,3242,0,1,"$(P)$(Q):M2:OFF")
+#! Record("$(P)$(Q):M2:OFF",480,3248,0,1,"$(P)$(Q):M2:OFF")
 #! Field("$(P)$(Q):M2:OFF.DOL",16777215,1,"$(P)$(Q):M2:OFF.DOL")
 #! Field("$(P)$(Q):M2:OFF.VAL",16777215,0,"$(P)$(Q):M2:OFF.VAL")
-#! Record("$(P)$(Q):M3:OFF",460,3402,0,1,"$(P)$(Q):M3:OFF")
+#! Record("$(P)$(Q):M3:OFF",460,3408,0,1,"$(P)$(Q):M3:OFF")
 #! Field("$(P)$(Q):M3:OFF.DOL",16777215,1,"$(P)$(Q):M3:OFF.DOL")
 #! Field("$(P)$(Q):M3:OFF.VAL",16777215,0,"$(P)$(Q):M3:OFF.VAL")
-#! Record("$(P)$(Q):M4:OFF",440,3562,0,1,"$(P)$(Q):M4:OFF")
+#! Record("$(P)$(Q):M4:OFF",440,3568,0,1,"$(P)$(Q):M4:OFF")
 #! Field("$(P)$(Q):M4:OFF.DOL",16777215,1,"$(P)$(Q):M4:OFF.DOL")
 #! Field("$(P)$(Q):M4:OFF.VAL",16777215,0,"$(P)$(Q):M4:OFF.VAL")
 #! Record("$(P)$(Q):MOTOR:MRES",2060,2986,0,0,"$(P)$(Q):MOTOR:MRES")

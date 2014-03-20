@@ -89,7 +89,7 @@ protected:
 	asynStatus sendGetReg(const reg *r);
 	asynStatus receiveGetReg(const reg *r, int *value);
 	asynStatus getReg(const reg *r, int *value);
-	asynStatus storeFlash();
+	asynStatus flashCmd(const char *cmd);
 	asynStatus configRead(const char* str);
 	asynStatus configWrite(const char* str);
 	asynStatus callbackWaveforms();
@@ -104,6 +104,7 @@ protected:
 	int zebraSysBus1;            // string read - system bus key first half
 	int zebraSysBus2;            // string read - system bus key second half
 	int zebraStore;              // int32 write - store config to flash
+	int zebraRestore;              // int32 write - restore config from flash	
 	int zebraConfigFile;         // charArray write - filename to read/write config to
 	int zebraConfigRead;         // int32 write - read config from filename
 	int zebraConfigWrite;        // int32 write - write config to filename
@@ -215,6 +216,7 @@ zebra::zebra(const char* portName, const char* serialPortName, int maxPts) :
 
 	/* a parameter for a store to flash request */
 	createParam("STORE", asynParamInt32, &zebraStore);
+	createParam("RESTORE", asynParamInt32, &zebraRestore);	
 
 	/* parameters for filename reading/writing config */
 	createParam("CONFIG_FILE", asynParamOctet, &zebraConfigFile);
@@ -819,18 +821,19 @@ asynStatus zebra::setReg(const reg *r, int value) {
 
 /* This function stores to flash
  called with the lock taken */
-asynStatus zebra::storeFlash() {
-	//const char *functionName = "storeFlash";
+asynStatus zebra::flashCmd(const char * cmd) {
 	asynStatus status = asynSuccess;
 	// Create the transmit buffer
 	char txBuffer[NBUFF];
 	int txSize;
 	// Send a write
-	txSize = epicsSnprintf(txBuffer, NBUFF, "S");
+	txSize = epicsSnprintf(txBuffer, NBUFF, cmd);
 	status = this->send(txBuffer, txSize);
 	// If we could write then get the result
-	if (status == asynSuccess)
-		status = this->receive("SOK", NULL, NULL);
+	if (status == asynSuccess) {
+	    txSize = epicsSnprintf(txBuffer, NBUFF, "%sOK", cmd);	
+		status = this->receive(txBuffer, NULL, NULL);
+    }
 	return status;
 }
 
@@ -977,7 +980,9 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value) {
 			this->callbackWaveforms();
 		}
 	} else if (param == zebraStore) {
-		status = this->storeFlash();
+		status = this->flashCmd("S");
+	} else if (param == zebraRestore) {
+		status = this->flashCmd("L");		
 	} else if (param == zebraConfigRead || param == zebraConfigWrite) {
 		char fileName[NBUFF];
 		getStringParam(zebraConfigFile, NBUFF, fileName);
