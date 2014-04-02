@@ -7,7 +7,7 @@ record(calcout, "$(P)$(Q):PC_DIV$(DIV)_DIFF") {
   field(INPA, "$(P)$(Q):PC_DIV$(DIV)_LAST CP")
   field(INPB, "$(P)$(Q):PC_DIV$(DIV)_DIFF.OVAL")
   field(INPC, "$(P)$(Q):DIV$(DIV)_DIV")  
-  field(INPD, "4294967296")
+  field(INPD, "2147483648")
   field(CALC, "A<B?C<1?A+D-B:A+C-B:A-B")
   field(OCAL, "A")
   field(DOPT, "Use OCAL")  
