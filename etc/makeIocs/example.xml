@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<components arch="linux-x86">
+<components arch="linux-x86_64">
 	<tpmac.pmacAsynIPPort IP="172.23.253.11" name="BRICK1port" simulation="172.23.253.11"/>
 	<!--<pmacUtil.autohome GRP1="All" GRP2="theta" P="TESTZEBRA" PLC="11" PORT="BRICK1port" name="THETA"/>-->
 	<tpmac.GeoBrick NAxes="16" Port="BRICK1port" name="BRICK1"/>

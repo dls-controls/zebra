@@ -9,7 +9,7 @@ XMLBUILDER := dls-xml-iocbuilder.py
 #XMLBUILDER := /dls_sw/work/common/python/iocbuilder/xmlbuilder/xmlbuilder.py
 
 # set to -d to get debugging
-DEBUG :=
+DEBUG := -b
 
 # Add the created iocs and sims to the install target
 TARGETS += $(patsubst %, ../../makeIocs/O.Common/%, $(IOCS)) $(IOC_DIRS)
@@ -40,6 +40,24 @@ include $(TOP)/configure/RULES
 	$(RMDIR) ../O.Common/tmp $@
 	./$< $(DEBUG) --sim=linux-x86 -e -o ../O.Common/tmp $*
 	$(MV) ../O.Common/tmp/$(*F)_sim $@
+
+# Install static ioc from O.Common
+STATIC_IOCS = test
+STATIC_DIRS = $(patsubst %, $(TOP)/iocs/%, $(STATIC_IOCS))
+$(STATIC_DIRS): $(TOP)/iocs/%: ../../makeIocs/O.Common/%
+	$(RMDIR) $@
+	$(CP) -rf $< $@
+	sed -e "s/test_expanded.db'/test_expanded.db' \"ZEBRAPREFIX=\$$(ZEBRAPREFIX)\"/" \
+	    -e "s/cd \"\$$(TOP)\"//" \
+	    -e "5a cd ../.." \
+	    -i $@/iocBoot/ioc$(*F)/st$(*F).cmd
+	echo "STATIC_BUILD=YES" >> $@/configure/CONFIG_SITE
+	sed -e "15a export ZEBRAPREFIX=TESTZEBRA" \
+	    -e "16a export LD_LIBRARY_PATH=../../../libs" \
+        -i $@/iocBoot/ioc$(*F)/st$(*F).sh
+	sed -e "s/\$$(ZEBRAPREFIX)/TESTZEBRA/" \
+        -e "s/testTop.edl/-m 'ZEBRAPREFIX=TESTZEBRA' testTop.edl/" \
+        -i $@/$(*F)App/opi/edl/st$(*F)-gui
 
 # Install ioc from O.Common
 $(TOP)/iocs/%: ../../makeIocs/O.Common/%
