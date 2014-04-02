@@ -494,7 +494,13 @@ void zebra::interruptTask() {
 						if (sscanf(ptr, "%08X%n", &ivalue, &incr) == 1) {
 							getDoubleParam(zebraScale[a], &scale);
 							getDoubleParam(zebraOff[a], &off);
-							dvalue = ivalue * scale + off;
+							if (a >= 4) {
+							    // system bus and dividers are unsigned 32-bit numbers
+							    dvalue = ((unsigned int) ivalue) * scale + off;
+							} else {
+							    // encoders are signed 32-bit numbers
+    							dvalue = ivalue * scale + off;
+    						}
 							ptr += incr;
 						} else {
 							epicsStrnEscapedFromRaw(escapedbuff, NBUFF, rxBuffer,
@@ -536,6 +542,10 @@ void zebra::interruptTask() {
 		double timeToSleep = 0.1 - epicsTimeDiffInSeconds(&end, &start);
 		if (timeToSleep > 0) {
 			epicsThreadSleep(timeToSleep);
+		} else {
+			// Got to sleep for a bit in case something else is waiting for the lock
+			epicsThreadSleep(0.01);
+			//printf("Not enough time to poll properly %f\n", timeToSleep);
 		}
 	}
 }
@@ -1043,7 +1053,7 @@ asynStatus zebra::callbackWaveforms() {
 				sel -= 32;
 			}
 			for (int i = 0; i < this->maxPts; i++) {
-				this->filtArrays[a][i] = (((int)(src[i]+0.5)) >> sel) & 1;
+				this->filtArrays[a][i] = (((unsigned int)(src[i]+0.5)) >> sel) & 1;				   
 			}
 			doCallbacksInt8Array(this->filtArrays[a], this->currPt,
 					zebraFiltArrays[a], 0);
