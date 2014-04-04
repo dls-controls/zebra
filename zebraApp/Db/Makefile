@@ -11,8 +11,9 @@ include $(TOP)/configure/CONFIG
 # In a Diamond Support Module, install
 # templates like this
 #
-DB += zebra.template
 DB += zebraLastDivDiff.template
+# Add zebra.template from .. so that external releases do not rely on vdct
+DB += ../zebra.template
 
 #----------------------------------------------------
 # In a Diamond IOC Application, build db files from
@@ -27,3 +28,8 @@ DB += zebraLastDivDiff.template
 include $(TOP)/configure/RULES
 #----------------------------------------
 #  ADD RULES AFTER THIS LINE
+
+../zebra.template: ../zebra.vdb
+	$(RM) $@
+	$(MAKE) install
+

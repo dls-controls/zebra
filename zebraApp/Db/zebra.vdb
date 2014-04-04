@@ -3,7 +3,15 @@
 #! DBD("../../dbd/zebra_vdct.dbd")
 #! DBDEND
 
-
+################################################################################
+#
+# README: IMPORTANT
+#
+# Are you a DLS person modifying this?
+# If so, please make sure you modify the .vdb version of this file, not the
+# .template. Make will then use vdct to regenerate the .template
+# The .template file is here so it can be shipped externally
+################################################################################
 # % macro, P, Device prefix
 # % macro, Q, Device suffix
 # % macro, PORT, Asyn port and object name
