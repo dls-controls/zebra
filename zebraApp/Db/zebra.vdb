@@ -3,6 +3,7 @@
 #! DBD("../../dbd/zebra_vdct.dbd")
 #! DBDEND
 
+
 ################################################################################
 #
 # README: IMPORTANT
@@ -815,31 +816,35 @@ record(ai, "$(P)$(Q):NOMOTOR:SCALE") {
 }
 
 record(calcout, "$(P)$(Q):M1:MRES") {
-  field(CALC, "B?-A*C*(0$(M1DIR=+)1):A*C*(0$(M1DIR=+)1)")
+  field(CALC, "B?-A*(C>0?C:1)*(0$(M1DIR=+)1):A*(C>0?C:1)*(0$(M1DIR=+)1)")
   field(INPA, "$(M1=$(P)$(Q):NOMOTOR).MRES CP")
   field(INPB, "$(M1=$(P)$(Q):NOMOTOR).DIR CP")
   field(INPC, "$(M1=$(P)$(Q):NOMOTOR):SCALE CP")
+  field(PREC, "4")
 }
 
 record(calcout, "$(P)$(Q):M2:MRES") {
-  field(CALC, "B?-A*C*(0$(M2DIR=+)1):A*C*(0$(M2DIR=+)1)")
+  field(CALC, "B?-A*(C>0?C:1)*(0$(M2DIR=+)1):A*(C>0?C:1)*(0$(M2DIR=+)1)")
   field(INPA, "$(M2=$(P)$(Q):NOMOTOR).MRES CP")
   field(INPB, "$(M2=$(P)$(Q):NOMOTOR).DIR CP")
   field(INPC, "$(M2=$(P)$(Q):NOMOTOR):SCALE CP")
+  field(PREC, "4")
 }
 
 record(calcout, "$(P)$(Q):M3:MRES") {
-  field(CALC, "B?-A*C*(0$(M3DIR=+)1):A*C*(0$(M3DIR=+)1)")
+  field(CALC, "B?-A*(C>0?C:1)*(0$(M3DIR=+)1):A*(C>0?C:1)*(0$(M3DIR=+)1)")
   field(INPA, "$(M3=$(P)$(Q):NOMOTOR).MRES CP")
   field(INPB, "$(M3=$(P)$(Q):NOMOTOR).DIR CP")
   field(INPC, "$(M3=$(P)$(Q):NOMOTOR):SCALE CP")
+  field(PREC, "4")
 }
 
 record(calcout, "$(P)$(Q):M4:MRES") {
-  field(CALC, "B?-A*C*(0$(M4DIR=+)1):A*C*(0$(M4DIR=+)1)")
+  field(CALC, "B?-A*(C>0?C:1)*(0$(M4DIR=+)1):A*(C>0?C:1)*(0$(M4DIR=+)1)")
   field(INPA, "$(M4=$(P)$(Q):NOMOTOR).MRES CP")
   field(INPB, "$(M4=$(P)$(Q):NOMOTOR).DIR CP")
   field(INPC, "$(M4=$(P)$(Q):NOMOTOR):SCALE CP")
+  field(PREC, "4")
 }
 
 record(ao, "$(P)$(Q):M1:MRES:OUT") {
@@ -874,29 +879,53 @@ record(ao, "$(P)$(Q):NOMOTOR:OFF") {
   field(VAL, "0")
 }
 
-record(ao, "$(P)$(Q):M1:OFF") {
-  field(DOL, "$(M1=$(P)$(Q):NOMOTOR).OFF CP")
+record(calcout, "$(P)$(Q):M1:OFF") {
+  field(CALC, "A")
+  field(INPA, "$(M1=$(P)$(Q):NOMOTOR).OFF CP")
+  field(PREC, "4")
+}
+
+record(calcout, "$(P)$(Q):M2:OFF") {
+  field(CALC, "A")
+  field(INPA, "$(M2=$(P)$(Q):NOMOTOR).OFF CP")
+  field(PREC, "4")
+}
+
+record(calcout, "$(P)$(Q):M3:OFF") {
+  field(CALC, "A")
+  field(INPA, "$(M3=$(P)$(Q):NOMOTOR).OFF CP")
+  field(PREC, "4")
+}
+
+record(calcout, "$(P)$(Q):M4:OFF") {
+  field(CALC, "A")
+  field(INPA, "$(M4=$(P)$(Q):NOMOTOR).OFF CP")
+  field(PREC, "4")
+}
+
+record(ao, "$(P)$(Q):M1:OFF:OUT") {
+  field(DOL, "$(P)$(Q):M1:OFF CP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0) M1_OFF")
   field(OMSL, "closed_loop")
 }
 
-record(ao, "$(P)$(Q):M2:OFF") {
-  field(DOL, "$(M2=$(P)$(Q):NOMOTOR).OFF CP")
+record(ao, "$(P)$(Q):M2:OFF:OUT") {
+  field(DOL, "$(P)$(Q):M2:OFF CP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0) M1_OFF")
   field(OMSL, "closed_loop")
 }
 
-record(ao, "$(P)$(Q):M3:OFF") {
-  field(DOL, "$(M3=$(P)$(Q):NOMOTOR).OFF CP")
+record(ao, "$(P)$(Q):M3:OFF:OUT") {
+  field(DOL, "$(P)$(Q):M3:OFF CP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0) M1_OFF")
   field(OMSL, "closed_loop")
 }
 
-record(ao, "$(P)$(Q):M4:OFF") {
-  field(DOL, "$(M4=$(P)$(Q):NOMOTOR).OFF CP")
+record(ao, "$(P)$(Q):M4:OFF:OUT") {
+  field(DOL, "$(P)$(Q):M4:OFF CP")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0) M1_OFF")
   field(OMSL, "closed_loop")
@@ -1246,30 +1275,22 @@ record(waveform, "$(P)$(Q):PC_TIME") {
   field(SCAN, "I/O Intr")
 }
 
-#record(waveform, "$(P)$(Q):PC_SYS1") {
-#  field(DTYP, "asynFloat64ArrayIn")
-#  field(INP, "@asyn($(PORT),0)PC_CAP5")
-#  field(NELM, "$(NELM=100000)")
-#  field(FTVL, "ULONG")
-#  field(SCAN, "I/O Intr")
-#}
-#record(ai, "$(P)$(Q):PC_SYS1_LAST") {
-#  field(DTYP, "asynFloat64")
-#  field(INP, "@asyn($(PORT),0) PC_CAP5_LAST")
-#  field(SCAN, "I/O Intr")
-#}
-#record(waveform, "$(P)$(Q):PC_SYS2") {
-#  field(DTYP, "asynFloat64ArrayIn")
-#  field(INP, "@asyn($(PORT),0)PC_CAP6")
-#  field(NELM, "$(NELM=100000)")
-#  field(FTVL, "ULONG")
-#  field(SCAN, "I/O Intr")
-#}
-#record(ai, "$(P)$(Q):PC_SYS2_LAST") {
-#  field(DTYP, "asynFloat64")
-#  field(INP, "@asyn($(PORT),0) PC_CAP6_LAST")
-#  field(SCAN, "I/O Intr")
-#}
+record(waveform, "$(P)$(Q):PC_SYS1") {
+  field(DTYP, "asynFloat64ArrayIn")
+  field(INP, "@asyn($(PORT),0)PC_CAP5")
+  field(NELM, "$(NELM=100000)")
+  field(FTVL, "DOUBLE")
+  field(SCAN, "I/O Intr")
+}
+
+record(waveform, "$(P)$(Q):PC_SYS2") {
+  field(DTYP, "asynFloat64ArrayIn")
+  field(INP, "@asyn($(PORT),0)PC_CAP6")
+  field(NELM, "$(NELM=100000)")
+  field(FTVL, "DOUBLE")
+  field(SCAN, "I/O Intr")
+}
+
 record(waveform, "$(P)$(Q):PC_DIV1") {
   field(DTYP, "asynFloat64ArrayIn")
   field(INP, "@asyn($(PORT),0)PC_CAP7")
@@ -1616,9 +1637,10 @@ record(calcout, "$(P)$(Q):PC_PULSE:VALID") {
 }
 
 #! Further lines contain data used by VisualDCT
-#! View(2306,3582,1.0)
+#! View(0,2900,1.0)
 #! Record("$(P)$(Q):CONNECTED",4720,2646,0,0,"$(P)$(Q):CONNECTED")
-#! Record("$(P)$(Q):STORE",3860,2802,0,0,"$(P)$(Q):STORE")
+#! Record("$(P)$(Q):STORE",3860,2682,0,0,"$(P)$(Q):STORE")
+#! Record("$(P)$(Q):RESTORE",3860,2802,0,0,"$(P)$(Q):RESTORE")
 #! Record("$(P)$(Q):CONFIG_WRITE",3860,3042,0,0,"$(P)$(Q):CONFIG_WRITE")
 #! Record("$(P)$(Q):CONFIG_READ",3860,2922,0,0,"$(P)$(Q):CONFIG_READ")
 #! Record("$(P)$(Q):CONFIG_FILE",3860,3160,0,0,"$(P)$(Q):CONFIG_FILE")
@@ -2183,26 +2205,27 @@ record(calcout, "$(P)$(Q):PC_PULSE:VALID") {
 #! Record("$(P)$(Q):NOMOTOR",1140,2502,0,0,"$(P)$(Q):NOMOTOR")
 #! Record("$(P)$(Q):NOMOTOR:MRES",1740,3930,0,0,"$(P)$(Q):NOMOTOR:MRES")
 #! Record("$(P)$(Q):NOMOTOR:SCALE",1140,2610,0,0,"$(P)$(Q):NOMOTOR:SCALE")
-#! Record("$(P)$(Q):M1:MRES",1680,3048,0,1,"$(P)$(Q):M1:MRES")
+#! Record("$(P)$(Q):M1:MRES",1680,3054,0,1,"$(P)$(Q):M1:MRES")
 #! Field("$(P)$(Q):M1:MRES.VAL",16777215,1,"$(P)$(Q):M1:MRES.VAL")
 #! Field("$(P)$(Q):M1:MRES.INPA",16777215,1,"$(P)$(Q):M1:MRES.INPA")
 #! Field("$(P)$(Q):M1:MRES.INPB",16777215,1,"$(P)$(Q):M1:MRES.INPB")
 #! Field("$(P)$(Q):M1:MRES.INPC",16777215,1,"$(P)$(Q):M1:MRES.INPC")
-#! Record("$(P)$(Q):M2:MRES",1680,3268,0,1,"$(P)$(Q):M2:MRES")
+#! Record("$(P)$(Q):M2:MRES",1680,3274,0,1,"$(P)$(Q):M2:MRES")
 #! Field("$(P)$(Q):M2:MRES.VAL",16777215,1,"$(P)$(Q):M2:MRES.VAL")
 #! Field("$(P)$(Q):M2:MRES.INPA",16777215,1,"$(P)$(Q):M2:MRES.INPA")
 #! Field("$(P)$(Q):M2:MRES.INPB",16777215,1,"$(P)$(Q):M2:MRES.INPB")
 #! Field("$(P)$(Q):M2:MRES.INPC",16777215,1,"$(P)$(Q):M2:MRES.INPC")
-#! Record("$(P)$(Q):M3:MRES",1700,3488,0,1,"$(P)$(Q):M3:MRES")
+#! Record("$(P)$(Q):M3:MRES",1700,3494,0,1,"$(P)$(Q):M3:MRES")
 #! Field("$(P)$(Q):M3:MRES.VAL",16777215,1,"$(P)$(Q):M3:MRES.VAL")
 #! Field("$(P)$(Q):M3:MRES.INPA",16777215,1,"$(P)$(Q):M3:MRES.INPA")
 #! Field("$(P)$(Q):M3:MRES.INPB",16777215,1,"$(P)$(Q):M3:MRES.INPB")
 #! Field("$(P)$(Q):M3:MRES.INPC",16777215,1,"$(P)$(Q):M3:MRES.INPC")
-#! Record("$(P)$(Q):M4:MRES",1720,3708,0,1,"$(P)$(Q):M4:MRES")
+#! Record("$(P)$(Q):M4:MRES",1720,3714,0,1,"$(P)$(Q):M4:MRES")
 #! Field("$(P)$(Q):M4:MRES.VAL",16777215,1,"$(P)$(Q):M4:MRES.VAL")
 #! Field("$(P)$(Q):M4:MRES.INPA",16777215,1,"$(P)$(Q):M4:MRES.INPA")
 #! Field("$(P)$(Q):M4:MRES.INPB",16777215,1,"$(P)$(Q):M4:MRES.INPB")
 #! Field("$(P)$(Q):M4:MRES.INPC",16777215,1,"$(P)$(Q):M4:MRES.INPC")
+#! Visibility("$(P)$(Q):M4:MRES.CALC",1)
 #! Record("$(P)$(Q):M1:MRES:OUT",1420,3048,0,0,"$(P)$(Q):M1:MRES:OUT")
 #! Field("$(P)$(Q):M1:MRES:OUT.DOL",16777215,1,"$(P)$(Q):M1:MRES:OUT.DOL")
 #! Link("$(P)$(Q):M1:MRES:OUT.DOL","$(P)$(Q):M1:MRES.VAL")
@@ -2216,18 +2239,30 @@ record(calcout, "$(P)$(Q):PC_PULSE:VALID") {
 #! Field("$(P)$(Q):M4:MRES:OUT.DOL",16777215,1,"$(P)$(Q):M4:MRES:OUT.DOL")
 #! Link("$(P)$(Q):M4:MRES:OUT.DOL","$(P)$(Q):M4:MRES.VAL")
 #! Record("$(P)$(Q):NOMOTOR:OFF",380,3750,0,0,"$(P)$(Q):NOMOTOR:OFF")
-#! Record("$(P)$(Q):M1:OFF",500,3088,0,1,"$(P)$(Q):M1:OFF")
-#! Field("$(P)$(Q):M1:OFF.DOL",16777215,1,"$(P)$(Q):M1:OFF.DOL")
-#! Field("$(P)$(Q):M1:OFF.VAL",16777215,0,"$(P)$(Q):M1:OFF.VAL")
-#! Record("$(P)$(Q):M2:OFF",480,3248,0,1,"$(P)$(Q):M2:OFF")
-#! Field("$(P)$(Q):M2:OFF.DOL",16777215,1,"$(P)$(Q):M2:OFF.DOL")
-#! Field("$(P)$(Q):M2:OFF.VAL",16777215,0,"$(P)$(Q):M2:OFF.VAL")
-#! Record("$(P)$(Q):M3:OFF",460,3408,0,1,"$(P)$(Q):M3:OFF")
-#! Field("$(P)$(Q):M3:OFF.DOL",16777215,1,"$(P)$(Q):M3:OFF.DOL")
-#! Field("$(P)$(Q):M3:OFF.VAL",16777215,0,"$(P)$(Q):M3:OFF.VAL")
-#! Record("$(P)$(Q):M4:OFF",440,3568,0,1,"$(P)$(Q):M4:OFF")
-#! Field("$(P)$(Q):M4:OFF.DOL",16777215,1,"$(P)$(Q):M4:OFF.DOL")
-#! Field("$(P)$(Q):M4:OFF.VAL",16777215,0,"$(P)$(Q):M4:OFF.VAL")
+#! Record("$(P)$(Q):M1:OFF",500,3082,0,1,"$(P)$(Q):M1:OFF")
+#! Field("$(P)$(Q):M1:OFF.VAL",16777215,1,"$(P)$(Q):M1:OFF.VAL")
+#! Field("$(P)$(Q):M1:OFF.INPA",16777215,1,"$(P)$(Q):M1:OFF.INPA")
+#! Record("$(P)$(Q):M2:OFF",480,3242,0,1,"$(P)$(Q):M2:OFF")
+#! Field("$(P)$(Q):M2:OFF.VAL",16777215,1,"$(P)$(Q):M2:OFF.VAL")
+#! Field("$(P)$(Q):M2:OFF.INPA",16777215,1,"$(P)$(Q):M2:OFF.INPA")
+#! Record("$(P)$(Q):M3:OFF",460,3402,0,1,"$(P)$(Q):M3:OFF")
+#! Field("$(P)$(Q):M3:OFF.VAL",16777215,1,"$(P)$(Q):M3:OFF.VAL")
+#! Field("$(P)$(Q):M3:OFF.INPA",16777215,1,"$(P)$(Q):M3:OFF.INPA")
+#! Record("$(P)$(Q):M4:OFF",440,3562,0,1,"$(P)$(Q):M4:OFF")
+#! Field("$(P)$(Q):M4:OFF.VAL",16777215,1,"$(P)$(Q):M4:OFF.VAL")
+#! Field("$(P)$(Q):M4:OFF.INPA",16777215,1,"$(P)$(Q):M4:OFF.INPA")
+#! Record("$(P)$(Q):M1:OFF:OUT",760,3068,0,0,"$(P)$(Q):M1:OFF:OUT")
+#! Field("$(P)$(Q):M1:OFF:OUT.DOL",16777215,0,"$(P)$(Q):M1:OFF:OUT.DOL")
+#! Link("$(P)$(Q):M1:OFF:OUT.DOL","$(P)$(Q):M1:OFF.VAL")
+#! Record("$(P)$(Q):M2:OFF:OUT",740,3228,0,0,"$(P)$(Q):M2:OFF:OUT")
+#! Field("$(P)$(Q):M2:OFF:OUT.DOL",16777215,0,"$(P)$(Q):M2:OFF:OUT.DOL")
+#! Link("$(P)$(Q):M2:OFF:OUT.DOL","$(P)$(Q):M2:OFF.VAL")
+#! Record("$(P)$(Q):M3:OFF:OUT",720,3388,0,0,"$(P)$(Q):M3:OFF:OUT")
+#! Field("$(P)$(Q):M3:OFF:OUT.DOL",16777215,0,"$(P)$(Q):M3:OFF:OUT.DOL")
+#! Link("$(P)$(Q):M3:OFF:OUT.DOL","$(P)$(Q):M3:OFF.VAL")
+#! Record("$(P)$(Q):M4:OFF:OUT",700,3548,0,0,"$(P)$(Q):M4:OFF:OUT")
+#! Field("$(P)$(Q):M4:OFF:OUT.DOL",16777215,0,"$(P)$(Q):M4:OFF:OUT.DOL")
+#! Link("$(P)$(Q):M4:OFF:OUT.DOL","$(P)$(Q):M4:OFF.VAL")
 #! Record("$(P)$(Q):MOTOR:MRES",2060,2986,0,0,"$(P)$(Q):MOTOR:MRES")
 #! Field("$(P)$(Q):MOTOR:MRES.VAL",16777215,1,"$(P)$(Q):MOTOR:MRES.VAL")
 #! Field("$(P)$(Q):MOTOR:MRES.INPA",16777215,0,"$(P)$(Q):MOTOR:MRES.INPA")
@@ -2498,6 +2533,8 @@ record(calcout, "$(P)$(Q):PC_PULSE:VALID") {
 #! TemplateField("PC_ENC","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):PC_TIME",380,4734,0,0,"$(P)$(Q):PC_TIME")
+#! Record("$(P)$(Q):PC_SYS1",720,4394,0,0,"$(P)$(Q):PC_SYS1")
+#! Record("$(P)$(Q):PC_SYS2",700,4694,0,0,"$(P)$(Q):PC_SYS2")
 #! Record("$(P)$(Q):PC_DIV1",1120,4294,0,0,"$(P)$(Q):PC_DIV1")
 #! Record("$(P)$(Q):PC_DIV1_LAST",960,4308,0,0,"$(P)$(Q):PC_DIV1_LAST")
 #! Record("$(P)$(Q):PC_DIV2",1120,4454,0,0,"$(P)$(Q):PC_DIV2")
