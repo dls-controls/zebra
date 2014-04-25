@@ -11,6 +11,8 @@ PREFIX="${1:-TESTZEBRA}"
     exit 1
 }
 [ -w /dev/ttyUSB0 ] || sudo chmod a+rw /dev/ttyUSB0
+# Max sure we have enough space to store 100000 doubles
+export EPICS_CA_MAX_ARRAY_BYTES=801000
 # Start the IOC
 gnome-terminal -e "${HERE}/iocs/test/bin/linux-x86_64/sttest.sh ${PREFIX}" &
 # Start the Gui
