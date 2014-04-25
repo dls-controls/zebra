@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 836
-y 208
+x 843
+y 520
 w 940
 h 610
 font "helvetica-medium-r-14.0"
@@ -791,6 +791,31 @@ bgColor index 3
 useDisplayBg
 value {
   "Error state"
+}
+endObjectProperties
+
+# (Shell Command)
+object shellCmdClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 235
+y 580
+w 55
+h 25
+fgColor index 43
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "helvetica-bold-r-14.0"
+buttonLabel "Help"
+numCmds 1
+commandLabel {
+  0 "Help"
+}
+command {
+  0 "evince $(which zebra.edl | sed \"s|data/zebra.edl|documentation/TDI-CTRL-TNO-042-Zebra-Manual.pdf\") &"
 }
 endObjectProperties
 
