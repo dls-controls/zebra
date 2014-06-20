@@ -2,7 +2,7 @@
 from pkg_resources import require
 require("pyserial")
 from serial import Serial
-import os, re, time
+import os, re
 from ConfigParser import ConfigParser
 
 class zebraRegs:
@@ -107,170 +107,97 @@ class zebraRegs:
     def bus_name(self, index):
         return self.bus_lookup[index]
 
-class zebraConnection:
+class zebraTool:
     # The serial port object
     port = None
     
-    def __init__(self, portstr):
+    def __init__(self, portstr="/dev/ttyS0"):
         self.port = Serial(portstr, 115200, timeout=10)
         self.regs = zebraRegs()
-        
+    
+    def getExpected(self, expected):
+        response = self.port.readline().rstrip("\n")
+        assert response, "Zebra timed out when expecting '%s'" % expected
+        assert response.startswith(expected), "Zebra response '%s' should start with '%s'" %(response, expected)            
+        return response
+    
     def readReg(self, reg):
         """Takes reg and reads its values from zebra"""
         if reg.upper() in self.regs.names():
             reg = self.regs.reg(reg.upper())
         cmd = "R%02X" % reg
-        self.port.write("%s\n" % cmd)
-        response = self.port.readline()
-        assert response, "Zebra timed out when reading register %02X" % reg
-        assert response.startswith(cmd), "Zebra response '%s' should start with '%s'" %(response.rstrip("\n"), cmd)
+        self.port.write("%s\n" % cmd)        
+        response = self.getExpected(cmd)
         out = int(response[len(cmd):], 16)
         if self.regs.type(reg) == "regMux":
             return self.regs.bus_name(out)
         return out
         
-    def writeReg(self, reg, value):
+    def writeReg(self, reg, value, writecmd = True):
         """Takes reg in hex and writes its value to zebra"""
         if reg.upper() in self.regs.names():
             reg = self.regs.reg(reg.upper())        
-        if self.regs.type(reg) not in ("regMux", "regRW"):
+        if not writecmd and self.regs.type(reg) not in ("regMux", "regRW"):
             return
         if self.regs.type(reg) == "regMux" and type(value) == str:
             value = self.regs.bus_index(value)
-        expected = "W%02XOK" % reg
         self.port.write("W%02X%04X\n" % (reg, value))
-        response = self.port.readline().rstrip("\n")
-        assert response, "Zebra timed out when writing register %02X" % reg
-        assert response == expected, "Zebra response '%s' should be '%s'" %(response, expected)
+        self.getExpected("W%02XOK" % reg)
 
     def systemBus(self):
+        """A list of strings that represent items on the system bus"""
         return self.regs.bus_lookup
 
     def getStatus(self, name):
+        """Get the status of a named element on the system bus"""
         i = self.regs.bus_index(name)
         stat_reg = "SYS_STAT" + (["1LO", "1HI", "2LO", "2HI"][i / 16])
         stat_off = i % 16
         return self.readReg(stat_reg) >> stat_off & 1          
 
     def writeCommand(self, cmd):
+        """Write a command to zebra and return the result"""
         self.port.write("%s\n" % cmd)
-        expected = "%sOK" % cmd
-        response = self.port.readline().rstrip("\n")
-        assert response == expected, "Zebra response '%s' should be '%s'" %(response, expected)      
-    
-class zebraTool:
-    def __init__(self, portstr):
-        self.zebra = zebraConnection("/dev/ttyS0")
+        self.getExpected("%sOK" % cmd)        
         
     def uploadFile(self, fname):
+        """Upload an ini file to a zebra"""
         assert os.path.isfile(fname), "File %s does not exist" % fname
         parser = ConfigParser()
         parser.read(fname)
         assert parser.has_section("regs"), "Cannot find reg section in %s" % fname
         for reg, value in parser.items("regs"):
-            self.zebra.writeReg(reg, int(value))
-
-    def doTest(self, mismatch="BAD", match="OK", sleep=0.2):
-        errors = 0
-        version = self.zebra.readReg("SYS_VER")                    
-        assert version >= 0x20, "Can only firmware test zebras with 0x20 firmware or higher"
-
-        # first disconnect all the outputs
-        for name in self.zebra.regs.names():
-            if name.startswith("OUT"):
-                self.zebra.writeReg(name, "DISCONNECT")   
-        
-        # now do the front panel inputs
-        for i, signal in enumerate(self.zebra.systemBus()):
-            # test inputs against outputs in system bus
-            m = re.match(r"IN(\d)", signal)
-            if m and int(m.group(1)) < 5:
-                # find corresponding output
-                if signal == "IN4_CMP":
-                    out = "OUT4_NIM"
-                else:
-                    out = signal.replace("IN", "OUT")
-                print "%40s"%("Testing %s and %s..." % (signal, out)),
-                # set output to soft input
-                self.zebra.writeReg(out, "SOFT_IN1")
-                ret = match
-                for expected in (1, 0):
-                    # check if we get the input on the system bus                                    
-                    # special for PECL
-                    if signal == "IN4_PECL":
-                        # Latch the PECL inputs
-                        self.zebra.writeReg("GATE1_INP1", signal)
-                        # Reset on SOFT_IN2
-                        self.zebra.writeReg("GATE1_INP2", "SOFT_IN2")
-                        # Reset gate                        
-                        self.zebra.writeReg("SOFT_IN", 2)                        
-                        # Send pulse
-                        self.zebra.writeReg("SOFT_IN", expected)
-                        # Get pulse
-                        if (self.zebra.getStatus("GATE1") != expected):
-                            ret = mismatch                                            
-                    else:
-                        self.zebra.writeReg("SOFT_IN", expected)                    
-                        if (self.zebra.getStatus(signal) != expected):
-                            ret = mismatch
-                    # slow it down so we can see it
-                    time.sleep(sleep)    
-                self.zebra.writeReg(out, "DISCONNECT")
-                if ret == "BAD":        
-                    errors += 1
-                print ret
-
-        # now do the encoder inputs
-        for i in range(5,9):
-            # enable with soft in 2
-            self.zebra.writeReg("OUT%d_CONN" % i, "SOFT_IN2")
-            for suff in "ABZ":
-                signal = "IN%d_ENC%s" % (i, suff)
-                out = "OUT%d_ENC%s" % (i, suff)                
-                print "%40s"%("Testing %s and %s..." % (signal, out)),
-                self.zebra.writeReg(out, "SOFT_IN1")
-                ret = match
-                for conn in (1,0):
-                    for expected in (0,1):
-                        # bit mask, conn is soft2, input is soft1
-                        if conn == 0:
-                            expected = 1
-                        self.zebra.writeReg("SOFT_IN", 2*conn+expected)
-                        if (self.zebra.getStatus(signal) != expected):
-                            ret = mismatch  
-                    time.sleep(sleep) 
-                self.zebra.writeReg(out, "DISCONNECT")         
-                if ret == "BAD":        
-                    errors += 1                             
-                print ret
-            self.zebra.writeReg("OUT%d_CONN" % i, "DISCONNECT")
-        
-        return errors
-            
+            self.writeReg(reg, int(value), writecmd=False)
+           
     def save(self):
-        self.zebra.writeCommand("S")
+        """Save the state of the zebra to flash"""
+        self.writeCommand("S")
 
-def twoTests(tool):
-    print "Downloading defaults..."
-    tool.uploadFile(os.path.realpath(os.path.join(__file__, "..", "configs", "defaults.ini")))
-    tool.save()        
-    toterrors = 0
-    for test, mismatch, match in (("unplugged", "OK", "BAD"),
-                                  ("plugged in", "BAD", "OK")):  
-        raw_input("Ensure signal cables are %s and press return when ready." % test)
-        repeat = "y"
-        while repeat.lower() == "y":        
-            print "Doing hardware test with cables %s..." % test
-            errors = tool.doTest(mismatch=mismatch, match=match)
-            repeat = raw_input("Repeat 'cable %s' test? (y/n): " % test)
-        toterrors += errors
-    print "Test complete: %d Errors" % toterrors
+    def reset(self):
+        """Reset zebra"""
+        self.writeReg("SYS_RESET", 1)
     
-if __name__=="__main__":
-    repeat = "y"
-    while repeat.lower() == "y":         
-        twoTests(zebraTool("/dev/ttyS0") )
-        repeat = raw_input("Test another zebra? (y/n): ")   
-
-
-
+    def getEnc(self, enc):
+        """Uses position compare to get an encoder or div value"""
+        self.writeReg("PC_DISARM", 1)
+        self.writeReg("PC_BIT_CAP", 2 ** enc)
+        # time gate
+        self.writeReg("PC_GATE_SEL", 1)
+        self.writeReg("PC_GATE_STARTLO", 0)
+        self.writeReg("PC_GATE_STARTHI", 0)        
+        self.writeReg("PC_GATE_WIDLO", 1)
+        self.writeReg("PC_GATE_WIDHI", 0)                                                        
+        self.writeReg("PC_GATE_NGATELO", 1)
+        self.writeReg("PC_GATE_NGATEHI", 0)          
+        # time pulse
+        self.writeReg("PC_PULSE_SEL", 1)
+        self.writeReg("PC_PULSE_STARTLO", 0)
+        self.writeReg("PC_PULSE_STARTHI", 0)        
+        self.writeReg("PC_PULSE_DLYLO", 0)
+        self.writeReg("PC_PULSE_DLYHI", 0)                        
+        # start acq
+        self.writeReg("PC_ARM", 1)
+        self.getExpected("PR")  
+        P = self.getExpected("P")
+        self.getExpected("PX") 
+        return int(P[1:], 16) 
