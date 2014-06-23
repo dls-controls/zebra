@@ -289,15 +289,19 @@ class PULSE(Block):
 
 ###############################        
 
-if __name__ == '__main__':
+def main():
     suite = unittest.TestSuite()
     classes = []
     classes += make_classes(AND, range(1, 5))
     classes += make_classes(OR, range(1, 5))    
-    classes += make_classes(GATE, range(2, 5))        # GATE1 broken
+    classes += make_classes(GATE, range(1, 5))
     classes += make_classes(DIV, range(1, 5))
     classes += [QUAD]
-    classes += make_classes(PULSE, (1,2,4))           # PULSE3 broken
+    classes += make_classes(PULSE, range(1, 5))
     for cls in classes:
         suite.addTest(unittest.TestLoader().loadTestsFromTestCase(cls))        
-    unittest.TextTestRunner(verbosity=5, failfast=1).run(suite)
+    unittest.TextTestRunner(verbosity=5, failfast=0).run(suite)
+    
+if __name__ == '__main__':
+    main()
+

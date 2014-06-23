@@ -1,5 +1,6 @@
 #!/bin/env dls-python
 from zebraTool import zebraTool
+import zebraFirmwareTest
 import os, re, time
 
 def doHardwareTest(zebra, mismatch="BAD", match="OK", sleep=0.2):
@@ -87,17 +88,20 @@ def twoTests(zebra):
     toterrors = 0
     for test, mismatch, match in (("unplugged", "OK", "BAD"),
                                   ("plugged in", "BAD", "OK")):  
-        raw_input("Ensure signal cables are %s and press return when ready." % test)
+        raw_input("Ensure signal cables are %s and press return to run hardware tests." % test)
         repeat = "y"
         while repeat.lower() == "y":        
             print "Doing hardware test with cables %s..." % test
             errors = doHardwareTest(zebra, mismatch=mismatch, match=match)
             repeat = raw_input("Repeat 'cable %s' test? (y/n): " % test)
         toterrors += errors
-    print "Test complete: %d Errors" % toterrors
+    print "Hardware test complete: %d Errors" % toterrors
     
 if __name__=="__main__":
     repeat = "y"
-    while repeat.lower() == "y":         
+    while repeat.lower() == "y":
+        if raw_input("Would you like to test firmware? (y/n): ").lower() == "y":
+            print "Testing firmware..."         
+            zebraFirmwareTest.main()
         twoTests(zebraTool("/dev/ttyUSB0") )
         repeat = raw_input("Test another zebra? (y/n): ")   
