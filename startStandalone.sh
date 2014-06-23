@@ -3,7 +3,7 @@ HERE="$(dirname "$0")"
 # Take the PV prefix from the first argument from the script if supplied
 # This must be specified if there are more than one instances of the IOC on
 # the network
-# Default gives PVs that look like MYZEBRA:AND1_INV
+# Default gives PVs that look like TESTZEBRA:AND1_INV
 PREFIX="${1:-TESTZEBRA}"
 # By default /dev/ttyUSB0 is not readable or writeable, make it so
 [ -e /dev/ttyUSB0 ] || {
