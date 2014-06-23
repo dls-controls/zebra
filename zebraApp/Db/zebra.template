@@ -9381,21 +9381,21 @@ record(ao, "$(P)$(Q):M1:OFF:OUT") {
 record(ao, "$(P)$(Q):M2:OFF:OUT") {
   field(DOL, "$(P)$(Q):M2:OFF CP")
   field(DTYP, "asynFloat64")
-  field(OUT, "@asyn($(PORT),0) M1_OFF")
+  field(OUT, "@asyn($(PORT),0) M2_OFF")
   field(OMSL, "closed_loop")
 }
 
 record(ao, "$(P)$(Q):M3:OFF:OUT") {
   field(DOL, "$(P)$(Q):M3:OFF CP")
   field(DTYP, "asynFloat64")
-  field(OUT, "@asyn($(PORT),0) M1_OFF")
+  field(OUT, "@asyn($(PORT),0) M3_OFF")
   field(OMSL, "closed_loop")
 }
 
 record(ao, "$(P)$(Q):M4:OFF:OUT") {
   field(DOL, "$(P)$(Q):M4:OFF CP")
   field(DTYP, "asynFloat64")
-  field(OUT, "@asyn($(PORT),0) M1_OFF")
+  field(OUT, "@asyn($(PORT),0) M4_OFF")
   field(OMSL, "closed_loop")
 }
 
@@ -9405,7 +9405,7 @@ record(sel, "$(P)$(Q):MOTOR:MRES") {
   field(INPB, "$(P)$(Q):M2:MRES CP")
   field(INPC, "$(P)$(Q):M3:MRES CP")
   field(INPD, "$(P)$(Q):M4:MRES CP")
-  field(INPE, "$(P)$(Q):M1:MRES CP")
+  field(INPE, "$(P)$(Q):MAV:MRES.VAL CP")
   field(NVL, "$(P)$(Q):PC_ENC:RBV CP")
 }
 
@@ -9415,7 +9415,7 @@ record(sel, "$(P)$(Q):MOTOR:OFF") {
   field(INPB, "$(P)$(Q):M2:OFF CP")
   field(INPC, "$(P)$(Q):M3:OFF CP")
   field(INPD, "$(P)$(Q):M4:OFF CP")
-  field(INPE, "$(P)$(Q):M1:OFF CP")
+  field(INPE, "$(P)$(Q):MAV:OFF.VAL CP")
   field(NVL, "$(P)$(Q):PC_ENC:RBV CP")
 }
 
@@ -11438,7 +11438,7 @@ record(mbbi, "$(P)$(Q):PC_ENC:RBV") {
   field(TWVL, "2")
   field(THST, "Enc4")
   field(THVL, "3")
-  field(FRST, "EncSum")
+  field(FRST, "Enc1-4Av")
   field(FRVL, "4")
 }
 
@@ -11462,7 +11462,7 @@ record(mbbo, "$(P)$(Q):PC_ENC") {
   field(TWVL, "2")
   field(THST, "Enc4")
   field(THVL, "3")
-  field(FRST, "EncSum")
+  field(FRST, "Enc1-4Av")
   field(FRVL, "4")
 }
 
@@ -12629,4 +12629,22 @@ record(calcout, "$(P)$(Q):PC_PULSE:VALID") {
   field(INPA, "$(P)$(Q):PC_PULSE_STEP CP")
   field(INPB, "$(P)$(Q):PC_PULSE_WID CP")
   field(INPC, "$(P)$(Q):PC_PULSE_DLY CP")
+}
+
+record(calcout, "$(P)$(Q):MAV:OFF") {
+  field(CALC, "(A+B+C+D)/4")
+  field(INPA, "$(P)$(Q):M1:OFF CP")
+  field(PREC, "4")
+  field(INPB, "$(P)$(Q):M2:OFF CP")
+  field(INPC, "$(P)$(Q):M3:OFF CP")
+  field(INPD, "$(P)$(Q):M4:OFF CP")
+}
+
+record(calcout, "$(P)$(Q):MAV:MRES") {
+  field(CALC, "(A+B+C+D)/16")
+  field(INPA, "$(P)$(Q):M1:MRES CP")
+  field(PREC, "4")
+  field(INPB, "$(P)$(Q):M2:MRES CP")
+  field(INPC, "$(P)$(Q):M3:MRES CP")
+  field(INPD, "$(P)$(Q):M4:MRES CP")
 }
