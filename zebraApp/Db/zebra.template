@@ -12625,10 +12625,11 @@ record(calcout, "$(P)$(Q):PC_PULSE_STEP:DRVL") {
 }
 
 record(calcout, "$(P)$(Q):PC_PULSE:VALID") {
-  field(CALC, "A>MAX(B,C)+0.0001")
+  field(CALC, "D#1|(A>MAX(B,C)+0.0001)")
   field(INPA, "$(P)$(Q):PC_PULSE_STEP CP")
   field(INPB, "$(P)$(Q):PC_PULSE_WID CP")
   field(INPC, "$(P)$(Q):PC_PULSE_DLY CP")
+  field(INPD, "$(P)$(Q):PC_PULSE_SEL CP")
 }
 
 record(calcout, "$(P)$(Q):MAV:OFF") {
