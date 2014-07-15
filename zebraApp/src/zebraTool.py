@@ -110,9 +110,10 @@ class zebraRegs:
 class zebraTool:
     # The serial port object
     port = None
+    deftimeout = 10
     
     def __init__(self, portstr="/dev/ttyS0"):
-        self.port = Serial(portstr, 115200, timeout=10)
+        self.port = Serial(portstr, 115200, timeout=self.deftimeout)
         self.regs = zebraRegs()
     
     def getExpected(self, expected):
@@ -120,6 +121,13 @@ class zebraTool:
         assert response, "Zebra timed out when expecting '%s'" % expected
         assert response.startswith(expected), "Zebra response '%s' should start with '%s'" %(response, expected)            
         return response
+    
+    def maybeGet(self, expected, timeout=0.1):
+        self.port.timeout=0.1
+        response = self.port.readline().rstrip("\n")
+        self.port.timeout=self.deftimeout
+        assert not response or response.startswith(expected), "Zebra response '%s' should start with '%s'" %(response, expected)            
+        return response  
     
     def readReg(self, reg):
         """Takes reg and reads its values from zebra"""
@@ -201,3 +209,4 @@ class zebraTool:
         P = self.getExpected("P")
         self.getExpected("PX") 
         return int(P[1:], 16) 
+        

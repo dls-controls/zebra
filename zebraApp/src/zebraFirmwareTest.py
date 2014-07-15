@@ -8,13 +8,11 @@ def make_classes(cls, suffixes):
         yield type(name, (cls,), {'name': name, 'num': i})        
 
 class Block(unittest.TestCase):
-    portstr = "/dev/ttyUSB0"
 
-    def setUp(self):
-        self.zebra = zebraTool(self.portstr)
+    def setUp(self):        
+        self.zebra = zebraTool(portstr)
         for k, v in self.initial.items():
             self.zebra.writeReg(k % dict(name=self.name), v)
-        self.zebra.reset()                    
 
 class AND(Block):
     initial = {
@@ -286,10 +284,68 @@ class PULSE(Block):
         time.sleep(0.1)
         self.assertEqual(self.zebra.getStatus(self.name), 0)       
 
+class PC(Block):
+    initial = {
+        "PC_BIT_CAP": 0,
+        "PC_ENC": 0,
+        "PC_TSPRE": 50000,
+        "PC_ARM_SEL": 0,
+        "PC_GATE_SEL": 1,
+        "PC_GATE_STARTLO": 0,
+        "PC_GATE_STARTHI": 0,
+        "PC_GATE_WIDLO": 0,
+        "PC_GATE_WIDHI": 0,
+        "PC_GATE_NGATELO": 1,
+        "PC_GATE_NGATEHI": 0,
+        "PC_GATE_STEPLO": 0,
+        "PC_GATE_STEPHI": 0,
+        "PC_PULSE_SEL": 1,
+        "PC_PULSE_STARTLO": 0,
+        "PC_PULSE_STARTHI": 0,
+        "PC_PULSE_WIDLO": 0,
+        "PC_PULSE_WIDHI": 0,
+        "PC_PULSE_STEPLO": 0,
+        "PC_PULSE_STEPHI": 0,
+        "PC_PULSE_MAXLO": 0,
+        "PC_PULSE_MAXHI": 0,
+        "PC_DIR": 0,
+        "PC_PULSE_DLYLO": 0,
+        "PC_PULSE_DLYHI": 0,      
+    } 
+    name = "PC"
+       
+    def test_polling(self):    
+        self.zebra.reset()     
+        # produce data 10 times a second
+        step_ms = 100
+        self.zebra.writeReg("PC_PULSE_STEPLO", step_ms)
+        # and run for 10s
+        gate_ms = 10000
+        self.zebra.writeReg("PC_GATE_WIDLO", gate_ms % 2**16)
+        self.zebra.writeReg("PC_GATE_WIDHI", gate_ms / 2**16)        
+        # gather 3 div values
+        self.zebra.writeReg("PC_BIT_CAP", 2**6 + 2**7 + 2**8)
+        # setup div values to look at 1MHz clock
+        for div in ["DIV1", "DIV2", "DIV3"]:
+            self.zebra.writeReg(div + "_INP", "CLOCK_1MHZ")
+            self.zebra.writeReg(div + "_DIVLO", 0)
+            self.zebra.writeReg(div + "_DIVHI", 0)                                    
+        # start
+        self.zebra.writeReg("PC_ARM", 1)        
+        self.zebra.getExpected("PR")
+        for i in range(gate_ms / step_ms):
+            # now block waiting for positions
+            self.zebra.getExpected("P")
+            # check we can still poll
+            for reg in self.initial:
+                self.zebra.readReg(reg)            
+        self.zebra.getExpected("PX")
 
 ###############################        
 
-def main():
+def main(pstr = "/dev/ttyUSB0"):
+    global portstr
+    portstr = pstr
     suite = unittest.TestSuite()
     classes = []
     classes += make_classes(AND, range(1, 5))
@@ -298,6 +354,7 @@ def main():
     classes += make_classes(DIV, range(1, 5))
     classes += [QUAD]
     classes += make_classes(PULSE, range(1, 5))
+    classes += [PC]
     for cls in classes:
         suite.addTest(unittest.TestLoader().loadTestsFromTestCase(cls))        
     unittest.TextTestRunner(verbosity=5, failfast=0).run(suite)

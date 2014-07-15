@@ -6,7 +6,7 @@ import os, re, time
 def doHardwareTest(zebra, mismatch="BAD", match="OK", sleep=0.2):
     errors = 0
     version = zebra.readReg("SYS_VER")                    
-    assert version >= 0x20, "Can only firmware test zebras with 0x20 firmware or higher"
+    assert version >= 0x20, "Can only hardware test zebras with 0x20 firmware or higher"
 
     # first disconnect all the outputs
     for name in zebra.regs.names():
@@ -99,9 +99,13 @@ def twoTests(zebra):
     
 if __name__=="__main__":
     repeat = "y"
+    portstr = "/dev/ttyS0"
+    tool = zebraTool(portstr)
     while repeat.lower() == "y":
+        version = tool.readReg("SYS_VER") 
+        print "Zebra connected with firmware version 0x%X" % version
         if raw_input("Would you like to test firmware? (y/n): ").lower() == "y":
             print "Testing firmware..."         
-            zebraFirmwareTest.main()
-        twoTests(zebraTool("/dev/ttyUSB0") )
+            zebraFirmwareTest.main(portstr)
+        twoTests(tool)
         repeat = raw_input("Test another zebra? (y/n): ")   
