@@ -15,6 +15,10 @@ as inputs.
 zebra:interruptTask: Bad interrupt on encoder 7 in 'P0000440200000000EE6000F00012A1A'
 </code>
 
+\section dls DLS specific settings
+- If you are using an autohome template then zebra will be triggered MxHOMESETTLE time after each home occurs. Ensure you have setup the correct HOME macro in your dls_pmac_asyn_motor.template for this to work
+- If you are using a Geobrick or PMAC axis which is closed loop on the controller, then make sure you set UEIP on the motor record to YES. Failure to do this will mean that zebra will be set to a position that is the following error of the axis away from where it should be.
+
 \section user_sec User Manual
 The user manual is available <a href="../TDI-CTRL-TNO-042-Zebra-Manual.pdf">here</a>
 

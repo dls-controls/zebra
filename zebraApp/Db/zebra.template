@@ -17,12 +17,16 @@
 # % macro, PREC, Precision to show position compare gate and pulse fields
 # % macro, M1, Motor 1 PV
 # % macro, M1DIR, Set to - if motor inverted in geobrick (decode control = 3 instead of 7)
+# % macro, M1HOMESETTLE, Time to wait after an autohome before setting zebra pos to readback pos
 # % macro, M2, Motor 2 PV
 # % macro, M2DIR, Set to - if motor inverted in geobrick (decode control = 3 instead of 7)
+# % macro, M2HOMESETTLE, Time to wait after an autohome before setting zebra pos to readback pos
 # % macro, M3, Motor 3 PV
 # % macro, M3DIR, Set to - if motor inverted in geobrick (decode control = 3 instead of 7)
+# % macro, M3HOMESETTLE, Time to wait after an autohome before setting zebra pos to readback pos
 # % macro, M4, Motor 4 PV
 # % macro, M4DIR, Set to - if motor inverted in geobrick (decode control = 3 instead of 7)
+# % macro, M4HOMESETTLE, Time to wait after an autohome before setting zebra pos to readback pos
 # % gui, $(PORT), edm, zebra.edl, zebra=$(P)$(Q)
 # % gui, $(PORT), sevr
 # % archiver 10 Monitor
@@ -10956,11 +10960,46 @@ record(ai, "$(P)$(Q):NOMOTOR:RBV") {
   field(PREC, "4")
 }
 
+record(calc, "$(P)$(Q):NOMOTOR:SDIS") {
+  field(A, "0")
+  field(PINI, "YES")
+}
+
+record(calcout, "$(P)$(Q):M1:SDIS:TRANS") {
+  field(DESC, "Trigger seq when SDIS trans to Zero")
+  field(CALC, "A")
+  field(INPA, "$(M1=$(P)$(Q):NOMOTOR):SDIS.A CP")
+  field(OOPT, "Transition To Zero")
+  field(OUT, "$(P)$(Q):M1:ONENABLE.PROC")
+}
+
+record(seq, "$(P)$(Q):M1:ONENABLE") {
+  field(DESC, "1s after motor enabled, call setpos")
+  field(DOL1, "1")
+  field(LNK1, "$(P)$(Q):M1:SETPOS.PROC PP")
+  field(DLY1, "$(M1HOMESETTLE=5)")
+}
+
 # % archiver 10 Monitor
 record(calcout, "$(P)$(Q):M1:SETPOS") {
   field(CALC, "A")
   field(INPA, "$(P)$(Q):M1:RBV")
   field(OUT, "$(P)$(Q):POS1_SET PP")
+}
+
+record(calcout, "$(P)$(Q):M2:SDIS:TRANS") {
+  field(DESC, "Trigger seq when SDIS trans to Zero")
+  field(CALC, "A")
+  field(INPA, "$(M2=$(P)$(Q):NOMOTOR):SDIS.A CP")
+  field(OOPT, "Transition To Zero")
+  field(OUT, "$(P)$(Q):M2:ONENABLE.PROC")
+}
+
+record(seq, "$(P)$(Q):M2:ONENABLE") {
+  field(DESC, "1s after motor enabled, call setpos")
+  field(DOL1, "1")
+  field(LNK1, "$(P)$(Q):M2:SETPOS.PROC PP")
+  field(DLY1, "$(M2HOMESETTLE=5)")
 }
 
 # % archiver 10 Monitor
@@ -10970,11 +11009,41 @@ record(calcout, "$(P)$(Q):M2:SETPOS") {
   field(OUT, "$(P)$(Q):POS2_SET PP")
 }
 
+record(calcout, "$(P)$(Q):M3:SDIS:TRANS") {
+  field(DESC, "Trigger seq when SDIS trans to Zero")
+  field(CALC, "A")
+  field(INPA, "$(M3=$(P)$(Q):NOMOTOR):SDIS.A CP")
+  field(OOPT, "Transition To Zero")
+  field(OUT, "$(P)$(Q):M3:ONENABLE.PROC")
+}
+
+record(seq, "$(P)$(Q):M3:ONENABLE") {
+  field(DESC, "1s after motor enabled, call setpos")
+  field(DOL1, "1")
+  field(LNK1, "$(P)$(Q):M3:SETPOS.PROC PP")
+  field(DLY1, "$(M3HOMESETTLE=5)")
+}
+
 # % archiver 10 Monitor
 record(calcout, "$(P)$(Q):M3:SETPOS") {
   field(CALC, "A")
   field(INPA, "$(P)$(Q):M3:RBV")
   field(OUT, "$(P)$(Q):POS3_SET PP")
+}
+
+record(calcout, "$(P)$(Q):M4:SDIS:TRANS") {
+  field(DESC, "Trigger seq when SDIS trans to Zero")
+  field(CALC, "A")
+  field(INPA, "$(M4=$(P)$(Q):NOMOTOR):SDIS.A CP")
+  field(OOPT, "Transition To Zero")
+  field(OUT, "$(P)$(Q):M4:ONENABLE.PROC")
+}
+
+record(seq, "$(P)$(Q):M4:ONENABLE") {
+  field(DESC, "1s after motor enabled, call setpos")
+  field(DOL1, "1")
+  field(LNK1, "$(P)$(Q):M4:SETPOS.PROC PP")
+  field(DLY1, "$(M4HOMESETTLE=5)")
 }
 
 # % archiver 10 Monitor
