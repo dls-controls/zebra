@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 843
-y 520
+x 845
+y 546
 w 940
 h 610
 font "helvetica-medium-r-14.0"
@@ -815,7 +815,7 @@ commandLabel {
   0 "Help"
 }
 command {
-  0 "evince $(which zebra.edl | sed \"s|data/zebra.edl|documentation/TDI-CTRL-TNO-042-Zebra-Manual.pdf\") &"
+  0 "evince $(which zebra.edl | sed \"s|data/zebra.edl|documentation/TDI-CTRL-TNO-042-Zebra-Manual.pdf|\") &"
 }
 endObjectProperties
 
