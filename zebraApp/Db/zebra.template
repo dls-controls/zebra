@@ -6519,7 +6519,7 @@ record(calcout, "$(P)$(Q):DIV1_DIV:RBV_CTS") {
 
 record(calcout, "$(P)$(Q):DIV1_DIV:RBV") {
   field(DESC, "Convert cts into EGUs")
-  field(INPA, "$(P)$(Q):NOMOTOR:MRES CP")
+  field(INPA, "$(P)$(Q):NOMOTOR:ERES CP")
   field(INPB, "$(P)$(Q):NOMOTOR:OFF CP")
   field(INPC, "$(P)$(Q):DIV1_DIV:RBV_CTS")
   field(CALC, "A*C+B")
@@ -6536,14 +6536,14 @@ record(calcout, "$(P)$(Q):DIV1_DIV:SYNC") {
 
 record(calcout, "$(P)$(Q):DIV1_DIV:DRVH") {
   field(CALC, "A*2**31+B")
-  field(INPA, "$(P)$(Q):NOMOTOR:MRES CP")
+  field(INPA, "$(P)$(Q):NOMOTOR:ERES CP")
   field(INPB, "$(P)$(Q):NOMOTOR:OFF CP")
   field(OUT, "$(P)$(Q):DIV1_DIV.DRVH")
 }
 
 record(calcout, "$(P)$(Q):DIV1_DIV:DRVL") {
   field(CALC, "0")
-  field(INPA, "$(P)$(Q):NOMOTOR:MRES CP")
+  field(INPA, "$(P)$(Q):NOMOTOR:ERES CP")
   field(INPB, "$(P)$(Q):NOMOTOR:OFF CP")
   field(OUT, "$(P)$(Q):DIV1_DIV.DRVL")
 }
@@ -6559,7 +6559,7 @@ record(ao, "$(P)$(Q):DIV1_DIV") {
 record(calcout, "$(P)$(Q):DIV1_DIV:CALCLO") {
   field(CALC, "FLOOR((A-D)/C+0.5)&65535")
   field(INPA, "$(P)$(Q):DIV1_DIV")
-  field(INPC, "$(P)$(Q):NOMOTOR:MRES")
+  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
   field(INPD, "$(P)$(Q):NOMOTOR:OFF")
   field(OUT, "$(P)$(Q):DIV1_DIV:SETLO PP")
 }
@@ -6575,7 +6575,7 @@ record(ao, "$(P)$(Q):DIV1_DIV:SETLO") {
 record(calcout, "$(P)$(Q):DIV1_DIV:CALCHI") {
   field(CALC, "FLOOR((A-D)/C+0.5)>>16")
   field(INPA, "$(P)$(Q):DIV1_DIV")
-  field(INPC, "$(P)$(Q):NOMOTOR:MRES")
+  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
   field(INPD, "$(P)$(Q):NOMOTOR:OFF")
   field(OUT, "$(P)$(Q):DIV1_DIV:SETHI PP")
 }
@@ -6682,7 +6682,7 @@ record(calcout, "$(P)$(Q):DIV2_DIV:RBV_CTS") {
 
 record(calcout, "$(P)$(Q):DIV2_DIV:RBV") {
   field(DESC, "Convert cts into EGUs")
-  field(INPA, "$(P)$(Q):NOMOTOR:MRES CP")
+  field(INPA, "$(P)$(Q):NOMOTOR:ERES CP")
   field(INPB, "$(P)$(Q):NOMOTOR:OFF CP")
   field(INPC, "$(P)$(Q):DIV2_DIV:RBV_CTS")
   field(CALC, "A*C+B")
@@ -6699,14 +6699,14 @@ record(calcout, "$(P)$(Q):DIV2_DIV:SYNC") {
 
 record(calcout, "$(P)$(Q):DIV2_DIV:DRVH") {
   field(CALC, "A*2**31+B")
-  field(INPA, "$(P)$(Q):NOMOTOR:MRES CP")
+  field(INPA, "$(P)$(Q):NOMOTOR:ERES CP")
   field(INPB, "$(P)$(Q):NOMOTOR:OFF CP")
   field(OUT, "$(P)$(Q):DIV2_DIV.DRVH")
 }
 
 record(calcout, "$(P)$(Q):DIV2_DIV:DRVL") {
   field(CALC, "0")
-  field(INPA, "$(P)$(Q):NOMOTOR:MRES CP")
+  field(INPA, "$(P)$(Q):NOMOTOR:ERES CP")
   field(INPB, "$(P)$(Q):NOMOTOR:OFF CP")
   field(OUT, "$(P)$(Q):DIV2_DIV.DRVL")
 }
@@ -6722,7 +6722,7 @@ record(ao, "$(P)$(Q):DIV2_DIV") {
 record(calcout, "$(P)$(Q):DIV2_DIV:CALCLO") {
   field(CALC, "FLOOR((A-D)/C+0.5)&65535")
   field(INPA, "$(P)$(Q):DIV2_DIV")
-  field(INPC, "$(P)$(Q):NOMOTOR:MRES")
+  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
   field(INPD, "$(P)$(Q):NOMOTOR:OFF")
   field(OUT, "$(P)$(Q):DIV2_DIV:SETLO PP")
 }
@@ -6738,7 +6738,7 @@ record(ao, "$(P)$(Q):DIV2_DIV:SETLO") {
 record(calcout, "$(P)$(Q):DIV2_DIV:CALCHI") {
   field(CALC, "FLOOR((A-D)/C+0.5)>>16")
   field(INPA, "$(P)$(Q):DIV2_DIV")
-  field(INPC, "$(P)$(Q):NOMOTOR:MRES")
+  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
   field(INPD, "$(P)$(Q):NOMOTOR:OFF")
   field(OUT, "$(P)$(Q):DIV2_DIV:SETHI PP")
 }
@@ -6845,7 +6845,7 @@ record(calcout, "$(P)$(Q):DIV3_DIV:RBV_CTS") {
 
 record(calcout, "$(P)$(Q):DIV3_DIV:RBV") {
   field(DESC, "Convert cts into EGUs")
-  field(INPA, "$(P)$(Q):NOMOTOR:MRES CP")
+  field(INPA, "$(P)$(Q):NOMOTOR:ERES CP")
   field(INPB, "$(P)$(Q):NOMOTOR:OFF CP")
   field(INPC, "$(P)$(Q):DIV3_DIV:RBV_CTS")
   field(CALC, "A*C+B")
@@ -6862,14 +6862,14 @@ record(calcout, "$(P)$(Q):DIV3_DIV:SYNC") {
 
 record(calcout, "$(P)$(Q):DIV3_DIV:DRVH") {
   field(CALC, "A*2**31+B")
-  field(INPA, "$(P)$(Q):NOMOTOR:MRES CP")
+  field(INPA, "$(P)$(Q):NOMOTOR:ERES CP")
   field(INPB, "$(P)$(Q):NOMOTOR:OFF CP")
   field(OUT, "$(P)$(Q):DIV3_DIV.DRVH")
 }
 
 record(calcout, "$(P)$(Q):DIV3_DIV:DRVL") {
   field(CALC, "0")
-  field(INPA, "$(P)$(Q):NOMOTOR:MRES CP")
+  field(INPA, "$(P)$(Q):NOMOTOR:ERES CP")
   field(INPB, "$(P)$(Q):NOMOTOR:OFF CP")
   field(OUT, "$(P)$(Q):DIV3_DIV.DRVL")
 }
@@ -6885,7 +6885,7 @@ record(ao, "$(P)$(Q):DIV3_DIV") {
 record(calcout, "$(P)$(Q):DIV3_DIV:CALCLO") {
   field(CALC, "FLOOR((A-D)/C+0.5)&65535")
   field(INPA, "$(P)$(Q):DIV3_DIV")
-  field(INPC, "$(P)$(Q):NOMOTOR:MRES")
+  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
   field(INPD, "$(P)$(Q):NOMOTOR:OFF")
   field(OUT, "$(P)$(Q):DIV3_DIV:SETLO PP")
 }
@@ -6901,7 +6901,7 @@ record(ao, "$(P)$(Q):DIV3_DIV:SETLO") {
 record(calcout, "$(P)$(Q):DIV3_DIV:CALCHI") {
   field(CALC, "FLOOR((A-D)/C+0.5)>>16")
   field(INPA, "$(P)$(Q):DIV3_DIV")
-  field(INPC, "$(P)$(Q):NOMOTOR:MRES")
+  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
   field(INPD, "$(P)$(Q):NOMOTOR:OFF")
   field(OUT, "$(P)$(Q):DIV3_DIV:SETHI PP")
 }
@@ -7008,7 +7008,7 @@ record(calcout, "$(P)$(Q):DIV4_DIV:RBV_CTS") {
 
 record(calcout, "$(P)$(Q):DIV4_DIV:RBV") {
   field(DESC, "Convert cts into EGUs")
-  field(INPA, "$(P)$(Q):NOMOTOR:MRES CP")
+  field(INPA, "$(P)$(Q):NOMOTOR:ERES CP")
   field(INPB, "$(P)$(Q):NOMOTOR:OFF CP")
   field(INPC, "$(P)$(Q):DIV4_DIV:RBV_CTS")
   field(CALC, "A*C+B")
@@ -7025,14 +7025,14 @@ record(calcout, "$(P)$(Q):DIV4_DIV:SYNC") {
 
 record(calcout, "$(P)$(Q):DIV4_DIV:DRVH") {
   field(CALC, "A*2**31+B")
-  field(INPA, "$(P)$(Q):NOMOTOR:MRES CP")
+  field(INPA, "$(P)$(Q):NOMOTOR:ERES CP")
   field(INPB, "$(P)$(Q):NOMOTOR:OFF CP")
   field(OUT, "$(P)$(Q):DIV4_DIV.DRVH")
 }
 
 record(calcout, "$(P)$(Q):DIV4_DIV:DRVL") {
   field(CALC, "0")
-  field(INPA, "$(P)$(Q):NOMOTOR:MRES CP")
+  field(INPA, "$(P)$(Q):NOMOTOR:ERES CP")
   field(INPB, "$(P)$(Q):NOMOTOR:OFF CP")
   field(OUT, "$(P)$(Q):DIV4_DIV.DRVL")
 }
@@ -7048,7 +7048,7 @@ record(ao, "$(P)$(Q):DIV4_DIV") {
 record(calcout, "$(P)$(Q):DIV4_DIV:CALCLO") {
   field(CALC, "FLOOR((A-D)/C+0.5)&65535")
   field(INPA, "$(P)$(Q):DIV4_DIV")
-  field(INPC, "$(P)$(Q):NOMOTOR:MRES")
+  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
   field(INPD, "$(P)$(Q):NOMOTOR:OFF")
   field(OUT, "$(P)$(Q):DIV4_DIV:SETLO PP")
 }
@@ -7064,7 +7064,7 @@ record(ao, "$(P)$(Q):DIV4_DIV:SETLO") {
 record(calcout, "$(P)$(Q):DIV4_DIV:CALCHI") {
   field(CALC, "FLOOR((A-D)/C+0.5)>>16")
   field(INPA, "$(P)$(Q):DIV4_DIV")
-  field(INPC, "$(P)$(Q):NOMOTOR:MRES")
+  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
   field(INPD, "$(P)$(Q):NOMOTOR:OFF")
   field(OUT, "$(P)$(Q):DIV4_DIV:SETHI PP")
 }
@@ -9275,11 +9275,11 @@ record(ao, "$(P)$(Q):SOFT_IN:SET") {
 
 record(motor, "$(P)$(Q):NOMOTOR") {
   field(DTYP, "Soft Channel")
-  field(MRES, "1")
+  field(ERES, "1")
   field(OFF, "0")
 }
 
-record(ai, "$(P)$(Q):NOMOTOR:MRES") {
+record(ai, "$(P)$(Q):NOMOTOR:ERES") {
   field(VAL, "1")
 }
 
@@ -9287,63 +9287,63 @@ record(ai, "$(P)$(Q):NOMOTOR:SCALE") {
   field(VAL, "1")
 }
 
-record(calcout, "$(P)$(Q):M1:MRES") {
+record(calcout, "$(P)$(Q):M1:ERES") {
   field(CALC, "B?-A*(C>0?C:1)*(0$(M1DIR=+)1):A*(C>0?C:1)*(0$(M1DIR=+)1)")
-  field(INPA, "$(M1=$(P)$(Q):NOMOTOR).MRES CP")
+  field(INPA, "$(M1=$(P)$(Q):NOMOTOR).ERES CP")
   field(INPB, "$(M1=$(P)$(Q):NOMOTOR).DIR CP")
   field(INPC, "$(M1=$(P)$(Q):NOMOTOR):SCALE CP")
   field(PREC, "4")
 }
 
-record(calcout, "$(P)$(Q):M2:MRES") {
+record(calcout, "$(P)$(Q):M2:ERES") {
   field(CALC, "B?-A*(C>0?C:1)*(0$(M2DIR=+)1):A*(C>0?C:1)*(0$(M2DIR=+)1)")
-  field(INPA, "$(M2=$(P)$(Q):NOMOTOR).MRES CP")
+  field(INPA, "$(M2=$(P)$(Q):NOMOTOR).ERES CP")
   field(INPB, "$(M2=$(P)$(Q):NOMOTOR).DIR CP")
   field(INPC, "$(M2=$(P)$(Q):NOMOTOR):SCALE CP")
   field(PREC, "4")
 }
 
-record(calcout, "$(P)$(Q):M3:MRES") {
+record(calcout, "$(P)$(Q):M3:ERES") {
   field(CALC, "B?-A*(C>0?C:1)*(0$(M3DIR=+)1):A*(C>0?C:1)*(0$(M3DIR=+)1)")
-  field(INPA, "$(M3=$(P)$(Q):NOMOTOR).MRES CP")
+  field(INPA, "$(M3=$(P)$(Q):NOMOTOR).ERES CP")
   field(INPB, "$(M3=$(P)$(Q):NOMOTOR).DIR CP")
   field(INPC, "$(M3=$(P)$(Q):NOMOTOR):SCALE CP")
   field(PREC, "4")
 }
 
-record(calcout, "$(P)$(Q):M4:MRES") {
+record(calcout, "$(P)$(Q):M4:ERES") {
   field(CALC, "B?-A*(C>0?C:1)*(0$(M4DIR=+)1):A*(C>0?C:1)*(0$(M4DIR=+)1)")
-  field(INPA, "$(M4=$(P)$(Q):NOMOTOR).MRES CP")
+  field(INPA, "$(M4=$(P)$(Q):NOMOTOR).ERES CP")
   field(INPB, "$(M4=$(P)$(Q):NOMOTOR).DIR CP")
   field(INPC, "$(M4=$(P)$(Q):NOMOTOR):SCALE CP")
   field(PREC, "4")
 }
 
-record(ao, "$(P)$(Q):M1:MRES:OUT") {
+record(ao, "$(P)$(Q):M1:ERES:OUT") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0) M1_SCALE")
-  field(DOL, "$(P)$(Q):M1:MRES CP")
+  field(DOL, "$(P)$(Q):M1:ERES CP")
   field(OMSL, "closed_loop")
 }
 
-record(ao, "$(P)$(Q):M2:MRES:OUT") {
+record(ao, "$(P)$(Q):M2:ERES:OUT") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0) M2_SCALE")
-  field(DOL, "$(P)$(Q):M2:MRES CP")
+  field(DOL, "$(P)$(Q):M2:ERES CP")
   field(OMSL, "closed_loop")
 }
 
-record(ao, "$(P)$(Q):M3:MRES:OUT") {
+record(ao, "$(P)$(Q):M3:ERES:OUT") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0) M3_SCALE")
-  field(DOL, "$(P)$(Q):M3:MRES CP")
+  field(DOL, "$(P)$(Q):M3:ERES CP")
   field(OMSL, "closed_loop")
 }
 
-record(ao, "$(P)$(Q):M4:MRES:OUT") {
+record(ao, "$(P)$(Q):M4:ERES:OUT") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0) M4_SCALE")
-  field(DOL, "$(P)$(Q):M4:MRES CP")
+  field(DOL, "$(P)$(Q):M4:ERES CP")
   field(OMSL, "closed_loop")
 }
 
@@ -9403,13 +9403,13 @@ record(ao, "$(P)$(Q):M4:OFF:OUT") {
   field(OMSL, "closed_loop")
 }
 
-record(sel, "$(P)$(Q):MOTOR:MRES") {
+record(sel, "$(P)$(Q):MOTOR:ERES") {
   field(SELM, "Specified")
-  field(INPA, "$(P)$(Q):M1:MRES CP")
-  field(INPB, "$(P)$(Q):M2:MRES CP")
-  field(INPC, "$(P)$(Q):M3:MRES CP")
-  field(INPD, "$(P)$(Q):M4:MRES CP")
-  field(INPE, "$(P)$(Q):MAV:MRES.VAL CP")
+  field(INPA, "$(P)$(Q):M1:ERES CP")
+  field(INPB, "$(P)$(Q):M2:ERES CP")
+  field(INPC, "$(P)$(Q):M3:ERES CP")
+  field(INPD, "$(P)$(Q):M4:ERES CP")
+  field(INPE, "$(P)$(Q):MAV:ERES.VAL CP")
   field(NVL, "$(P)$(Q):PC_ENC:RBV CP")
 }
 
@@ -9423,10 +9423,10 @@ record(sel, "$(P)$(Q):MOTOR:OFF") {
   field(NVL, "$(P)$(Q):PC_ENC:RBV CP")
 }
 
-record(sel, "$(P)$(Q):PULSE:MRES") {
+record(sel, "$(P)$(Q):PULSE:ERES") {
   field(SELM, "Specified")
-  field(INPA, "$(P)$(Q):MOTOR:ABSMRES CP")
-  field(INPB, "$(P)$(Q):TIME:MRES CP")
+  field(INPA, "$(P)$(Q):MOTOR:ABSERES CP")
+  field(INPB, "$(P)$(Q):TIME:ERES CP")
   field(INPC, "1")
   field(NVL, "$(P)$(Q):PC_PULSE_SEL:RBV CP")
 }
@@ -9460,7 +9460,7 @@ record(calcout, "$(P)$(Q):POS1_SET:RBV_CTS") {
 
 record(calcout, "$(P)$(Q):POS1_SET:RBV") {
   field(DESC, "Convert cts into EGUs")
-  field(INPA, "$(P)$(Q):M1:MRES CP")
+  field(INPA, "$(P)$(Q):M1:ERES CP")
   field(INPB, "$(P)$(Q):M1:OFF CP")
   field(INPC, "$(P)$(Q):POS1_SET:RBV_CTS")
   field(CALC, "A*C+B")
@@ -9477,14 +9477,14 @@ record(calcout, "$(P)$(Q):POS1_SET:SYNC") {
 
 record(calcout, "$(P)$(Q):POS1_SET:DRVH") {
   field(CALC, "A*2**31+B")
-  field(INPA, "$(P)$(Q):M1:MRES CP")
+  field(INPA, "$(P)$(Q):M1:ERES CP")
   field(INPB, "$(P)$(Q):M1:OFF CP")
   field(OUT, "$(P)$(Q):POS1_SET.DRVH")
 }
 
 record(calcout, "$(P)$(Q):POS1_SET:DRVL") {
   field(CALC, "-A*2**31+B")
-  field(INPA, "$(P)$(Q):M1:MRES CP")
+  field(INPA, "$(P)$(Q):M1:ERES CP")
   field(INPB, "$(P)$(Q):M1:OFF CP")
   field(OUT, "$(P)$(Q):POS1_SET.DRVL")
 }
@@ -9500,7 +9500,7 @@ record(ao, "$(P)$(Q):POS1_SET") {
 record(calcout, "$(P)$(Q):POS1_SET:CALCLO") {
   field(CALC, "FLOOR((A-D)/C+0.5)&65535")
   field(INPA, "$(P)$(Q):POS1_SET")
-  field(INPC, "$(P)$(Q):M1:MRES")
+  field(INPC, "$(P)$(Q):M1:ERES")
   field(INPD, "$(P)$(Q):M1:OFF")
   field(OUT, "$(P)$(Q):POS1_SET:SETLO PP")
 }
@@ -9516,7 +9516,7 @@ record(ao, "$(P)$(Q):POS1_SET:SETLO") {
 record(calcout, "$(P)$(Q):POS1_SET:CALCHI") {
   field(CALC, "FLOOR((A-D)/C+0.5)>>16")
   field(INPA, "$(P)$(Q):POS1_SET")
-  field(INPC, "$(P)$(Q):M1:MRES")
+  field(INPC, "$(P)$(Q):M1:ERES")
   field(INPD, "$(P)$(Q):M1:OFF")
   field(OUT, "$(P)$(Q):POS1_SET:SETHI PP")
 }
@@ -9560,7 +9560,7 @@ record(calcout, "$(P)$(Q):POS2_SET:RBV_CTS") {
 
 record(calcout, "$(P)$(Q):POS2_SET:RBV") {
   field(DESC, "Convert cts into EGUs")
-  field(INPA, "$(P)$(Q):M2:MRES CP")
+  field(INPA, "$(P)$(Q):M2:ERES CP")
   field(INPB, "$(P)$(Q):M2:OFF CP")
   field(INPC, "$(P)$(Q):POS2_SET:RBV_CTS")
   field(CALC, "A*C+B")
@@ -9577,14 +9577,14 @@ record(calcout, "$(P)$(Q):POS2_SET:SYNC") {
 
 record(calcout, "$(P)$(Q):POS2_SET:DRVH") {
   field(CALC, "A*2**31+B")
-  field(INPA, "$(P)$(Q):M2:MRES CP")
+  field(INPA, "$(P)$(Q):M2:ERES CP")
   field(INPB, "$(P)$(Q):M2:OFF CP")
   field(OUT, "$(P)$(Q):POS2_SET.DRVH")
 }
 
 record(calcout, "$(P)$(Q):POS2_SET:DRVL") {
   field(CALC, "-A*2**31+B")
-  field(INPA, "$(P)$(Q):M2:MRES CP")
+  field(INPA, "$(P)$(Q):M2:ERES CP")
   field(INPB, "$(P)$(Q):M2:OFF CP")
   field(OUT, "$(P)$(Q):POS2_SET.DRVL")
 }
@@ -9600,7 +9600,7 @@ record(ao, "$(P)$(Q):POS2_SET") {
 record(calcout, "$(P)$(Q):POS2_SET:CALCLO") {
   field(CALC, "FLOOR((A-D)/C+0.5)&65535")
   field(INPA, "$(P)$(Q):POS2_SET")
-  field(INPC, "$(P)$(Q):M2:MRES")
+  field(INPC, "$(P)$(Q):M2:ERES")
   field(INPD, "$(P)$(Q):M2:OFF")
   field(OUT, "$(P)$(Q):POS2_SET:SETLO PP")
 }
@@ -9616,7 +9616,7 @@ record(ao, "$(P)$(Q):POS2_SET:SETLO") {
 record(calcout, "$(P)$(Q):POS2_SET:CALCHI") {
   field(CALC, "FLOOR((A-D)/C+0.5)>>16")
   field(INPA, "$(P)$(Q):POS2_SET")
-  field(INPC, "$(P)$(Q):M2:MRES")
+  field(INPC, "$(P)$(Q):M2:ERES")
   field(INPD, "$(P)$(Q):M2:OFF")
   field(OUT, "$(P)$(Q):POS2_SET:SETHI PP")
 }
@@ -9660,7 +9660,7 @@ record(calcout, "$(P)$(Q):POS3_SET:RBV_CTS") {
 
 record(calcout, "$(P)$(Q):POS3_SET:RBV") {
   field(DESC, "Convert cts into EGUs")
-  field(INPA, "$(P)$(Q):M3:MRES CP")
+  field(INPA, "$(P)$(Q):M3:ERES CP")
   field(INPB, "$(P)$(Q):M3:OFF CP")
   field(INPC, "$(P)$(Q):POS3_SET:RBV_CTS")
   field(CALC, "A*C+B")
@@ -9677,14 +9677,14 @@ record(calcout, "$(P)$(Q):POS3_SET:SYNC") {
 
 record(calcout, "$(P)$(Q):POS3_SET:DRVH") {
   field(CALC, "A*2**31+B")
-  field(INPA, "$(P)$(Q):M3:MRES CP")
+  field(INPA, "$(P)$(Q):M3:ERES CP")
   field(INPB, "$(P)$(Q):M3:OFF CP")
   field(OUT, "$(P)$(Q):POS3_SET.DRVH")
 }
 
 record(calcout, "$(P)$(Q):POS3_SET:DRVL") {
   field(CALC, "-A*2**31+B")
-  field(INPA, "$(P)$(Q):M3:MRES CP")
+  field(INPA, "$(P)$(Q):M3:ERES CP")
   field(INPB, "$(P)$(Q):M3:OFF CP")
   field(OUT, "$(P)$(Q):POS3_SET.DRVL")
 }
@@ -9700,7 +9700,7 @@ record(ao, "$(P)$(Q):POS3_SET") {
 record(calcout, "$(P)$(Q):POS3_SET:CALCLO") {
   field(CALC, "FLOOR((A-D)/C+0.5)&65535")
   field(INPA, "$(P)$(Q):POS3_SET")
-  field(INPC, "$(P)$(Q):M3:MRES")
+  field(INPC, "$(P)$(Q):M3:ERES")
   field(INPD, "$(P)$(Q):M3:OFF")
   field(OUT, "$(P)$(Q):POS3_SET:SETLO PP")
 }
@@ -9716,7 +9716,7 @@ record(ao, "$(P)$(Q):POS3_SET:SETLO") {
 record(calcout, "$(P)$(Q):POS3_SET:CALCHI") {
   field(CALC, "FLOOR((A-D)/C+0.5)>>16")
   field(INPA, "$(P)$(Q):POS3_SET")
-  field(INPC, "$(P)$(Q):M3:MRES")
+  field(INPC, "$(P)$(Q):M3:ERES")
   field(INPD, "$(P)$(Q):M3:OFF")
   field(OUT, "$(P)$(Q):POS3_SET:SETHI PP")
 }
@@ -9760,7 +9760,7 @@ record(calcout, "$(P)$(Q):POS4_SET:RBV_CTS") {
 
 record(calcout, "$(P)$(Q):POS4_SET:RBV") {
   field(DESC, "Convert cts into EGUs")
-  field(INPA, "$(P)$(Q):M4:MRES CP")
+  field(INPA, "$(P)$(Q):M4:ERES CP")
   field(INPB, "$(P)$(Q):M4:OFF CP")
   field(INPC, "$(P)$(Q):POS4_SET:RBV_CTS")
   field(CALC, "A*C+B")
@@ -9777,14 +9777,14 @@ record(calcout, "$(P)$(Q):POS4_SET:SYNC") {
 
 record(calcout, "$(P)$(Q):POS4_SET:DRVH") {
   field(CALC, "A*2**31+B")
-  field(INPA, "$(P)$(Q):M4:MRES CP")
+  field(INPA, "$(P)$(Q):M4:ERES CP")
   field(INPB, "$(P)$(Q):M4:OFF CP")
   field(OUT, "$(P)$(Q):POS4_SET.DRVH")
 }
 
 record(calcout, "$(P)$(Q):POS4_SET:DRVL") {
   field(CALC, "-A*2**31+B")
-  field(INPA, "$(P)$(Q):M4:MRES CP")
+  field(INPA, "$(P)$(Q):M4:ERES CP")
   field(INPB, "$(P)$(Q):M4:OFF CP")
   field(OUT, "$(P)$(Q):POS4_SET.DRVL")
 }
@@ -9800,7 +9800,7 @@ record(ao, "$(P)$(Q):POS4_SET") {
 record(calcout, "$(P)$(Q):POS4_SET:CALCLO") {
   field(CALC, "FLOOR((A-D)/C+0.5)&65535")
   field(INPA, "$(P)$(Q):POS4_SET")
-  field(INPC, "$(P)$(Q):M4:MRES")
+  field(INPC, "$(P)$(Q):M4:ERES")
   field(INPD, "$(P)$(Q):M4:OFF")
   field(OUT, "$(P)$(Q):POS4_SET:SETLO PP")
 }
@@ -9816,7 +9816,7 @@ record(ao, "$(P)$(Q):POS4_SET:SETLO") {
 record(calcout, "$(P)$(Q):POS4_SET:CALCHI") {
   field(CALC, "FLOOR((A-D)/C+0.5)>>16")
   field(INPA, "$(P)$(Q):POS4_SET")
-  field(INPC, "$(P)$(Q):M4:MRES")
+  field(INPC, "$(P)$(Q):M4:ERES")
   field(INPD, "$(P)$(Q):M4:OFF")
   field(OUT, "$(P)$(Q):POS4_SET:SETHI PP")
 }
@@ -10034,7 +10034,7 @@ record(calcout, "$(P)$(Q):PC_GATE_START:RBV_CTS") {
 
 record(calcout, "$(P)$(Q):PC_GATE_START:RBV") {
   field(DESC, "Convert cts into EGUs")
-  field(INPA, "$(P)$(Q):STARTGATE:MRES CP")
+  field(INPA, "$(P)$(Q):STARTGATE:ERES CP")
   field(INPB, "$(P)$(Q):STARTGATE:OFF CP")
   field(INPC, "$(P)$(Q):PC_GATE_START:RBV_CTS")
   field(CALC, "A*C+B")
@@ -10051,14 +10051,14 @@ record(calcout, "$(P)$(Q):PC_GATE_START:SYNC") {
 
 record(calcout, "$(P)$(Q):PC_GATE_START:DRVH") {
   field(CALC, "A*2**31+B")
-  field(INPA, "$(P)$(Q):STARTGATE:MRES CP")
+  field(INPA, "$(P)$(Q):STARTGATE:ERES CP")
   field(INPB, "$(P)$(Q):STARTGATE:OFF CP")
   field(OUT, "$(P)$(Q):PC_GATE_START.DRVH")
 }
 
 record(calcout, "$(P)$(Q):PC_GATE_START:DRVL") {
   field(CALC, "-A*2**31+B")
-  field(INPA, "$(P)$(Q):STARTGATE:MRES CP")
+  field(INPA, "$(P)$(Q):STARTGATE:ERES CP")
   field(INPB, "$(P)$(Q):STARTGATE:OFF CP")
   field(OUT, "$(P)$(Q):PC_GATE_START.DRVL")
 }
@@ -10074,7 +10074,7 @@ record(ao, "$(P)$(Q):PC_GATE_START") {
 record(calcout, "$(P)$(Q):PC_GATE_START:CALCLO") {
   field(CALC, "FLOOR((A-D)/C+0.5)&65535")
   field(INPA, "$(P)$(Q):PC_GATE_START")
-  field(INPC, "$(P)$(Q):STARTGATE:MRES")
+  field(INPC, "$(P)$(Q):STARTGATE:ERES")
   field(INPD, "$(P)$(Q):STARTGATE:OFF")
   field(OUT, "$(P)$(Q):PC_GATE_START:SETLO PP")
 }
@@ -10090,7 +10090,7 @@ record(ao, "$(P)$(Q):PC_GATE_START:SETLO") {
 record(calcout, "$(P)$(Q):PC_GATE_START:CALCHI") {
   field(CALC, "FLOOR((A-D)/C+0.5)>>16")
   field(INPA, "$(P)$(Q):PC_GATE_START")
-  field(INPC, "$(P)$(Q):STARTGATE:MRES")
+  field(INPC, "$(P)$(Q):STARTGATE:ERES")
   field(INPD, "$(P)$(Q):STARTGATE:OFF")
   field(OUT, "$(P)$(Q):PC_GATE_START:SETHI PP")
 }
@@ -10134,7 +10134,7 @@ record(calcout, "$(P)$(Q):PC_GATE_WID:RBV_CTS") {
 
 record(calcout, "$(P)$(Q):PC_GATE_WID:RBV") {
   field(DESC, "Convert cts into EGUs")
-  field(INPA, "$(P)$(Q):GATE:MRES CP")
+  field(INPA, "$(P)$(Q):GATE:ERES CP")
   field(INPB, "$(P)$(Q):GATE:OFF CP")
   field(INPC, "$(P)$(Q):PC_GATE_WID:RBV_CTS")
   field(CALC, "A*C+B")
@@ -10151,14 +10151,14 @@ record(calcout, "$(P)$(Q):PC_GATE_WID:SYNC") {
 
 record(calcout, "$(P)$(Q):PC_GATE_WID:DRVH") {
   field(CALC, "A*2**31+B")
-  field(INPA, "$(P)$(Q):GATE:MRES CP")
+  field(INPA, "$(P)$(Q):GATE:ERES CP")
   field(INPB, "$(P)$(Q):GATE:OFF CP")
   field(OUT, "$(P)$(Q):PC_GATE_WID.DRVH")
 }
 
 record(calcout, "$(P)$(Q):PC_GATE_WID:DRVL") {
   field(CALC, "0")
-  field(INPA, "$(P)$(Q):GATE:MRES CP")
+  field(INPA, "$(P)$(Q):GATE:ERES CP")
   field(INPB, "$(P)$(Q):GATE:OFF CP")
   field(OUT, "$(P)$(Q):PC_GATE_WID.DRVL")
 }
@@ -10174,7 +10174,7 @@ record(ao, "$(P)$(Q):PC_GATE_WID") {
 record(calcout, "$(P)$(Q):PC_GATE_WID:CALCLO") {
   field(CALC, "FLOOR((A-D)/C+0.5)&65535")
   field(INPA, "$(P)$(Q):PC_GATE_WID")
-  field(INPC, "$(P)$(Q):GATE:MRES")
+  field(INPC, "$(P)$(Q):GATE:ERES")
   field(INPD, "$(P)$(Q):GATE:OFF")
   field(OUT, "$(P)$(Q):PC_GATE_WID:SETLO PP")
 }
@@ -10190,7 +10190,7 @@ record(ao, "$(P)$(Q):PC_GATE_WID:SETLO") {
 record(calcout, "$(P)$(Q):PC_GATE_WID:CALCHI") {
   field(CALC, "FLOOR((A-D)/C+0.5)>>16")
   field(INPA, "$(P)$(Q):PC_GATE_WID")
-  field(INPC, "$(P)$(Q):GATE:MRES")
+  field(INPC, "$(P)$(Q):GATE:ERES")
   field(INPD, "$(P)$(Q):GATE:OFF")
   field(OUT, "$(P)$(Q):PC_GATE_WID:SETHI PP")
 }
@@ -10234,7 +10234,7 @@ record(calcout, "$(P)$(Q):PC_GATE_NGATE:RBV_CTS") {
 
 record(calcout, "$(P)$(Q):PC_GATE_NGATE:RBV") {
   field(DESC, "Convert cts into EGUs")
-  field(INPA, "$(P)$(Q):NOMOTOR:MRES CP")
+  field(INPA, "$(P)$(Q):NOMOTOR:ERES CP")
   field(INPB, "$(P)$(Q):NOMOTOR:OFF CP")
   field(INPC, "$(P)$(Q):PC_GATE_NGATE:RBV_CTS")
   field(CALC, "A*C+B")
@@ -10251,14 +10251,14 @@ record(calcout, "$(P)$(Q):PC_GATE_NGATE:SYNC") {
 
 record(calcout, "$(P)$(Q):PC_GATE_NGATE:DRVH") {
   field(CALC, "A*2**31+B")
-  field(INPA, "$(P)$(Q):NOMOTOR:MRES CP")
+  field(INPA, "$(P)$(Q):NOMOTOR:ERES CP")
   field(INPB, "$(P)$(Q):NOMOTOR:OFF CP")
   field(OUT, "$(P)$(Q):PC_GATE_NGATE.DRVH")
 }
 
 record(calcout, "$(P)$(Q):PC_GATE_NGATE:DRVL") {
   field(CALC, "0")
-  field(INPA, "$(P)$(Q):NOMOTOR:MRES CP")
+  field(INPA, "$(P)$(Q):NOMOTOR:ERES CP")
   field(INPB, "$(P)$(Q):NOMOTOR:OFF CP")
   field(OUT, "$(P)$(Q):PC_GATE_NGATE.DRVL")
 }
@@ -10274,7 +10274,7 @@ record(ao, "$(P)$(Q):PC_GATE_NGATE") {
 record(calcout, "$(P)$(Q):PC_GATE_NGATE:CALCLO") {
   field(CALC, "FLOOR((A-D)/C+0.5)&65535")
   field(INPA, "$(P)$(Q):PC_GATE_NGATE")
-  field(INPC, "$(P)$(Q):NOMOTOR:MRES")
+  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
   field(INPD, "$(P)$(Q):NOMOTOR:OFF")
   field(OUT, "$(P)$(Q):PC_GATE_NGATE:SETLO PP")
 }
@@ -10290,7 +10290,7 @@ record(ao, "$(P)$(Q):PC_GATE_NGATE:SETLO") {
 record(calcout, "$(P)$(Q):PC_GATE_NGATE:CALCHI") {
   field(CALC, "FLOOR((A-D)/C+0.5)>>16")
   field(INPA, "$(P)$(Q):PC_GATE_NGATE")
-  field(INPC, "$(P)$(Q):NOMOTOR:MRES")
+  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
   field(INPD, "$(P)$(Q):NOMOTOR:OFF")
   field(OUT, "$(P)$(Q):PC_GATE_NGATE:SETHI PP")
 }
@@ -10334,7 +10334,7 @@ record(calcout, "$(P)$(Q):PC_GATE_STEP:RBV_CTS") {
 
 record(calcout, "$(P)$(Q):PC_GATE_STEP:RBV") {
   field(DESC, "Convert cts into EGUs")
-  field(INPA, "$(P)$(Q):GATE:MRES CP")
+  field(INPA, "$(P)$(Q):GATE:ERES CP")
   field(INPB, "$(P)$(Q):GATE:OFF CP")
   field(INPC, "$(P)$(Q):PC_GATE_STEP:RBV_CTS")
   field(CALC, "A*C+B")
@@ -10351,14 +10351,14 @@ record(calcout, "$(P)$(Q):PC_GATE_STEP:SYNC") {
 
 record(calcout, "$(P)$(Q):PC_GATE_STEP:DRVH") {
   field(CALC, "A*2**31+B")
-  field(INPA, "$(P)$(Q):GATE:MRES CP")
+  field(INPA, "$(P)$(Q):GATE:ERES CP")
   field(INPB, "$(P)$(Q):GATE:OFF CP")
   field(OUT, "$(P)$(Q):PC_GATE_STEP.DRVH")
 }
 
 record(calcout, "$(P)$(Q):PC_GATE_STEP:DRVL") {
   field(CALC, "0")
-  field(INPA, "$(P)$(Q):GATE:MRES CP")
+  field(INPA, "$(P)$(Q):GATE:ERES CP")
   field(INPB, "$(P)$(Q):GATE:OFF CP")
   field(OUT, "$(P)$(Q):PC_GATE_STEP.DRVL")
 }
@@ -10374,7 +10374,7 @@ record(ao, "$(P)$(Q):PC_GATE_STEP") {
 record(calcout, "$(P)$(Q):PC_GATE_STEP:CALCLO") {
   field(CALC, "FLOOR((A-D)/C+0.5)&65535")
   field(INPA, "$(P)$(Q):PC_GATE_STEP")
-  field(INPC, "$(P)$(Q):GATE:MRES")
+  field(INPC, "$(P)$(Q):GATE:ERES")
   field(INPD, "$(P)$(Q):GATE:OFF")
   field(OUT, "$(P)$(Q):PC_GATE_STEP:SETLO PP")
 }
@@ -10390,7 +10390,7 @@ record(ao, "$(P)$(Q):PC_GATE_STEP:SETLO") {
 record(calcout, "$(P)$(Q):PC_GATE_STEP:CALCHI") {
   field(CALC, "FLOOR((A-D)/C+0.5)>>16")
   field(INPA, "$(P)$(Q):PC_GATE_STEP")
-  field(INPC, "$(P)$(Q):GATE:MRES")
+  field(INPC, "$(P)$(Q):GATE:ERES")
   field(INPD, "$(P)$(Q):GATE:OFF")
   field(OUT, "$(P)$(Q):PC_GATE_STEP:SETHI PP")
 }
@@ -10543,7 +10543,7 @@ record(calcout, "$(P)$(Q):PC_PULSE_START:RBV_CTS") {
 
 record(calcout, "$(P)$(Q):PC_PULSE_START:RBV") {
   field(DESC, "Convert cts into EGUs")
-  field(INPA, "$(P)$(Q):PULSE:MRES CP")
+  field(INPA, "$(P)$(Q):PULSE:ERES CP")
   field(INPB, "$(P)$(Q):PULSE:OFF CP")
   field(INPC, "$(P)$(Q):PC_PULSE_START:RBV_CTS")
   field(CALC, "A*C+B")
@@ -10560,14 +10560,14 @@ record(calcout, "$(P)$(Q):PC_PULSE_START:SYNC") {
 
 record(calcout, "$(P)$(Q):PC_PULSE_START:DRVH") {
   field(CALC, "A*2**31+B")
-  field(INPA, "$(P)$(Q):PULSE:MRES CP")
+  field(INPA, "$(P)$(Q):PULSE:ERES CP")
   field(INPB, "$(P)$(Q):PULSE:OFF CP")
   field(OUT, "$(P)$(Q):PC_PULSE_START.DRVH")
 }
 
 record(calcout, "$(P)$(Q):PC_PULSE_START:DRVL") {
   field(CALC, "0")
-  field(INPA, "$(P)$(Q):PULSE:MRES CP")
+  field(INPA, "$(P)$(Q):PULSE:ERES CP")
   field(INPB, "$(P)$(Q):PULSE:OFF CP")
   field(OUT, "$(P)$(Q):PC_PULSE_START.DRVL")
 }
@@ -10583,7 +10583,7 @@ record(ao, "$(P)$(Q):PC_PULSE_START") {
 record(calcout, "$(P)$(Q):PC_PULSE_START:CALCLO") {
   field(CALC, "FLOOR((A-D)/C+0.5)&65535")
   field(INPA, "$(P)$(Q):PC_PULSE_START")
-  field(INPC, "$(P)$(Q):PULSE:MRES")
+  field(INPC, "$(P)$(Q):PULSE:ERES")
   field(INPD, "$(P)$(Q):PULSE:OFF")
   field(OUT, "$(P)$(Q):PC_PULSE_START:SETLO PP")
 }
@@ -10599,7 +10599,7 @@ record(ao, "$(P)$(Q):PC_PULSE_START:SETLO") {
 record(calcout, "$(P)$(Q):PC_PULSE_START:CALCHI") {
   field(CALC, "FLOOR((A-D)/C+0.5)>>16")
   field(INPA, "$(P)$(Q):PC_PULSE_START")
-  field(INPC, "$(P)$(Q):PULSE:MRES")
+  field(INPC, "$(P)$(Q):PULSE:ERES")
   field(INPD, "$(P)$(Q):PULSE:OFF")
   field(OUT, "$(P)$(Q):PC_PULSE_START:SETHI PP")
 }
@@ -10643,7 +10643,7 @@ record(calcout, "$(P)$(Q):PC_PULSE_DLY:RBV_CTS") {
 
 record(calcout, "$(P)$(Q):PC_PULSE_DLY:RBV") {
   field(DESC, "Convert cts into EGUs")
-  field(INPA, "$(P)$(Q):TIME:MRES CP")
+  field(INPA, "$(P)$(Q):TIME:ERES CP")
   field(INPB, "$(P)$(Q):TIME:OFF CP")
   field(INPC, "$(P)$(Q):PC_PULSE_DLY:RBV_CTS")
   field(CALC, "A*C+B")
@@ -10660,14 +10660,14 @@ record(calcout, "$(P)$(Q):PC_PULSE_DLY:SYNC") {
 
 record(calcout, "$(P)$(Q):PC_PULSE_DLY:DRVH") {
   field(CALC, "A*2**31+B")
-  field(INPA, "$(P)$(Q):TIME:MRES CP")
+  field(INPA, "$(P)$(Q):TIME:ERES CP")
   field(INPB, "$(P)$(Q):TIME:OFF CP")
   field(OUT, "$(P)$(Q):PC_PULSE_DLY.DRVH")
 }
 
 record(calcout, "$(P)$(Q):PC_PULSE_DLY:DRVL") {
   field(CALC, "0")
-  field(INPA, "$(P)$(Q):TIME:MRES CP")
+  field(INPA, "$(P)$(Q):TIME:ERES CP")
   field(INPB, "$(P)$(Q):TIME:OFF CP")
   field(OUT, "$(P)$(Q):PC_PULSE_DLY.DRVL")
 }
@@ -10683,7 +10683,7 @@ record(ao, "$(P)$(Q):PC_PULSE_DLY") {
 record(calcout, "$(P)$(Q):PC_PULSE_DLY:CALCLO") {
   field(CALC, "FLOOR((A-D)/C+0.5)&65535")
   field(INPA, "$(P)$(Q):PC_PULSE_DLY")
-  field(INPC, "$(P)$(Q):TIME:MRES")
+  field(INPC, "$(P)$(Q):TIME:ERES")
   field(INPD, "$(P)$(Q):TIME:OFF")
   field(OUT, "$(P)$(Q):PC_PULSE_DLY:SETLO PP")
 }
@@ -10699,7 +10699,7 @@ record(ao, "$(P)$(Q):PC_PULSE_DLY:SETLO") {
 record(calcout, "$(P)$(Q):PC_PULSE_DLY:CALCHI") {
   field(CALC, "FLOOR((A-D)/C+0.5)>>16")
   field(INPA, "$(P)$(Q):PC_PULSE_DLY")
-  field(INPC, "$(P)$(Q):TIME:MRES")
+  field(INPC, "$(P)$(Q):TIME:ERES")
   field(INPD, "$(P)$(Q):TIME:OFF")
   field(OUT, "$(P)$(Q):PC_PULSE_DLY:SETHI PP")
 }
@@ -10743,7 +10743,7 @@ record(calcout, "$(P)$(Q):PC_PULSE_WID:RBV_CTS") {
 
 record(calcout, "$(P)$(Q):PC_PULSE_WID:RBV") {
   field(DESC, "Convert cts into EGUs")
-  field(INPA, "$(P)$(Q):PULSE:MRES CP")
+  field(INPA, "$(P)$(Q):PULSE:ERES CP")
   field(INPB, "$(P)$(Q):PULSE:OFF CP")
   field(INPC, "$(P)$(Q):PC_PULSE_WID:RBV_CTS")
   field(CALC, "A*C+B")
@@ -10760,14 +10760,14 @@ record(calcout, "$(P)$(Q):PC_PULSE_WID:SYNC") {
 
 record(calcout, "$(P)$(Q):PC_PULSE_WID:DRVH") {
   field(CALC, "A*2**31+B")
-  field(INPA, "$(P)$(Q):PULSE:MRES CP")
+  field(INPA, "$(P)$(Q):PULSE:ERES CP")
   field(INPB, "$(P)$(Q):PULSE:OFF CP")
   field(OUT, "$(P)$(Q):PC_PULSE_WID.DRVH")
 }
 
 record(calcout, "$(P)$(Q):PC_PULSE_WID:DRVL") {
   field(CALC, "0")
-  field(INPA, "$(P)$(Q):PULSE:MRES CP")
+  field(INPA, "$(P)$(Q):PULSE:ERES CP")
   field(INPB, "$(P)$(Q):PULSE:OFF CP")
   field(OUT, "$(P)$(Q):PC_PULSE_WID.DRVL")
 }
@@ -10783,7 +10783,7 @@ record(ao, "$(P)$(Q):PC_PULSE_WID") {
 record(calcout, "$(P)$(Q):PC_PULSE_WID:CALCLO") {
   field(CALC, "FLOOR((A-D)/C+0.5)&65535")
   field(INPA, "$(P)$(Q):PC_PULSE_WID")
-  field(INPC, "$(P)$(Q):PULSE:MRES")
+  field(INPC, "$(P)$(Q):PULSE:ERES")
   field(INPD, "$(P)$(Q):PULSE:OFF")
   field(OUT, "$(P)$(Q):PC_PULSE_WID:SETLO PP")
 }
@@ -10799,7 +10799,7 @@ record(ao, "$(P)$(Q):PC_PULSE_WID:SETLO") {
 record(calcout, "$(P)$(Q):PC_PULSE_WID:CALCHI") {
   field(CALC, "FLOOR((A-D)/C+0.5)>>16")
   field(INPA, "$(P)$(Q):PC_PULSE_WID")
-  field(INPC, "$(P)$(Q):PULSE:MRES")
+  field(INPC, "$(P)$(Q):PULSE:ERES")
   field(INPD, "$(P)$(Q):PULSE:OFF")
   field(OUT, "$(P)$(Q):PC_PULSE_WID:SETHI PP")
 }
@@ -10843,7 +10843,7 @@ record(calcout, "$(P)$(Q):PC_PULSE_STEP:RBV_CTS") {
 
 record(calcout, "$(P)$(Q):PC_PULSE_STEP:RBV") {
   field(DESC, "Convert cts into EGUs")
-  field(INPA, "$(P)$(Q):PULSE:MRES CP")
+  field(INPA, "$(P)$(Q):PULSE:ERES CP")
   field(INPB, "$(P)$(Q):PULSE:OFF CP")
   field(INPC, "$(P)$(Q):PC_PULSE_STEP:RBV_CTS")
   field(CALC, "A*C+B")
@@ -10860,14 +10860,14 @@ record(calcout, "$(P)$(Q):PC_PULSE_STEP:SYNC") {
 
 record(calcout, "$(P)$(Q):PC_PULSE_STEP:DRVH") {
   field(CALC, "A*2**31+B")
-  field(INPA, "$(P)$(Q):PULSE:MRES CP")
+  field(INPA, "$(P)$(Q):PULSE:ERES CP")
   field(INPB, "$(P)$(Q):PULSE:OFF CP")
   field(OUT, "$(P)$(Q):PC_PULSE_STEP.DRVH")
 }
 
 record(calcout, "$(P)$(Q):PC_PULSE_STEP:DRVL") {
   field(CALC, "0")
-  field(INPA, "$(P)$(Q):PULSE:MRES CP")
+  field(INPA, "$(P)$(Q):PULSE:ERES CP")
   field(INPB, "$(P)$(Q):PULSE:OFF CP")
   field(OUT, "$(P)$(Q):PC_PULSE_STEP.DRVL")
 }
@@ -10883,7 +10883,7 @@ record(ao, "$(P)$(Q):PC_PULSE_STEP") {
 record(calcout, "$(P)$(Q):PC_PULSE_STEP:CALCLO") {
   field(CALC, "FLOOR((A-D)/C+0.5)&65535")
   field(INPA, "$(P)$(Q):PC_PULSE_STEP")
-  field(INPC, "$(P)$(Q):PULSE:MRES")
+  field(INPC, "$(P)$(Q):PULSE:ERES")
   field(INPD, "$(P)$(Q):PULSE:OFF")
   field(OUT, "$(P)$(Q):PC_PULSE_STEP:SETLO PP")
 }
@@ -10899,7 +10899,7 @@ record(ao, "$(P)$(Q):PC_PULSE_STEP:SETLO") {
 record(calcout, "$(P)$(Q):PC_PULSE_STEP:CALCHI") {
   field(CALC, "FLOOR((A-D)/C+0.5)>>16")
   field(INPA, "$(P)$(Q):PC_PULSE_STEP")
-  field(INPC, "$(P)$(Q):PULSE:MRES")
+  field(INPC, "$(P)$(Q):PULSE:ERES")
   field(INPD, "$(P)$(Q):PULSE:OFF")
   field(OUT, "$(P)$(Q):PC_PULSE_STEP:SETHI PP")
 }
@@ -11448,13 +11448,13 @@ record(ai, "$(P)$(Q):PULSE:OFF") {
   field(VAL, "0")
 }
 
-record(sel, "$(P)$(Q):STARTGATE:MRES") {
+record(sel, "$(P)$(Q):STARTGATE:ERES") {
   field(SELM, "Specified")
-  field(INPA, "$(P)$(Q):MOTOR:MRES CP")
-  field(INPB, "$(P)$(Q):TIME:MRES CP")
+  field(INPA, "$(P)$(Q):MOTOR:ERES CP")
+  field(INPB, "$(P)$(Q):TIME:ERES CP")
   field(INPC, "1")
   field(NVL, "$(P)$(Q):PC_GATE_SEL:RBV CP")
-  field(INPD, "$(P)$(Q):MOTOR:MRES CP")
+  field(INPD, "$(P)$(Q):MOTOR:ERES CP")
 }
 
 record(sel, "$(P)$(Q):STARTGATE:OFF") {
@@ -11470,18 +11470,18 @@ record(ai, "$(P)$(Q):GATE:OFF") {
   field(VAL, "0")
 }
 
-record(calc, "$(P)$(Q):MOTOR:ABSMRES") {
+record(calc, "$(P)$(Q):MOTOR:ABSERES") {
   field(CALC, "ABS(A)")
-  field(INPA, "$(P)$(Q):MOTOR:MRES CP")
+  field(INPA, "$(P)$(Q):MOTOR:ERES CP")
 }
 
-record(sel, "$(P)$(Q):GATE:MRES") {
+record(sel, "$(P)$(Q):GATE:ERES") {
   field(SELM, "Specified")
-  field(INPA, "$(P)$(Q):MOTOR:ABSMRES CP")
-  field(INPB, "$(P)$(Q):TIME:MRES CP")
+  field(INPA, "$(P)$(Q):MOTOR:ABSERES CP")
+  field(INPB, "$(P)$(Q):TIME:ERES CP")
   field(INPC, "1")
   field(NVL, "$(P)$(Q):PC_GATE_SEL:RBV CP")
-  field(INPD, "$(P)$(Q):MOTOR:ABSMRES CP")
+  field(INPD, "$(P)$(Q):MOTOR:ABSERES CP")
 }
 
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWritePosCompInp.vdb", PC_ENC)
@@ -12534,7 +12534,7 @@ record(calcout, "$(P)$(Q):PC_PULSE_MAX:RBV_CTS") {
 
 record(calcout, "$(P)$(Q):PC_PULSE_MAX:RBV") {
   field(DESC, "Convert cts into EGUs")
-  field(INPA, "$(P)$(Q):NOMOTOR:MRES CP")
+  field(INPA, "$(P)$(Q):NOMOTOR:ERES CP")
   field(INPB, "$(P)$(Q):NOMOTOR:OFF CP")
   field(INPC, "$(P)$(Q):PC_PULSE_MAX:RBV_CTS")
   field(CALC, "A*C+B")
@@ -12551,14 +12551,14 @@ record(calcout, "$(P)$(Q):PC_PULSE_MAX:SYNC") {
 
 record(calcout, "$(P)$(Q):PC_PULSE_MAX:DRVH") {
   field(CALC, "A*2**31+B")
-  field(INPA, "$(P)$(Q):NOMOTOR:MRES CP")
+  field(INPA, "$(P)$(Q):NOMOTOR:ERES CP")
   field(INPB, "$(P)$(Q):NOMOTOR:OFF CP")
   field(OUT, "$(P)$(Q):PC_PULSE_MAX.DRVH")
 }
 
 record(calcout, "$(P)$(Q):PC_PULSE_MAX:DRVL") {
   field(CALC, "0")
-  field(INPA, "$(P)$(Q):NOMOTOR:MRES CP")
+  field(INPA, "$(P)$(Q):NOMOTOR:ERES CP")
   field(INPB, "$(P)$(Q):NOMOTOR:OFF CP")
   field(OUT, "$(P)$(Q):PC_PULSE_MAX.DRVL")
 }
@@ -12574,7 +12574,7 @@ record(ao, "$(P)$(Q):PC_PULSE_MAX") {
 record(calcout, "$(P)$(Q):PC_PULSE_MAX:CALCLO") {
   field(CALC, "FLOOR((A-D)/C+0.5)&65535")
   field(INPA, "$(P)$(Q):PC_PULSE_MAX")
-  field(INPC, "$(P)$(Q):NOMOTOR:MRES")
+  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
   field(INPD, "$(P)$(Q):NOMOTOR:OFF")
   field(OUT, "$(P)$(Q):PC_PULSE_MAX:SETLO PP")
 }
@@ -12590,7 +12590,7 @@ record(ao, "$(P)$(Q):PC_PULSE_MAX:SETLO") {
 record(calcout, "$(P)$(Q):PC_PULSE_MAX:CALCHI") {
   field(CALC, "FLOOR((A-D)/C+0.5)>>16")
   field(INPA, "$(P)$(Q):PC_PULSE_MAX")
-  field(INPC, "$(P)$(Q):NOMOTOR:MRES")
+  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
   field(INPD, "$(P)$(Q):NOMOTOR:OFF")
   field(OUT, "$(P)$(Q):PC_PULSE_MAX:SETHI PP")
 }
@@ -12617,7 +12617,7 @@ record(calcout, "$(P)$(Q):PC_DIR:CRBV") {
   field(DESC, "Swap +ve and negative directions")
   field(CALC, "B<0?(A=0?1:A=1?0:A):A")
   field(INPA, "$(P)$(Q):PC_DIR:RRBV")
-  field(INPB, "$(P)$(Q):MOTOR:MRES CP")
+  field(INPB, "$(P)$(Q):MOTOR:ERES CP")
   field(OUT, "$(P)$(Q):PC_DIR:RBV.RVAL PP")
 }
 
@@ -12652,7 +12652,7 @@ record(mbbo, "$(P)$(Q):PC_DIR") {
 record(calcout, "$(P)$(Q):PC_DIR:CSET") {
   field(DESC, "Swap +ve and negative directions")
   field(CALC, "B<0?(A=0?1:A=1?0:A):A")
-  field(INPB, "$(P)$(Q):MOTOR:MRES")
+  field(INPB, "$(P)$(Q):MOTOR:ERES")
   field(OUT, "$(P)$(Q):PC_DIR:SET PP")
 }
 
@@ -12663,7 +12663,7 @@ record(ao, "$(P)$(Q):PC_DIR:SET") {
   field(OUT, "@asyn($(PORT),0) PC_DIR")
 }
 
-record(ai, "$(P)$(Q):TIME:MRES") {
+record(ai, "$(P)$(Q):TIME:ERES") {
   field(VAL, "0.0001")
 }
 
@@ -12689,7 +12689,7 @@ record(calcout, "$(P)$(Q):PC_PULSE_STEP:DRVL") {
   field(INPF, "0.0016")
   field(INPG, "0.0012")
   field(INPH, "0.0003")
-  field(INPI, "$(P)$(Q):PULSE:MRES CP")
+  field(INPI, "$(P)$(Q):PULSE:ERES CP")
   field(OUT, "$(P)$(Q):PC_PULSE_STEP.DRVL")
 }
 
@@ -12710,11 +12710,11 @@ record(calcout, "$(P)$(Q):MAV:OFF") {
   field(INPD, "$(P)$(Q):M4:OFF CP")
 }
 
-record(calcout, "$(P)$(Q):MAV:MRES") {
+record(calcout, "$(P)$(Q):MAV:ERES") {
   field(CALC, "(A+B+C+D)/16")
-  field(INPA, "$(P)$(Q):M1:MRES CP")
+  field(INPA, "$(P)$(Q):M1:ERES CP")
   field(PREC, "4")
-  field(INPB, "$(P)$(Q):M2:MRES CP")
-  field(INPC, "$(P)$(Q):M3:MRES CP")
-  field(INPD, "$(P)$(Q):M4:MRES CP")
+  field(INPB, "$(P)$(Q):M2:ERES CP")
+  field(INPC, "$(P)$(Q):M3:ERES CP")
+  field(INPD, "$(P)$(Q):M4:ERES CP")
 }

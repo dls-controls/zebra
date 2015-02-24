@@ -39,7 +39,7 @@ record(calcout, "$(P)$(Q):$(PARAM):RBV_CTS") {
 
 record(calcout, "$(P)$(Q):$(PARAM):RBV") {
   field(DESC, "Convert cts into EGUs")
-  field(INPA, "$(P)$(Q):$(MOTOR):MRES CP")
+  field(INPA, "$(P)$(Q):$(MOTOR):ERES CP")
   field(INPB, "$(P)$(Q):$(MOTOR):OFF CP")
   field(INPC, "$(P)$(Q):$(PARAM):RBV_CTS")
   field(CALC, "A*C+B")
@@ -56,14 +56,14 @@ record(calcout, "$(P)$(Q):$(PARAM):SYNC") {
 
 record(calcout, "$(P)$(Q):$(PARAM):DRVH") {
   field(CALC, "A*2**31+B")
-  field(INPA, "$(P)$(Q):$(MOTOR):MRES CP")
+  field(INPA, "$(P)$(Q):$(MOTOR):ERES CP")
   field(INPB, "$(P)$(Q):$(MOTOR):OFF CP")  
   field(OUT, "$(P)$(Q):$(PARAM).DRVH")
 }
 
 record(calcout, "$(P)$(Q):$(PARAM):DRVL") {
   field(CALC, "$(DRVL)")
-  field(INPA, "$(P)$(Q):$(MOTOR):MRES CP")
+  field(INPA, "$(P)$(Q):$(MOTOR):ERES CP")
   field(INPB, "$(P)$(Q):$(MOTOR):OFF CP")  
   field(OUT, "$(P)$(Q):$(PARAM).DRVL")
 }
@@ -79,7 +79,7 @@ record(ao, "$(P)$(Q):$(PARAM)") {
 record(calcout, "$(P)$(Q):$(PARAM):CALCLO") {
   field(CALC, "FLOOR((A-D)/C+0.5)&65535")
   field(INPA, "$(P)$(Q):$(PARAM)")
-  field(INPC, "$(P)$(Q):$(MOTOR):MRES")
+  field(INPC, "$(P)$(Q):$(MOTOR):ERES")
   field(INPD, "$(P)$(Q):$(MOTOR):OFF")
   field(OUT, "$(P)$(Q):$(PARAM):SETLO PP")
 }
@@ -95,7 +95,7 @@ record(ao, "$(P)$(Q):$(PARAM):SETLO") {
 record(calcout, "$(P)$(Q):$(PARAM):CALCHI") {
   field(CALC, "FLOOR((A-D)/C+0.5)>>16")
   field(INPA, "$(P)$(Q):$(PARAM)")
-  field(INPC, "$(P)$(Q):$(MOTOR):MRES")
+  field(INPC, "$(P)$(Q):$(MOTOR):ERES")
   field(INPD, "$(P)$(Q):$(MOTOR):OFF")
   field(OUT, "$(P)$(Q):$(PARAM):SETHI PP")
 }
