@@ -99,7 +99,7 @@ def twoTests(zebra):
     
 if __name__=="__main__":
     repeat = "y"
-    portstr = "/dev/ttyS0"
+    portstr = "/dev/ttyUSB0"
     tool = zebraTool(portstr)
     while repeat.lower() == "y":
         version = tool.readReg("SYS_VER") 
