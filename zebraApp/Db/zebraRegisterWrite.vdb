@@ -9,6 +9,7 @@ template() {
   #! InputMacro(ASLO,"",120,480,16777215,1,true)
   #! InputMacro(PREC,"",480,320,16777215,1,true)
   #! InputMacro(PARAM,"",200,380,16777215,1,true)
+  #! InputMacro(DISP,"",120,300,16777215,1,true)      
 }
 
 record(ai, "$(P)$(Q):$(PARAM):RBV") {
@@ -33,6 +34,13 @@ record(calcout, "$(P)$(Q):$(PARAM):DRVH") {
   field(A, "$(ASLO)")
   field(OUT, "$(P)$(Q):$(PARAM).DRVH")
   field(PINI, "YES")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM).DISP")
 }
 
 # % archiver 10 Monitor

@@ -9,7 +9,8 @@ template() {
   #! InputMacro(MOTOR,"",120,360,16777215,1,true)
   #! InputMacro(PARAM,"",120,300,16777215,1,true)
   #! InputMacro(PREC,"",120,300,16777215,1,true)
-  #! InputMacro(DRVL,"",120,300,16777215,1,true)    
+  #! InputMacro(DRVL,"",120,300,16777215,1,true)
+  #! InputMacro(DISP,"",120,300,16777215,1,true)          
 }
 
 record(ai, "$(P)$(Q):$(PARAM):RBVLO") {
@@ -66,6 +67,13 @@ record(calcout, "$(P)$(Q):$(PARAM):DRVL") {
   field(INPA, "$(P)$(Q):$(MOTOR):ERES CP")
   field(INPB, "$(P)$(Q):$(MOTOR):OFF CP")  
   field(OUT, "$(P)$(Q):$(PARAM).DRVL")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM).DISP")
 }
 
 # % archiver 10 Monitor

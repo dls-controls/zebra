@@ -7,6 +7,7 @@
 template() {
 
   #! InputMacro(PARAM,"",200,380,16777215,1,true)
+  #! InputMacro(DISP,"",120,300,16777215,1,true)   
 }
 
 record(ai, "$(P)$(Q):$(PARAM):RBV") {
@@ -159,7 +160,117 @@ record(calcout, "$(P)$(Q):$(PARAM):SYNCBF") {
   field(INPA, "$(P)$(Q):$(PARAM):RBV")
 }
 
+record(calcout, "$(P)$(Q):$(PARAM):DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM):B0.DISP")
+}
 
+record(calcout, "$(P)$(Q):$(PARAM):DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM):B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM):B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM):B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM):B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM):B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM):B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM):B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM):B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM):B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM):B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM):B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM):B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM):B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM):B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM):B15.DISP")
+}
 record(bo, "$(P)$(Q):$(PARAM):B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -269,6 +380,13 @@ record(bo, "$(P)$(Q):$(PARAM):BF") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(OUT, "$(P)$(Q):$(PARAM).BF PP")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM).DISP")
 }
 
 # % archiver 10 Monitor

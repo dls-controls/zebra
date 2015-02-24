@@ -318,6 +318,118 @@ record(calcout, "$(P)$(Q):AND1_ENA:SYNCBF") {
   field(INPA, "$(P)$(Q):AND1_ENA:RBV")
 }
 
+record(calcout, "$(P)$(Q):AND1_ENA:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_ENA:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_ENA:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_ENA:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_ENA:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_ENA:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_ENA:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_ENA:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_ENA:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_ENA:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_ENA:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_ENA:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_ENA:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_ENA:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_ENA:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_ENA:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_ENA:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_ENA:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_ENA:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_ENA:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_ENA:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_ENA:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_ENA:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_ENA:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_ENA:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_ENA:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_ENA:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_ENA:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_ENA:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_ENA:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_ENA:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_ENA:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):AND1_ENA:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -412,6 +524,13 @@ record(bo, "$(P)$(Q):AND1_ENA:BF") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(OUT, "$(P)$(Q):AND1_ENA.BF PP")
+}
+
+record(calcout, "$(P)$(Q):AND1_ENA:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_ENA.DISP")
 }
 
 # % archiver 10 Monitor
@@ -566,6 +685,118 @@ record(calcout, "$(P)$(Q):AND1_INV:SYNCBF") {
   field(INPA, "$(P)$(Q):AND1_INV:RBV")
 }
 
+record(calcout, "$(P)$(Q):AND1_INV:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INV:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_INV:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INV:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_INV:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INV:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_INV:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INV:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_INV:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INV:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_INV:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INV:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_INV:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INV:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_INV:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INV:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_INV:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INV:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_INV:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INV:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_INV:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INV:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_INV:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INV:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_INV:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INV:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_INV:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INV:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_INV:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INV:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND1_INV:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INV:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):AND1_INV:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -662,6 +893,13 @@ record(bo, "$(P)$(Q):AND1_INV:BF") {
   field(OUT, "$(P)$(Q):AND1_INV.BF PP")
 }
 
+record(calcout, "$(P)$(Q):AND1_INV:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INV.DISP")
+}
+
 # % archiver 10 Monitor
 record(mbboDirect, "$(P)$(Q):AND1_INV") {
   field(DESC, "Demand value for param")
@@ -699,6 +937,13 @@ record(calcout, "$(P)$(Q):AND1_INP1:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):AND1_INP1 PP")
   field(INPA, "$(P)$(Q):AND1_INP1:RBV")
+}
+
+record(calcout, "$(P)$(Q):AND1_INP1:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INP1.DISP")
 }
 
 # % archiver 10 Monitor
@@ -750,6 +995,13 @@ record(calcout, "$(P)$(Q):AND1_INP2:SYNC") {
   field(INPA, "$(P)$(Q):AND1_INP2:RBV")
 }
 
+record(calcout, "$(P)$(Q):AND1_INP2:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INP2.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):AND1_INP2") {
   field(DESC, "Demand value for param")
@@ -799,6 +1051,13 @@ record(calcout, "$(P)$(Q):AND1_INP3:SYNC") {
   field(INPA, "$(P)$(Q):AND1_INP3:RBV")
 }
 
+record(calcout, "$(P)$(Q):AND1_INP3:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INP3.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):AND1_INP3") {
   field(DESC, "Demand value for param")
@@ -846,6 +1105,13 @@ record(calcout, "$(P)$(Q):AND1_INP4:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):AND1_INP4 PP")
   field(INPA, "$(P)$(Q):AND1_INP4:RBV")
+}
+
+record(calcout, "$(P)$(Q):AND1_INP4:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND1_INP4.DISP")
 }
 
 # % archiver 10 Monitor
@@ -1017,6 +1283,118 @@ record(calcout, "$(P)$(Q):AND2_ENA:SYNCBF") {
   field(INPA, "$(P)$(Q):AND2_ENA:RBV")
 }
 
+record(calcout, "$(P)$(Q):AND2_ENA:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_ENA:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_ENA:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_ENA:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_ENA:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_ENA:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_ENA:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_ENA:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_ENA:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_ENA:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_ENA:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_ENA:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_ENA:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_ENA:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_ENA:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_ENA:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_ENA:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_ENA:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_ENA:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_ENA:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_ENA:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_ENA:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_ENA:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_ENA:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_ENA:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_ENA:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_ENA:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_ENA:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_ENA:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_ENA:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_ENA:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_ENA:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):AND2_ENA:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -1111,6 +1489,13 @@ record(bo, "$(P)$(Q):AND2_ENA:BF") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(OUT, "$(P)$(Q):AND2_ENA.BF PP")
+}
+
+record(calcout, "$(P)$(Q):AND2_ENA:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_ENA.DISP")
 }
 
 # % archiver 10 Monitor
@@ -1265,6 +1650,118 @@ record(calcout, "$(P)$(Q):AND2_INV:SYNCBF") {
   field(INPA, "$(P)$(Q):AND2_INV:RBV")
 }
 
+record(calcout, "$(P)$(Q):AND2_INV:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INV:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_INV:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INV:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_INV:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INV:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_INV:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INV:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_INV:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INV:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_INV:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INV:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_INV:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INV:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_INV:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INV:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_INV:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INV:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_INV:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INV:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_INV:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INV:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_INV:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INV:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_INV:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INV:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_INV:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INV:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_INV:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INV:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND2_INV:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INV:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):AND2_INV:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -1361,6 +1858,13 @@ record(bo, "$(P)$(Q):AND2_INV:BF") {
   field(OUT, "$(P)$(Q):AND2_INV.BF PP")
 }
 
+record(calcout, "$(P)$(Q):AND2_INV:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INV.DISP")
+}
+
 # % archiver 10 Monitor
 record(mbboDirect, "$(P)$(Q):AND2_INV") {
   field(DESC, "Demand value for param")
@@ -1398,6 +1902,13 @@ record(calcout, "$(P)$(Q):AND2_INP1:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):AND2_INP1 PP")
   field(INPA, "$(P)$(Q):AND2_INP1:RBV")
+}
+
+record(calcout, "$(P)$(Q):AND2_INP1:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INP1.DISP")
 }
 
 # % archiver 10 Monitor
@@ -1449,6 +1960,13 @@ record(calcout, "$(P)$(Q):AND2_INP2:SYNC") {
   field(INPA, "$(P)$(Q):AND2_INP2:RBV")
 }
 
+record(calcout, "$(P)$(Q):AND2_INP2:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INP2.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):AND2_INP2") {
   field(DESC, "Demand value for param")
@@ -1498,6 +2016,13 @@ record(calcout, "$(P)$(Q):AND2_INP3:SYNC") {
   field(INPA, "$(P)$(Q):AND2_INP3:RBV")
 }
 
+record(calcout, "$(P)$(Q):AND2_INP3:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INP3.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):AND2_INP3") {
   field(DESC, "Demand value for param")
@@ -1545,6 +2070,13 @@ record(calcout, "$(P)$(Q):AND2_INP4:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):AND2_INP4 PP")
   field(INPA, "$(P)$(Q):AND2_INP4:RBV")
+}
+
+record(calcout, "$(P)$(Q):AND2_INP4:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND2_INP4.DISP")
 }
 
 # % archiver 10 Monitor
@@ -1716,6 +2248,118 @@ record(calcout, "$(P)$(Q):AND3_ENA:SYNCBF") {
   field(INPA, "$(P)$(Q):AND3_ENA:RBV")
 }
 
+record(calcout, "$(P)$(Q):AND3_ENA:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_ENA:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_ENA:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_ENA:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_ENA:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_ENA:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_ENA:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_ENA:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_ENA:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_ENA:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_ENA:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_ENA:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_ENA:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_ENA:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_ENA:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_ENA:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_ENA:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_ENA:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_ENA:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_ENA:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_ENA:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_ENA:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_ENA:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_ENA:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_ENA:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_ENA:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_ENA:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_ENA:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_ENA:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_ENA:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_ENA:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_ENA:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):AND3_ENA:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -1810,6 +2454,13 @@ record(bo, "$(P)$(Q):AND3_ENA:BF") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(OUT, "$(P)$(Q):AND3_ENA.BF PP")
+}
+
+record(calcout, "$(P)$(Q):AND3_ENA:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_ENA.DISP")
 }
 
 # % archiver 10 Monitor
@@ -1964,6 +2615,118 @@ record(calcout, "$(P)$(Q):AND3_INV:SYNCBF") {
   field(INPA, "$(P)$(Q):AND3_INV:RBV")
 }
 
+record(calcout, "$(P)$(Q):AND3_INV:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INV:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_INV:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INV:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_INV:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INV:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_INV:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INV:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_INV:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INV:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_INV:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INV:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_INV:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INV:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_INV:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INV:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_INV:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INV:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_INV:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INV:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_INV:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INV:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_INV:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INV:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_INV:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INV:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_INV:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INV:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_INV:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INV:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND3_INV:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INV:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):AND3_INV:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -2060,6 +2823,13 @@ record(bo, "$(P)$(Q):AND3_INV:BF") {
   field(OUT, "$(P)$(Q):AND3_INV.BF PP")
 }
 
+record(calcout, "$(P)$(Q):AND3_INV:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INV.DISP")
+}
+
 # % archiver 10 Monitor
 record(mbboDirect, "$(P)$(Q):AND3_INV") {
   field(DESC, "Demand value for param")
@@ -2097,6 +2867,13 @@ record(calcout, "$(P)$(Q):AND3_INP1:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):AND3_INP1 PP")
   field(INPA, "$(P)$(Q):AND3_INP1:RBV")
+}
+
+record(calcout, "$(P)$(Q):AND3_INP1:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INP1.DISP")
 }
 
 # % archiver 10 Monitor
@@ -2148,6 +2925,13 @@ record(calcout, "$(P)$(Q):AND3_INP2:SYNC") {
   field(INPA, "$(P)$(Q):AND3_INP2:RBV")
 }
 
+record(calcout, "$(P)$(Q):AND3_INP2:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INP2.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):AND3_INP2") {
   field(DESC, "Demand value for param")
@@ -2197,6 +2981,13 @@ record(calcout, "$(P)$(Q):AND3_INP3:SYNC") {
   field(INPA, "$(P)$(Q):AND3_INP3:RBV")
 }
 
+record(calcout, "$(P)$(Q):AND3_INP3:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INP3.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):AND3_INP3") {
   field(DESC, "Demand value for param")
@@ -2244,6 +3035,13 @@ record(calcout, "$(P)$(Q):AND3_INP4:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):AND3_INP4 PP")
   field(INPA, "$(P)$(Q):AND3_INP4:RBV")
+}
+
+record(calcout, "$(P)$(Q):AND3_INP4:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND3_INP4.DISP")
 }
 
 # % archiver 10 Monitor
@@ -2415,6 +3213,118 @@ record(calcout, "$(P)$(Q):AND4_ENA:SYNCBF") {
   field(INPA, "$(P)$(Q):AND4_ENA:RBV")
 }
 
+record(calcout, "$(P)$(Q):AND4_ENA:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_ENA:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_ENA:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_ENA:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_ENA:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_ENA:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_ENA:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_ENA:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_ENA:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_ENA:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_ENA:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_ENA:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_ENA:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_ENA:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_ENA:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_ENA:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_ENA:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_ENA:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_ENA:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_ENA:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_ENA:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_ENA:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_ENA:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_ENA:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_ENA:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_ENA:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_ENA:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_ENA:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_ENA:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_ENA:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_ENA:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_ENA:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):AND4_ENA:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -2509,6 +3419,13 @@ record(bo, "$(P)$(Q):AND4_ENA:BF") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(OUT, "$(P)$(Q):AND4_ENA.BF PP")
+}
+
+record(calcout, "$(P)$(Q):AND4_ENA:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_ENA.DISP")
 }
 
 # % archiver 10 Monitor
@@ -2663,6 +3580,118 @@ record(calcout, "$(P)$(Q):AND4_INV:SYNCBF") {
   field(INPA, "$(P)$(Q):AND4_INV:RBV")
 }
 
+record(calcout, "$(P)$(Q):AND4_INV:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INV:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_INV:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INV:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_INV:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INV:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_INV:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INV:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_INV:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INV:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_INV:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INV:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_INV:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INV:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_INV:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INV:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_INV:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INV:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_INV:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INV:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_INV:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INV:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_INV:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INV:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_INV:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INV:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_INV:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INV:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_INV:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INV:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):AND4_INV:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INV:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):AND4_INV:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -2759,6 +3788,13 @@ record(bo, "$(P)$(Q):AND4_INV:BF") {
   field(OUT, "$(P)$(Q):AND4_INV.BF PP")
 }
 
+record(calcout, "$(P)$(Q):AND4_INV:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INV.DISP")
+}
+
 # % archiver 10 Monitor
 record(mbboDirect, "$(P)$(Q):AND4_INV") {
   field(DESC, "Demand value for param")
@@ -2796,6 +3832,13 @@ record(calcout, "$(P)$(Q):AND4_INP1:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):AND4_INP1 PP")
   field(INPA, "$(P)$(Q):AND4_INP1:RBV")
+}
+
+record(calcout, "$(P)$(Q):AND4_INP1:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INP1.DISP")
 }
 
 # % archiver 10 Monitor
@@ -2847,6 +3890,13 @@ record(calcout, "$(P)$(Q):AND4_INP2:SYNC") {
   field(INPA, "$(P)$(Q):AND4_INP2:RBV")
 }
 
+record(calcout, "$(P)$(Q):AND4_INP2:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INP2.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):AND4_INP2") {
   field(DESC, "Demand value for param")
@@ -2896,6 +3946,13 @@ record(calcout, "$(P)$(Q):AND4_INP3:SYNC") {
   field(INPA, "$(P)$(Q):AND4_INP3:RBV")
 }
 
+record(calcout, "$(P)$(Q):AND4_INP3:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INP3.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):AND4_INP3") {
   field(DESC, "Demand value for param")
@@ -2943,6 +4000,13 @@ record(calcout, "$(P)$(Q):AND4_INP4:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):AND4_INP4 PP")
   field(INPA, "$(P)$(Q):AND4_INP4:RBV")
+}
+
+record(calcout, "$(P)$(Q):AND4_INP4:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):AND4_INP4.DISP")
 }
 
 # % archiver 10 Monitor
@@ -3114,6 +4178,118 @@ record(calcout, "$(P)$(Q):OR1_ENA:SYNCBF") {
   field(INPA, "$(P)$(Q):OR1_ENA:RBV")
 }
 
+record(calcout, "$(P)$(Q):OR1_ENA:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_ENA:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_ENA:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_ENA:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_ENA:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_ENA:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_ENA:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_ENA:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_ENA:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_ENA:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_ENA:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_ENA:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_ENA:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_ENA:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_ENA:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_ENA:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_ENA:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_ENA:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_ENA:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_ENA:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_ENA:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_ENA:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_ENA:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_ENA:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_ENA:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_ENA:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_ENA:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_ENA:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_ENA:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_ENA:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_ENA:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_ENA:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):OR1_ENA:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -3208,6 +4384,13 @@ record(bo, "$(P)$(Q):OR1_ENA:BF") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(OUT, "$(P)$(Q):OR1_ENA.BF PP")
+}
+
+record(calcout, "$(P)$(Q):OR1_ENA:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_ENA.DISP")
 }
 
 # % archiver 10 Monitor
@@ -3362,6 +4545,118 @@ record(calcout, "$(P)$(Q):OR1_INV:SYNCBF") {
   field(INPA, "$(P)$(Q):OR1_INV:RBV")
 }
 
+record(calcout, "$(P)$(Q):OR1_INV:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INV:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_INV:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INV:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_INV:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INV:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_INV:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INV:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_INV:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INV:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_INV:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INV:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_INV:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INV:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_INV:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INV:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_INV:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INV:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_INV:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INV:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_INV:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INV:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_INV:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INV:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_INV:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INV:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_INV:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INV:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_INV:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INV:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR1_INV:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INV:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):OR1_INV:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -3458,6 +4753,13 @@ record(bo, "$(P)$(Q):OR1_INV:BF") {
   field(OUT, "$(P)$(Q):OR1_INV.BF PP")
 }
 
+record(calcout, "$(P)$(Q):OR1_INV:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INV.DISP")
+}
+
 # % archiver 10 Monitor
 record(mbboDirect, "$(P)$(Q):OR1_INV") {
   field(DESC, "Demand value for param")
@@ -3495,6 +4797,13 @@ record(calcout, "$(P)$(Q):OR1_INP1:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OR1_INP1 PP")
   field(INPA, "$(P)$(Q):OR1_INP1:RBV")
+}
+
+record(calcout, "$(P)$(Q):OR1_INP1:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INP1.DISP")
 }
 
 # % archiver 10 Monitor
@@ -3546,6 +4855,13 @@ record(calcout, "$(P)$(Q):OR1_INP2:SYNC") {
   field(INPA, "$(P)$(Q):OR1_INP2:RBV")
 }
 
+record(calcout, "$(P)$(Q):OR1_INP2:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INP2.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OR1_INP2") {
   field(DESC, "Demand value for param")
@@ -3595,6 +4911,13 @@ record(calcout, "$(P)$(Q):OR1_INP3:SYNC") {
   field(INPA, "$(P)$(Q):OR1_INP3:RBV")
 }
 
+record(calcout, "$(P)$(Q):OR1_INP3:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INP3.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OR1_INP3") {
   field(DESC, "Demand value for param")
@@ -3642,6 +4965,13 @@ record(calcout, "$(P)$(Q):OR1_INP4:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OR1_INP4 PP")
   field(INPA, "$(P)$(Q):OR1_INP4:RBV")
+}
+
+record(calcout, "$(P)$(Q):OR1_INP4:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR1_INP4.DISP")
 }
 
 # % archiver 10 Monitor
@@ -3813,6 +5143,118 @@ record(calcout, "$(P)$(Q):OR2_ENA:SYNCBF") {
   field(INPA, "$(P)$(Q):OR2_ENA:RBV")
 }
 
+record(calcout, "$(P)$(Q):OR2_ENA:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_ENA:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_ENA:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_ENA:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_ENA:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_ENA:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_ENA:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_ENA:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_ENA:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_ENA:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_ENA:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_ENA:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_ENA:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_ENA:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_ENA:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_ENA:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_ENA:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_ENA:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_ENA:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_ENA:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_ENA:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_ENA:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_ENA:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_ENA:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_ENA:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_ENA:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_ENA:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_ENA:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_ENA:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_ENA:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_ENA:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_ENA:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):OR2_ENA:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -3907,6 +5349,13 @@ record(bo, "$(P)$(Q):OR2_ENA:BF") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(OUT, "$(P)$(Q):OR2_ENA.BF PP")
+}
+
+record(calcout, "$(P)$(Q):OR2_ENA:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_ENA.DISP")
 }
 
 # % archiver 10 Monitor
@@ -4061,6 +5510,118 @@ record(calcout, "$(P)$(Q):OR2_INV:SYNCBF") {
   field(INPA, "$(P)$(Q):OR2_INV:RBV")
 }
 
+record(calcout, "$(P)$(Q):OR2_INV:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INV:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_INV:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INV:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_INV:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INV:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_INV:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INV:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_INV:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INV:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_INV:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INV:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_INV:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INV:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_INV:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INV:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_INV:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INV:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_INV:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INV:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_INV:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INV:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_INV:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INV:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_INV:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INV:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_INV:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INV:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_INV:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INV:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR2_INV:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INV:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):OR2_INV:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -4157,6 +5718,13 @@ record(bo, "$(P)$(Q):OR2_INV:BF") {
   field(OUT, "$(P)$(Q):OR2_INV.BF PP")
 }
 
+record(calcout, "$(P)$(Q):OR2_INV:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INV.DISP")
+}
+
 # % archiver 10 Monitor
 record(mbboDirect, "$(P)$(Q):OR2_INV") {
   field(DESC, "Demand value for param")
@@ -4194,6 +5762,13 @@ record(calcout, "$(P)$(Q):OR2_INP1:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OR2_INP1 PP")
   field(INPA, "$(P)$(Q):OR2_INP1:RBV")
+}
+
+record(calcout, "$(P)$(Q):OR2_INP1:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INP1.DISP")
 }
 
 # % archiver 10 Monitor
@@ -4245,6 +5820,13 @@ record(calcout, "$(P)$(Q):OR2_INP2:SYNC") {
   field(INPA, "$(P)$(Q):OR2_INP2:RBV")
 }
 
+record(calcout, "$(P)$(Q):OR2_INP2:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INP2.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OR2_INP2") {
   field(DESC, "Demand value for param")
@@ -4294,6 +5876,13 @@ record(calcout, "$(P)$(Q):OR2_INP3:SYNC") {
   field(INPA, "$(P)$(Q):OR2_INP3:RBV")
 }
 
+record(calcout, "$(P)$(Q):OR2_INP3:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INP3.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OR2_INP3") {
   field(DESC, "Demand value for param")
@@ -4341,6 +5930,13 @@ record(calcout, "$(P)$(Q):OR2_INP4:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OR2_INP4 PP")
   field(INPA, "$(P)$(Q):OR2_INP4:RBV")
+}
+
+record(calcout, "$(P)$(Q):OR2_INP4:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR2_INP4.DISP")
 }
 
 # % archiver 10 Monitor
@@ -4512,6 +6108,118 @@ record(calcout, "$(P)$(Q):OR3_ENA:SYNCBF") {
   field(INPA, "$(P)$(Q):OR3_ENA:RBV")
 }
 
+record(calcout, "$(P)$(Q):OR3_ENA:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_ENA:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_ENA:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_ENA:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_ENA:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_ENA:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_ENA:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_ENA:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_ENA:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_ENA:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_ENA:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_ENA:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_ENA:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_ENA:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_ENA:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_ENA:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_ENA:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_ENA:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_ENA:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_ENA:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_ENA:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_ENA:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_ENA:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_ENA:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_ENA:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_ENA:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_ENA:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_ENA:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_ENA:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_ENA:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_ENA:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_ENA:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):OR3_ENA:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -4606,6 +6314,13 @@ record(bo, "$(P)$(Q):OR3_ENA:BF") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(OUT, "$(P)$(Q):OR3_ENA.BF PP")
+}
+
+record(calcout, "$(P)$(Q):OR3_ENA:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_ENA.DISP")
 }
 
 # % archiver 10 Monitor
@@ -4760,6 +6475,118 @@ record(calcout, "$(P)$(Q):OR3_INV:SYNCBF") {
   field(INPA, "$(P)$(Q):OR3_INV:RBV")
 }
 
+record(calcout, "$(P)$(Q):OR3_INV:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INV:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_INV:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INV:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_INV:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INV:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_INV:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INV:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_INV:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INV:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_INV:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INV:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_INV:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INV:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_INV:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INV:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_INV:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INV:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_INV:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INV:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_INV:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INV:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_INV:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INV:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_INV:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INV:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_INV:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INV:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_INV:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INV:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR3_INV:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INV:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):OR3_INV:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -4856,6 +6683,13 @@ record(bo, "$(P)$(Q):OR3_INV:BF") {
   field(OUT, "$(P)$(Q):OR3_INV.BF PP")
 }
 
+record(calcout, "$(P)$(Q):OR3_INV:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INV.DISP")
+}
+
 # % archiver 10 Monitor
 record(mbboDirect, "$(P)$(Q):OR3_INV") {
   field(DESC, "Demand value for param")
@@ -4893,6 +6727,13 @@ record(calcout, "$(P)$(Q):OR3_INP1:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OR3_INP1 PP")
   field(INPA, "$(P)$(Q):OR3_INP1:RBV")
+}
+
+record(calcout, "$(P)$(Q):OR3_INP1:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INP1.DISP")
 }
 
 # % archiver 10 Monitor
@@ -4944,6 +6785,13 @@ record(calcout, "$(P)$(Q):OR3_INP2:SYNC") {
   field(INPA, "$(P)$(Q):OR3_INP2:RBV")
 }
 
+record(calcout, "$(P)$(Q):OR3_INP2:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INP2.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OR3_INP2") {
   field(DESC, "Demand value for param")
@@ -4993,6 +6841,13 @@ record(calcout, "$(P)$(Q):OR3_INP3:SYNC") {
   field(INPA, "$(P)$(Q):OR3_INP3:RBV")
 }
 
+record(calcout, "$(P)$(Q):OR3_INP3:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INP3.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OR3_INP3") {
   field(DESC, "Demand value for param")
@@ -5040,6 +6895,13 @@ record(calcout, "$(P)$(Q):OR3_INP4:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OR3_INP4 PP")
   field(INPA, "$(P)$(Q):OR3_INP4:RBV")
+}
+
+record(calcout, "$(P)$(Q):OR3_INP4:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR3_INP4.DISP")
 }
 
 # % archiver 10 Monitor
@@ -5211,6 +7073,118 @@ record(calcout, "$(P)$(Q):OR4_ENA:SYNCBF") {
   field(INPA, "$(P)$(Q):OR4_ENA:RBV")
 }
 
+record(calcout, "$(P)$(Q):OR4_ENA:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_ENA:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_ENA:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_ENA:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_ENA:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_ENA:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_ENA:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_ENA:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_ENA:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_ENA:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_ENA:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_ENA:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_ENA:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_ENA:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_ENA:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_ENA:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_ENA:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_ENA:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_ENA:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_ENA:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_ENA:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_ENA:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_ENA:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_ENA:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_ENA:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_ENA:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_ENA:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_ENA:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_ENA:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_ENA:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_ENA:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_ENA:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):OR4_ENA:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -5305,6 +7279,13 @@ record(bo, "$(P)$(Q):OR4_ENA:BF") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(OUT, "$(P)$(Q):OR4_ENA.BF PP")
+}
+
+record(calcout, "$(P)$(Q):OR4_ENA:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_ENA.DISP")
 }
 
 # % archiver 10 Monitor
@@ -5459,6 +7440,118 @@ record(calcout, "$(P)$(Q):OR4_INV:SYNCBF") {
   field(INPA, "$(P)$(Q):OR4_INV:RBV")
 }
 
+record(calcout, "$(P)$(Q):OR4_INV:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INV:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_INV:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INV:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_INV:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INV:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_INV:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INV:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_INV:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INV:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_INV:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INV:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_INV:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INV:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_INV:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INV:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_INV:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INV:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_INV:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INV:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_INV:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INV:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_INV:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INV:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_INV:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INV:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_INV:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INV:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_INV:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INV:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):OR4_INV:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INV:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):OR4_INV:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -5555,6 +7648,13 @@ record(bo, "$(P)$(Q):OR4_INV:BF") {
   field(OUT, "$(P)$(Q):OR4_INV.BF PP")
 }
 
+record(calcout, "$(P)$(Q):OR4_INV:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INV.DISP")
+}
+
 # % archiver 10 Monitor
 record(mbboDirect, "$(P)$(Q):OR4_INV") {
   field(DESC, "Demand value for param")
@@ -5592,6 +7692,13 @@ record(calcout, "$(P)$(Q):OR4_INP1:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OR4_INP1 PP")
   field(INPA, "$(P)$(Q):OR4_INP1:RBV")
+}
+
+record(calcout, "$(P)$(Q):OR4_INP1:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INP1.DISP")
 }
 
 # % archiver 10 Monitor
@@ -5643,6 +7750,13 @@ record(calcout, "$(P)$(Q):OR4_INP2:SYNC") {
   field(INPA, "$(P)$(Q):OR4_INP2:RBV")
 }
 
+record(calcout, "$(P)$(Q):OR4_INP2:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INP2.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OR4_INP2") {
   field(DESC, "Demand value for param")
@@ -5692,6 +7806,13 @@ record(calcout, "$(P)$(Q):OR4_INP3:SYNC") {
   field(INPA, "$(P)$(Q):OR4_INP3:RBV")
 }
 
+record(calcout, "$(P)$(Q):OR4_INP3:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INP3.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OR4_INP3") {
   field(DESC, "Demand value for param")
@@ -5739,6 +7860,13 @@ record(calcout, "$(P)$(Q):OR4_INP4:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OR4_INP4 PP")
   field(INPA, "$(P)$(Q):OR4_INP4:RBV")
+}
+
+record(calcout, "$(P)$(Q):OR4_INP4:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OR4_INP4.DISP")
 }
 
 # % archiver 10 Monitor
@@ -5797,6 +7925,13 @@ record(calcout, "$(P)$(Q):GATE1_INP1:SYNC") {
   field(INPA, "$(P)$(Q):GATE1_INP1:RBV")
 }
 
+record(calcout, "$(P)$(Q):GATE1_INP1:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):GATE1_INP1.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):GATE1_INP1") {
   field(DESC, "Demand value for param")
@@ -5844,6 +7979,13 @@ record(calcout, "$(P)$(Q):GATE1_INP2:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):GATE1_INP2 PP")
   field(INPA, "$(P)$(Q):GATE1_INP2:RBV")
+}
+
+record(calcout, "$(P)$(Q):GATE1_INP2:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):GATE1_INP2.DISP")
 }
 
 # % archiver 10 Monitor
@@ -5902,6 +8044,13 @@ record(calcout, "$(P)$(Q):GATE2_INP1:SYNC") {
   field(INPA, "$(P)$(Q):GATE2_INP1:RBV")
 }
 
+record(calcout, "$(P)$(Q):GATE2_INP1:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):GATE2_INP1.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):GATE2_INP1") {
   field(DESC, "Demand value for param")
@@ -5949,6 +8098,13 @@ record(calcout, "$(P)$(Q):GATE2_INP2:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):GATE2_INP2 PP")
   field(INPA, "$(P)$(Q):GATE2_INP2:RBV")
+}
+
+record(calcout, "$(P)$(Q):GATE2_INP2:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):GATE2_INP2.DISP")
 }
 
 # % archiver 10 Monitor
@@ -6007,6 +8163,13 @@ record(calcout, "$(P)$(Q):GATE3_INP1:SYNC") {
   field(INPA, "$(P)$(Q):GATE3_INP1:RBV")
 }
 
+record(calcout, "$(P)$(Q):GATE3_INP1:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):GATE3_INP1.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):GATE3_INP1") {
   field(DESC, "Demand value for param")
@@ -6054,6 +8217,13 @@ record(calcout, "$(P)$(Q):GATE3_INP2:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):GATE3_INP2 PP")
   field(INPA, "$(P)$(Q):GATE3_INP2:RBV")
+}
+
+record(calcout, "$(P)$(Q):GATE3_INP2:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):GATE3_INP2.DISP")
 }
 
 # % archiver 10 Monitor
@@ -6112,6 +8282,13 @@ record(calcout, "$(P)$(Q):GATE4_INP1:SYNC") {
   field(INPA, "$(P)$(Q):GATE4_INP1:RBV")
 }
 
+record(calcout, "$(P)$(Q):GATE4_INP1:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):GATE4_INP1.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):GATE4_INP1") {
   field(DESC, "Demand value for param")
@@ -6159,6 +8336,13 @@ record(calcout, "$(P)$(Q):GATE4_INP2:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):GATE4_INP2 PP")
   field(INPA, "$(P)$(Q):GATE4_INP2:RBV")
+}
+
+record(calcout, "$(P)$(Q):GATE4_INP2:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):GATE4_INP2.DISP")
 }
 
 # % archiver 10 Monitor
@@ -6330,6 +8514,118 @@ record(calcout, "$(P)$(Q):DIV_FIRST:SYNCBF") {
   field(INPA, "$(P)$(Q):DIV_FIRST:RBV")
 }
 
+record(calcout, "$(P)$(Q):DIV_FIRST:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV_FIRST:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):DIV_FIRST:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV_FIRST:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):DIV_FIRST:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV_FIRST:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):DIV_FIRST:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV_FIRST:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):DIV_FIRST:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV_FIRST:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):DIV_FIRST:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV_FIRST:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):DIV_FIRST:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV_FIRST:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):DIV_FIRST:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV_FIRST:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):DIV_FIRST:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV_FIRST:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):DIV_FIRST:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV_FIRST:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):DIV_FIRST:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV_FIRST:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):DIV_FIRST:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV_FIRST:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):DIV_FIRST:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV_FIRST:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):DIV_FIRST:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV_FIRST:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):DIV_FIRST:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV_FIRST:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):DIV_FIRST:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV_FIRST:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):DIV_FIRST:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -6426,6 +8722,13 @@ record(bo, "$(P)$(Q):DIV_FIRST:BF") {
   field(OUT, "$(P)$(Q):DIV_FIRST.BF PP")
 }
 
+record(calcout, "$(P)$(Q):DIV_FIRST:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV_FIRST.DISP")
+}
+
 # % archiver 10 Monitor
 record(mbboDirect, "$(P)$(Q):DIV_FIRST") {
   field(DESC, "Demand value for param")
@@ -6463,6 +8766,13 @@ record(calcout, "$(P)$(Q):DIV1_INP:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):DIV1_INP PP")
   field(INPA, "$(P)$(Q):DIV1_INP:RBV")
+}
+
+record(calcout, "$(P)$(Q):DIV1_INP:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV1_INP.DISP")
 }
 
 # % archiver 10 Monitor
@@ -6548,6 +8858,13 @@ record(calcout, "$(P)$(Q):DIV1_DIV:DRVL") {
   field(OUT, "$(P)$(Q):DIV1_DIV.DRVL")
 }
 
+record(calcout, "$(P)$(Q):DIV1_DIV:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV1_DIV.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):DIV1_DIV") {
   field(DESC, "Demand value for param")
@@ -6626,6 +8943,13 @@ record(calcout, "$(P)$(Q):DIV2_INP:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):DIV2_INP PP")
   field(INPA, "$(P)$(Q):DIV2_INP:RBV")
+}
+
+record(calcout, "$(P)$(Q):DIV2_INP:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV2_INP.DISP")
 }
 
 # % archiver 10 Monitor
@@ -6711,6 +9035,13 @@ record(calcout, "$(P)$(Q):DIV2_DIV:DRVL") {
   field(OUT, "$(P)$(Q):DIV2_DIV.DRVL")
 }
 
+record(calcout, "$(P)$(Q):DIV2_DIV:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV2_DIV.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):DIV2_DIV") {
   field(DESC, "Demand value for param")
@@ -6789,6 +9120,13 @@ record(calcout, "$(P)$(Q):DIV3_INP:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):DIV3_INP PP")
   field(INPA, "$(P)$(Q):DIV3_INP:RBV")
+}
+
+record(calcout, "$(P)$(Q):DIV3_INP:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV3_INP.DISP")
 }
 
 # % archiver 10 Monitor
@@ -6874,6 +9212,13 @@ record(calcout, "$(P)$(Q):DIV3_DIV:DRVL") {
   field(OUT, "$(P)$(Q):DIV3_DIV.DRVL")
 }
 
+record(calcout, "$(P)$(Q):DIV3_DIV:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV3_DIV.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):DIV3_DIV") {
   field(DESC, "Demand value for param")
@@ -6952,6 +9297,13 @@ record(calcout, "$(P)$(Q):DIV4_INP:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):DIV4_INP PP")
   field(INPA, "$(P)$(Q):DIV4_INP:RBV")
+}
+
+record(calcout, "$(P)$(Q):DIV4_INP:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV4_INP.DISP")
 }
 
 # % archiver 10 Monitor
@@ -7037,6 +9389,13 @@ record(calcout, "$(P)$(Q):DIV4_DIV:DRVL") {
   field(OUT, "$(P)$(Q):DIV4_DIV.DRVL")
 }
 
+record(calcout, "$(P)$(Q):DIV4_DIV:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):DIV4_DIV.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):DIV4_DIV") {
   field(DESC, "Demand value for param")
@@ -7119,6 +9478,13 @@ record(calcout, "$(P)$(Q):PULSE1_DLY:DRVH") {
   field(PINI, "YES")
 }
 
+record(calcout, "$(P)$(Q):PULSE1_DLY:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PULSE1_DLY.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PULSE1_DLY") {
   field(DESC, "Demand value for param")
@@ -7163,6 +9529,13 @@ record(calcout, "$(P)$(Q):PULSE1_WID:DRVH") {
   field(PINI, "YES")
 }
 
+record(calcout, "$(P)$(Q):PULSE1_WID:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PULSE1_WID.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PULSE1_WID") {
   field(DESC, "Demand value for param")
@@ -7202,6 +9575,13 @@ record(calcout, "$(P)$(Q):PULSE1_PRE:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):PULSE1_PRE PP")
   field(INPA, "$(P)$(Q):PULSE1_PRE:RBV")
+}
+
+record(calcout, "$(P)$(Q):PULSE1_PRE:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PULSE1_PRE.DISP")
 }
 
 # % archiver 10 Monitor
@@ -7248,6 +9628,13 @@ record(calcout, "$(P)$(Q):PULSE1_INP:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):PULSE1_INP PP")
   field(INPA, "$(P)$(Q):PULSE1_INP:RBV")
+}
+
+record(calcout, "$(P)$(Q):PULSE1_INP:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PULSE1_INP.DISP")
 }
 
 # % archiver 10 Monitor
@@ -7308,6 +9695,13 @@ record(calcout, "$(P)$(Q):PULSE2_DLY:DRVH") {
   field(PINI, "YES")
 }
 
+record(calcout, "$(P)$(Q):PULSE2_DLY:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PULSE2_DLY.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PULSE2_DLY") {
   field(DESC, "Demand value for param")
@@ -7352,6 +9746,13 @@ record(calcout, "$(P)$(Q):PULSE2_WID:DRVH") {
   field(PINI, "YES")
 }
 
+record(calcout, "$(P)$(Q):PULSE2_WID:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PULSE2_WID.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PULSE2_WID") {
   field(DESC, "Demand value for param")
@@ -7391,6 +9792,13 @@ record(calcout, "$(P)$(Q):PULSE2_PRE:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):PULSE2_PRE PP")
   field(INPA, "$(P)$(Q):PULSE2_PRE:RBV")
+}
+
+record(calcout, "$(P)$(Q):PULSE2_PRE:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PULSE2_PRE.DISP")
 }
 
 # % archiver 10 Monitor
@@ -7437,6 +9845,13 @@ record(calcout, "$(P)$(Q):PULSE2_INP:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):PULSE2_INP PP")
   field(INPA, "$(P)$(Q):PULSE2_INP:RBV")
+}
+
+record(calcout, "$(P)$(Q):PULSE2_INP:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PULSE2_INP.DISP")
 }
 
 # % archiver 10 Monitor
@@ -7497,6 +9912,13 @@ record(calcout, "$(P)$(Q):PULSE3_DLY:DRVH") {
   field(PINI, "YES")
 }
 
+record(calcout, "$(P)$(Q):PULSE3_DLY:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PULSE3_DLY.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PULSE3_DLY") {
   field(DESC, "Demand value for param")
@@ -7541,6 +9963,13 @@ record(calcout, "$(P)$(Q):PULSE3_WID:DRVH") {
   field(PINI, "YES")
 }
 
+record(calcout, "$(P)$(Q):PULSE3_WID:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PULSE3_WID.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PULSE3_WID") {
   field(DESC, "Demand value for param")
@@ -7580,6 +10009,13 @@ record(calcout, "$(P)$(Q):PULSE3_PRE:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):PULSE3_PRE PP")
   field(INPA, "$(P)$(Q):PULSE3_PRE:RBV")
+}
+
+record(calcout, "$(P)$(Q):PULSE3_PRE:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PULSE3_PRE.DISP")
 }
 
 # % archiver 10 Monitor
@@ -7626,6 +10062,13 @@ record(calcout, "$(P)$(Q):PULSE3_INP:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):PULSE3_INP PP")
   field(INPA, "$(P)$(Q):PULSE3_INP:RBV")
+}
+
+record(calcout, "$(P)$(Q):PULSE3_INP:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PULSE3_INP.DISP")
 }
 
 # % archiver 10 Monitor
@@ -7686,6 +10129,13 @@ record(calcout, "$(P)$(Q):PULSE4_DLY:DRVH") {
   field(PINI, "YES")
 }
 
+record(calcout, "$(P)$(Q):PULSE4_DLY:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PULSE4_DLY.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PULSE4_DLY") {
   field(DESC, "Demand value for param")
@@ -7730,6 +10180,13 @@ record(calcout, "$(P)$(Q):PULSE4_WID:DRVH") {
   field(PINI, "YES")
 }
 
+record(calcout, "$(P)$(Q):PULSE4_WID:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PULSE4_WID.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PULSE4_WID") {
   field(DESC, "Demand value for param")
@@ -7769,6 +10226,13 @@ record(calcout, "$(P)$(Q):PULSE4_PRE:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):PULSE4_PRE PP")
   field(INPA, "$(P)$(Q):PULSE4_PRE:RBV")
+}
+
+record(calcout, "$(P)$(Q):PULSE4_PRE:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PULSE4_PRE.DISP")
 }
 
 # % archiver 10 Monitor
@@ -7815,6 +10279,13 @@ record(calcout, "$(P)$(Q):PULSE4_INP:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):PULSE4_INP PP")
   field(INPA, "$(P)$(Q):PULSE4_INP:RBV")
+}
+
+record(calcout, "$(P)$(Q):PULSE4_INP:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PULSE4_INP.DISP")
 }
 
 # % archiver 10 Monitor
@@ -7873,6 +10344,13 @@ record(calcout, "$(P)$(Q):OUT1_TTL:SYNC") {
   field(INPA, "$(P)$(Q):OUT1_TTL:RBV")
 }
 
+record(calcout, "$(P)$(Q):OUT1_TTL:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT1_TTL.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OUT1_TTL") {
   field(DESC, "Demand value for param")
@@ -7920,6 +10398,13 @@ record(calcout, "$(P)$(Q):OUT1_NIM:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OUT1_NIM PP")
   field(INPA, "$(P)$(Q):OUT1_NIM:RBV")
+}
+
+record(calcout, "$(P)$(Q):OUT1_NIM:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT1_NIM.DISP")
 }
 
 # % archiver 10 Monitor
@@ -7971,6 +10456,13 @@ record(calcout, "$(P)$(Q):OUT1_LVDS:SYNC") {
   field(INPA, "$(P)$(Q):OUT1_LVDS:RBV")
 }
 
+record(calcout, "$(P)$(Q):OUT1_LVDS:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT1_LVDS.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OUT1_LVDS") {
   field(DESC, "Demand value for param")
@@ -8018,6 +10510,13 @@ record(calcout, "$(P)$(Q):OUT2_TTL:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OUT2_TTL PP")
   field(INPA, "$(P)$(Q):OUT2_TTL:RBV")
+}
+
+record(calcout, "$(P)$(Q):OUT2_TTL:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT2_TTL.DISP")
 }
 
 # % archiver 10 Monitor
@@ -8069,6 +10568,13 @@ record(calcout, "$(P)$(Q):OUT2_NIM:SYNC") {
   field(INPA, "$(P)$(Q):OUT2_NIM:RBV")
 }
 
+record(calcout, "$(P)$(Q):OUT2_NIM:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT2_NIM.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OUT2_NIM") {
   field(DESC, "Demand value for param")
@@ -8116,6 +10622,13 @@ record(calcout, "$(P)$(Q):OUT2_LVDS:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OUT2_LVDS PP")
   field(INPA, "$(P)$(Q):OUT2_LVDS:RBV")
+}
+
+record(calcout, "$(P)$(Q):OUT2_LVDS:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT2_LVDS.DISP")
 }
 
 # % archiver 10 Monitor
@@ -8167,6 +10680,13 @@ record(calcout, "$(P)$(Q):OUT3_TTL:SYNC") {
   field(INPA, "$(P)$(Q):OUT3_TTL:RBV")
 }
 
+record(calcout, "$(P)$(Q):OUT3_TTL:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT3_TTL.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OUT3_TTL") {
   field(DESC, "Demand value for param")
@@ -8214,6 +10734,13 @@ record(calcout, "$(P)$(Q):OUT3_OC:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OUT3_OC PP")
   field(INPA, "$(P)$(Q):OUT3_OC:RBV")
+}
+
+record(calcout, "$(P)$(Q):OUT3_OC:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT3_OC.DISP")
 }
 
 # % archiver 10 Monitor
@@ -8265,6 +10792,13 @@ record(calcout, "$(P)$(Q):OUT3_LVDS:SYNC") {
   field(INPA, "$(P)$(Q):OUT3_LVDS:RBV")
 }
 
+record(calcout, "$(P)$(Q):OUT3_LVDS:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT3_LVDS.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OUT3_LVDS") {
   field(DESC, "Demand value for param")
@@ -8312,6 +10846,13 @@ record(calcout, "$(P)$(Q):OUT4_TTL:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OUT4_TTL PP")
   field(INPA, "$(P)$(Q):OUT4_TTL:RBV")
+}
+
+record(calcout, "$(P)$(Q):OUT4_TTL:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT4_TTL.DISP")
 }
 
 # % archiver 10 Monitor
@@ -8363,6 +10904,13 @@ record(calcout, "$(P)$(Q):OUT4_NIM:SYNC") {
   field(INPA, "$(P)$(Q):OUT4_NIM:RBV")
 }
 
+record(calcout, "$(P)$(Q):OUT4_NIM:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT4_NIM.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OUT4_NIM") {
   field(DESC, "Demand value for param")
@@ -8410,6 +10958,13 @@ record(calcout, "$(P)$(Q):OUT4_PECL:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OUT4_PECL PP")
   field(INPA, "$(P)$(Q):OUT4_PECL:RBV")
+}
+
+record(calcout, "$(P)$(Q):OUT4_PECL:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT4_PECL.DISP")
 }
 
 # % archiver 10 Monitor
@@ -8461,6 +11016,13 @@ record(calcout, "$(P)$(Q):OUT5_ENCA:SYNC") {
   field(INPA, "$(P)$(Q):OUT5_ENCA:RBV")
 }
 
+record(calcout, "$(P)$(Q):OUT5_ENCA:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT5_ENCA.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OUT5_ENCA") {
   field(DESC, "Demand value for param")
@@ -8508,6 +11070,13 @@ record(calcout, "$(P)$(Q):OUT5_ENCB:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OUT5_ENCB PP")
   field(INPA, "$(P)$(Q):OUT5_ENCB:RBV")
+}
+
+record(calcout, "$(P)$(Q):OUT5_ENCB:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT5_ENCB.DISP")
 }
 
 # % archiver 10 Monitor
@@ -8559,6 +11128,13 @@ record(calcout, "$(P)$(Q):OUT5_ENCZ:SYNC") {
   field(INPA, "$(P)$(Q):OUT5_ENCZ:RBV")
 }
 
+record(calcout, "$(P)$(Q):OUT5_ENCZ:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT5_ENCZ.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OUT5_ENCZ") {
   field(DESC, "Demand value for param")
@@ -8606,6 +11182,13 @@ record(calcout, "$(P)$(Q):OUT6_ENCA:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OUT6_ENCA PP")
   field(INPA, "$(P)$(Q):OUT6_ENCA:RBV")
+}
+
+record(calcout, "$(P)$(Q):OUT6_ENCA:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT6_ENCA.DISP")
 }
 
 # % archiver 10 Monitor
@@ -8657,6 +11240,13 @@ record(calcout, "$(P)$(Q):OUT6_ENCB:SYNC") {
   field(INPA, "$(P)$(Q):OUT6_ENCB:RBV")
 }
 
+record(calcout, "$(P)$(Q):OUT6_ENCB:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT6_ENCB.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OUT6_ENCB") {
   field(DESC, "Demand value for param")
@@ -8704,6 +11294,13 @@ record(calcout, "$(P)$(Q):OUT6_ENCZ:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OUT6_ENCZ PP")
   field(INPA, "$(P)$(Q):OUT6_ENCZ:RBV")
+}
+
+record(calcout, "$(P)$(Q):OUT6_ENCZ:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT6_ENCZ.DISP")
 }
 
 # % archiver 10 Monitor
@@ -8755,6 +11352,13 @@ record(calcout, "$(P)$(Q):OUT7_ENCA:SYNC") {
   field(INPA, "$(P)$(Q):OUT7_ENCA:RBV")
 }
 
+record(calcout, "$(P)$(Q):OUT7_ENCA:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT7_ENCA.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OUT7_ENCA") {
   field(DESC, "Demand value for param")
@@ -8802,6 +11406,13 @@ record(calcout, "$(P)$(Q):OUT7_ENCB:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OUT7_ENCB PP")
   field(INPA, "$(P)$(Q):OUT7_ENCB:RBV")
+}
+
+record(calcout, "$(P)$(Q):OUT7_ENCB:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT7_ENCB.DISP")
 }
 
 # % archiver 10 Monitor
@@ -8853,6 +11464,13 @@ record(calcout, "$(P)$(Q):OUT7_ENCZ:SYNC") {
   field(INPA, "$(P)$(Q):OUT7_ENCZ:RBV")
 }
 
+record(calcout, "$(P)$(Q):OUT7_ENCZ:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT7_ENCZ.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OUT7_ENCZ") {
   field(DESC, "Demand value for param")
@@ -8900,6 +11518,13 @@ record(calcout, "$(P)$(Q):OUT8_ENCA:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OUT8_ENCA PP")
   field(INPA, "$(P)$(Q):OUT8_ENCA:RBV")
+}
+
+record(calcout, "$(P)$(Q):OUT8_ENCA:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT8_ENCA.DISP")
 }
 
 # % archiver 10 Monitor
@@ -8951,6 +11576,13 @@ record(calcout, "$(P)$(Q):OUT8_ENCB:SYNC") {
   field(INPA, "$(P)$(Q):OUT8_ENCB:RBV")
 }
 
+record(calcout, "$(P)$(Q):OUT8_ENCB:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT8_ENCB.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OUT8_ENCB") {
   field(DESC, "Demand value for param")
@@ -8998,6 +11630,13 @@ record(calcout, "$(P)$(Q):OUT8_ENCZ:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OUT8_ENCZ PP")
   field(INPA, "$(P)$(Q):OUT8_ENCZ:RBV")
+}
+
+record(calcout, "$(P)$(Q):OUT8_ENCZ:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT8_ENCZ.DISP")
 }
 
 # % archiver 10 Monitor
@@ -9162,6 +11801,118 @@ record(calcout, "$(P)$(Q):SOFT_IN:SYNCBF") {
   field(INPA, "$(P)$(Q):SOFT_IN:RBV")
 }
 
+record(calcout, "$(P)$(Q):SOFT_IN:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):SOFT_IN:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):SOFT_IN:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):SOFT_IN:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):SOFT_IN:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):SOFT_IN:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):SOFT_IN:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):SOFT_IN:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):SOFT_IN:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):SOFT_IN:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):SOFT_IN:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):SOFT_IN:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):SOFT_IN:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):SOFT_IN:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):SOFT_IN:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):SOFT_IN:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):SOFT_IN:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):SOFT_IN:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):SOFT_IN:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):SOFT_IN:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):SOFT_IN:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):SOFT_IN:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):SOFT_IN:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):SOFT_IN:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):SOFT_IN:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):SOFT_IN:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):SOFT_IN:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):SOFT_IN:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):SOFT_IN:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):SOFT_IN:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):SOFT_IN:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):SOFT_IN:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):SOFT_IN:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -9256,6 +12007,13 @@ record(bo, "$(P)$(Q):SOFT_IN:BF") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(OUT, "$(P)$(Q):SOFT_IN.BF PP")
+}
+
+record(calcout, "$(P)$(Q):SOFT_IN:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):SOFT_IN.DISP")
 }
 
 # % archiver 10 Monitor
@@ -9489,6 +12247,13 @@ record(calcout, "$(P)$(Q):POS1_SET:DRVL") {
   field(OUT, "$(P)$(Q):POS1_SET.DRVL")
 }
 
+record(calcout, "$(P)$(Q):POS1_SET:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POS1_SET.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):POS1_SET") {
   field(DESC, "Demand value for param")
@@ -9587,6 +12352,13 @@ record(calcout, "$(P)$(Q):POS2_SET:DRVL") {
   field(INPA, "$(P)$(Q):M2:ERES CP")
   field(INPB, "$(P)$(Q):M2:OFF CP")
   field(OUT, "$(P)$(Q):POS2_SET.DRVL")
+}
+
+record(calcout, "$(P)$(Q):POS2_SET:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POS2_SET.DISP")
 }
 
 # % archiver 10 Monitor
@@ -9689,6 +12461,13 @@ record(calcout, "$(P)$(Q):POS3_SET:DRVL") {
   field(OUT, "$(P)$(Q):POS3_SET.DRVL")
 }
 
+record(calcout, "$(P)$(Q):POS3_SET:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POS3_SET.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):POS3_SET") {
   field(DESC, "Demand value for param")
@@ -9789,6 +12568,13 @@ record(calcout, "$(P)$(Q):POS4_SET:DRVL") {
   field(OUT, "$(P)$(Q):POS4_SET.DRVL")
 }
 
+record(calcout, "$(P)$(Q):POS4_SET:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POS4_SET.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):POS4_SET") {
   field(DESC, "Demand value for param")
@@ -9854,6 +12640,13 @@ record(calcout, "$(P)$(Q):PC_TSPRE:SYNC") {
   field(INPA, "$(P)$(Q):PC_TSPRE:RBV")
 }
 
+record(calcout, "$(P)$(Q):PC_TSPRE:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_TSPRE.DISP")
+}
+
 # % archiver 10 Monitor
 record(mbbo, "$(P)$(Q):PC_TSPRE") {
   field(DESC, "Demand value for param")
@@ -9875,6 +12668,13 @@ record(ao, "$(P)$(Q):PC_TSPRE:SET") {
 }
 
 # end(PC_TSPRE)
+
+record(calcout, "$(P)$(Q):PC_ARM:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_ARM.DISP")
+}
 
 record(ao, "$(P)$(Q):PC_ARM") {
   field(DTYP, "asynInt32")
@@ -9918,6 +12718,13 @@ record(calcout, "$(P)$(Q):PC_GATE_INP:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):PC_GATE_INP PP")
   field(INPA, "$(P)$(Q):PC_GATE_INP:RBV")
+}
+
+record(calcout, "$(P)$(Q):PC_GATE_INP:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_GATE_INP.DISP")
 }
 
 # % archiver 10 Monitor
@@ -9977,6 +12784,13 @@ record(calcout, "$(P)$(Q):PC_GATE_SEL:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):PC_GATE_SEL PP")
   field(INPA, "$(P)$(Q):PC_GATE_SEL:RBV")
+}
+
+record(calcout, "$(P)$(Q):PC_GATE_SEL:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_GATE_SEL.DISP")
 }
 
 # % archiver 10 Monitor
@@ -10061,6 +12875,13 @@ record(calcout, "$(P)$(Q):PC_GATE_START:DRVL") {
   field(INPA, "$(P)$(Q):STARTGATE:ERES CP")
   field(INPB, "$(P)$(Q):STARTGATE:OFF CP")
   field(OUT, "$(P)$(Q):PC_GATE_START.DRVL")
+}
+
+record(calcout, "$(P)$(Q):PC_GATE_START:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_GATE_START.DISP")
 }
 
 # % archiver 10 Monitor
@@ -10163,6 +12984,13 @@ record(calcout, "$(P)$(Q):PC_GATE_WID:DRVL") {
   field(OUT, "$(P)$(Q):PC_GATE_WID.DRVL")
 }
 
+record(calcout, "$(P)$(Q):PC_GATE_WID:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_GATE_WID.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PC_GATE_WID") {
   field(DESC, "Demand value for param")
@@ -10261,6 +13089,13 @@ record(calcout, "$(P)$(Q):PC_GATE_NGATE:DRVL") {
   field(INPA, "$(P)$(Q):NOMOTOR:ERES CP")
   field(INPB, "$(P)$(Q):NOMOTOR:OFF CP")
   field(OUT, "$(P)$(Q):PC_GATE_NGATE.DRVL")
+}
+
+record(calcout, "$(P)$(Q):PC_GATE_NGATE:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_GATE_NGATE.DISP")
 }
 
 # % archiver 10 Monitor
@@ -10363,6 +13198,13 @@ record(calcout, "$(P)$(Q):PC_GATE_STEP:DRVL") {
   field(OUT, "$(P)$(Q):PC_GATE_STEP.DRVL")
 }
 
+record(calcout, "$(P)$(Q):PC_GATE_STEP:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_GATE_STEP.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PC_GATE_STEP") {
   field(DESC, "Demand value for param")
@@ -10429,6 +13271,13 @@ record(calcout, "$(P)$(Q):PC_PULSE_INP:SYNC") {
   field(INPA, "$(P)$(Q):PC_PULSE_INP:RBV")
 }
 
+record(calcout, "$(P)$(Q):PC_PULSE_INP:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_PULSE_INP.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PC_PULSE_INP") {
   field(DESC, "Demand value for param")
@@ -10486,6 +13335,13 @@ record(calcout, "$(P)$(Q):PC_PULSE_SEL:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):PC_PULSE_SEL PP")
   field(INPA, "$(P)$(Q):PC_PULSE_SEL:RBV")
+}
+
+record(calcout, "$(P)$(Q):PC_PULSE_SEL:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_PULSE_SEL.DISP")
 }
 
 # % archiver 10 Monitor
@@ -10570,6 +13426,13 @@ record(calcout, "$(P)$(Q):PC_PULSE_START:DRVL") {
   field(INPA, "$(P)$(Q):PULSE:ERES CP")
   field(INPB, "$(P)$(Q):PULSE:OFF CP")
   field(OUT, "$(P)$(Q):PC_PULSE_START.DRVL")
+}
+
+record(calcout, "$(P)$(Q):PC_PULSE_START:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_PULSE_START.DISP")
 }
 
 # % archiver 10 Monitor
@@ -10672,6 +13535,13 @@ record(calcout, "$(P)$(Q):PC_PULSE_DLY:DRVL") {
   field(OUT, "$(P)$(Q):PC_PULSE_DLY.DRVL")
 }
 
+record(calcout, "$(P)$(Q):PC_PULSE_DLY:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_PULSE_DLY.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PC_PULSE_DLY") {
   field(DESC, "Demand value for param")
@@ -10772,6 +13642,13 @@ record(calcout, "$(P)$(Q):PC_PULSE_WID:DRVL") {
   field(OUT, "$(P)$(Q):PC_PULSE_WID.DRVL")
 }
 
+record(calcout, "$(P)$(Q):PC_PULSE_WID:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_PULSE_WID.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PC_PULSE_WID") {
   field(DESC, "Demand value for param")
@@ -10870,6 +13747,13 @@ record(calcout, "$(P)$(Q):PC_PULSE_STEP:DRVL") {
   field(INPA, "$(P)$(Q):PULSE:ERES CP")
   field(INPB, "$(P)$(Q):PULSE:OFF CP")
   field(OUT, "$(P)$(Q):PC_PULSE_STEP.DRVL")
+}
+
+record(calcout, "$(P)$(Q):PC_PULSE_STEP:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_PULSE_STEP.DISP")
 }
 
 # % archiver 10 Monitor
@@ -11077,6 +13961,13 @@ record(calcout, "$(P)$(Q):PC_ARM_INP:SYNC") {
   field(INPA, "$(P)$(Q):PC_ARM_INP:RBV")
 }
 
+record(calcout, "$(P)$(Q):PC_ARM_INP:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_ARM_INP.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PC_ARM_INP") {
   field(DESC, "Demand value for param")
@@ -11259,6 +14150,118 @@ record(calcout, "$(P)$(Q):POLARITY:SYNCBF") {
   field(INPA, "$(P)$(Q):POLARITY:RBV")
 }
 
+record(calcout, "$(P)$(Q):POLARITY:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POLARITY:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):POLARITY:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POLARITY:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):POLARITY:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POLARITY:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):POLARITY:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POLARITY:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):POLARITY:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POLARITY:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):POLARITY:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POLARITY:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):POLARITY:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POLARITY:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):POLARITY:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POLARITY:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):POLARITY:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POLARITY:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):POLARITY:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POLARITY:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):POLARITY:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POLARITY:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):POLARITY:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POLARITY:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):POLARITY:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POLARITY:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):POLARITY:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POLARITY:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):POLARITY:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POLARITY:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):POLARITY:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POLARITY:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):POLARITY:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -11355,6 +14358,13 @@ record(bo, "$(P)$(Q):POLARITY:BF") {
   field(OUT, "$(P)$(Q):POLARITY.BF PP")
 }
 
+record(calcout, "$(P)$(Q):POLARITY:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):POLARITY.DISP")
+}
+
 # % archiver 10 Monitor
 record(mbboDirect, "$(P)$(Q):POLARITY") {
   field(DESC, "Demand value for param")
@@ -11416,6 +14426,13 @@ record(calcout, "$(P)$(Q):PC_ARM_SEL:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):PC_ARM_SEL PP")
   field(INPA, "$(P)$(Q):PC_ARM_SEL:RBV")
+}
+
+record(calcout, "$(P)$(Q):PC_ARM_SEL:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_ARM_SEL.DISP")
 }
 
 # % archiver 10 Monitor
@@ -11516,6 +14533,13 @@ record(calcout, "$(P)$(Q):PC_ENC:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):PC_ENC PP")
   field(INPA, "$(P)$(Q):PC_ENC:RBV")
+}
+
+record(calcout, "$(P)$(Q):PC_ENC:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_ENC.DISP")
 }
 
 # % archiver 10 Monitor
@@ -11660,6 +14684,13 @@ record(calcout, "$(P)$(Q):PC_FILTSEL1:SYNC") {
   field(INPA, "$(P)$(Q):PC_FILTSEL1:RBV")
 }
 
+record(calcout, "$(P)$(Q):PC_FILTSEL1:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PC_FILTSEL1.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PC_FILTSEL1") {
   field(DESC, "Demand value for param")
@@ -11715,6 +14746,13 @@ record(calcout, "$(P)$(Q):PC_FILTSEL2:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):PC_FILTSEL2 PP")
   field(INPA, "$(P)$(Q):PC_FILTSEL2:RBV")
+}
+
+record(calcout, "$(P)$(Q):PC_FILTSEL2:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PC_FILTSEL2.DISP")
 }
 
 # % archiver 10 Monitor
@@ -11774,6 +14812,13 @@ record(calcout, "$(P)$(Q):PC_FILTSEL3:SYNC") {
   field(INPA, "$(P)$(Q):PC_FILTSEL3:RBV")
 }
 
+record(calcout, "$(P)$(Q):PC_FILTSEL3:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PC_FILTSEL3.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PC_FILTSEL3") {
   field(DESC, "Demand value for param")
@@ -11829,6 +14874,13 @@ record(calcout, "$(P)$(Q):PC_FILTSEL4:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):PC_FILTSEL4 PP")
   field(INPA, "$(P)$(Q):PC_FILTSEL4:RBV")
+}
+
+record(calcout, "$(P)$(Q):PC_FILTSEL4:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):PC_FILTSEL4.DISP")
 }
 
 # % archiver 10 Monitor
@@ -11887,6 +14939,13 @@ record(calcout, "$(P)$(Q):QUAD_STEP:SYNC") {
   field(INPA, "$(P)$(Q):QUAD_STEP:RBV")
 }
 
+record(calcout, "$(P)$(Q):QUAD_STEP:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):QUAD_STEP.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):QUAD_STEP") {
   field(DESC, "Demand value for param")
@@ -11934,6 +14993,13 @@ record(calcout, "$(P)$(Q):QUAD_DIR:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):QUAD_DIR PP")
   field(INPA, "$(P)$(Q):QUAD_DIR:RBV")
+}
+
+record(calcout, "$(P)$(Q):QUAD_DIR:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):QUAD_DIR.DISP")
 }
 
 # % archiver 10 Monitor
@@ -11992,6 +15058,13 @@ record(calcout, "$(P)$(Q):OUT5_CONN:SYNC") {
   field(INPA, "$(P)$(Q):OUT5_CONN:RBV")
 }
 
+record(calcout, "$(P)$(Q):OUT5_CONN:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT5_CONN.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OUT5_CONN") {
   field(DESC, "Demand value for param")
@@ -12039,6 +15112,13 @@ record(calcout, "$(P)$(Q):OUT6_CONN:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OUT6_CONN PP")
   field(INPA, "$(P)$(Q):OUT6_CONN:RBV")
+}
+
+record(calcout, "$(P)$(Q):OUT6_CONN:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT6_CONN.DISP")
 }
 
 # % archiver 10 Monitor
@@ -12090,6 +15170,13 @@ record(calcout, "$(P)$(Q):OUT7_CONN:SYNC") {
   field(INPA, "$(P)$(Q):OUT7_CONN:RBV")
 }
 
+record(calcout, "$(P)$(Q):OUT7_CONN:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT7_CONN.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):OUT7_CONN") {
   field(DESC, "Demand value for param")
@@ -12137,6 +15224,13 @@ record(calcout, "$(P)$(Q):OUT8_CONN:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):OUT8_CONN PP")
   field(INPA, "$(P)$(Q):OUT8_CONN:RBV")
+}
+
+record(calcout, "$(P)$(Q):OUT8_CONN:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "0")
+  field(OUT, "$(P)$(Q):OUT8_CONN.DISP")
 }
 
 # % archiver 10 Monitor
@@ -12301,6 +15395,118 @@ record(calcout, "$(P)$(Q):PC_BIT_CAP:SYNCBF") {
   field(INPA, "$(P)$(Q):PC_BIT_CAP:RBV")
 }
 
+record(calcout, "$(P)$(Q):PC_BIT_CAP:DISPB0") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_BIT_CAP:B0.DISP")
+}
+
+record(calcout, "$(P)$(Q):PC_BIT_CAP:DISPB1") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_BIT_CAP:B1.DISP")
+}
+
+record(calcout, "$(P)$(Q):PC_BIT_CAP:DISPB2") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_BIT_CAP:B2.DISP")
+}
+
+record(calcout, "$(P)$(Q):PC_BIT_CAP:DISPB3") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_BIT_CAP:B3.DISP")
+}
+
+record(calcout, "$(P)$(Q):PC_BIT_CAP:DISPB4") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_BIT_CAP:B4.DISP")
+}
+
+record(calcout, "$(P)$(Q):PC_BIT_CAP:DISPB5") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_BIT_CAP:B5.DISP")
+}
+
+record(calcout, "$(P)$(Q):PC_BIT_CAP:DISPB6") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_BIT_CAP:B6.DISP")
+}
+
+record(calcout, "$(P)$(Q):PC_BIT_CAP:DISPB7") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_BIT_CAP:B7.DISP")
+}
+
+record(calcout, "$(P)$(Q):PC_BIT_CAP:DISPB8") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_BIT_CAP:B8.DISP")
+}
+
+record(calcout, "$(P)$(Q):PC_BIT_CAP:DISPB9") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_BIT_CAP:B9.DISP")
+}
+
+record(calcout, "$(P)$(Q):PC_BIT_CAP:DISPB10") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_BIT_CAP:B10.DISP")
+}
+
+record(calcout, "$(P)$(Q):PC_BIT_CAP:DISPB11") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_BIT_CAP:B11.DISP")
+}
+
+record(calcout, "$(P)$(Q):PC_BIT_CAP:DISPB12") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_BIT_CAP:B12.DISP")
+}
+
+record(calcout, "$(P)$(Q):PC_BIT_CAP:DISPB13") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_BIT_CAP:B13.DISP")
+}
+
+record(calcout, "$(P)$(Q):PC_BIT_CAP:DISPB14") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_BIT_CAP:B14.DISP")
+}
+
+record(calcout, "$(P)$(Q):PC_BIT_CAP:DISPB15") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_BIT_CAP:B15.DISP")
+}
+
 record(bo, "$(P)$(Q):PC_BIT_CAP:B0") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
@@ -12395,6 +15601,13 @@ record(bo, "$(P)$(Q):PC_BIT_CAP:BF") {
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(OUT, "$(P)$(Q):PC_BIT_CAP.BF PP")
+}
+
+record(calcout, "$(P)$(Q):PC_BIT_CAP:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_BIT_CAP.DISP")
 }
 
 # % archiver 10 Monitor
@@ -12563,6 +15776,13 @@ record(calcout, "$(P)$(Q):PC_PULSE_MAX:DRVL") {
   field(OUT, "$(P)$(Q):PC_PULSE_MAX.DRVL")
 }
 
+record(calcout, "$(P)$(Q):PC_PULSE_MAX:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_PULSE_MAX.DISP")
+}
+
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PC_PULSE_MAX") {
   field(DESC, "Demand value for param")
@@ -12636,6 +15856,13 @@ record(calcout, "$(P)$(Q):PC_DIR:SYNC") {
   field(CALC, "A")
   field(OUT, "$(P)$(Q):PC_DIR PP")
   field(INPA, "$(P)$(Q):PC_DIR:RBV")
+}
+
+record(calcout, "$(P)$(Q):PC_DIR:DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
+  field(OUT, "$(P)$(Q):PC_DIR.DISP")
 }
 
 # % archiver 10 Monitor
