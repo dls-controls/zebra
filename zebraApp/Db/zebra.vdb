@@ -186,32 +186,32 @@ record(calc, "$(P)$(Q):SYS_STAT2") {
 }
 
 expand("zebraRegisterWriteBitfield.vdb", AND1_ENA) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND1_ENA")
 }
 
 expand("zebraRegisterWriteBitfield.vdb", AND1_INV) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND1_INV")
 }
 
 expand("zebraRegisterWriteMux.vdb", AND1_INP1) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND1_INP1")
 }
 
 expand("zebraRegisterWriteMux.vdb", AND1_INP2) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND1_INP2")
 }
 
 expand("zebraRegisterWriteMux.vdb", AND1_INP3) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND1_INP3")
 }
 
 expand("zebraRegisterWriteMux.vdb", AND1_INP4) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND1_INP4")
 }
 
@@ -223,32 +223,32 @@ record(calcout, "$(P)$(Q):AND1_OUT") {
 }
 
 expand("zebraRegisterWriteBitfield.vdb", AND2_ENA) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND2_ENA")
 }
 
 expand("zebraRegisterWriteBitfield.vdb", AND2_INV) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND2_INV")
 }
 
 expand("zebraRegisterWriteMux.vdb", AND2_INP1) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND2_INP1")
 }
 
 expand("zebraRegisterWriteMux.vdb", AND2_INP2) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND2_INP2")
 }
 
 expand("zebraRegisterWriteMux.vdb", AND2_INP3) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND2_INP3")
 }
 
 expand("zebraRegisterWriteMux.vdb", AND2_INP4) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND2_INP4")
 }
 
@@ -260,32 +260,32 @@ record(calcout, "$(P)$(Q):AND2_OUT") {
 }
 
 expand("zebraRegisterWriteBitfield.vdb", AND3_ENA) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND3_ENA")
 }
 
 expand("zebraRegisterWriteBitfield.vdb", AND3_INV) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND3_INV")
 }
 
 expand("zebraRegisterWriteMux.vdb", AND3_INP1) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND3_INP1")
 }
 
 expand("zebraRegisterWriteMux.vdb", AND3_INP2) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND3_INP2")
 }
 
 expand("zebraRegisterWriteMux.vdb", AND3_INP3) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND3_INP3")
 }
 
 expand("zebraRegisterWriteMux.vdb", AND3_INP4) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND3_INP4")
 }
 
@@ -297,32 +297,32 @@ record(calcout, "$(P)$(Q):AND3_OUT") {
 }
 
 expand("zebraRegisterWriteBitfield.vdb", AND4_ENA) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND4_ENA")
 }
 
 expand("zebraRegisterWriteBitfield.vdb", AND4_INV) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND4_INV")
 }
 
 expand("zebraRegisterWriteMux.vdb", AND4_INP1) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND4_INP1")
 }
 
 expand("zebraRegisterWriteMux.vdb", AND4_INP2) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND4_INP2")
 }
 
 expand("zebraRegisterWriteMux.vdb", AND4_INP3) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND4_INP3")
 }
 
 expand("zebraRegisterWriteMux.vdb", AND4_INP4) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "AND4_INP4")
 }
 
@@ -334,32 +334,32 @@ record(calcout, "$(P)$(Q):AND4_OUT") {
 }
 
 expand("zebraRegisterWriteBitfield.vdb", OR1_ENA) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR1_ENA")
 }
 
 expand("zebraRegisterWriteBitfield.vdb", OR1_INV) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR1_INV")
 }
 
 expand("zebraRegisterWriteMux.vdb", OR1_INP1) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR1_INP1")
 }
 
 expand("zebraRegisterWriteMux.vdb", OR1_INP2) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR1_INP2")
 }
 
 expand("zebraRegisterWriteMux.vdb", OR1_INP3) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR1_INP3")
 }
 
 expand("zebraRegisterWriteMux.vdb", OR1_INP4) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR1_INP4")
 }
 
@@ -371,32 +371,32 @@ record(calcout, "$(P)$(Q):OR1_OUT") {
 }
 
 expand("zebraRegisterWriteBitfield.vdb", OR2_ENA) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR2_ENA")
 }
 
 expand("zebraRegisterWriteBitfield.vdb", OR2_INV) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR2_INV")
 }
 
 expand("zebraRegisterWriteMux.vdb", OR2_INP1) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR2_INP1")
 }
 
 expand("zebraRegisterWriteMux.vdb", OR2_INP2) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR2_INP2")
 }
 
 expand("zebraRegisterWriteMux.vdb", OR2_INP3) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR2_INP3")
 }
 
 expand("zebraRegisterWriteMux.vdb", OR2_INP4) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR2_INP4")
 }
 
@@ -408,32 +408,32 @@ record(calcout, "$(P)$(Q):OR2_OUT") {
 }
 
 expand("zebraRegisterWriteBitfield.vdb", OR3_ENA) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR3_ENA")
 }
 
 expand("zebraRegisterWriteBitfield.vdb", OR3_INV) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR3_INV")
 }
 
 expand("zebraRegisterWriteMux.vdb", OR3_INP1) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR3_INP1")
 }
 
 expand("zebraRegisterWriteMux.vdb", OR3_INP2) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR3_INP2")
 }
 
 expand("zebraRegisterWriteMux.vdb", OR3_INP3) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR3_INP3")
 }
 
 expand("zebraRegisterWriteMux.vdb", OR3_INP4) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR3_INP4")
 }
 
@@ -445,32 +445,32 @@ record(calcout, "$(P)$(Q):OR3_OUT") {
 }
 
 expand("zebraRegisterWriteBitfield.vdb", OR4_ENA) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR4_ENA")
 }
 
 expand("zebraRegisterWriteBitfield.vdb", OR4_INV) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR4_INV")
 }
 
 expand("zebraRegisterWriteMux.vdb", OR4_INP1) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR4_INP1")
 }
 
 expand("zebraRegisterWriteMux.vdb", OR4_INP2) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR4_INP2")
 }
 
 expand("zebraRegisterWriteMux.vdb", OR4_INP3) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR4_INP3")
 }
 
 expand("zebraRegisterWriteMux.vdb", OR4_INP4) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OR4_INP4")
 }
 
@@ -482,12 +482,12 @@ record(calcout, "$(P)$(Q):OR4_OUT") {
 }
 
 expand("zebraRegisterWriteMux.vdb", GATE1_INP1) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "GATE1_INP1")
 }
 
 expand("zebraRegisterWriteMux.vdb", GATE1_INP2) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "GATE1_INP2")
 }
 
@@ -499,12 +499,12 @@ record(calcout, "$(P)$(Q):GATE1_OUT") {
 }
 
 expand("zebraRegisterWriteMux.vdb", GATE2_INP1) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "GATE2_INP1")
 }
 
 expand("zebraRegisterWriteMux.vdb", GATE2_INP2) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "GATE2_INP2")
 }
 
@@ -516,12 +516,12 @@ record(calcout, "$(P)$(Q):GATE2_OUT") {
 }
 
 expand("zebraRegisterWriteMux.vdb", GATE3_INP1) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "GATE3_INP1")
 }
 
 expand("zebraRegisterWriteMux.vdb", GATE3_INP2) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "GATE3_INP2")
 }
 
@@ -533,12 +533,12 @@ record(calcout, "$(P)$(Q):GATE3_OUT") {
 }
 
 expand("zebraRegisterWriteMux.vdb", GATE4_INP1) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "GATE4_INP1")
 }
 
 expand("zebraRegisterWriteMux.vdb", GATE4_INP2) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "GATE4_INP2")
 }
 
@@ -550,17 +550,17 @@ record(calcout, "$(P)$(Q):GATE4_OUT") {
 }
 
 expand("zebraRegisterWriteBitfield.vdb", DIV_FIRST) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "DIV_FIRST")
 }
 
 expand("zebraRegisterWriteMux.vdb", DIV1_INP) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "DIV1_INP")
 }
 
 expand("zebraRegisterWrite32.vdb", DIV1_DIV) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "DIV1_DIV")
   macro(MOTOR, "NOMOTOR")
   macro(PREC, "0")
@@ -582,12 +582,12 @@ record(calcout, "$(P)$(Q):DIV1_OUTN") {
 }
 
 expand("zebraRegisterWriteMux.vdb", DIV2_INP) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "DIV2_INP")
 }
 
 expand("zebraRegisterWrite32.vdb", DIV2_DIV) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "DIV2_DIV")
   macro(MOTOR, "NOMOTOR")
   macro(PREC, "0")
@@ -609,12 +609,12 @@ record(calcout, "$(P)$(Q):DIV2_OUTN") {
 }
 
 expand("zebraRegisterWriteMux.vdb", DIV3_INP) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "DIV3_INP")
 }
 
 expand("zebraRegisterWrite32.vdb", DIV3_DIV) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "DIV3_DIV")
   macro(MOTOR, "NOMOTOR")
   macro(PREC, "0")
@@ -636,12 +636,12 @@ record(calcout, "$(P)$(Q):DIV3_OUTN") {
 }
 
 expand("zebraRegisterWriteMux.vdb", DIV4_INP) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "DIV4_INP")
 }
 
 expand("zebraRegisterWrite32.vdb", DIV4_DIV) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "DIV4_DIV")
   macro(MOTOR, "NOMOTOR")
   macro(PREC, "0")
@@ -663,26 +663,26 @@ record(calcout, "$(P)$(Q):DIV4_OUTN") {
 }
 
 expand("zebraRegisterWrite.vdb", PULSE1_DLY) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PULSE1_DLY")
   macro(ASLO, "0.0001")
   macro(PREC, "4")
 }
 
 expand("zebraRegisterWrite.vdb", PULSE1_WID) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PULSE1_WID")
   macro(ASLO, "0.0001")
   macro(PREC, "4")
 }
 
 expand("zebraRegisterWritePrescaler.vdb", PULSE1_PRE) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PULSE1_PRE")
 }
 
 expand("zebraRegisterWriteMux.vdb", PULSE1_INP) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PULSE1_INP")
 }
 
@@ -694,26 +694,26 @@ record(calcout, "$(P)$(Q):PULSE1_OUT") {
 }
 
 expand("zebraRegisterWrite.vdb", PULSE2_DLY) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PULSE2_DLY")
   macro(ASLO, "0.0001")
   macro(PREC, "4")
 }
 
 expand("zebraRegisterWrite.vdb", PULSE2_WID) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PULSE2_WID")
   macro(ASLO, "0.0001")
   macro(PREC, "4")
 }
 
 expand("zebraRegisterWritePrescaler.vdb", PULSE2_PRE) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PULSE2_PRE")
 }
 
 expand("zebraRegisterWriteMux.vdb", PULSE2_INP) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PULSE2_INP")
 }
 
@@ -725,26 +725,26 @@ record(calcout, "$(P)$(Q):PULSE2_OUT") {
 }
 
 expand("zebraRegisterWrite.vdb", PULSE3_DLY) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PULSE3_DLY")
   macro(ASLO, "0.0001")
   macro(PREC, "4")
 }
 
 expand("zebraRegisterWrite.vdb", PULSE3_WID) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PULSE3_WID")
   macro(ASLO, "0.0001")
   macro(PREC, "4")
 }
 
 expand("zebraRegisterWritePrescaler.vdb", PULSE3_PRE) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PULSE3_PRE")
 }
 
 expand("zebraRegisterWriteMux.vdb", PULSE3_INP) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PULSE3_INP")
 }
 
@@ -756,26 +756,26 @@ record(calcout, "$(P)$(Q):PULSE3_OUT") {
 }
 
 expand("zebraRegisterWrite.vdb", PULSE4_DLY) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PULSE4_DLY")
   macro(ASLO, "0.0001")
   macro(PREC, "4")
 }
 
 expand("zebraRegisterWrite.vdb", PULSE4_WID) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PULSE4_WID")
   macro(ASLO, "0.0001")
   macro(PREC, "4")
 }
 
 expand("zebraRegisterWritePrescaler.vdb", PULSE4_PRE) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PULSE4_PRE")
 }
 
 expand("zebraRegisterWriteMux.vdb", PULSE4_INP) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PULSE4_INP")
 }
 
@@ -787,127 +787,127 @@ record(calcout, "$(P)$(Q):PULSE4_OUT") {
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT1_TTL) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT1_TTL")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT1_NIM) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT1_NIM")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT1_LVDS) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT1_LVDS")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT2_TTL) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT2_TTL")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT2_NIM) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT2_NIM")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT2_LVDS) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT2_LVDS")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT3_TTL) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT3_TTL")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT3_OC) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT3_OC")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT3_LVDS) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT3_LVDS")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT4_TTL) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT4_TTL")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT4_NIM) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT4_NIM")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT4_PECL) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT4_PECL")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT5_ENCA) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT5_ENCA")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT5_ENCB) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT5_ENCB")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT5_ENCZ) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT5_ENCZ")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT6_ENCA) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT6_ENCA")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT6_ENCB) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT6_ENCB")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT6_ENCZ) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT6_ENCZ")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT7_ENCA) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT7_ENCA")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT7_ENCB) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT7_ENCB")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT7_ENCZ) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT7_ENCZ")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT8_ENCA) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT8_ENCA")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT8_ENCB) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT8_ENCB")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT8_ENCZ) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT8_ENCZ")
 }
 
 expand("zebraRegisterWriteBitfield.vdb", SOFT_IN) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "SOFT_IN")
 }
 
@@ -1070,7 +1070,7 @@ record(sel, "$(P)$(Q):PULSE:ERES") {
 }
 
 expand("zebraRegisterWrite32.vdb", POS1_SET) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "POS1_SET")
   macro(MOTOR, "M1")
   macro(PREC, "$(PREC=4)")
@@ -1078,7 +1078,7 @@ expand("zebraRegisterWrite32.vdb", POS1_SET) {
 }
 
 expand("zebraRegisterWrite32.vdb", POS2_SET) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "POS2_SET")
   macro(MOTOR, "M2")
   macro(PREC, "$(PREC=4)")
@@ -1086,7 +1086,7 @@ expand("zebraRegisterWrite32.vdb", POS2_SET) {
 }
 
 expand("zebraRegisterWrite32.vdb", POS3_SET) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "POS3_SET")
   macro(MOTOR, "M3")
   macro(PREC, "$(PREC=4)")
@@ -1094,7 +1094,7 @@ expand("zebraRegisterWrite32.vdb", POS3_SET) {
 }
 
 expand("zebraRegisterWrite32.vdb", POS4_SET) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "POS4_SET")
   macro(MOTOR, "M4")
   macro(PREC, "$(PREC=4)")
@@ -1102,7 +1102,7 @@ expand("zebraRegisterWrite32.vdb", POS4_SET) {
 }
 
 expand("zebraRegisterWritePrescaler.vdb", PC_TSPRE) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_TSPRE")
 }
 
@@ -1110,7 +1110,7 @@ record(calcout, "$(P)$(Q):PC_ARM:DISP") {
   field(DESC, "Disable caputs")
   field(CALC, "A")
   field(INPA, "$(P)$(Q):ARRAY_ACQ CP")
-  field(OUT, "$(P)$(Q):PC_ARM.DISP")  
+  field(OUT, "$(P)$(Q):PC_ARM.DISP")
 }
 
 record(ao, "$(P)$(Q):PC_ARM") {
@@ -1134,12 +1134,12 @@ record(ao, "$(P)$(Q):PC_DISARM") {
 }
 
 expand("zebraRegisterWriteMux.vdb", PC_GATE_INP) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_GATE_INP")
 }
 
 expand("zebraRegisterWritePosCompInp.vdb", PC_GATE_SEL) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_GATE_SEL")
   macro(ZRST, "Position")
   macro(ONST, "Time")
@@ -1149,7 +1149,7 @@ expand("zebraRegisterWritePosCompInp.vdb", PC_GATE_SEL) {
 }
 
 expand("zebraRegisterWrite32.vdb", PC_GATE_START) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_GATE_START")
   macro(MOTOR, "STARTGATE")
   macro(PREC, "$(PREC=4)")
@@ -1157,7 +1157,7 @@ expand("zebraRegisterWrite32.vdb", PC_GATE_START) {
 }
 
 expand("zebraRegisterWrite32.vdb", PC_GATE_WID) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_GATE_WID")
   macro(MOTOR, "GATE")
   macro(PREC, "$(PREC=4)")
@@ -1165,7 +1165,7 @@ expand("zebraRegisterWrite32.vdb", PC_GATE_WID) {
 }
 
 expand("zebraRegisterWrite32.vdb", PC_GATE_NGATE) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_GATE_NGATE")
   macro(MOTOR, "NOMOTOR")
   macro(PREC, "0")
@@ -1173,7 +1173,7 @@ expand("zebraRegisterWrite32.vdb", PC_GATE_NGATE) {
 }
 
 expand("zebraRegisterWrite32.vdb", PC_GATE_STEP) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_GATE_STEP")
   macro(MOTOR, "GATE")
   macro(PREC, "$(PREC=4)")
@@ -1181,7 +1181,7 @@ expand("zebraRegisterWrite32.vdb", PC_GATE_STEP) {
 }
 
 expand("zebraRegisterWriteMux.vdb", PC_PULSE_INP) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_PULSE_INP")
 }
 
@@ -1191,12 +1191,12 @@ expand("zebraRegisterWritePosCompInp.vdb", PC_PULSE_SEL) {
   macro(TWST, "External")
   macro(THST, "$(EMPTY=)")
   macro(FRST, "$(EMPTY=)")
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_PULSE_SEL")
 }
 
 expand("zebraRegisterWrite32.vdb", PC_PULSE_START) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_PULSE_START")
   macro(MOTOR, "PULSE")
   macro(PREC, "$(PREC=4)")
@@ -1204,7 +1204,7 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_START) {
 }
 
 expand("zebraRegisterWrite32.vdb", PC_PULSE_DLY) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_PULSE_DLY")
   macro(MOTOR, "TIME")
   macro(PREC, "$(PREC=4)")
@@ -1212,7 +1212,7 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_DLY) {
 }
 
 expand("zebraRegisterWrite32.vdb", PC_PULSE_WID) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_PULSE_WID")
   macro(MOTOR, "PULSE")
   macro(PREC, "$(PREC=4)")
@@ -1220,7 +1220,7 @@ expand("zebraRegisterWrite32.vdb", PC_PULSE_WID) {
 }
 
 expand("zebraRegisterWrite32.vdb", PC_PULSE_STEP) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_PULSE_STEP")
   macro(MOTOR, "PULSE")
   macro(PREC, "$(PREC=4)")
@@ -1367,7 +1367,7 @@ record(calcout, "$(P)$(Q):M4:SETPOS") {
 }
 
 expand("zebraRegisterWriteMux.vdb", PC_ARM_INP) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_ARM_INP")
 }
 
@@ -1392,7 +1392,7 @@ record(stringin, "$(P)$(Q):NOMOTOR:EGU") {
 }
 
 expand("zebraRegisterWriteBitfield.vdb", POLARITY) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "POLARITY")
 }
 
@@ -1411,7 +1411,7 @@ record(mbbiDirect, "$(P)$(Q):SYS_STATERR") {
 }
 
 expand("zebraRegisterWritePosCompInp.vdb", PC_ARM_SEL) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_ARM_SEL")
   macro(ZRST, "Soft")
   macro(ONST, "External")
@@ -1461,7 +1461,7 @@ record(sel, "$(P)$(Q):GATE:ERES") {
 }
 
 expand("zebraRegisterWritePosCompInp.vdb", PC_ENC) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_ENC")
   macro(ZRST, "Enc1")
   macro(ONST, "Enc2")
@@ -1563,7 +1563,7 @@ record(waveform, "$(P)$(Q):PC_FILT1") {
 }
 
 expand("zebraRegisterWriteMux.vdb", PC_FILTSEL1) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PC_FILTSEL1")
 }
 
@@ -1576,7 +1576,7 @@ record(waveform, "$(P)$(Q):PC_FILT2") {
 }
 
 expand("zebraRegisterWriteMux.vdb", PC_FILTSEL2) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PC_FILTSEL2")
 }
 
@@ -1589,7 +1589,7 @@ record(waveform, "$(P)$(Q):PC_FILT3") {
 }
 
 expand("zebraRegisterWriteMux.vdb", PC_FILTSEL3) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PC_FILTSEL3")
 }
 
@@ -1602,7 +1602,7 @@ record(waveform, "$(P)$(Q):PC_FILT4") {
 }
 
 expand("zebraRegisterWriteMux.vdb", PC_FILTSEL4) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "PC_FILTSEL4")
 }
 
@@ -1614,12 +1614,12 @@ record(calcout, "$(P)$(Q):QUAD_OUTA") {
 }
 
 expand("zebraRegisterWriteMux.vdb", QUAD_STEP) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "QUAD_STEP")
 }
 
 expand("zebraRegisterWriteMux.vdb", QUAD_DIR) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "QUAD_DIR")
 }
 
@@ -1631,27 +1631,27 @@ record(calcout, "$(P)$(Q):QUAD_OUTB") {
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT5_CONN) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT5_CONN")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT6_CONN) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT6_CONN")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT7_CONN) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT7_CONN")
 }
 
 expand("zebraRegisterWriteMux.vdb", OUT8_CONN) {
-  macro(DISP, "0")  
+  macro(DISP, "0")
   macro(PARAM, "OUT8_CONN")
 }
 
 expand("zebraRegisterWriteBitfield.vdb", PC_BIT_CAP) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_BIT_CAP")
 }
 
@@ -1749,7 +1749,7 @@ record(ao, "$(P)$(Q):ARM_BUSY_DONE") {
 }
 
 expand("zebraRegisterWrite32.vdb", PC_PULSE_MAX) {
-  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")  
+  macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_PULSE_MAX")
   macro(MOTOR, "NOMOTOR")
   macro(PREC, "0")
@@ -1878,7 +1878,7 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 }
 
 #! Further lines contain data used by VisualDCT
-#! View(3090,2990,1.0)
+#! View(476,3127,1.0)
 #! Record("$(P)$(Q):CONNECTED",4720,2646,0,0,"$(P)$(Q):CONNECTED")
 #! Record("$(P)$(Q):STORE",3860,2682,0,0,"$(P)$(Q):STORE")
 #! Record("$(P)$(Q):RESTORE",3860,2802,0,0,"$(P)$(Q):RESTORE")
@@ -1921,26 +1921,32 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Field("$(P)$(Q):SYS_STAT2.VAL",16777215,1,"$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("AND1_ENA",2980,540,0,"")
+#! TemplateField("AND1_ENA","DISP",16777215,0,1)
 #! TemplateField("AND1_ENA","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND1_INV",3180,540,0,"")
+#! TemplateField("AND1_INV","DISP",16777215,0,1)
 #! TemplateField("AND1_INV","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND1_INP1",2180,540,0,"")
+#! TemplateField("AND1_INP1","DISP",16777215,0,1)
 #! TemplateField("AND1_INP1","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND1_INP2",2380,540,0,"")
+#! TemplateField("AND1_INP2","DISP",16777215,0,1)
 #! TemplateField("AND1_INP2","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND1_INP3",2580,540,0,"")
+#! TemplateField("AND1_INP3","DISP",16777215,0,1)
 #! TemplateField("AND1_INP3","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND1_INP4",2780,540,0,"")
+#! TemplateField("AND1_INP4","DISP",16777215,0,1)
 #! TemplateField("AND1_INP4","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):AND1_OUT",3380,542,0,0,"$(P)$(Q):AND1_OUT")
@@ -1948,26 +1954,32 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):AND1_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("AND2_ENA",2980,840,0,"")
+#! TemplateField("AND2_ENA","DISP",16777215,0,1)
 #! TemplateField("AND2_ENA","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND2_INV",3180,840,0,"")
+#! TemplateField("AND2_INV","DISP",16777215,0,1)
 #! TemplateField("AND2_INV","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND2_INP1",2180,840,0,"")
+#! TemplateField("AND2_INP1","DISP",16777215,0,1)
 #! TemplateField("AND2_INP1","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND2_INP2",2380,840,0,"")
+#! TemplateField("AND2_INP2","DISP",16777215,0,1)
 #! TemplateField("AND2_INP2","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND2_INP3",2580,840,0,"")
+#! TemplateField("AND2_INP3","DISP",16777215,0,1)
 #! TemplateField("AND2_INP3","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND2_INP4",2780,840,0,"")
+#! TemplateField("AND2_INP4","DISP",16777215,0,1)
 #! TemplateField("AND2_INP4","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):AND2_OUT",3380,842,0,0,"$(P)$(Q):AND2_OUT")
@@ -1975,26 +1987,32 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):AND2_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("AND3_ENA",2980,1140,0,"")
+#! TemplateField("AND3_ENA","DISP",16777215,0,1)
 #! TemplateField("AND3_ENA","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND3_INV",3180,1140,0,"")
+#! TemplateField("AND3_INV","DISP",16777215,0,1)
 #! TemplateField("AND3_INV","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND3_INP1",2180,1140,0,"")
+#! TemplateField("AND3_INP1","DISP",16777215,0,1)
 #! TemplateField("AND3_INP1","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND3_INP2",2380,1140,0,"")
+#! TemplateField("AND3_INP2","DISP",16777215,0,1)
 #! TemplateField("AND3_INP2","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND3_INP3",2580,1140,0,"")
+#! TemplateField("AND3_INP3","DISP",16777215,0,1)
 #! TemplateField("AND3_INP3","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND3_INP4",2780,1140,0,"")
+#! TemplateField("AND3_INP4","DISP",16777215,0,1)
 #! TemplateField("AND3_INP4","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):AND3_OUT",3380,1142,0,0,"$(P)$(Q):AND3_OUT")
@@ -2002,26 +2020,32 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):AND3_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("AND4_ENA",2980,1440,0,"")
+#! TemplateField("AND4_ENA","DISP",16777215,0,1)
 #! TemplateField("AND4_ENA","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND4_INV",3180,1440,0,"")
+#! TemplateField("AND4_INV","DISP",16777215,0,1)
 #! TemplateField("AND4_INV","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND4_INP1",2180,1440,0,"")
+#! TemplateField("AND4_INP1","DISP",16777215,0,1)
 #! TemplateField("AND4_INP1","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND4_INP2",2380,1440,0,"")
+#! TemplateField("AND4_INP2","DISP",16777215,0,1)
 #! TemplateField("AND4_INP2","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND4_INP3",2580,1440,0,"")
+#! TemplateField("AND4_INP3","DISP",16777215,0,1)
 #! TemplateField("AND4_INP3","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("AND4_INP4",2780,1440,0,"")
+#! TemplateField("AND4_INP4","DISP",16777215,0,1)
 #! TemplateField("AND4_INP4","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):AND4_OUT",3380,1442,0,0,"$(P)$(Q):AND4_OUT")
@@ -2029,26 +2053,32 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):AND4_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("OR1_ENA",2980,1760,0,"")
+#! TemplateField("OR1_ENA","DISP",16777215,0,1)
 #! TemplateField("OR1_ENA","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR1_INV",3180,1760,0,"")
+#! TemplateField("OR1_INV","DISP",16777215,0,1)
 #! TemplateField("OR1_INV","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR1_INP1",2180,1760,0,"")
+#! TemplateField("OR1_INP1","DISP",16777215,0,1)
 #! TemplateField("OR1_INP1","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR1_INP2",2380,1760,0,"")
+#! TemplateField("OR1_INP2","DISP",16777215,0,1)
 #! TemplateField("OR1_INP2","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR1_INP3",2580,1760,0,"")
+#! TemplateField("OR1_INP3","DISP",16777215,0,1)
 #! TemplateField("OR1_INP3","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR1_INP4",2780,1760,0,"")
+#! TemplateField("OR1_INP4","DISP",16777215,0,1)
 #! TemplateField("OR1_INP4","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):OR1_OUT",3380,1762,0,0,"$(P)$(Q):OR1_OUT")
@@ -2056,26 +2086,32 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):OR1_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("OR2_ENA",2980,2060,0,"")
+#! TemplateField("OR2_ENA","DISP",16777215,0,1)
 #! TemplateField("OR2_ENA","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR2_INV",3180,2060,0,"")
+#! TemplateField("OR2_INV","DISP",16777215,0,1)
 #! TemplateField("OR2_INV","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR2_INP1",2180,2060,0,"")
+#! TemplateField("OR2_INP1","DISP",16777215,0,1)
 #! TemplateField("OR2_INP1","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR2_INP2",2380,2060,0,"")
+#! TemplateField("OR2_INP2","DISP",16777215,0,1)
 #! TemplateField("OR2_INP2","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR2_INP3",2580,2060,0,"")
+#! TemplateField("OR2_INP3","DISP",16777215,0,1)
 #! TemplateField("OR2_INP3","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR2_INP4",2780,2060,0,"")
+#! TemplateField("OR2_INP4","DISP",16777215,0,1)
 #! TemplateField("OR2_INP4","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):OR2_OUT",3380,2062,0,0,"$(P)$(Q):OR2_OUT")
@@ -2083,26 +2119,32 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):OR2_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("OR3_ENA",2980,2360,0,"")
+#! TemplateField("OR3_ENA","DISP",16777215,0,1)
 #! TemplateField("OR3_ENA","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR3_INV",3180,2360,0,"")
+#! TemplateField("OR3_INV","DISP",16777215,0,1)
 #! TemplateField("OR3_INV","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR3_INP1",2180,2360,0,"")
+#! TemplateField("OR3_INP1","DISP",16777215,0,1)
 #! TemplateField("OR3_INP1","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR3_INP2",2380,2360,0,"")
+#! TemplateField("OR3_INP2","DISP",16777215,0,1)
 #! TemplateField("OR3_INP2","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR3_INP3",2580,2360,0,"")
+#! TemplateField("OR3_INP3","DISP",16777215,0,1)
 #! TemplateField("OR3_INP3","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR3_INP4",2780,2360,0,"")
+#! TemplateField("OR3_INP4","DISP",16777215,0,1)
 #! TemplateField("OR3_INP4","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):OR3_OUT",3380,2362,0,0,"$(P)$(Q):OR3_OUT")
@@ -2110,26 +2152,32 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):OR3_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("OR4_ENA",2980,2660,0,"")
+#! TemplateField("OR4_ENA","DISP",16777215,0,1)
 #! TemplateField("OR4_ENA","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR4_INV",3180,2660,0,"")
+#! TemplateField("OR4_INV","DISP",16777215,0,1)
 #! TemplateField("OR4_INV","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR4_INP1",2180,2660,0,"")
+#! TemplateField("OR4_INP1","DISP",16777215,0,1)
 #! TemplateField("OR4_INP1","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR4_INP2",2380,2660,0,"")
+#! TemplateField("OR4_INP2","DISP",16777215,0,1)
 #! TemplateField("OR4_INP2","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR4_INP3",2580,2660,0,"")
+#! TemplateField("OR4_INP3","DISP",16777215,0,1)
 #! TemplateField("OR4_INP3","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OR4_INP4",2780,2660,0,"")
+#! TemplateField("OR4_INP4","DISP",16777215,0,1)
 #! TemplateField("OR4_INP4","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):OR4_OUT",3380,2662,0,0,"$(P)$(Q):OR4_OUT")
@@ -2137,10 +2185,12 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):OR4_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("GATE1_INP1",2980,2960,0,"")
+#! TemplateField("GATE1_INP1","DISP",16777215,0,1)
 #! TemplateField("GATE1_INP1","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("GATE1_INP2",3180,2960,0,"")
+#! TemplateField("GATE1_INP2","DISP",16777215,0,1)
 #! TemplateField("GATE1_INP2","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):GATE1_OUT",3380,2962,0,0,"$(P)$(Q):GATE1_OUT")
@@ -2148,10 +2198,12 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):GATE1_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("GATE2_INP1",2980,3160,0,"")
+#! TemplateField("GATE2_INP1","DISP",16777215,0,1)
 #! TemplateField("GATE2_INP1","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("GATE2_INP2",3180,3160,0,"")
+#! TemplateField("GATE2_INP2","DISP",16777215,0,1)
 #! TemplateField("GATE2_INP2","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):GATE2_OUT",3380,3162,0,0,"$(P)$(Q):GATE2_OUT")
@@ -2159,10 +2211,12 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):GATE2_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("GATE3_INP1",2980,3360,0,"")
+#! TemplateField("GATE3_INP1","DISP",16777215,0,1)
 #! TemplateField("GATE3_INP1","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("GATE3_INP2",3180,3360,0,"")
+#! TemplateField("GATE3_INP2","DISP",16777215,0,1)
 #! TemplateField("GATE3_INP2","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):GATE3_OUT",3380,3362,0,0,"$(P)$(Q):GATE3_OUT")
@@ -2170,10 +2224,12 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):GATE3_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("GATE4_INP1",2980,3560,0,"")
+#! TemplateField("GATE4_INP1","DISP",16777215,0,1)
 #! TemplateField("GATE4_INP1","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("GATE4_INP2",3180,3560,0,"")
+#! TemplateField("GATE4_INP2","DISP",16777215,0,1)
 #! TemplateField("GATE4_INP2","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):GATE4_OUT",3380,3562,0,0,"$(P)$(Q):GATE4_OUT")
@@ -2181,15 +2237,18 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):GATE4_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("DIV_FIRST",3660,3780,0,"")
+#! TemplateField("DIV_FIRST","DISP",16777215,0,1)
 #! TemplateField("DIV_FIRST","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("DIV1_INP",2980,3780,0,"")
+#! TemplateField("DIV1_INP","DISP",16777215,0,1)
 #! TemplateField("DIV1_INP","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("DIV1_DIV",3180,3780,0,"")
 #! TemplateField("DIV1_DIV","DRVL",16777215,0,1)
+#! TemplateField("DIV1_DIV","DISP",16777215,0,1)
 #! TemplateField("DIV1_DIV","PREC",16777215,0,1)
 #! TemplateField("DIV1_DIV","MOTOR",16777215,0,1)
 #! TemplateField("DIV1_DIV","PARAM",16777215,0,1)
@@ -2202,11 +2261,13 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):DIV1_OUTN.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("DIV2_INP",2980,4080,0,"")
+#! TemplateField("DIV2_INP","DISP",16777215,0,1)
 #! TemplateField("DIV2_INP","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("DIV2_DIV",3180,4080,0,"")
 #! TemplateField("DIV2_DIV","DRVL",16777215,0,1)
+#! TemplateField("DIV2_DIV","DISP",16777215,0,1)
 #! TemplateField("DIV2_DIV","PREC",16777215,0,1)
 #! TemplateField("DIV2_DIV","MOTOR",16777215,0,1)
 #! TemplateField("DIV2_DIV","PARAM",16777215,0,1)
@@ -2219,11 +2280,13 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):DIV2_OUTN.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("DIV3_INP",2980,4380,0,"")
+#! TemplateField("DIV3_INP","DISP",16777215,0,1)
 #! TemplateField("DIV3_INP","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("DIV3_DIV",3180,4380,0,"")
 #! TemplateField("DIV3_DIV","DRVL",16777215,0,1)
+#! TemplateField("DIV3_DIV","DISP",16777215,0,1)
 #! TemplateField("DIV3_DIV","PREC",16777215,0,1)
 #! TemplateField("DIV3_DIV","MOTOR",16777215,0,1)
 #! TemplateField("DIV3_DIV","PARAM",16777215,0,1)
@@ -2236,11 +2299,13 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):DIV3_OUTN.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("DIV4_INP",2980,4680,0,"")
+#! TemplateField("DIV4_INP","DISP",16777215,0,1)
 #! TemplateField("DIV4_INP","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("DIV4_DIV",3180,4680,0,"")
 #! TemplateField("DIV4_DIV","DRVL",16777215,0,1)
+#! TemplateField("DIV4_DIV","DISP",16777215,0,1)
 #! TemplateField("DIV4_DIV","PREC",16777215,0,1)
 #! TemplateField("DIV4_DIV","MOTOR",16777215,0,1)
 #! TemplateField("DIV4_DIV","PARAM",16777215,0,1)
@@ -2253,22 +2318,26 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):DIV4_OUTN.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("PULSE1_DLY",4300,1020,0,"")
+#! TemplateField("PULSE1_DLY","DISP",16777215,0,1)
 #! TemplateField("PULSE1_DLY","ASLO",16777215,0,1)
 #! TemplateField("PULSE1_DLY","PREC",16777215,0,1)
 #! TemplateField("PULSE1_DLY","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PULSE1_WID",4500,1020,0,"")
+#! TemplateField("PULSE1_WID","DISP",16777215,0,1)
 #! TemplateField("PULSE1_WID","ASLO",16777215,0,1)
 #! TemplateField("PULSE1_WID","PREC",16777215,0,1)
 #! TemplateField("PULSE1_WID","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PULSE1_PRE",4700,1020,0,"")
+#! TemplateField("PULSE1_PRE","DISP",16777215,0,1)
 #! TemplateField("PULSE1_PRE","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PULSE1_INP",4100,1020,0,"")
+#! TemplateField("PULSE1_INP","DISP",16777215,0,1)
 #! TemplateField("PULSE1_INP","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):PULSE1_OUT",3940,1022,0,0,"$(P)$(Q):PULSE1_OUT")
@@ -2276,22 +2345,26 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):PULSE1_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("PULSE2_DLY",4300,1320,0,"")
+#! TemplateField("PULSE2_DLY","DISP",16777215,0,1)
 #! TemplateField("PULSE2_DLY","ASLO",16777215,0,1)
 #! TemplateField("PULSE2_DLY","PREC",16777215,0,1)
 #! TemplateField("PULSE2_DLY","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PULSE2_WID",4500,1320,0,"")
+#! TemplateField("PULSE2_WID","DISP",16777215,0,1)
 #! TemplateField("PULSE2_WID","ASLO",16777215,0,1)
 #! TemplateField("PULSE2_WID","PREC",16777215,0,1)
 #! TemplateField("PULSE2_WID","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PULSE2_PRE",4700,1320,0,"")
+#! TemplateField("PULSE2_PRE","DISP",16777215,0,1)
 #! TemplateField("PULSE2_PRE","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PULSE2_INP",4100,1320,0,"")
+#! TemplateField("PULSE2_INP","DISP",16777215,0,1)
 #! TemplateField("PULSE2_INP","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):PULSE2_OUT",3940,1322,0,0,"$(P)$(Q):PULSE2_OUT")
@@ -2299,22 +2372,26 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):PULSE2_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("PULSE3_DLY",4300,1620,0,"")
+#! TemplateField("PULSE3_DLY","DISP",16777215,0,1)
 #! TemplateField("PULSE3_DLY","ASLO",16777215,0,1)
 #! TemplateField("PULSE3_DLY","PREC",16777215,0,1)
 #! TemplateField("PULSE3_DLY","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PULSE3_WID",4500,1620,0,"")
+#! TemplateField("PULSE3_WID","DISP",16777215,0,1)
 #! TemplateField("PULSE3_WID","ASLO",16777215,0,1)
 #! TemplateField("PULSE3_WID","PREC",16777215,0,1)
 #! TemplateField("PULSE3_WID","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PULSE3_PRE",4700,1620,0,"")
+#! TemplateField("PULSE3_PRE","DISP",16777215,0,1)
 #! TemplateField("PULSE3_PRE","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PULSE3_INP",4100,1620,0,"")
+#! TemplateField("PULSE3_INP","DISP",16777215,0,1)
 #! TemplateField("PULSE3_INP","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):PULSE3_OUT",3940,1622,0,0,"$(P)$(Q):PULSE3_OUT")
@@ -2322,22 +2399,26 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):PULSE3_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("PULSE4_DLY",4300,1920,0,"")
+#! TemplateField("PULSE4_DLY","DISP",16777215,0,1)
 #! TemplateField("PULSE4_DLY","ASLO",16777215,0,1)
 #! TemplateField("PULSE4_DLY","PREC",16777215,0,1)
 #! TemplateField("PULSE4_DLY","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PULSE4_WID",4500,1920,0,"")
+#! TemplateField("PULSE4_WID","DISP",16777215,0,1)
 #! TemplateField("PULSE4_WID","ASLO",16777215,0,1)
 #! TemplateField("PULSE4_WID","PREC",16777215,0,1)
 #! TemplateField("PULSE4_WID","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PULSE4_PRE",4700,1920,0,"")
+#! TemplateField("PULSE4_PRE","DISP",16777215,0,1)
 #! TemplateField("PULSE4_PRE","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PULSE4_INP",4100,1920,0,"")
+#! TemplateField("PULSE4_INP","DISP",16777215,0,1)
 #! TemplateField("PULSE4_INP","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):PULSE4_OUT",3940,1922,0,0,"$(P)$(Q):PULSE4_OUT")
@@ -2345,102 +2426,127 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):PULSE4_OUT.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("OUT1_TTL",4280,3340,0,"")
+#! TemplateField("OUT1_TTL","DISP",16777215,0,1)
 #! TemplateField("OUT1_TTL","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT1_NIM",4480,3340,0,"")
+#! TemplateField("OUT1_NIM","DISP",16777215,0,1)
 #! TemplateField("OUT1_NIM","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT1_LVDS",4680,3340,0,"")
+#! TemplateField("OUT1_LVDS","DISP",16777215,0,1)
 #! TemplateField("OUT1_LVDS","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT2_TTL",4280,3540,0,"")
+#! TemplateField("OUT2_TTL","DISP",16777215,0,1)
 #! TemplateField("OUT2_TTL","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT2_NIM",4480,3540,0,"")
+#! TemplateField("OUT2_NIM","DISP",16777215,0,1)
 #! TemplateField("OUT2_NIM","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT2_LVDS",4680,3540,0,"")
+#! TemplateField("OUT2_LVDS","DISP",16777215,0,1)
 #! TemplateField("OUT2_LVDS","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT3_TTL",4280,3740,0,"")
+#! TemplateField("OUT3_TTL","DISP",16777215,0,1)
 #! TemplateField("OUT3_TTL","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT3_OC",4480,3740,0,"")
+#! TemplateField("OUT3_OC","DISP",16777215,0,1)
 #! TemplateField("OUT3_OC","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT3_LVDS",4680,3740,0,"")
+#! TemplateField("OUT3_LVDS","DISP",16777215,0,1)
 #! TemplateField("OUT3_LVDS","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT4_TTL",4280,3940,0,"")
+#! TemplateField("OUT4_TTL","DISP",16777215,0,1)
 #! TemplateField("OUT4_TTL","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT4_NIM",4480,3940,0,"")
+#! TemplateField("OUT4_NIM","DISP",16777215,0,1)
 #! TemplateField("OUT4_NIM","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT4_PECL",4680,3940,0,"")
+#! TemplateField("OUT4_PECL","DISP",16777215,0,1)
 #! TemplateField("OUT4_PECL","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT5_ENCA",4080,4140,0,"")
+#! TemplateField("OUT5_ENCA","DISP",16777215,0,1)
 #! TemplateField("OUT5_ENCA","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT5_ENCB",4280,4140,0,"")
+#! TemplateField("OUT5_ENCB","DISP",16777215,0,1)
 #! TemplateField("OUT5_ENCB","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT5_ENCZ",4480,4140,0,"")
+#! TemplateField("OUT5_ENCZ","DISP",16777215,0,1)
 #! TemplateField("OUT5_ENCZ","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT6_ENCA",4080,4340,0,"")
+#! TemplateField("OUT6_ENCA","DISP",16777215,0,1)
 #! TemplateField("OUT6_ENCA","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT6_ENCB",4280,4340,0,"")
+#! TemplateField("OUT6_ENCB","DISP",16777215,0,1)
 #! TemplateField("OUT6_ENCB","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT6_ENCZ",4480,4340,0,"")
+#! TemplateField("OUT6_ENCZ","DISP",16777215,0,1)
 #! TemplateField("OUT6_ENCZ","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT7_ENCA",4080,4540,0,"")
+#! TemplateField("OUT7_ENCA","DISP",16777215,0,1)
 #! TemplateField("OUT7_ENCA","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT7_ENCB",4280,4540,0,"")
+#! TemplateField("OUT7_ENCB","DISP",16777215,0,1)
 #! TemplateField("OUT7_ENCB","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT7_ENCZ",4480,4540,0,"")
+#! TemplateField("OUT7_ENCZ","DISP",16777215,0,1)
 #! TemplateField("OUT7_ENCZ","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT8_ENCA",4080,4740,0,"")
+#! TemplateField("OUT8_ENCA","DISP",16777215,0,1)
 #! TemplateField("OUT8_ENCA","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT8_ENCB",4280,4740,0,"")
+#! TemplateField("OUT8_ENCB","DISP",16777215,0,1)
 #! TemplateField("OUT8_ENCB","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT8_ENCZ",4480,4740,0,"")
+#! TemplateField("OUT8_ENCZ","DISP",16777215,0,1)
 #! TemplateField("OUT8_ENCZ","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("SOFT_IN",4680,3040,0,"")
+#! TemplateField("SOFT_IN","DISP",16777215,0,1)
 #! TemplateField("SOFT_IN","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):NOMOTOR",1140,2862,0,0,"$(P)$(Q):NOMOTOR")
@@ -2541,6 +2647,7 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 
 #! TemplateInstance("POS1_SET",100,2860,0,"")
 #! TemplateField("POS1_SET","DRVL",16777215,0,1)
+#! TemplateField("POS1_SET","DISP",16777215,0,1)
 #! TemplateField("POS1_SET","PREC",16777215,0,1)
 #! TemplateField("POS1_SET","MOTOR",16777215,0,1)
 #! TemplateField("POS1_SET","PARAM",16777215,0,1)
@@ -2548,6 +2655,7 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 
 #! TemplateInstance("POS2_SET",360,2860,0,"")
 #! TemplateField("POS2_SET","DRVL",16777215,0,1)
+#! TemplateField("POS2_SET","DISP",16777215,0,1)
 #! TemplateField("POS2_SET","PREC",16777215,0,1)
 #! TemplateField("POS2_SET","MOTOR",16777215,0,1)
 #! TemplateField("POS2_SET","PARAM",16777215,0,1)
@@ -2555,6 +2663,7 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 
 #! TemplateInstance("POS3_SET",620,2860,0,"")
 #! TemplateField("POS3_SET","DRVL",16777215,0,1)
+#! TemplateField("POS3_SET","DISP",16777215,0,1)
 #! TemplateField("POS3_SET","PREC",16777215,0,1)
 #! TemplateField("POS3_SET","MOTOR",16777215,0,1)
 #! TemplateField("POS3_SET","PARAM",16777215,0,1)
@@ -2562,17 +2671,25 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 
 #! TemplateInstance("POS4_SET",880,2860,0,"")
 #! TemplateField("POS4_SET","DRVL",16777215,0,1)
+#! TemplateField("POS4_SET","DISP",16777215,0,1)
 #! TemplateField("POS4_SET","PREC",16777215,0,1)
 #! TemplateField("POS4_SET","MOTOR",16777215,0,1)
 #! TemplateField("POS4_SET","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PC_TSPRE",700,280,0,"")
+#! TemplateField("PC_TSPRE","DISP",16777215,0,1)
 #! TemplateField("PC_TSPRE","PARAM",16777215,0,1)
 
+#! Record("$(P)$(Q):PC_ARM:DISP",660,4508,0,0,"$(P)$(Q):PC_ARM:DISP")
+#! Field("$(P)$(Q):PC_ARM:DISP.INPA",16777215,1,"$(P)$(Q):PC_ARM:DISP.INPA")
+#! Link("$(P)$(Q):PC_ARM:DISP.INPA","$(P)$(Q):ARRAY_ACQ.VAL")
+#! Field("$(P)$(Q):PC_ARM:DISP.OUT",16777215,0,"$(P)$(Q):PC_ARM:DISP.OUT")
+#! Link("$(P)$(Q):PC_ARM:DISP.OUT","$(P)$(Q):PC_ARM.DISP")
 #! Record("$(P)$(Q):PC_ARM",360,4842,0,0,"$(P)$(Q):PC_ARM")
 #! Field("$(P)$(Q):PC_ARM.FLNK",16777215,1,"$(P)$(Q):PC_ARM.FLNK")
 #! Link("$(P)$(Q):PC_ARM.FLNK","$(P)$(Q):ARM_SET_BUSY")
+#! Field("$(P)$(Q):PC_ARM.DISP",16777215,1,"$(P)$(Q):PC_ARM.DISP")
 #! Record("$(P)$(Q):ARM_SET_BUSY",660,4836,0,0,"$(P)$(Q):ARM_SET_BUSY")
 #! Field("$(P)$(Q):ARM_SET_BUSY.OUT",16777215,1,"$(P)$(Q):ARM_SET_BUSY.OUT")
 #! Link("$(P)$(Q):ARM_SET_BUSY.OUT","$(P)$(Q):ARM_BUSY.VAL")
@@ -2581,6 +2698,7 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Record("$(P)$(Q):PC_DISARM",180,4856,0,0,"$(P)$(Q):PC_DISARM")
 
 #! TemplateInstance("PC_GATE_INP",320,1100,0,"")
+#! TemplateField("PC_GATE_INP","DISP",16777215,0,1)
 #! TemplateField("PC_GATE_INP","PARAM",16777215,0,1)
 
 
@@ -2589,12 +2707,14 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! TemplateField("PC_GATE_SEL","THST",16777215,0,1)
 #! TemplateField("PC_GATE_SEL","FRST",16777215,0,1)
 #! TemplateField("PC_GATE_SEL","ONST",16777215,0,1)
+#! TemplateField("PC_GATE_SEL","DISP",16777215,0,1)
 #! TemplateField("PC_GATE_SEL","TWST",16777215,0,1)
 #! TemplateField("PC_GATE_SEL","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PC_GATE_START",520,1100,0,"")
 #! TemplateField("PC_GATE_START","DRVL",16777215,0,1)
+#! TemplateField("PC_GATE_START","DISP",16777215,0,1)
 #! TemplateField("PC_GATE_START","PREC",16777215,0,1)
 #! TemplateField("PC_GATE_START","MOTOR",16777215,0,1)
 #! TemplateField("PC_GATE_START","PARAM",16777215,0,1)
@@ -2602,6 +2722,7 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 
 #! TemplateInstance("PC_GATE_WID",720,1100,0,"")
 #! TemplateField("PC_GATE_WID","DRVL",16777215,0,1)
+#! TemplateField("PC_GATE_WID","DISP",16777215,0,1)
 #! TemplateField("PC_GATE_WID","PREC",16777215,0,1)
 #! TemplateField("PC_GATE_WID","MOTOR",16777215,0,1)
 #! TemplateField("PC_GATE_WID","PARAM",16777215,0,1)
@@ -2609,6 +2730,7 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 
 #! TemplateInstance("PC_GATE_NGATE",920,1100,0,"")
 #! TemplateField("PC_GATE_NGATE","DRVL",16777215,0,1)
+#! TemplateField("PC_GATE_NGATE","DISP",16777215,0,1)
 #! TemplateField("PC_GATE_NGATE","PREC",16777215,0,1)
 #! TemplateField("PC_GATE_NGATE","MOTOR",16777215,0,1)
 #! TemplateField("PC_GATE_NGATE","PARAM",16777215,0,1)
@@ -2616,12 +2738,14 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 
 #! TemplateInstance("PC_GATE_STEP",1120,1100,0,"")
 #! TemplateField("PC_GATE_STEP","DRVL",16777215,0,1)
+#! TemplateField("PC_GATE_STEP","DISP",16777215,0,1)
 #! TemplateField("PC_GATE_STEP","PREC",16777215,0,1)
 #! TemplateField("PC_GATE_STEP","MOTOR",16777215,0,1)
 #! TemplateField("PC_GATE_STEP","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PC_PULSE_INP",320,1540,0,"")
+#! TemplateField("PC_PULSE_INP","DISP",16777215,0,1)
 #! TemplateField("PC_PULSE_INP","PARAM",16777215,0,1)
 
 
@@ -2630,12 +2754,14 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! TemplateField("PC_PULSE_SEL","THST",16777215,0,1)
 #! TemplateField("PC_PULSE_SEL","FRST",16777215,0,1)
 #! TemplateField("PC_PULSE_SEL","ONST",16777215,0,1)
+#! TemplateField("PC_PULSE_SEL","DISP",16777215,0,1)
 #! TemplateField("PC_PULSE_SEL","TWST",16777215,0,1)
 #! TemplateField("PC_PULSE_SEL","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PC_PULSE_START",520,1540,0,"")
 #! TemplateField("PC_PULSE_START","DRVL",16777215,0,1)
+#! TemplateField("PC_PULSE_START","DISP",16777215,0,1)
 #! TemplateField("PC_PULSE_START","PREC",16777215,0,1)
 #! TemplateField("PC_PULSE_START","MOTOR",16777215,0,1)
 #! TemplateField("PC_PULSE_START","PARAM",16777215,0,1)
@@ -2643,6 +2769,7 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 
 #! TemplateInstance("PC_PULSE_DLY",1120,1540,0,"")
 #! TemplateField("PC_PULSE_DLY","DRVL",16777215,0,1)
+#! TemplateField("PC_PULSE_DLY","DISP",16777215,0,1)
 #! TemplateField("PC_PULSE_DLY","PREC",16777215,0,1)
 #! TemplateField("PC_PULSE_DLY","MOTOR",16777215,0,1)
 #! TemplateField("PC_PULSE_DLY","PARAM",16777215,0,1)
@@ -2650,6 +2777,7 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 
 #! TemplateInstance("PC_PULSE_WID",720,1540,0,"")
 #! TemplateField("PC_PULSE_WID","DRVL",16777215,0,1)
+#! TemplateField("PC_PULSE_WID","DISP",16777215,0,1)
 #! TemplateField("PC_PULSE_WID","PREC",16777215,0,1)
 #! TemplateField("PC_PULSE_WID","MOTOR",16777215,0,1)
 #! TemplateField("PC_PULSE_WID","PARAM",16777215,0,1)
@@ -2657,6 +2785,7 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 
 #! TemplateInstance("PC_PULSE_STEP",920,1540,0,"")
 #! TemplateField("PC_PULSE_STEP","DRVL",16777215,0,1)
+#! TemplateField("PC_PULSE_STEP","DISP",16777215,0,1)
 #! TemplateField("PC_PULSE_STEP","PREC",16777215,0,1)
 #! TemplateField("PC_PULSE_STEP","MOTOR",16777215,0,1)
 #! TemplateField("PC_PULSE_STEP","PARAM",16777215,0,1)
@@ -2738,6 +2867,7 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Field("$(P)$(Q):M4:SETPOS.PROC",16777215,0,"$(P)$(Q):M4:SETPOS.PROC")
 
 #! TemplateInstance("PC_ARM_INP",720,660,0,"")
+#! TemplateField("PC_ARM_INP","DISP",16777215,0,1)
 #! TemplateField("PC_ARM_INP","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):M1:EGU",120,2030,0,1,"$(P)$(Q):M1:EGU")
@@ -2751,6 +2881,7 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Record("$(P)$(Q):NOMOTOR:EGU",1140,2030,0,1,"$(P)$(Q):NOMOTOR:EGU")
 
 #! TemplateInstance("POLARITY",4280,3040,0,"")
+#! TemplateField("POLARITY","DISP",16777215,0,1)
 #! TemplateField("POLARITY","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):SYS_STATERR:RBVA",4100,2774,0,0,"$(P)$(Q):SYS_STATERR:RBVA")
@@ -2766,6 +2897,7 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! TemplateField("PC_ARM_SEL","THST",16777215,0,1)
 #! TemplateField("PC_ARM_SEL","FRST",16777215,0,1)
 #! TemplateField("PC_ARM_SEL","ONST",16777215,0,1)
+#! TemplateField("PC_ARM_SEL","DISP",16777215,0,1)
 #! TemplateField("PC_ARM_SEL","TWST",16777215,0,1)
 #! TemplateField("PC_ARM_SEL","PARAM",16777215,0,1)
 
@@ -2807,6 +2939,7 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! TemplateField("PC_ENC","THST",16777215,0,1)
 #! TemplateField("PC_ENC","FRST",16777215,0,1)
 #! TemplateField("PC_ENC","ONST",16777215,0,1)
+#! TemplateField("PC_ENC","DISP",16777215,0,1)
 #! TemplateField("PC_ENC","TWST",16777215,0,1)
 #! TemplateField("PC_ENC","PARAM",16777215,0,1)
 
@@ -2824,21 +2957,25 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Record("$(P)$(Q):PC_FILT1",2580,4214,0,0,"$(P)$(Q):PC_FILT1")
 
 #! TemplateInstance("PC_FILTSEL1",2380,4200,0,"")
+#! TemplateField("PC_FILTSEL1","DISP",16777215,0,1)
 #! TemplateField("PC_FILTSEL1","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):PC_FILT2",2580,4394,0,0,"$(P)$(Q):PC_FILT2")
 
 #! TemplateInstance("PC_FILTSEL2",2380,4380,0,"")
+#! TemplateField("PC_FILTSEL2","DISP",16777215,0,1)
 #! TemplateField("PC_FILTSEL2","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):PC_FILT3",2580,4574,0,0,"$(P)$(Q):PC_FILT3")
 
 #! TemplateInstance("PC_FILTSEL3",2380,4560,0,"")
+#! TemplateField("PC_FILTSEL3","DISP",16777215,0,1)
 #! TemplateField("PC_FILTSEL3","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):PC_FILT4",2580,4754,0,0,"$(P)$(Q):PC_FILT4")
 
 #! TemplateInstance("PC_FILTSEL4",2380,4740,0,"")
+#! TemplateField("PC_FILTSEL4","DISP",16777215,0,1)
 #! TemplateField("PC_FILTSEL4","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):QUAD_OUTA",3940,2242,0,1,"$(P)$(Q):QUAD_OUTA")
@@ -2846,10 +2983,12 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):QUAD_OUTA.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("QUAD_STEP",4100,2240,0,"")
+#! TemplateField("QUAD_STEP","DISP",16777215,0,1)
 #! TemplateField("QUAD_STEP","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("QUAD_DIR",4300,2240,0,"")
+#! TemplateField("QUAD_DIR","DISP",16777215,0,1)
 #! TemplateField("QUAD_DIR","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):QUAD_OUTB",3940,2382,0,1,"$(P)$(Q):QUAD_OUTB")
@@ -2857,22 +2996,27 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Link("$(P)$(Q):QUAD_OUTB.INPA","$(P)$(Q):SYS_STAT2.VAL")
 
 #! TemplateInstance("OUT5_CONN",4680,4140,0,"")
+#! TemplateField("OUT5_CONN","DISP",16777215,0,1)
 #! TemplateField("OUT5_CONN","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT6_CONN",4680,4340,0,"")
+#! TemplateField("OUT6_CONN","DISP",16777215,0,1)
 #! TemplateField("OUT6_CONN","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT7_CONN",4680,4540,0,"")
+#! TemplateField("OUT7_CONN","DISP",16777215,0,1)
 #! TemplateField("OUT7_CONN","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("OUT8_CONN",4680,4740,0,"")
+#! TemplateField("OUT8_CONN","DISP",16777215,0,1)
 #! TemplateField("OUT8_CONN","PARAM",16777215,0,1)
 
 
 #! TemplateInstance("PC_BIT_CAP",1100,280,0,"")
+#! TemplateField("PC_BIT_CAP","DISP",16777215,0,1)
 #! TemplateField("PC_BIT_CAP","PARAM",16777215,0,1)
 
 #! Record("$(P)$(Q):ARRAY_UPDATE",1220,4328,0,1,"$(P)$(Q):ARRAY_UPDATE")
@@ -2889,15 +3033,17 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Record("$(P)$(Q):PC_NUM_DOWN",1420,4808,0,1,"$(P)$(Q):PC_NUM_DOWN")
 #! Field("$(P)$(Q):PC_NUM_DOWN.FLNK",16777215,0,"$(P)$(Q):PC_NUM_DOWN.FLNK")
 #! Link("$(P)$(Q):PC_NUM_DOWN.FLNK","$(P)$(Q):ARRAY_ACQ")
-#! Record("$(P)$(Q):ARRAY_ACQ",1160,4788,0,1,"$(P)$(Q):ARRAY_ACQ")
+#! Record("$(P)$(Q):ARRAY_ACQ",1160,4848,0,1,"$(P)$(Q):ARRAY_ACQ")
 #! Field("$(P)$(Q):ARRAY_ACQ.FLNK",16777215,0,"$(P)$(Q):ARRAY_ACQ.FLNK")
 #! Link("$(P)$(Q):ARRAY_ACQ.FLNK","$(P)$(Q):ARM_BUSY_DONE")
+#! Field("$(P)$(Q):ARRAY_ACQ.VAL",16777215,1,"$(P)$(Q):ARRAY_ACQ.VAL")
 #! Record("$(P)$(Q):ARM_BUSY_DONE",900,4696,0,1,"$(P)$(Q):ARM_BUSY_DONE")
 #! Field("$(P)$(Q):ARM_BUSY_DONE.OUT",16777215,0,"$(P)$(Q):ARM_BUSY_DONE.OUT")
 #! Link("$(P)$(Q):ARM_BUSY_DONE.OUT","$(P)$(Q):ARM_BUSY.VAL")
 
 #! TemplateInstance("PC_PULSE_MAX",1320,1680,0,"")
 #! TemplateField("PC_PULSE_MAX","DRVL",16777215,0,1)
+#! TemplateField("PC_PULSE_MAX","DISP",16777215,0,1)
 #! TemplateField("PC_PULSE_MAX","PREC",16777215,0,1)
 #! TemplateField("PC_PULSE_MAX","MOTOR",16777215,0,1)
 #! TemplateField("PC_PULSE_MAX","PARAM",16777215,0,1)
@@ -2924,10 +3070,16 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 #! Field("$(P)$(Q):PC_DIR:SYNC.OUT",16777215,1,"$(P)$(Q):PC_DIR:SYNC.OUT")
 #! Link("$(P)$(Q):PC_DIR:SYNC.OUT","$(P)$(Q):PC_DIR.VAL")
 #! Field("$(P)$(Q):PC_DIR:SYNC.PACT",16777215,1,"$(P)$(Q):PC_DIR:SYNC.PACT")
+#! Record("$(P)$(Q):PC_DIR:DISP",2600,4848,0,0,"$(P)$(Q):PC_DIR:DISP")
+#! Field("$(P)$(Q):PC_DIR:DISP.INPA",16777215,0,"$(P)$(Q):PC_DIR:DISP.INPA")
+#! Link("$(P)$(Q):PC_DIR:DISP.INPA","$(P)$(Q):ARRAY_ACQ.VAL")
+#! Field("$(P)$(Q):PC_DIR:DISP.OUT",16777215,1,"$(P)$(Q):PC_DIR:DISP.OUT")
+#! Link("$(P)$(Q):PC_DIR:DISP.OUT","$(P)$(Q):PC_DIR.DISP")
 #! Record("$(P)$(Q):PC_DIR",2640,3346,0,0,"$(P)$(Q):PC_DIR")
 #! Field("$(P)$(Q):PC_DIR.VAL",16777215,0,"$(P)$(Q):PC_DIR.VAL")
 #! Field("$(P)$(Q):PC_DIR.OUT",16777215,0,"$(P)$(Q):PC_DIR.OUT")
 #! Link("$(P)$(Q):PC_DIR.OUT","$(P)$(Q):PC_DIR:CSET.A")
+#! Field("$(P)$(Q):PC_DIR.DISP",16777215,1,"$(P)$(Q):PC_DIR.DISP")
 #! Record("$(P)$(Q):PC_DIR:CSET",2620,3568,0,0,"$(P)$(Q):PC_DIR:CSET")
 #! Field("$(P)$(Q):PC_DIR:CSET.A",16777215,0,"$(P)$(Q):PC_DIR:CSET.A")
 #! Field("$(P)$(Q):PC_DIR:CSET.OUT",16777215,0,"$(P)$(Q):PC_DIR:CSET.OUT")

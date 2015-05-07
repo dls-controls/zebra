@@ -13,29 +13,13 @@ template() {
   #! InputMacro(DISP,"",120,300,16777215,1,true)          
 }
 
-record(ai, "$(P)$(Q):$(PARAM):RBVLO") {
-  field(DESC, "Readback param value")
+record(ai, "$(P)$(Q):$(PARAM):RBV_CTS") {
+  field(DESC, "Readback param int32 value")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) $(PARAM)LO")
+  field(INP, "@asyn($(PORT),0) $(PARAM)HILO")
   field(SCAN, "I/O Intr")
   field(MDEL, "-1")
-}
-
-record(ai, "$(P)$(Q):$(PARAM):RBVHI") {
-  field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) $(PARAM)HI")
-  field(SCAN, "I/O Intr")
-  field(MDEL, "-1")
-}
-
-record(calcout, "$(P)$(Q):$(PARAM):RBV_CTS") {
-  field(DESC, "Convert 2 uint16 into int32")
-  field(INPA, "$(P)$(Q):$(PARAM):RBVLO CP")
-  field(INPB, "$(P)$(Q):$(PARAM):RBVHI CP")
-  field(CALC, "-(B>>15)*2**32+A+(B<<16)")
-  field(FLNK, "$(P)$(Q):$(PARAM):RBV")
-  field(PREC, "4")
+  field(FLNK, "$(P)$(Q):$(PARAM):RBV PP")    
 }
 
 record(calcout, "$(P)$(Q):$(PARAM):RBV") {
@@ -79,41 +63,25 @@ record(calcout, "$(P)$(Q):$(PARAM):DISP") {
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):$(PARAM)") {
   field(DESC, "Demand value for param")
-  field(FLNK, "$(P)$(Q):$(PARAM):CALCLO PP")
+  field(FLNK, "$(P)$(Q):$(PARAM):CALC PP")
   field(PREC, "$(PREC)")
   field(DRVL, "0")  
 }
 
-record(calcout, "$(P)$(Q):$(PARAM):CALCLO") {
-  field(CALC, "FLOOR((A-D)/C+0.5)&65535")
+record(calcout, "$(P)$(Q):$(PARAM):CALC") {
+  field(CALC, "FLOOR((A-D)/C+0.5)")
   field(INPA, "$(P)$(Q):$(PARAM)")
-  field(INPC, "$(P)$(Q):$(MOTOR):ERES")
-  field(INPD, "$(P)$(Q):$(MOTOR):OFF")
-  field(OUT, "$(P)$(Q):$(PARAM):SETLO PP")
+  field(INPC, "$(P)$(Q):$(MOTOR):ERES PP")
+  field(INPD, "$(P)$(Q):$(MOTOR):OFF PP")
+  field(OUT, "$(P)$(Q):$(PARAM):SET PP")
 }
 
-record(ao, "$(P)$(Q):$(PARAM):SETLO") {
+record(ao, "$(P)$(Q):$(PARAM):SET") {
   field(DESC, "Write param value to zebra")
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):$(PARAM):SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) $(PARAM)LO")
-  field(FLNK, "$(P)$(Q):$(PARAM):CALCHI PP")
-}
-
-record(calcout, "$(P)$(Q):$(PARAM):CALCHI") {
-  field(CALC, "FLOOR((A-D)/C+0.5)>>16")
-  field(INPA, "$(P)$(Q):$(PARAM)")
-  field(INPC, "$(P)$(Q):$(MOTOR):ERES")
-  field(INPD, "$(P)$(Q):$(MOTOR):OFF")
-  field(OUT, "$(P)$(Q):$(PARAM):SETHI PP")
-}
-
-record(ao, "$(P)$(Q):$(PARAM):SETHI") {
-  field(DESC, "Write param value to zebra")
-  field(DTYP, "asynInt32")
-  field(SDIS, "$(P)$(Q):$(PARAM):SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) $(PARAM)HI")
-  field(FLNK, "$(P)$(Q):$(PARAM):RBVLO PP")  
+  field(OUT, "@asyn($(PORT),0) $(PARAM)HILO")
+#  field(FLNK, "$(P)$(Q):$(PARAM):RBV")    
 }
 
 #! Further lines contain data used by VisualDCT

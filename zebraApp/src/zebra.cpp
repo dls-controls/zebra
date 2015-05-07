@@ -41,6 +41,9 @@
 /* This is the number of filtered waveforms to allow */
 #define NFILT 4
 
+/* This is the number of 32-bit registers (with both HI and LO FPGA regs) */
+#define N32REGS 20
+
 /* We want to block while waiting on an asyn port forever.
  * Unfortunately putting 0 or a large number causes it to
  * poll and take up lots of CPU. This number seems to work
@@ -60,6 +63,7 @@
 /* useful defines for converting to and from asyn parameters and zebra regs */
 #define NREGS (sizeof(reg_lookup)/sizeof(struct reg))
 #define PARAM2REG(/*int*/param) &(reg_lookup[param-this->zebraReg[0]])
+#define HILOPARAM2HIREG(/*int*/param) &(reg_lookup[param-this->zebraHILOReg[0]])
 #define REG2PARAM(/*reg**/r) (this->zebraReg[0]+(int)(r-reg_lookup))
 #define REG2PARAMSTR(/*reg**/r) ((int) (REG2PARAM(r)+NREGS))
 #define NSYSBUS (sizeof(bus_lookup)/sizeof(char *))
@@ -118,8 +122,9 @@ protected:
 	int zebraFiltArrays[NFILT];  // int8array read - position compare sys bus filtered
 	int zebraFiltSel[NFILT];     // int32 read/write - which index of system bus to select for zebraFiltArrays
 	int zebraFiltSelStr[NFILT];  // string read - the name of the entry in the system bus
+	int zebraHILOReg[NREGS];  // int32 read/write - with HI and LO FPGA params behind it
 	int zebraReg[NREGS * 2];     // int32 read/write - all zebra params in reg_lookup
-#define NUM_PARAMS (&LAST_PARAM - &FIRST_PARAM + 1) + NARRAYS*4 + NFILT*3 + NREGS*2
+#define NUM_PARAMS (&LAST_PARAM - &FIRST_PARAM + 1) + NARRAYS*4 + NFILT*3 + NREGS + NREGS*2
 
 private:
 	asynUser *pasynUser;
@@ -280,6 +285,23 @@ zebra::zebra(const char* portName, const char* serialPortName, int maxPts) :
 		setStringParam(zebraFiltSelStr[a], bus_lookup[0]);
 	}
 
+    /* create 32-bit regs */
+	for (unsigned int i = 0; i < NREGS; i++) {
+		r = &(reg_lookup[i]);
+		if (strcmp(r->str + strlen(r->str) - 2, "HI") == 0) {
+		    /* Make a PARAMHILO parameter */
+		    /* Note that the index into zebraHILOReg is the same as the index
+		       into zebraReg for the HI param */
+		    epicsSnprintf(str, NBUFF, "%sLO", r->str);
+		} else {
+		    // need to put a dummy in to make sure our mapping calcs work
+		    epicsSnprintf(str, NBUFF, "%sHILODUMMY", r->str);		
+		}
+	    createParam(str, asynParamInt32, &zebraHILOReg[i]);
+	    // check we can lookup the HI reg from our HILO param
+	    assert(r == HILOPARAM2HIREG(zebraHILOReg[i]));		
+	}
+
 	/* create parameters for registers */
 	for (unsigned int i = 0; i < NREGS; i++) {
 		r = &(reg_lookup[i]);
@@ -302,7 +324,7 @@ zebra::zebra(const char* portName, const char* serialPortName, int maxPts) :
 		// Check our reg -> param string lookup will work
 		assert(REG2PARAMSTR(r) == zebraReg[i+NREGS]);
 	}
-
+	
 	/* Create a message queue to hold completed messages and interrupts */
 	this->msgQId = epicsMessageQueueCreate(NQUEUE, sizeof(char*));
 	this->intQId = epicsMessageQueueCreate(NQUEUE, sizeof(char*));
@@ -745,6 +767,22 @@ asynStatus zebra::receiveGetReg(const reg *r, int *value) {
 			if (r->type	== regMux && *value >= 0 && (unsigned int)(*value) < NSYSBUS) {
 				setStringParam (REG2PARAMSTR(r), bus_lookup[*value]);
 			}
+			// If 32-bit reg component set HILO param
+			if (strcmp(r->str + strlen(r->str) - 2, "HI") == 0 ||
+        			strcmp(r->str + strlen(r->str) - 2, "LO") == 0) {
+        		char str[NBUFF];
+        		int param, value, hilovalue;
+		        epicsSnprintf(str, NBUFF, "%.*sLO", (int) strlen(r->str) - 2, r->str);
+		        findParam(str, &param);
+		        getIntegerParam(param, &hilovalue);
+		        epicsSnprintf(str, NBUFF, "%.*sHI", (int) strlen(r->str) - 2, r->str);
+		        findParam(str, &param);
+		        getIntegerParam(param, &value);
+		        hilovalue += value << 16;
+		        epicsSnprintf(str, NBUFF, "%.*sHILO", (int) strlen(r->str) - 2, r->str);
+		        findParam(str, &param);	
+		        setIntegerParam(param, hilovalue);
+		    }	        
 			setIntegerParam(zebraIsConnected, 1);
 			status = asynSuccess;
 		} else {
@@ -818,6 +856,8 @@ asynStatus zebra::receiveSetReg(const reg *r) {
  called with the lock taken */
 asynStatus zebra::setReg(const reg *r, int value) {
 	const char *functionName = "setReg";
+	asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+			"%s:%s: Setting %s to value %d\n", driverName, functionName, r->str, value);	
 	asynStatus status = this->sendSetReg(r, value);
 	if (status == asynSuccess) {
 		status = this->receiveSetReg(r);
@@ -977,7 +1017,7 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value) {
 		const reg *r = PARAM2REG(param);
 		status = this->setReg(r, value);
 		if (status == asynSuccess && r->type != regCmd) {
-		    // do this so we always get an update on the RBV field, essential for clamping 32-bit fields to MRES
+		    // do this so we always get an update on the RBV field
     		setIntegerParam(param, -1);
 			status = this->getReg(r, &value);
 		}
@@ -989,6 +1029,26 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value) {
 			setIntegerParam(zebraNumDown, -1);
 			this->callbackWaveforms();
 		}
+    } else if (param >= this->zebraHILOReg[0] && param < this->zebraHILOReg[NREGS - 1]) {
+        // set 32-bit reg
+        // do this so we always get an update on the RBV field
+        setIntegerParam(param, -1);
+        // This is the hi reg
+        const reg *r = HILOPARAM2HIREG(param);
+        status = this->setReg(r, value >> 16);
+        // now find the low param
+        if (status == asynSuccess) {
+            int lowparam;
+    		char str[NBUFF];
+	        epicsSnprintf(str, NBUFF, "%.*sLO", (int) strlen(r->str) - 2, r->str);      
+	        findParam(str, &lowparam);  
+	        const reg *lowr = PARAM2REG(lowparam);          
+	        status = this->setReg(lowr, value & 65535);
+	        // Now get both values, this will set HILO 
+            if (status == asynSuccess) {
+	            status = (asynStatus) (this->getReg(r, &value) || this->getReg(lowr, &value));
+	        }
+	    }
 	} else if (param == zebraStore) {
 		status = this->flashCmd("S");
 	} else if (param == zebraRestore) {

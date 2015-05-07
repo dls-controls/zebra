@@ -8802,29 +8802,13 @@ record(calcout, "$(P)$(Q):DIV1_INP:STA") {
 
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", DIV1_DIV)
 
-record(ai, "$(P)$(Q):DIV1_DIV:RBVLO") {
-  field(DESC, "Readback param value")
+record(ai, "$(P)$(Q):DIV1_DIV:RBV_CTS") {
+  field(DESC, "Readback param int32 value")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) DIV1_DIVLO")
+  field(INP, "@asyn($(PORT),0) DIV1_DIVHILO")
   field(SCAN, "I/O Intr")
   field(MDEL, "-1")
-}
-
-record(ai, "$(P)$(Q):DIV1_DIV:RBVHI") {
-  field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) DIV1_DIVHI")
-  field(SCAN, "I/O Intr")
-  field(MDEL, "-1")
-}
-
-record(calcout, "$(P)$(Q):DIV1_DIV:RBV_CTS") {
-  field(DESC, "Convert 2 uint16 into int32")
-  field(INPA, "$(P)$(Q):DIV1_DIV:RBVLO CP")
-  field(INPB, "$(P)$(Q):DIV1_DIV:RBVHI CP")
-  field(CALC, "-(B>>15)*2**32+A+(B<<16)")
-  field(FLNK, "$(P)$(Q):DIV1_DIV:RBV")
-  field(PREC, "4")
+  field(FLNK, "$(P)$(Q):DIV1_DIV:RBV PP")
 }
 
 record(calcout, "$(P)$(Q):DIV1_DIV:RBV") {
@@ -8868,41 +8852,24 @@ record(calcout, "$(P)$(Q):DIV1_DIV:DISP") {
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):DIV1_DIV") {
   field(DESC, "Demand value for param")
-  field(FLNK, "$(P)$(Q):DIV1_DIV:CALCLO PP")
+  field(FLNK, "$(P)$(Q):DIV1_DIV:CALC PP")
   field(PREC, "0")
   field(DRVL, "0")
 }
 
-record(calcout, "$(P)$(Q):DIV1_DIV:CALCLO") {
-  field(CALC, "FLOOR((A-D)/C+0.5)&65535")
+record(calcout, "$(P)$(Q):DIV1_DIV:CALC") {
+  field(CALC, "FLOOR((A-D)/C+0.5)")
   field(INPA, "$(P)$(Q):DIV1_DIV")
-  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
-  field(INPD, "$(P)$(Q):NOMOTOR:OFF")
-  field(OUT, "$(P)$(Q):DIV1_DIV:SETLO PP")
+  field(INPC, "$(P)$(Q):NOMOTOR:ERES PP")
+  field(INPD, "$(P)$(Q):NOMOTOR:OFF PP")
+  field(OUT, "$(P)$(Q):DIV1_DIV:SET PP")
 }
 
-record(ao, "$(P)$(Q):DIV1_DIV:SETLO") {
+record(ao, "$(P)$(Q):DIV1_DIV:SET") {
   field(DESC, "Write param value to zebra")
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):DIV1_DIV:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) DIV1_DIVLO")
-  field(FLNK, "$(P)$(Q):DIV1_DIV:CALCHI PP")
-}
-
-record(calcout, "$(P)$(Q):DIV1_DIV:CALCHI") {
-  field(CALC, "FLOOR((A-D)/C+0.5)>>16")
-  field(INPA, "$(P)$(Q):DIV1_DIV")
-  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
-  field(INPD, "$(P)$(Q):NOMOTOR:OFF")
-  field(OUT, "$(P)$(Q):DIV1_DIV:SETHI PP")
-}
-
-record(ao, "$(P)$(Q):DIV1_DIV:SETHI") {
-  field(DESC, "Write param value to zebra")
-  field(DTYP, "asynInt32")
-  field(SDIS, "$(P)$(Q):DIV1_DIV:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) DIV1_DIVHI")
-  field(FLNK, "$(P)$(Q):DIV1_DIV:RBVLO PP")
+  field(OUT, "@asyn($(PORT),0) DIV1_DIVHILO")
 }
 
 # end(DIV1_DIV)
@@ -8979,29 +8946,13 @@ record(calcout, "$(P)$(Q):DIV2_INP:STA") {
 
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", DIV2_DIV)
 
-record(ai, "$(P)$(Q):DIV2_DIV:RBVLO") {
-  field(DESC, "Readback param value")
+record(ai, "$(P)$(Q):DIV2_DIV:RBV_CTS") {
+  field(DESC, "Readback param int32 value")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) DIV2_DIVLO")
+  field(INP, "@asyn($(PORT),0) DIV2_DIVHILO")
   field(SCAN, "I/O Intr")
   field(MDEL, "-1")
-}
-
-record(ai, "$(P)$(Q):DIV2_DIV:RBVHI") {
-  field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) DIV2_DIVHI")
-  field(SCAN, "I/O Intr")
-  field(MDEL, "-1")
-}
-
-record(calcout, "$(P)$(Q):DIV2_DIV:RBV_CTS") {
-  field(DESC, "Convert 2 uint16 into int32")
-  field(INPA, "$(P)$(Q):DIV2_DIV:RBVLO CP")
-  field(INPB, "$(P)$(Q):DIV2_DIV:RBVHI CP")
-  field(CALC, "-(B>>15)*2**32+A+(B<<16)")
-  field(FLNK, "$(P)$(Q):DIV2_DIV:RBV")
-  field(PREC, "4")
+  field(FLNK, "$(P)$(Q):DIV2_DIV:RBV PP")
 }
 
 record(calcout, "$(P)$(Q):DIV2_DIV:RBV") {
@@ -9045,41 +8996,24 @@ record(calcout, "$(P)$(Q):DIV2_DIV:DISP") {
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):DIV2_DIV") {
   field(DESC, "Demand value for param")
-  field(FLNK, "$(P)$(Q):DIV2_DIV:CALCLO PP")
+  field(FLNK, "$(P)$(Q):DIV2_DIV:CALC PP")
   field(PREC, "0")
   field(DRVL, "0")
 }
 
-record(calcout, "$(P)$(Q):DIV2_DIV:CALCLO") {
-  field(CALC, "FLOOR((A-D)/C+0.5)&65535")
+record(calcout, "$(P)$(Q):DIV2_DIV:CALC") {
+  field(CALC, "FLOOR((A-D)/C+0.5)")
   field(INPA, "$(P)$(Q):DIV2_DIV")
-  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
-  field(INPD, "$(P)$(Q):NOMOTOR:OFF")
-  field(OUT, "$(P)$(Q):DIV2_DIV:SETLO PP")
+  field(INPC, "$(P)$(Q):NOMOTOR:ERES PP")
+  field(INPD, "$(P)$(Q):NOMOTOR:OFF PP")
+  field(OUT, "$(P)$(Q):DIV2_DIV:SET PP")
 }
 
-record(ao, "$(P)$(Q):DIV2_DIV:SETLO") {
+record(ao, "$(P)$(Q):DIV2_DIV:SET") {
   field(DESC, "Write param value to zebra")
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):DIV2_DIV:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) DIV2_DIVLO")
-  field(FLNK, "$(P)$(Q):DIV2_DIV:CALCHI PP")
-}
-
-record(calcout, "$(P)$(Q):DIV2_DIV:CALCHI") {
-  field(CALC, "FLOOR((A-D)/C+0.5)>>16")
-  field(INPA, "$(P)$(Q):DIV2_DIV")
-  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
-  field(INPD, "$(P)$(Q):NOMOTOR:OFF")
-  field(OUT, "$(P)$(Q):DIV2_DIV:SETHI PP")
-}
-
-record(ao, "$(P)$(Q):DIV2_DIV:SETHI") {
-  field(DESC, "Write param value to zebra")
-  field(DTYP, "asynInt32")
-  field(SDIS, "$(P)$(Q):DIV2_DIV:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) DIV2_DIVHI")
-  field(FLNK, "$(P)$(Q):DIV2_DIV:RBVLO PP")
+  field(OUT, "@asyn($(PORT),0) DIV2_DIVHILO")
 }
 
 # end(DIV2_DIV)
@@ -9156,29 +9090,13 @@ record(calcout, "$(P)$(Q):DIV3_INP:STA") {
 
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", DIV3_DIV)
 
-record(ai, "$(P)$(Q):DIV3_DIV:RBVLO") {
-  field(DESC, "Readback param value")
+record(ai, "$(P)$(Q):DIV3_DIV:RBV_CTS") {
+  field(DESC, "Readback param int32 value")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) DIV3_DIVLO")
+  field(INP, "@asyn($(PORT),0) DIV3_DIVHILO")
   field(SCAN, "I/O Intr")
   field(MDEL, "-1")
-}
-
-record(ai, "$(P)$(Q):DIV3_DIV:RBVHI") {
-  field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) DIV3_DIVHI")
-  field(SCAN, "I/O Intr")
-  field(MDEL, "-1")
-}
-
-record(calcout, "$(P)$(Q):DIV3_DIV:RBV_CTS") {
-  field(DESC, "Convert 2 uint16 into int32")
-  field(INPA, "$(P)$(Q):DIV3_DIV:RBVLO CP")
-  field(INPB, "$(P)$(Q):DIV3_DIV:RBVHI CP")
-  field(CALC, "-(B>>15)*2**32+A+(B<<16)")
-  field(FLNK, "$(P)$(Q):DIV3_DIV:RBV")
-  field(PREC, "4")
+  field(FLNK, "$(P)$(Q):DIV3_DIV:RBV PP")
 }
 
 record(calcout, "$(P)$(Q):DIV3_DIV:RBV") {
@@ -9222,41 +9140,24 @@ record(calcout, "$(P)$(Q):DIV3_DIV:DISP") {
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):DIV3_DIV") {
   field(DESC, "Demand value for param")
-  field(FLNK, "$(P)$(Q):DIV3_DIV:CALCLO PP")
+  field(FLNK, "$(P)$(Q):DIV3_DIV:CALC PP")
   field(PREC, "0")
   field(DRVL, "0")
 }
 
-record(calcout, "$(P)$(Q):DIV3_DIV:CALCLO") {
-  field(CALC, "FLOOR((A-D)/C+0.5)&65535")
+record(calcout, "$(P)$(Q):DIV3_DIV:CALC") {
+  field(CALC, "FLOOR((A-D)/C+0.5)")
   field(INPA, "$(P)$(Q):DIV3_DIV")
-  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
-  field(INPD, "$(P)$(Q):NOMOTOR:OFF")
-  field(OUT, "$(P)$(Q):DIV3_DIV:SETLO PP")
+  field(INPC, "$(P)$(Q):NOMOTOR:ERES PP")
+  field(INPD, "$(P)$(Q):NOMOTOR:OFF PP")
+  field(OUT, "$(P)$(Q):DIV3_DIV:SET PP")
 }
 
-record(ao, "$(P)$(Q):DIV3_DIV:SETLO") {
+record(ao, "$(P)$(Q):DIV3_DIV:SET") {
   field(DESC, "Write param value to zebra")
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):DIV3_DIV:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) DIV3_DIVLO")
-  field(FLNK, "$(P)$(Q):DIV3_DIV:CALCHI PP")
-}
-
-record(calcout, "$(P)$(Q):DIV3_DIV:CALCHI") {
-  field(CALC, "FLOOR((A-D)/C+0.5)>>16")
-  field(INPA, "$(P)$(Q):DIV3_DIV")
-  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
-  field(INPD, "$(P)$(Q):NOMOTOR:OFF")
-  field(OUT, "$(P)$(Q):DIV3_DIV:SETHI PP")
-}
-
-record(ao, "$(P)$(Q):DIV3_DIV:SETHI") {
-  field(DESC, "Write param value to zebra")
-  field(DTYP, "asynInt32")
-  field(SDIS, "$(P)$(Q):DIV3_DIV:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) DIV3_DIVHI")
-  field(FLNK, "$(P)$(Q):DIV3_DIV:RBVLO PP")
+  field(OUT, "@asyn($(PORT),0) DIV3_DIVHILO")
 }
 
 # end(DIV3_DIV)
@@ -9333,29 +9234,13 @@ record(calcout, "$(P)$(Q):DIV4_INP:STA") {
 
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", DIV4_DIV)
 
-record(ai, "$(P)$(Q):DIV4_DIV:RBVLO") {
-  field(DESC, "Readback param value")
+record(ai, "$(P)$(Q):DIV4_DIV:RBV_CTS") {
+  field(DESC, "Readback param int32 value")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) DIV4_DIVLO")
+  field(INP, "@asyn($(PORT),0) DIV4_DIVHILO")
   field(SCAN, "I/O Intr")
   field(MDEL, "-1")
-}
-
-record(ai, "$(P)$(Q):DIV4_DIV:RBVHI") {
-  field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) DIV4_DIVHI")
-  field(SCAN, "I/O Intr")
-  field(MDEL, "-1")
-}
-
-record(calcout, "$(P)$(Q):DIV4_DIV:RBV_CTS") {
-  field(DESC, "Convert 2 uint16 into int32")
-  field(INPA, "$(P)$(Q):DIV4_DIV:RBVLO CP")
-  field(INPB, "$(P)$(Q):DIV4_DIV:RBVHI CP")
-  field(CALC, "-(B>>15)*2**32+A+(B<<16)")
-  field(FLNK, "$(P)$(Q):DIV4_DIV:RBV")
-  field(PREC, "4")
+  field(FLNK, "$(P)$(Q):DIV4_DIV:RBV PP")
 }
 
 record(calcout, "$(P)$(Q):DIV4_DIV:RBV") {
@@ -9399,41 +9284,24 @@ record(calcout, "$(P)$(Q):DIV4_DIV:DISP") {
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):DIV4_DIV") {
   field(DESC, "Demand value for param")
-  field(FLNK, "$(P)$(Q):DIV4_DIV:CALCLO PP")
+  field(FLNK, "$(P)$(Q):DIV4_DIV:CALC PP")
   field(PREC, "0")
   field(DRVL, "0")
 }
 
-record(calcout, "$(P)$(Q):DIV4_DIV:CALCLO") {
-  field(CALC, "FLOOR((A-D)/C+0.5)&65535")
+record(calcout, "$(P)$(Q):DIV4_DIV:CALC") {
+  field(CALC, "FLOOR((A-D)/C+0.5)")
   field(INPA, "$(P)$(Q):DIV4_DIV")
-  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
-  field(INPD, "$(P)$(Q):NOMOTOR:OFF")
-  field(OUT, "$(P)$(Q):DIV4_DIV:SETLO PP")
+  field(INPC, "$(P)$(Q):NOMOTOR:ERES PP")
+  field(INPD, "$(P)$(Q):NOMOTOR:OFF PP")
+  field(OUT, "$(P)$(Q):DIV4_DIV:SET PP")
 }
 
-record(ao, "$(P)$(Q):DIV4_DIV:SETLO") {
+record(ao, "$(P)$(Q):DIV4_DIV:SET") {
   field(DESC, "Write param value to zebra")
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):DIV4_DIV:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) DIV4_DIVLO")
-  field(FLNK, "$(P)$(Q):DIV4_DIV:CALCHI PP")
-}
-
-record(calcout, "$(P)$(Q):DIV4_DIV:CALCHI") {
-  field(CALC, "FLOOR((A-D)/C+0.5)>>16")
-  field(INPA, "$(P)$(Q):DIV4_DIV")
-  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
-  field(INPD, "$(P)$(Q):NOMOTOR:OFF")
-  field(OUT, "$(P)$(Q):DIV4_DIV:SETHI PP")
-}
-
-record(ao, "$(P)$(Q):DIV4_DIV:SETHI") {
-  field(DESC, "Write param value to zebra")
-  field(DTYP, "asynInt32")
-  field(SDIS, "$(P)$(Q):DIV4_DIV:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) DIV4_DIVHI")
-  field(FLNK, "$(P)$(Q):DIV4_DIV:RBVLO PP")
+  field(OUT, "@asyn($(PORT),0) DIV4_DIVHILO")
 }
 
 # end(DIV4_DIV)
@@ -12191,29 +12059,13 @@ record(sel, "$(P)$(Q):PULSE:ERES") {
 
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", POS1_SET)
 
-record(ai, "$(P)$(Q):POS1_SET:RBVLO") {
-  field(DESC, "Readback param value")
+record(ai, "$(P)$(Q):POS1_SET:RBV_CTS") {
+  field(DESC, "Readback param int32 value")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) POS1_SETLO")
+  field(INP, "@asyn($(PORT),0) POS1_SETHILO")
   field(SCAN, "I/O Intr")
   field(MDEL, "-1")
-}
-
-record(ai, "$(P)$(Q):POS1_SET:RBVHI") {
-  field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) POS1_SETHI")
-  field(SCAN, "I/O Intr")
-  field(MDEL, "-1")
-}
-
-record(calcout, "$(P)$(Q):POS1_SET:RBV_CTS") {
-  field(DESC, "Convert 2 uint16 into int32")
-  field(INPA, "$(P)$(Q):POS1_SET:RBVLO CP")
-  field(INPB, "$(P)$(Q):POS1_SET:RBVHI CP")
-  field(CALC, "-(B>>15)*2**32+A+(B<<16)")
-  field(FLNK, "$(P)$(Q):POS1_SET:RBV")
-  field(PREC, "4")
+  field(FLNK, "$(P)$(Q):POS1_SET:RBV PP")
 }
 
 record(calcout, "$(P)$(Q):POS1_SET:RBV") {
@@ -12257,70 +12109,37 @@ record(calcout, "$(P)$(Q):POS1_SET:DISP") {
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):POS1_SET") {
   field(DESC, "Demand value for param")
-  field(FLNK, "$(P)$(Q):POS1_SET:CALCLO PP")
+  field(FLNK, "$(P)$(Q):POS1_SET:CALC PP")
   field(PREC, "$(PREC=4)")
   field(DRVL, "0")
 }
 
-record(calcout, "$(P)$(Q):POS1_SET:CALCLO") {
-  field(CALC, "FLOOR((A-D)/C+0.5)&65535")
+record(calcout, "$(P)$(Q):POS1_SET:CALC") {
+  field(CALC, "FLOOR((A-D)/C+0.5)")
   field(INPA, "$(P)$(Q):POS1_SET")
-  field(INPC, "$(P)$(Q):M1:ERES")
-  field(INPD, "$(P)$(Q):M1:OFF")
-  field(OUT, "$(P)$(Q):POS1_SET:SETLO PP")
+  field(INPC, "$(P)$(Q):M1:ERES PP")
+  field(INPD, "$(P)$(Q):M1:OFF PP")
+  field(OUT, "$(P)$(Q):POS1_SET:SET PP")
 }
 
-record(ao, "$(P)$(Q):POS1_SET:SETLO") {
+record(ao, "$(P)$(Q):POS1_SET:SET") {
   field(DESC, "Write param value to zebra")
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):POS1_SET:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) POS1_SETLO")
-  field(FLNK, "$(P)$(Q):POS1_SET:CALCHI PP")
-}
-
-record(calcout, "$(P)$(Q):POS1_SET:CALCHI") {
-  field(CALC, "FLOOR((A-D)/C+0.5)>>16")
-  field(INPA, "$(P)$(Q):POS1_SET")
-  field(INPC, "$(P)$(Q):M1:ERES")
-  field(INPD, "$(P)$(Q):M1:OFF")
-  field(OUT, "$(P)$(Q):POS1_SET:SETHI PP")
-}
-
-record(ao, "$(P)$(Q):POS1_SET:SETHI") {
-  field(DESC, "Write param value to zebra")
-  field(DTYP, "asynInt32")
-  field(SDIS, "$(P)$(Q):POS1_SET:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) POS1_SETHI")
-  field(FLNK, "$(P)$(Q):POS1_SET:RBVLO PP")
+  field(OUT, "@asyn($(PORT),0) POS1_SETHILO")
 }
 
 # end(POS1_SET)
 
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", POS2_SET)
 
-record(ai, "$(P)$(Q):POS2_SET:RBVLO") {
-  field(DESC, "Readback param value")
+record(ai, "$(P)$(Q):POS2_SET:RBV_CTS") {
+  field(DESC, "Readback param int32 value")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) POS2_SETLO")
+  field(INP, "@asyn($(PORT),0) POS2_SETHILO")
   field(SCAN, "I/O Intr")
   field(MDEL, "-1")
-}
-
-record(ai, "$(P)$(Q):POS2_SET:RBVHI") {
-  field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) POS2_SETHI")
-  field(SCAN, "I/O Intr")
-  field(MDEL, "-1")
-}
-
-record(calcout, "$(P)$(Q):POS2_SET:RBV_CTS") {
-  field(DESC, "Convert 2 uint16 into int32")
-  field(INPA, "$(P)$(Q):POS2_SET:RBVLO CP")
-  field(INPB, "$(P)$(Q):POS2_SET:RBVHI CP")
-  field(CALC, "-(B>>15)*2**32+A+(B<<16)")
-  field(FLNK, "$(P)$(Q):POS2_SET:RBV")
-  field(PREC, "4")
+  field(FLNK, "$(P)$(Q):POS2_SET:RBV PP")
 }
 
 record(calcout, "$(P)$(Q):POS2_SET:RBV") {
@@ -12364,70 +12183,37 @@ record(calcout, "$(P)$(Q):POS2_SET:DISP") {
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):POS2_SET") {
   field(DESC, "Demand value for param")
-  field(FLNK, "$(P)$(Q):POS2_SET:CALCLO PP")
+  field(FLNK, "$(P)$(Q):POS2_SET:CALC PP")
   field(PREC, "$(PREC=4)")
   field(DRVL, "0")
 }
 
-record(calcout, "$(P)$(Q):POS2_SET:CALCLO") {
-  field(CALC, "FLOOR((A-D)/C+0.5)&65535")
+record(calcout, "$(P)$(Q):POS2_SET:CALC") {
+  field(CALC, "FLOOR((A-D)/C+0.5)")
   field(INPA, "$(P)$(Q):POS2_SET")
-  field(INPC, "$(P)$(Q):M2:ERES")
-  field(INPD, "$(P)$(Q):M2:OFF")
-  field(OUT, "$(P)$(Q):POS2_SET:SETLO PP")
+  field(INPC, "$(P)$(Q):M2:ERES PP")
+  field(INPD, "$(P)$(Q):M2:OFF PP")
+  field(OUT, "$(P)$(Q):POS2_SET:SET PP")
 }
 
-record(ao, "$(P)$(Q):POS2_SET:SETLO") {
+record(ao, "$(P)$(Q):POS2_SET:SET") {
   field(DESC, "Write param value to zebra")
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):POS2_SET:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) POS2_SETLO")
-  field(FLNK, "$(P)$(Q):POS2_SET:CALCHI PP")
-}
-
-record(calcout, "$(P)$(Q):POS2_SET:CALCHI") {
-  field(CALC, "FLOOR((A-D)/C+0.5)>>16")
-  field(INPA, "$(P)$(Q):POS2_SET")
-  field(INPC, "$(P)$(Q):M2:ERES")
-  field(INPD, "$(P)$(Q):M2:OFF")
-  field(OUT, "$(P)$(Q):POS2_SET:SETHI PP")
-}
-
-record(ao, "$(P)$(Q):POS2_SET:SETHI") {
-  field(DESC, "Write param value to zebra")
-  field(DTYP, "asynInt32")
-  field(SDIS, "$(P)$(Q):POS2_SET:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) POS2_SETHI")
-  field(FLNK, "$(P)$(Q):POS2_SET:RBVLO PP")
+  field(OUT, "@asyn($(PORT),0) POS2_SETHILO")
 }
 
 # end(POS2_SET)
 
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", POS3_SET)
 
-record(ai, "$(P)$(Q):POS3_SET:RBVLO") {
-  field(DESC, "Readback param value")
+record(ai, "$(P)$(Q):POS3_SET:RBV_CTS") {
+  field(DESC, "Readback param int32 value")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) POS3_SETLO")
+  field(INP, "@asyn($(PORT),0) POS3_SETHILO")
   field(SCAN, "I/O Intr")
   field(MDEL, "-1")
-}
-
-record(ai, "$(P)$(Q):POS3_SET:RBVHI") {
-  field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) POS3_SETHI")
-  field(SCAN, "I/O Intr")
-  field(MDEL, "-1")
-}
-
-record(calcout, "$(P)$(Q):POS3_SET:RBV_CTS") {
-  field(DESC, "Convert 2 uint16 into int32")
-  field(INPA, "$(P)$(Q):POS3_SET:RBVLO CP")
-  field(INPB, "$(P)$(Q):POS3_SET:RBVHI CP")
-  field(CALC, "-(B>>15)*2**32+A+(B<<16)")
-  field(FLNK, "$(P)$(Q):POS3_SET:RBV")
-  field(PREC, "4")
+  field(FLNK, "$(P)$(Q):POS3_SET:RBV PP")
 }
 
 record(calcout, "$(P)$(Q):POS3_SET:RBV") {
@@ -12471,70 +12257,37 @@ record(calcout, "$(P)$(Q):POS3_SET:DISP") {
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):POS3_SET") {
   field(DESC, "Demand value for param")
-  field(FLNK, "$(P)$(Q):POS3_SET:CALCLO PP")
+  field(FLNK, "$(P)$(Q):POS3_SET:CALC PP")
   field(PREC, "$(PREC=4)")
   field(DRVL, "0")
 }
 
-record(calcout, "$(P)$(Q):POS3_SET:CALCLO") {
-  field(CALC, "FLOOR((A-D)/C+0.5)&65535")
+record(calcout, "$(P)$(Q):POS3_SET:CALC") {
+  field(CALC, "FLOOR((A-D)/C+0.5)")
   field(INPA, "$(P)$(Q):POS3_SET")
-  field(INPC, "$(P)$(Q):M3:ERES")
-  field(INPD, "$(P)$(Q):M3:OFF")
-  field(OUT, "$(P)$(Q):POS3_SET:SETLO PP")
+  field(INPC, "$(P)$(Q):M3:ERES PP")
+  field(INPD, "$(P)$(Q):M3:OFF PP")
+  field(OUT, "$(P)$(Q):POS3_SET:SET PP")
 }
 
-record(ao, "$(P)$(Q):POS3_SET:SETLO") {
+record(ao, "$(P)$(Q):POS3_SET:SET") {
   field(DESC, "Write param value to zebra")
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):POS3_SET:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) POS3_SETLO")
-  field(FLNK, "$(P)$(Q):POS3_SET:CALCHI PP")
-}
-
-record(calcout, "$(P)$(Q):POS3_SET:CALCHI") {
-  field(CALC, "FLOOR((A-D)/C+0.5)>>16")
-  field(INPA, "$(P)$(Q):POS3_SET")
-  field(INPC, "$(P)$(Q):M3:ERES")
-  field(INPD, "$(P)$(Q):M3:OFF")
-  field(OUT, "$(P)$(Q):POS3_SET:SETHI PP")
-}
-
-record(ao, "$(P)$(Q):POS3_SET:SETHI") {
-  field(DESC, "Write param value to zebra")
-  field(DTYP, "asynInt32")
-  field(SDIS, "$(P)$(Q):POS3_SET:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) POS3_SETHI")
-  field(FLNK, "$(P)$(Q):POS3_SET:RBVLO PP")
+  field(OUT, "@asyn($(PORT),0) POS3_SETHILO")
 }
 
 # end(POS3_SET)
 
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", POS4_SET)
 
-record(ai, "$(P)$(Q):POS4_SET:RBVLO") {
-  field(DESC, "Readback param value")
+record(ai, "$(P)$(Q):POS4_SET:RBV_CTS") {
+  field(DESC, "Readback param int32 value")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) POS4_SETLO")
+  field(INP, "@asyn($(PORT),0) POS4_SETHILO")
   field(SCAN, "I/O Intr")
   field(MDEL, "-1")
-}
-
-record(ai, "$(P)$(Q):POS4_SET:RBVHI") {
-  field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) POS4_SETHI")
-  field(SCAN, "I/O Intr")
-  field(MDEL, "-1")
-}
-
-record(calcout, "$(P)$(Q):POS4_SET:RBV_CTS") {
-  field(DESC, "Convert 2 uint16 into int32")
-  field(INPA, "$(P)$(Q):POS4_SET:RBVLO CP")
-  field(INPB, "$(P)$(Q):POS4_SET:RBVHI CP")
-  field(CALC, "-(B>>15)*2**32+A+(B<<16)")
-  field(FLNK, "$(P)$(Q):POS4_SET:RBV")
-  field(PREC, "4")
+  field(FLNK, "$(P)$(Q):POS4_SET:RBV PP")
 }
 
 record(calcout, "$(P)$(Q):POS4_SET:RBV") {
@@ -12578,41 +12331,24 @@ record(calcout, "$(P)$(Q):POS4_SET:DISP") {
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):POS4_SET") {
   field(DESC, "Demand value for param")
-  field(FLNK, "$(P)$(Q):POS4_SET:CALCLO PP")
+  field(FLNK, "$(P)$(Q):POS4_SET:CALC PP")
   field(PREC, "$(PREC=4)")
   field(DRVL, "0")
 }
 
-record(calcout, "$(P)$(Q):POS4_SET:CALCLO") {
-  field(CALC, "FLOOR((A-D)/C+0.5)&65535")
+record(calcout, "$(P)$(Q):POS4_SET:CALC") {
+  field(CALC, "FLOOR((A-D)/C+0.5)")
   field(INPA, "$(P)$(Q):POS4_SET")
-  field(INPC, "$(P)$(Q):M4:ERES")
-  field(INPD, "$(P)$(Q):M4:OFF")
-  field(OUT, "$(P)$(Q):POS4_SET:SETLO PP")
+  field(INPC, "$(P)$(Q):M4:ERES PP")
+  field(INPD, "$(P)$(Q):M4:OFF PP")
+  field(OUT, "$(P)$(Q):POS4_SET:SET PP")
 }
 
-record(ao, "$(P)$(Q):POS4_SET:SETLO") {
+record(ao, "$(P)$(Q):POS4_SET:SET") {
   field(DESC, "Write param value to zebra")
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):POS4_SET:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) POS4_SETLO")
-  field(FLNK, "$(P)$(Q):POS4_SET:CALCHI PP")
-}
-
-record(calcout, "$(P)$(Q):POS4_SET:CALCHI") {
-  field(CALC, "FLOOR((A-D)/C+0.5)>>16")
-  field(INPA, "$(P)$(Q):POS4_SET")
-  field(INPC, "$(P)$(Q):M4:ERES")
-  field(INPD, "$(P)$(Q):M4:OFF")
-  field(OUT, "$(P)$(Q):POS4_SET:SETHI PP")
-}
-
-record(ao, "$(P)$(Q):POS4_SET:SETHI") {
-  field(DESC, "Write param value to zebra")
-  field(DTYP, "asynInt32")
-  field(SDIS, "$(P)$(Q):POS4_SET:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) POS4_SETHI")
-  field(FLNK, "$(P)$(Q):POS4_SET:RBVLO PP")
+  field(OUT, "@asyn($(PORT),0) POS4_SETHILO")
 }
 
 # end(POS4_SET)
@@ -12821,29 +12557,13 @@ record(ao, "$(P)$(Q):PC_GATE_SEL:SET") {
 
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_GATE_START)
 
-record(ai, "$(P)$(Q):PC_GATE_START:RBVLO") {
-  field(DESC, "Readback param value")
+record(ai, "$(P)$(Q):PC_GATE_START:RBV_CTS") {
+  field(DESC, "Readback param int32 value")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_GATE_STARTLO")
+  field(INP, "@asyn($(PORT),0) PC_GATE_STARTHILO")
   field(SCAN, "I/O Intr")
   field(MDEL, "-1")
-}
-
-record(ai, "$(P)$(Q):PC_GATE_START:RBVHI") {
-  field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_GATE_STARTHI")
-  field(SCAN, "I/O Intr")
-  field(MDEL, "-1")
-}
-
-record(calcout, "$(P)$(Q):PC_GATE_START:RBV_CTS") {
-  field(DESC, "Convert 2 uint16 into int32")
-  field(INPA, "$(P)$(Q):PC_GATE_START:RBVLO CP")
-  field(INPB, "$(P)$(Q):PC_GATE_START:RBVHI CP")
-  field(CALC, "-(B>>15)*2**32+A+(B<<16)")
-  field(FLNK, "$(P)$(Q):PC_GATE_START:RBV")
-  field(PREC, "4")
+  field(FLNK, "$(P)$(Q):PC_GATE_START:RBV PP")
 }
 
 record(calcout, "$(P)$(Q):PC_GATE_START:RBV") {
@@ -12887,70 +12607,37 @@ record(calcout, "$(P)$(Q):PC_GATE_START:DISP") {
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PC_GATE_START") {
   field(DESC, "Demand value for param")
-  field(FLNK, "$(P)$(Q):PC_GATE_START:CALCLO PP")
+  field(FLNK, "$(P)$(Q):PC_GATE_START:CALC PP")
   field(PREC, "$(PREC=4)")
   field(DRVL, "0")
 }
 
-record(calcout, "$(P)$(Q):PC_GATE_START:CALCLO") {
-  field(CALC, "FLOOR((A-D)/C+0.5)&65535")
+record(calcout, "$(P)$(Q):PC_GATE_START:CALC") {
+  field(CALC, "FLOOR((A-D)/C+0.5)")
   field(INPA, "$(P)$(Q):PC_GATE_START")
-  field(INPC, "$(P)$(Q):STARTGATE:ERES")
-  field(INPD, "$(P)$(Q):STARTGATE:OFF")
-  field(OUT, "$(P)$(Q):PC_GATE_START:SETLO PP")
+  field(INPC, "$(P)$(Q):STARTGATE:ERES PP")
+  field(INPD, "$(P)$(Q):STARTGATE:OFF PP")
+  field(OUT, "$(P)$(Q):PC_GATE_START:SET PP")
 }
 
-record(ao, "$(P)$(Q):PC_GATE_START:SETLO") {
+record(ao, "$(P)$(Q):PC_GATE_START:SET") {
   field(DESC, "Write param value to zebra")
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):PC_GATE_START:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) PC_GATE_STARTLO")
-  field(FLNK, "$(P)$(Q):PC_GATE_START:CALCHI PP")
-}
-
-record(calcout, "$(P)$(Q):PC_GATE_START:CALCHI") {
-  field(CALC, "FLOOR((A-D)/C+0.5)>>16")
-  field(INPA, "$(P)$(Q):PC_GATE_START")
-  field(INPC, "$(P)$(Q):STARTGATE:ERES")
-  field(INPD, "$(P)$(Q):STARTGATE:OFF")
-  field(OUT, "$(P)$(Q):PC_GATE_START:SETHI PP")
-}
-
-record(ao, "$(P)$(Q):PC_GATE_START:SETHI") {
-  field(DESC, "Write param value to zebra")
-  field(DTYP, "asynInt32")
-  field(SDIS, "$(P)$(Q):PC_GATE_START:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) PC_GATE_STARTHI")
-  field(FLNK, "$(P)$(Q):PC_GATE_START:RBVLO PP")
+  field(OUT, "@asyn($(PORT),0) PC_GATE_STARTHILO")
 }
 
 # end(PC_GATE_START)
 
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_GATE_WID)
 
-record(ai, "$(P)$(Q):PC_GATE_WID:RBVLO") {
-  field(DESC, "Readback param value")
+record(ai, "$(P)$(Q):PC_GATE_WID:RBV_CTS") {
+  field(DESC, "Readback param int32 value")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_GATE_WIDLO")
+  field(INP, "@asyn($(PORT),0) PC_GATE_WIDHILO")
   field(SCAN, "I/O Intr")
   field(MDEL, "-1")
-}
-
-record(ai, "$(P)$(Q):PC_GATE_WID:RBVHI") {
-  field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_GATE_WIDHI")
-  field(SCAN, "I/O Intr")
-  field(MDEL, "-1")
-}
-
-record(calcout, "$(P)$(Q):PC_GATE_WID:RBV_CTS") {
-  field(DESC, "Convert 2 uint16 into int32")
-  field(INPA, "$(P)$(Q):PC_GATE_WID:RBVLO CP")
-  field(INPB, "$(P)$(Q):PC_GATE_WID:RBVHI CP")
-  field(CALC, "-(B>>15)*2**32+A+(B<<16)")
-  field(FLNK, "$(P)$(Q):PC_GATE_WID:RBV")
-  field(PREC, "4")
+  field(FLNK, "$(P)$(Q):PC_GATE_WID:RBV PP")
 }
 
 record(calcout, "$(P)$(Q):PC_GATE_WID:RBV") {
@@ -12994,70 +12681,37 @@ record(calcout, "$(P)$(Q):PC_GATE_WID:DISP") {
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PC_GATE_WID") {
   field(DESC, "Demand value for param")
-  field(FLNK, "$(P)$(Q):PC_GATE_WID:CALCLO PP")
+  field(FLNK, "$(P)$(Q):PC_GATE_WID:CALC PP")
   field(PREC, "$(PREC=4)")
   field(DRVL, "0")
 }
 
-record(calcout, "$(P)$(Q):PC_GATE_WID:CALCLO") {
-  field(CALC, "FLOOR((A-D)/C+0.5)&65535")
+record(calcout, "$(P)$(Q):PC_GATE_WID:CALC") {
+  field(CALC, "FLOOR((A-D)/C+0.5)")
   field(INPA, "$(P)$(Q):PC_GATE_WID")
-  field(INPC, "$(P)$(Q):GATE:ERES")
-  field(INPD, "$(P)$(Q):GATE:OFF")
-  field(OUT, "$(P)$(Q):PC_GATE_WID:SETLO PP")
+  field(INPC, "$(P)$(Q):GATE:ERES PP")
+  field(INPD, "$(P)$(Q):GATE:OFF PP")
+  field(OUT, "$(P)$(Q):PC_GATE_WID:SET PP")
 }
 
-record(ao, "$(P)$(Q):PC_GATE_WID:SETLO") {
+record(ao, "$(P)$(Q):PC_GATE_WID:SET") {
   field(DESC, "Write param value to zebra")
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):PC_GATE_WID:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) PC_GATE_WIDLO")
-  field(FLNK, "$(P)$(Q):PC_GATE_WID:CALCHI PP")
-}
-
-record(calcout, "$(P)$(Q):PC_GATE_WID:CALCHI") {
-  field(CALC, "FLOOR((A-D)/C+0.5)>>16")
-  field(INPA, "$(P)$(Q):PC_GATE_WID")
-  field(INPC, "$(P)$(Q):GATE:ERES")
-  field(INPD, "$(P)$(Q):GATE:OFF")
-  field(OUT, "$(P)$(Q):PC_GATE_WID:SETHI PP")
-}
-
-record(ao, "$(P)$(Q):PC_GATE_WID:SETHI") {
-  field(DESC, "Write param value to zebra")
-  field(DTYP, "asynInt32")
-  field(SDIS, "$(P)$(Q):PC_GATE_WID:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) PC_GATE_WIDHI")
-  field(FLNK, "$(P)$(Q):PC_GATE_WID:RBVLO PP")
+  field(OUT, "@asyn($(PORT),0) PC_GATE_WIDHILO")
 }
 
 # end(PC_GATE_WID)
 
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_GATE_NGATE)
 
-record(ai, "$(P)$(Q):PC_GATE_NGATE:RBVLO") {
-  field(DESC, "Readback param value")
+record(ai, "$(P)$(Q):PC_GATE_NGATE:RBV_CTS") {
+  field(DESC, "Readback param int32 value")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_GATE_NGATELO")
+  field(INP, "@asyn($(PORT),0) PC_GATE_NGATEHILO")
   field(SCAN, "I/O Intr")
   field(MDEL, "-1")
-}
-
-record(ai, "$(P)$(Q):PC_GATE_NGATE:RBVHI") {
-  field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_GATE_NGATEHI")
-  field(SCAN, "I/O Intr")
-  field(MDEL, "-1")
-}
-
-record(calcout, "$(P)$(Q):PC_GATE_NGATE:RBV_CTS") {
-  field(DESC, "Convert 2 uint16 into int32")
-  field(INPA, "$(P)$(Q):PC_GATE_NGATE:RBVLO CP")
-  field(INPB, "$(P)$(Q):PC_GATE_NGATE:RBVHI CP")
-  field(CALC, "-(B>>15)*2**32+A+(B<<16)")
-  field(FLNK, "$(P)$(Q):PC_GATE_NGATE:RBV")
-  field(PREC, "4")
+  field(FLNK, "$(P)$(Q):PC_GATE_NGATE:RBV PP")
 }
 
 record(calcout, "$(P)$(Q):PC_GATE_NGATE:RBV") {
@@ -13101,70 +12755,37 @@ record(calcout, "$(P)$(Q):PC_GATE_NGATE:DISP") {
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PC_GATE_NGATE") {
   field(DESC, "Demand value for param")
-  field(FLNK, "$(P)$(Q):PC_GATE_NGATE:CALCLO PP")
+  field(FLNK, "$(P)$(Q):PC_GATE_NGATE:CALC PP")
   field(PREC, "0")
   field(DRVL, "0")
 }
 
-record(calcout, "$(P)$(Q):PC_GATE_NGATE:CALCLO") {
-  field(CALC, "FLOOR((A-D)/C+0.5)&65535")
+record(calcout, "$(P)$(Q):PC_GATE_NGATE:CALC") {
+  field(CALC, "FLOOR((A-D)/C+0.5)")
   field(INPA, "$(P)$(Q):PC_GATE_NGATE")
-  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
-  field(INPD, "$(P)$(Q):NOMOTOR:OFF")
-  field(OUT, "$(P)$(Q):PC_GATE_NGATE:SETLO PP")
+  field(INPC, "$(P)$(Q):NOMOTOR:ERES PP")
+  field(INPD, "$(P)$(Q):NOMOTOR:OFF PP")
+  field(OUT, "$(P)$(Q):PC_GATE_NGATE:SET PP")
 }
 
-record(ao, "$(P)$(Q):PC_GATE_NGATE:SETLO") {
+record(ao, "$(P)$(Q):PC_GATE_NGATE:SET") {
   field(DESC, "Write param value to zebra")
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):PC_GATE_NGATE:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) PC_GATE_NGATELO")
-  field(FLNK, "$(P)$(Q):PC_GATE_NGATE:CALCHI PP")
-}
-
-record(calcout, "$(P)$(Q):PC_GATE_NGATE:CALCHI") {
-  field(CALC, "FLOOR((A-D)/C+0.5)>>16")
-  field(INPA, "$(P)$(Q):PC_GATE_NGATE")
-  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
-  field(INPD, "$(P)$(Q):NOMOTOR:OFF")
-  field(OUT, "$(P)$(Q):PC_GATE_NGATE:SETHI PP")
-}
-
-record(ao, "$(P)$(Q):PC_GATE_NGATE:SETHI") {
-  field(DESC, "Write param value to zebra")
-  field(DTYP, "asynInt32")
-  field(SDIS, "$(P)$(Q):PC_GATE_NGATE:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) PC_GATE_NGATEHI")
-  field(FLNK, "$(P)$(Q):PC_GATE_NGATE:RBVLO PP")
+  field(OUT, "@asyn($(PORT),0) PC_GATE_NGATEHILO")
 }
 
 # end(PC_GATE_NGATE)
 
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_GATE_STEP)
 
-record(ai, "$(P)$(Q):PC_GATE_STEP:RBVLO") {
-  field(DESC, "Readback param value")
+record(ai, "$(P)$(Q):PC_GATE_STEP:RBV_CTS") {
+  field(DESC, "Readback param int32 value")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_GATE_STEPLO")
+  field(INP, "@asyn($(PORT),0) PC_GATE_STEPHILO")
   field(SCAN, "I/O Intr")
   field(MDEL, "-1")
-}
-
-record(ai, "$(P)$(Q):PC_GATE_STEP:RBVHI") {
-  field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_GATE_STEPHI")
-  field(SCAN, "I/O Intr")
-  field(MDEL, "-1")
-}
-
-record(calcout, "$(P)$(Q):PC_GATE_STEP:RBV_CTS") {
-  field(DESC, "Convert 2 uint16 into int32")
-  field(INPA, "$(P)$(Q):PC_GATE_STEP:RBVLO CP")
-  field(INPB, "$(P)$(Q):PC_GATE_STEP:RBVHI CP")
-  field(CALC, "-(B>>15)*2**32+A+(B<<16)")
-  field(FLNK, "$(P)$(Q):PC_GATE_STEP:RBV")
-  field(PREC, "4")
+  field(FLNK, "$(P)$(Q):PC_GATE_STEP:RBV PP")
 }
 
 record(calcout, "$(P)$(Q):PC_GATE_STEP:RBV") {
@@ -13208,41 +12829,24 @@ record(calcout, "$(P)$(Q):PC_GATE_STEP:DISP") {
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PC_GATE_STEP") {
   field(DESC, "Demand value for param")
-  field(FLNK, "$(P)$(Q):PC_GATE_STEP:CALCLO PP")
+  field(FLNK, "$(P)$(Q):PC_GATE_STEP:CALC PP")
   field(PREC, "$(PREC=4)")
   field(DRVL, "0")
 }
 
-record(calcout, "$(P)$(Q):PC_GATE_STEP:CALCLO") {
-  field(CALC, "FLOOR((A-D)/C+0.5)&65535")
+record(calcout, "$(P)$(Q):PC_GATE_STEP:CALC") {
+  field(CALC, "FLOOR((A-D)/C+0.5)")
   field(INPA, "$(P)$(Q):PC_GATE_STEP")
-  field(INPC, "$(P)$(Q):GATE:ERES")
-  field(INPD, "$(P)$(Q):GATE:OFF")
-  field(OUT, "$(P)$(Q):PC_GATE_STEP:SETLO PP")
+  field(INPC, "$(P)$(Q):GATE:ERES PP")
+  field(INPD, "$(P)$(Q):GATE:OFF PP")
+  field(OUT, "$(P)$(Q):PC_GATE_STEP:SET PP")
 }
 
-record(ao, "$(P)$(Q):PC_GATE_STEP:SETLO") {
+record(ao, "$(P)$(Q):PC_GATE_STEP:SET") {
   field(DESC, "Write param value to zebra")
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):PC_GATE_STEP:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) PC_GATE_STEPLO")
-  field(FLNK, "$(P)$(Q):PC_GATE_STEP:CALCHI PP")
-}
-
-record(calcout, "$(P)$(Q):PC_GATE_STEP:CALCHI") {
-  field(CALC, "FLOOR((A-D)/C+0.5)>>16")
-  field(INPA, "$(P)$(Q):PC_GATE_STEP")
-  field(INPC, "$(P)$(Q):GATE:ERES")
-  field(INPD, "$(P)$(Q):GATE:OFF")
-  field(OUT, "$(P)$(Q):PC_GATE_STEP:SETHI PP")
-}
-
-record(ao, "$(P)$(Q):PC_GATE_STEP:SETHI") {
-  field(DESC, "Write param value to zebra")
-  field(DTYP, "asynInt32")
-  field(SDIS, "$(P)$(Q):PC_GATE_STEP:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) PC_GATE_STEPHI")
-  field(FLNK, "$(P)$(Q):PC_GATE_STEP:RBVLO PP")
+  field(OUT, "@asyn($(PORT),0) PC_GATE_STEPHILO")
 }
 
 # end(PC_GATE_STEP)
@@ -13372,29 +12976,13 @@ record(ao, "$(P)$(Q):PC_PULSE_SEL:SET") {
 
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_PULSE_START)
 
-record(ai, "$(P)$(Q):PC_PULSE_START:RBVLO") {
-  field(DESC, "Readback param value")
+record(ai, "$(P)$(Q):PC_PULSE_START:RBV_CTS") {
+  field(DESC, "Readback param int32 value")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_PULSE_STARTLO")
+  field(INP, "@asyn($(PORT),0) PC_PULSE_STARTHILO")
   field(SCAN, "I/O Intr")
   field(MDEL, "-1")
-}
-
-record(ai, "$(P)$(Q):PC_PULSE_START:RBVHI") {
-  field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_PULSE_STARTHI")
-  field(SCAN, "I/O Intr")
-  field(MDEL, "-1")
-}
-
-record(calcout, "$(P)$(Q):PC_PULSE_START:RBV_CTS") {
-  field(DESC, "Convert 2 uint16 into int32")
-  field(INPA, "$(P)$(Q):PC_PULSE_START:RBVLO CP")
-  field(INPB, "$(P)$(Q):PC_PULSE_START:RBVHI CP")
-  field(CALC, "-(B>>15)*2**32+A+(B<<16)")
-  field(FLNK, "$(P)$(Q):PC_PULSE_START:RBV")
-  field(PREC, "4")
+  field(FLNK, "$(P)$(Q):PC_PULSE_START:RBV PP")
 }
 
 record(calcout, "$(P)$(Q):PC_PULSE_START:RBV") {
@@ -13438,70 +13026,37 @@ record(calcout, "$(P)$(Q):PC_PULSE_START:DISP") {
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PC_PULSE_START") {
   field(DESC, "Demand value for param")
-  field(FLNK, "$(P)$(Q):PC_PULSE_START:CALCLO PP")
+  field(FLNK, "$(P)$(Q):PC_PULSE_START:CALC PP")
   field(PREC, "$(PREC=4)")
   field(DRVL, "0")
 }
 
-record(calcout, "$(P)$(Q):PC_PULSE_START:CALCLO") {
-  field(CALC, "FLOOR((A-D)/C+0.5)&65535")
+record(calcout, "$(P)$(Q):PC_PULSE_START:CALC") {
+  field(CALC, "FLOOR((A-D)/C+0.5)")
   field(INPA, "$(P)$(Q):PC_PULSE_START")
-  field(INPC, "$(P)$(Q):PULSE:ERES")
-  field(INPD, "$(P)$(Q):PULSE:OFF")
-  field(OUT, "$(P)$(Q):PC_PULSE_START:SETLO PP")
+  field(INPC, "$(P)$(Q):PULSE:ERES PP")
+  field(INPD, "$(P)$(Q):PULSE:OFF PP")
+  field(OUT, "$(P)$(Q):PC_PULSE_START:SET PP")
 }
 
-record(ao, "$(P)$(Q):PC_PULSE_START:SETLO") {
+record(ao, "$(P)$(Q):PC_PULSE_START:SET") {
   field(DESC, "Write param value to zebra")
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):PC_PULSE_START:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) PC_PULSE_STARTLO")
-  field(FLNK, "$(P)$(Q):PC_PULSE_START:CALCHI PP")
-}
-
-record(calcout, "$(P)$(Q):PC_PULSE_START:CALCHI") {
-  field(CALC, "FLOOR((A-D)/C+0.5)>>16")
-  field(INPA, "$(P)$(Q):PC_PULSE_START")
-  field(INPC, "$(P)$(Q):PULSE:ERES")
-  field(INPD, "$(P)$(Q):PULSE:OFF")
-  field(OUT, "$(P)$(Q):PC_PULSE_START:SETHI PP")
-}
-
-record(ao, "$(P)$(Q):PC_PULSE_START:SETHI") {
-  field(DESC, "Write param value to zebra")
-  field(DTYP, "asynInt32")
-  field(SDIS, "$(P)$(Q):PC_PULSE_START:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) PC_PULSE_STARTHI")
-  field(FLNK, "$(P)$(Q):PC_PULSE_START:RBVLO PP")
+  field(OUT, "@asyn($(PORT),0) PC_PULSE_STARTHILO")
 }
 
 # end(PC_PULSE_START)
 
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_PULSE_DLY)
 
-record(ai, "$(P)$(Q):PC_PULSE_DLY:RBVLO") {
-  field(DESC, "Readback param value")
+record(ai, "$(P)$(Q):PC_PULSE_DLY:RBV_CTS") {
+  field(DESC, "Readback param int32 value")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_PULSE_DLYLO")
+  field(INP, "@asyn($(PORT),0) PC_PULSE_DLYHILO")
   field(SCAN, "I/O Intr")
   field(MDEL, "-1")
-}
-
-record(ai, "$(P)$(Q):PC_PULSE_DLY:RBVHI") {
-  field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_PULSE_DLYHI")
-  field(SCAN, "I/O Intr")
-  field(MDEL, "-1")
-}
-
-record(calcout, "$(P)$(Q):PC_PULSE_DLY:RBV_CTS") {
-  field(DESC, "Convert 2 uint16 into int32")
-  field(INPA, "$(P)$(Q):PC_PULSE_DLY:RBVLO CP")
-  field(INPB, "$(P)$(Q):PC_PULSE_DLY:RBVHI CP")
-  field(CALC, "-(B>>15)*2**32+A+(B<<16)")
-  field(FLNK, "$(P)$(Q):PC_PULSE_DLY:RBV")
-  field(PREC, "4")
+  field(FLNK, "$(P)$(Q):PC_PULSE_DLY:RBV PP")
 }
 
 record(calcout, "$(P)$(Q):PC_PULSE_DLY:RBV") {
@@ -13545,70 +13100,37 @@ record(calcout, "$(P)$(Q):PC_PULSE_DLY:DISP") {
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PC_PULSE_DLY") {
   field(DESC, "Demand value for param")
-  field(FLNK, "$(P)$(Q):PC_PULSE_DLY:CALCLO PP")
+  field(FLNK, "$(P)$(Q):PC_PULSE_DLY:CALC PP")
   field(PREC, "$(PREC=4)")
   field(DRVL, "0")
 }
 
-record(calcout, "$(P)$(Q):PC_PULSE_DLY:CALCLO") {
-  field(CALC, "FLOOR((A-D)/C+0.5)&65535")
+record(calcout, "$(P)$(Q):PC_PULSE_DLY:CALC") {
+  field(CALC, "FLOOR((A-D)/C+0.5)")
   field(INPA, "$(P)$(Q):PC_PULSE_DLY")
-  field(INPC, "$(P)$(Q):TIME:ERES")
-  field(INPD, "$(P)$(Q):TIME:OFF")
-  field(OUT, "$(P)$(Q):PC_PULSE_DLY:SETLO PP")
+  field(INPC, "$(P)$(Q):TIME:ERES PP")
+  field(INPD, "$(P)$(Q):TIME:OFF PP")
+  field(OUT, "$(P)$(Q):PC_PULSE_DLY:SET PP")
 }
 
-record(ao, "$(P)$(Q):PC_PULSE_DLY:SETLO") {
+record(ao, "$(P)$(Q):PC_PULSE_DLY:SET") {
   field(DESC, "Write param value to zebra")
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):PC_PULSE_DLY:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) PC_PULSE_DLYLO")
-  field(FLNK, "$(P)$(Q):PC_PULSE_DLY:CALCHI PP")
-}
-
-record(calcout, "$(P)$(Q):PC_PULSE_DLY:CALCHI") {
-  field(CALC, "FLOOR((A-D)/C+0.5)>>16")
-  field(INPA, "$(P)$(Q):PC_PULSE_DLY")
-  field(INPC, "$(P)$(Q):TIME:ERES")
-  field(INPD, "$(P)$(Q):TIME:OFF")
-  field(OUT, "$(P)$(Q):PC_PULSE_DLY:SETHI PP")
-}
-
-record(ao, "$(P)$(Q):PC_PULSE_DLY:SETHI") {
-  field(DESC, "Write param value to zebra")
-  field(DTYP, "asynInt32")
-  field(SDIS, "$(P)$(Q):PC_PULSE_DLY:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) PC_PULSE_DLYHI")
-  field(FLNK, "$(P)$(Q):PC_PULSE_DLY:RBVLO PP")
+  field(OUT, "@asyn($(PORT),0) PC_PULSE_DLYHILO")
 }
 
 # end(PC_PULSE_DLY)
 
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_PULSE_WID)
 
-record(ai, "$(P)$(Q):PC_PULSE_WID:RBVLO") {
-  field(DESC, "Readback param value")
+record(ai, "$(P)$(Q):PC_PULSE_WID:RBV_CTS") {
+  field(DESC, "Readback param int32 value")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_PULSE_WIDLO")
+  field(INP, "@asyn($(PORT),0) PC_PULSE_WIDHILO")
   field(SCAN, "I/O Intr")
   field(MDEL, "-1")
-}
-
-record(ai, "$(P)$(Q):PC_PULSE_WID:RBVHI") {
-  field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_PULSE_WIDHI")
-  field(SCAN, "I/O Intr")
-  field(MDEL, "-1")
-}
-
-record(calcout, "$(P)$(Q):PC_PULSE_WID:RBV_CTS") {
-  field(DESC, "Convert 2 uint16 into int32")
-  field(INPA, "$(P)$(Q):PC_PULSE_WID:RBVLO CP")
-  field(INPB, "$(P)$(Q):PC_PULSE_WID:RBVHI CP")
-  field(CALC, "-(B>>15)*2**32+A+(B<<16)")
-  field(FLNK, "$(P)$(Q):PC_PULSE_WID:RBV")
-  field(PREC, "4")
+  field(FLNK, "$(P)$(Q):PC_PULSE_WID:RBV PP")
 }
 
 record(calcout, "$(P)$(Q):PC_PULSE_WID:RBV") {
@@ -13652,70 +13174,37 @@ record(calcout, "$(P)$(Q):PC_PULSE_WID:DISP") {
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PC_PULSE_WID") {
   field(DESC, "Demand value for param")
-  field(FLNK, "$(P)$(Q):PC_PULSE_WID:CALCLO PP")
+  field(FLNK, "$(P)$(Q):PC_PULSE_WID:CALC PP")
   field(PREC, "$(PREC=4)")
   field(DRVL, "0")
 }
 
-record(calcout, "$(P)$(Q):PC_PULSE_WID:CALCLO") {
-  field(CALC, "FLOOR((A-D)/C+0.5)&65535")
+record(calcout, "$(P)$(Q):PC_PULSE_WID:CALC") {
+  field(CALC, "FLOOR((A-D)/C+0.5)")
   field(INPA, "$(P)$(Q):PC_PULSE_WID")
-  field(INPC, "$(P)$(Q):PULSE:ERES")
-  field(INPD, "$(P)$(Q):PULSE:OFF")
-  field(OUT, "$(P)$(Q):PC_PULSE_WID:SETLO PP")
+  field(INPC, "$(P)$(Q):PULSE:ERES PP")
+  field(INPD, "$(P)$(Q):PULSE:OFF PP")
+  field(OUT, "$(P)$(Q):PC_PULSE_WID:SET PP")
 }
 
-record(ao, "$(P)$(Q):PC_PULSE_WID:SETLO") {
+record(ao, "$(P)$(Q):PC_PULSE_WID:SET") {
   field(DESC, "Write param value to zebra")
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):PC_PULSE_WID:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) PC_PULSE_WIDLO")
-  field(FLNK, "$(P)$(Q):PC_PULSE_WID:CALCHI PP")
-}
-
-record(calcout, "$(P)$(Q):PC_PULSE_WID:CALCHI") {
-  field(CALC, "FLOOR((A-D)/C+0.5)>>16")
-  field(INPA, "$(P)$(Q):PC_PULSE_WID")
-  field(INPC, "$(P)$(Q):PULSE:ERES")
-  field(INPD, "$(P)$(Q):PULSE:OFF")
-  field(OUT, "$(P)$(Q):PC_PULSE_WID:SETHI PP")
-}
-
-record(ao, "$(P)$(Q):PC_PULSE_WID:SETHI") {
-  field(DESC, "Write param value to zebra")
-  field(DTYP, "asynInt32")
-  field(SDIS, "$(P)$(Q):PC_PULSE_WID:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) PC_PULSE_WIDHI")
-  field(FLNK, "$(P)$(Q):PC_PULSE_WID:RBVLO PP")
+  field(OUT, "@asyn($(PORT),0) PC_PULSE_WIDHILO")
 }
 
 # end(PC_PULSE_WID)
 
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_PULSE_STEP)
 
-record(ai, "$(P)$(Q):PC_PULSE_STEP:RBVLO") {
-  field(DESC, "Readback param value")
+record(ai, "$(P)$(Q):PC_PULSE_STEP:RBV_CTS") {
+  field(DESC, "Readback param int32 value")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_PULSE_STEPLO")
+  field(INP, "@asyn($(PORT),0) PC_PULSE_STEPHILO")
   field(SCAN, "I/O Intr")
   field(MDEL, "-1")
-}
-
-record(ai, "$(P)$(Q):PC_PULSE_STEP:RBVHI") {
-  field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_PULSE_STEPHI")
-  field(SCAN, "I/O Intr")
-  field(MDEL, "-1")
-}
-
-record(calcout, "$(P)$(Q):PC_PULSE_STEP:RBV_CTS") {
-  field(DESC, "Convert 2 uint16 into int32")
-  field(INPA, "$(P)$(Q):PC_PULSE_STEP:RBVLO CP")
-  field(INPB, "$(P)$(Q):PC_PULSE_STEP:RBVHI CP")
-  field(CALC, "-(B>>15)*2**32+A+(B<<16)")
-  field(FLNK, "$(P)$(Q):PC_PULSE_STEP:RBV")
-  field(PREC, "4")
+  field(FLNK, "$(P)$(Q):PC_PULSE_STEP:RBV PP")
 }
 
 record(calcout, "$(P)$(Q):PC_PULSE_STEP:RBV") {
@@ -13759,41 +13248,24 @@ record(calcout, "$(P)$(Q):PC_PULSE_STEP:DISP") {
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PC_PULSE_STEP") {
   field(DESC, "Demand value for param")
-  field(FLNK, "$(P)$(Q):PC_PULSE_STEP:CALCLO PP")
+  field(FLNK, "$(P)$(Q):PC_PULSE_STEP:CALC PP")
   field(PREC, "$(PREC=4)")
   field(DRVL, "0")
 }
 
-record(calcout, "$(P)$(Q):PC_PULSE_STEP:CALCLO") {
-  field(CALC, "FLOOR((A-D)/C+0.5)&65535")
+record(calcout, "$(P)$(Q):PC_PULSE_STEP:CALC") {
+  field(CALC, "FLOOR((A-D)/C+0.5)")
   field(INPA, "$(P)$(Q):PC_PULSE_STEP")
-  field(INPC, "$(P)$(Q):PULSE:ERES")
-  field(INPD, "$(P)$(Q):PULSE:OFF")
-  field(OUT, "$(P)$(Q):PC_PULSE_STEP:SETLO PP")
+  field(INPC, "$(P)$(Q):PULSE:ERES PP")
+  field(INPD, "$(P)$(Q):PULSE:OFF PP")
+  field(OUT, "$(P)$(Q):PC_PULSE_STEP:SET PP")
 }
 
-record(ao, "$(P)$(Q):PC_PULSE_STEP:SETLO") {
+record(ao, "$(P)$(Q):PC_PULSE_STEP:SET") {
   field(DESC, "Write param value to zebra")
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):PC_PULSE_STEP:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) PC_PULSE_STEPLO")
-  field(FLNK, "$(P)$(Q):PC_PULSE_STEP:CALCHI PP")
-}
-
-record(calcout, "$(P)$(Q):PC_PULSE_STEP:CALCHI") {
-  field(CALC, "FLOOR((A-D)/C+0.5)>>16")
-  field(INPA, "$(P)$(Q):PC_PULSE_STEP")
-  field(INPC, "$(P)$(Q):PULSE:ERES")
-  field(INPD, "$(P)$(Q):PULSE:OFF")
-  field(OUT, "$(P)$(Q):PC_PULSE_STEP:SETHI PP")
-}
-
-record(ao, "$(P)$(Q):PC_PULSE_STEP:SETHI") {
-  field(DESC, "Write param value to zebra")
-  field(DTYP, "asynInt32")
-  field(SDIS, "$(P)$(Q):PC_PULSE_STEP:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) PC_PULSE_STEPHI")
-  field(FLNK, "$(P)$(Q):PC_PULSE_STEP:RBVLO PP")
+  field(OUT, "@asyn($(PORT),0) PC_PULSE_STEPHILO")
 }
 
 # end(PC_PULSE_STEP)
@@ -15720,29 +15192,13 @@ record(ao, "$(P)$(Q):ARM_BUSY_DONE") {
 
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_PULSE_MAX)
 
-record(ai, "$(P)$(Q):PC_PULSE_MAX:RBVLO") {
-  field(DESC, "Readback param value")
+record(ai, "$(P)$(Q):PC_PULSE_MAX:RBV_CTS") {
+  field(DESC, "Readback param int32 value")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_PULSE_MAXLO")
+  field(INP, "@asyn($(PORT),0) PC_PULSE_MAXHILO")
   field(SCAN, "I/O Intr")
   field(MDEL, "-1")
-}
-
-record(ai, "$(P)$(Q):PC_PULSE_MAX:RBVHI") {
-  field(DESC, "Readback param value")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0) PC_PULSE_MAXHI")
-  field(SCAN, "I/O Intr")
-  field(MDEL, "-1")
-}
-
-record(calcout, "$(P)$(Q):PC_PULSE_MAX:RBV_CTS") {
-  field(DESC, "Convert 2 uint16 into int32")
-  field(INPA, "$(P)$(Q):PC_PULSE_MAX:RBVLO CP")
-  field(INPB, "$(P)$(Q):PC_PULSE_MAX:RBVHI CP")
-  field(CALC, "-(B>>15)*2**32+A+(B<<16)")
-  field(FLNK, "$(P)$(Q):PC_PULSE_MAX:RBV")
-  field(PREC, "4")
+  field(FLNK, "$(P)$(Q):PC_PULSE_MAX:RBV PP")
 }
 
 record(calcout, "$(P)$(Q):PC_PULSE_MAX:RBV") {
@@ -15786,41 +15242,24 @@ record(calcout, "$(P)$(Q):PC_PULSE_MAX:DISP") {
 # % archiver 10 Monitor
 record(ao, "$(P)$(Q):PC_PULSE_MAX") {
   field(DESC, "Demand value for param")
-  field(FLNK, "$(P)$(Q):PC_PULSE_MAX:CALCLO PP")
+  field(FLNK, "$(P)$(Q):PC_PULSE_MAX:CALC PP")
   field(PREC, "0")
   field(DRVL, "0")
 }
 
-record(calcout, "$(P)$(Q):PC_PULSE_MAX:CALCLO") {
-  field(CALC, "FLOOR((A-D)/C+0.5)&65535")
+record(calcout, "$(P)$(Q):PC_PULSE_MAX:CALC") {
+  field(CALC, "FLOOR((A-D)/C+0.5)")
   field(INPA, "$(P)$(Q):PC_PULSE_MAX")
-  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
-  field(INPD, "$(P)$(Q):NOMOTOR:OFF")
-  field(OUT, "$(P)$(Q):PC_PULSE_MAX:SETLO PP")
+  field(INPC, "$(P)$(Q):NOMOTOR:ERES PP")
+  field(INPD, "$(P)$(Q):NOMOTOR:OFF PP")
+  field(OUT, "$(P)$(Q):PC_PULSE_MAX:SET PP")
 }
 
-record(ao, "$(P)$(Q):PC_PULSE_MAX:SETLO") {
+record(ao, "$(P)$(Q):PC_PULSE_MAX:SET") {
   field(DESC, "Write param value to zebra")
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):PC_PULSE_MAX:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) PC_PULSE_MAXLO")
-  field(FLNK, "$(P)$(Q):PC_PULSE_MAX:CALCHI PP")
-}
-
-record(calcout, "$(P)$(Q):PC_PULSE_MAX:CALCHI") {
-  field(CALC, "FLOOR((A-D)/C+0.5)>>16")
-  field(INPA, "$(P)$(Q):PC_PULSE_MAX")
-  field(INPC, "$(P)$(Q):NOMOTOR:ERES")
-  field(INPD, "$(P)$(Q):NOMOTOR:OFF")
-  field(OUT, "$(P)$(Q):PC_PULSE_MAX:SETHI PP")
-}
-
-record(ao, "$(P)$(Q):PC_PULSE_MAX:SETHI") {
-  field(DESC, "Write param value to zebra")
-  field(DTYP, "asynInt32")
-  field(SDIS, "$(P)$(Q):PC_PULSE_MAX:SYNC.PACT")
-  field(OUT, "@asyn($(PORT),0) PC_PULSE_MAXHI")
-  field(FLNK, "$(P)$(Q):PC_PULSE_MAX:RBVLO PP")
+  field(OUT, "@asyn($(PORT),0) PC_PULSE_MAXHILO")
 }
 
 # end(PC_PULSE_MAX)
