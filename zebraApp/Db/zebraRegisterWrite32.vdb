@@ -81,7 +81,7 @@ record(ao, "$(P)$(Q):$(PARAM):SET") {
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):$(PARAM):SYNC.PACT")
   field(OUT, "@asyn($(PORT),0) $(PARAM)HILO")
-#  field(FLNK, "$(P)$(Q):$(PARAM):RBV")    
+  field(FLNK, "$(P)$(Q):$(PARAM):RBV")
 }
 
 #! Further lines contain data used by VisualDCT

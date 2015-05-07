@@ -8870,6 +8870,7 @@ record(ao, "$(P)$(Q):DIV1_DIV:SET") {
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):DIV1_DIV:SYNC.PACT")
   field(OUT, "@asyn($(PORT),0) DIV1_DIVHILO")
+  field(FLNK, "$(P)$(Q):DIV1_DIV:RBV")
 }
 
 # end(DIV1_DIV)
@@ -9014,6 +9015,7 @@ record(ao, "$(P)$(Q):DIV2_DIV:SET") {
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):DIV2_DIV:SYNC.PACT")
   field(OUT, "@asyn($(PORT),0) DIV2_DIVHILO")
+  field(FLNK, "$(P)$(Q):DIV2_DIV:RBV")
 }
 
 # end(DIV2_DIV)
@@ -9158,6 +9160,7 @@ record(ao, "$(P)$(Q):DIV3_DIV:SET") {
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):DIV3_DIV:SYNC.PACT")
   field(OUT, "@asyn($(PORT),0) DIV3_DIVHILO")
+  field(FLNK, "$(P)$(Q):DIV3_DIV:RBV")
 }
 
 # end(DIV3_DIV)
@@ -9302,6 +9305,7 @@ record(ao, "$(P)$(Q):DIV4_DIV:SET") {
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):DIV4_DIV:SYNC.PACT")
   field(OUT, "@asyn($(PORT),0) DIV4_DIVHILO")
+  field(FLNK, "$(P)$(Q):DIV4_DIV:RBV")
 }
 
 # end(DIV4_DIV)
@@ -12054,7 +12058,7 @@ record(sel, "$(P)$(Q):PULSE:ERES") {
   field(INPA, "$(P)$(Q):MOTOR:ABSERES CP")
   field(INPB, "$(P)$(Q):TIME:ERES CP")
   field(INPC, "1")
-  field(NVL, "$(P)$(Q):PC_PULSE_SEL:RBV CP")
+  field(NVL, "$(P)$(Q):PC_PULSE_SEL CP")
 }
 
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", POS1_SET)
@@ -12127,6 +12131,7 @@ record(ao, "$(P)$(Q):POS1_SET:SET") {
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):POS1_SET:SYNC.PACT")
   field(OUT, "@asyn($(PORT),0) POS1_SETHILO")
+  field(FLNK, "$(P)$(Q):POS1_SET:RBV")
 }
 
 # end(POS1_SET)
@@ -12201,6 +12206,7 @@ record(ao, "$(P)$(Q):POS2_SET:SET") {
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):POS2_SET:SYNC.PACT")
   field(OUT, "@asyn($(PORT),0) POS2_SETHILO")
+  field(FLNK, "$(P)$(Q):POS2_SET:RBV")
 }
 
 # end(POS2_SET)
@@ -12275,6 +12281,7 @@ record(ao, "$(P)$(Q):POS3_SET:SET") {
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):POS3_SET:SYNC.PACT")
   field(OUT, "@asyn($(PORT),0) POS3_SETHILO")
+  field(FLNK, "$(P)$(Q):POS3_SET:RBV")
 }
 
 # end(POS3_SET)
@@ -12349,6 +12356,7 @@ record(ao, "$(P)$(Q):POS4_SET:SET") {
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):POS4_SET:SYNC.PACT")
   field(OUT, "@asyn($(PORT),0) POS4_SETHILO")
+  field(FLNK, "$(P)$(Q):POS4_SET:RBV")
 }
 
 # end(POS4_SET)
@@ -12555,6 +12563,17 @@ record(ao, "$(P)$(Q):PC_GATE_SEL:SET") {
 
 # end(PC_GATE_SEL)
 
+record(ao, "$(P)$(Q):PC_GATE_SEL:SET") {
+  field(FLNK, "$(P)$(Q):PC_GATE_SEL:DFANOUT")
+}
+
+record(dfanout, "$(P)$(Q):PC_GATE_SEL:DFANOUT") {
+  field(DOL, "$(P)$(Q):PC_GATE_SEL")
+  field(OUTA, "$(P)$(Q):GATE:ERES.SELN PP")
+  field(OUTB, "$(P)$(Q):STARTGATE:ERES.SELN PP")
+  field(OUTC, "$(P)$(Q):STARTGATE:OFF.SELN PP")
+}
+
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_GATE_START)
 
 record(ai, "$(P)$(Q):PC_GATE_START:RBV_CTS") {
@@ -12625,6 +12644,7 @@ record(ao, "$(P)$(Q):PC_GATE_START:SET") {
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):PC_GATE_START:SYNC.PACT")
   field(OUT, "@asyn($(PORT),0) PC_GATE_STARTHILO")
+  field(FLNK, "$(P)$(Q):PC_GATE_START:RBV")
 }
 
 # end(PC_GATE_START)
@@ -12699,6 +12719,7 @@ record(ao, "$(P)$(Q):PC_GATE_WID:SET") {
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):PC_GATE_WID:SYNC.PACT")
   field(OUT, "@asyn($(PORT),0) PC_GATE_WIDHILO")
+  field(FLNK, "$(P)$(Q):PC_GATE_WID:RBV")
 }
 
 # end(PC_GATE_WID)
@@ -12773,6 +12794,7 @@ record(ao, "$(P)$(Q):PC_GATE_NGATE:SET") {
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):PC_GATE_NGATE:SYNC.PACT")
   field(OUT, "@asyn($(PORT),0) PC_GATE_NGATEHILO")
+  field(FLNK, "$(P)$(Q):PC_GATE_NGATE:RBV")
 }
 
 # end(PC_GATE_NGATE)
@@ -12847,6 +12869,7 @@ record(ao, "$(P)$(Q):PC_GATE_STEP:SET") {
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):PC_GATE_STEP:SYNC.PACT")
   field(OUT, "@asyn($(PORT),0) PC_GATE_STEPHILO")
+  field(FLNK, "$(P)$(Q):PC_GATE_STEP:RBV")
 }
 
 # end(PC_GATE_STEP)
@@ -12974,6 +12997,17 @@ record(ao, "$(P)$(Q):PC_PULSE_SEL:SET") {
 
 # end(PC_PULSE_SEL)
 
+record(ao, "$(P)$(Q):PC_PULSE_SEL:SET") {
+  field(FLNK, "$(P)$(Q):PC_PULSE_SEL:DFANOUT")
+}
+
+record(dfanout, "$(P)$(Q):PC_PULSE_SEL:DFANOUT") {
+  field(DOL, "$(P)$(Q):PC_PULSE_SEL")
+  field(OUTA, "$(P)$(Q):PULSE:ERES.SELN PP")
+  field(OUTB, "$(P)$(Q):PC_PULSE_STEP:DRVL.A PP")
+  field(OUTC, "$(P)$(Q):PC_PULSE:VALID.D PP")
+}
+
 # expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_PULSE_START)
 
 record(ai, "$(P)$(Q):PC_PULSE_START:RBV_CTS") {
@@ -13044,6 +13078,7 @@ record(ao, "$(P)$(Q):PC_PULSE_START:SET") {
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):PC_PULSE_START:SYNC.PACT")
   field(OUT, "@asyn($(PORT),0) PC_PULSE_STARTHILO")
+  field(FLNK, "$(P)$(Q):PC_PULSE_START:RBV")
 }
 
 # end(PC_PULSE_START)
@@ -13118,6 +13153,7 @@ record(ao, "$(P)$(Q):PC_PULSE_DLY:SET") {
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):PC_PULSE_DLY:SYNC.PACT")
   field(OUT, "@asyn($(PORT),0) PC_PULSE_DLYHILO")
+  field(FLNK, "$(P)$(Q):PC_PULSE_DLY:RBV")
 }
 
 # end(PC_PULSE_DLY)
@@ -13192,6 +13228,7 @@ record(ao, "$(P)$(Q):PC_PULSE_WID:SET") {
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):PC_PULSE_WID:SYNC.PACT")
   field(OUT, "@asyn($(PORT),0) PC_PULSE_WIDHILO")
+  field(FLNK, "$(P)$(Q):PC_PULSE_WID:RBV")
 }
 
 # end(PC_PULSE_WID)
@@ -13266,6 +13303,7 @@ record(ao, "$(P)$(Q):PC_PULSE_STEP:SET") {
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):PC_PULSE_STEP:SYNC.PACT")
   field(OUT, "@asyn($(PORT),0) PC_PULSE_STEPHILO")
+  field(FLNK, "$(P)$(Q):PC_PULSE_STEP:RBV")
 }
 
 # end(PC_PULSE_STEP)
@@ -13942,7 +13980,7 @@ record(sel, "$(P)$(Q):STARTGATE:ERES") {
   field(INPA, "$(P)$(Q):MOTOR:ERES CP")
   field(INPB, "$(P)$(Q):TIME:ERES CP")
   field(INPC, "1")
-  field(NVL, "$(P)$(Q):PC_GATE_SEL:RBV CP")
+  field(NVL, "$(P)$(Q):PC_GATE_SEL CP")
   field(INPD, "$(P)$(Q):MOTOR:ERES CP")
 }
 
@@ -13951,7 +13989,7 @@ record(sel, "$(P)$(Q):STARTGATE:OFF") {
   field(INPA, "$(P)$(Q):MOTOR:OFF CP")
   field(INPB, "0")
   field(INPC, "0")
-  field(NVL, "$(P)$(Q):PC_GATE_SEL:RBV CP")
+  field(NVL, "$(P)$(Q):PC_GATE_SEL CP")
   field(INPD, "$(P)$(Q):MOTOR:OFF CP")
 }
 
@@ -13969,7 +14007,7 @@ record(sel, "$(P)$(Q):GATE:ERES") {
   field(INPA, "$(P)$(Q):MOTOR:ABSERES CP")
   field(INPB, "$(P)$(Q):TIME:ERES CP")
   field(INPC, "1")
-  field(NVL, "$(P)$(Q):PC_GATE_SEL:RBV CP")
+  field(NVL, "$(P)$(Q):PC_GATE_SEL CP")
   field(INPD, "$(P)$(Q):MOTOR:ABSERES CP")
 }
 
@@ -15260,6 +15298,7 @@ record(ao, "$(P)$(Q):PC_PULSE_MAX:SET") {
   field(DTYP, "asynInt32")
   field(SDIS, "$(P)$(Q):PC_PULSE_MAX:SYNC.PACT")
   field(OUT, "@asyn($(PORT),0) PC_PULSE_MAXHILO")
+  field(FLNK, "$(P)$(Q):PC_PULSE_MAX:RBV")
 }
 
 # end(PC_PULSE_MAX)
@@ -15349,7 +15388,7 @@ record(ai, "$(P)$(Q):SCAN_TYPE") {
 
 record(calcout, "$(P)$(Q):PC_PULSE_STEP:DRVL") {
   field(CALC, "A=1?B=0?C>2**6?F:G:H:I")
-  field(INPA, "$(P)$(Q):PC_PULSE_SEL:RBV CP")
+  field(INPA, "$(P)$(Q):PC_PULSE_SEL CP")
   field(INPB, "$(P)$(Q):PC_TSPRE:RBV CP")
   field(INPC, "$(P)$(Q):PC_BIT_CAP CP")
   field(INPF, "0.0016")

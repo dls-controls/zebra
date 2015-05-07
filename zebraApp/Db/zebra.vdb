@@ -1066,7 +1066,7 @@ record(sel, "$(P)$(Q):PULSE:ERES") {
   field(INPA, "$(P)$(Q):MOTOR:ABSERES CP")
   field(INPB, "$(P)$(Q):TIME:ERES CP")
   field(INPC, "1")
-  field(NVL, "$(P)$(Q):PC_PULSE_SEL:RBV CP")
+  field(NVL, "$(P)$(Q):PC_PULSE_SEL CP")
 }
 
 expand("zebraRegisterWrite32.vdb", POS1_SET) {
@@ -1148,6 +1148,17 @@ expand("zebraRegisterWritePosCompInp.vdb", PC_GATE_SEL) {
   macro(FRST, "$(EMPTY=)")
 }
 
+record(ao, "$(P)$(Q):PC_GATE_SEL:SET") {
+  field(FLNK, "$(P)$(Q):PC_GATE_SEL:DFANOUT")
+}
+
+record(dfanout, "$(P)$(Q):PC_GATE_SEL:DFANOUT") {
+  field(DOL, "$(P)$(Q):PC_GATE_SEL")
+  field(OUTA, "$(P)$(Q):GATE:ERES.SELN PP")
+  field(OUTB, "$(P)$(Q):STARTGATE:ERES.SELN PP")
+  field(OUTC, "$(P)$(Q):STARTGATE:OFF.SELN PP")      
+}
+
 expand("zebraRegisterWrite32.vdb", PC_GATE_START) {
   macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_GATE_START")
@@ -1193,6 +1204,18 @@ expand("zebraRegisterWritePosCompInp.vdb", PC_PULSE_SEL) {
   macro(FRST, "$(EMPTY=)")
   macro(DISP, "$(P)$(Q):ARRAY_ACQ CP")
   macro(PARAM, "PC_PULSE_SEL")
+}
+
+
+record(ao, "$(P)$(Q):PC_PULSE_SEL:SET") {
+  field(FLNK, "$(P)$(Q):PC_PULSE_SEL:DFANOUT")
+}
+
+record(dfanout, "$(P)$(Q):PC_PULSE_SEL:DFANOUT") {
+  field(DOL, "$(P)$(Q):PC_PULSE_SEL")
+  field(OUTA, "$(P)$(Q):PULSE:ERES.SELN PP")
+  field(OUTB, "$(P)$(Q):PC_PULSE_STEP:DRVL.A PP")  
+  field(OUTC, "$(P)$(Q):PC_PULSE:VALID.D PP")  
 }
 
 expand("zebraRegisterWrite32.vdb", PC_PULSE_START) {
@@ -1429,7 +1452,7 @@ record(sel, "$(P)$(Q):STARTGATE:ERES") {
   field(INPA, "$(P)$(Q):MOTOR:ERES CP")
   field(INPB, "$(P)$(Q):TIME:ERES CP")
   field(INPC, "1")
-  field(NVL, "$(P)$(Q):PC_GATE_SEL:RBV CP")
+  field(NVL, "$(P)$(Q):PC_GATE_SEL CP")
   field(INPD, "$(P)$(Q):MOTOR:ERES CP")
 }
 
@@ -1438,7 +1461,7 @@ record(sel, "$(P)$(Q):STARTGATE:OFF") {
   field(INPA, "$(P)$(Q):MOTOR:OFF CP")
   field(INPB, "0")
   field(INPC, "0")
-  field(NVL, "$(P)$(Q):PC_GATE_SEL:RBV CP")
+  field(NVL, "$(P)$(Q):PC_GATE_SEL CP")
   field(INPD, "$(P)$(Q):MOTOR:OFF CP")
 }
 
@@ -1456,7 +1479,7 @@ record(sel, "$(P)$(Q):GATE:ERES") {
   field(INPA, "$(P)$(Q):MOTOR:ABSERES CP")
   field(INPB, "$(P)$(Q):TIME:ERES CP")
   field(INPC, "1")
-  field(NVL, "$(P)$(Q):PC_GATE_SEL:RBV CP")
+  field(NVL, "$(P)$(Q):PC_GATE_SEL CP")
   field(INPD, "$(P)$(Q):MOTOR:ABSERES CP")
 }
 
@@ -1841,7 +1864,7 @@ record(ai, "$(P)$(Q):SCAN_TYPE") {
 
 record(calcout, "$(P)$(Q):PC_PULSE_STEP:DRVL") {
   field(CALC, "A=1?B=0?C>2**6?F:G:H:I")
-  field(INPA, "$(P)$(Q):PC_PULSE_SEL:RBV CP")
+  field(INPA, "$(P)$(Q):PC_PULSE_SEL CP")
   field(INPB, "$(P)$(Q):PC_TSPRE:RBV CP")
   field(INPC, "$(P)$(Q):PC_BIT_CAP CP")
   field(INPF, "0.0016")
