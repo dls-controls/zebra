@@ -858,7 +858,7 @@ asynStatus zebra::receiveSetReg(const reg *r) {
  called with the lock taken */
 asynStatus zebra::setReg(const reg *r, int value) {
 	const char *functionName = "setReg";
-	asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
+	asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
 			"%s:%s: Setting %s to value %d\n", driverName, functionName, r->str, value);	
 	asynStatus status = this->sendSetReg(r, value);
 	if (status == asynSuccess) {
