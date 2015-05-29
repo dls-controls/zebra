@@ -44,6 +44,16 @@ record(bi, "$(P)$(Q):CONNECTED") {
   field(SCAN, "I/O Intr")
 }
 
+record(bi, "$(P)$(Q):INITIAL_POLL_DONE") {
+  field(DESC, "Initial poll of zebra params?")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0) INITIAL_POLL_DONE")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(ZSV, "MINOR")
+  field(SCAN, "I/O Intr")
+}
+
 record(ao, "$(P)$(Q):STORE") {
   field(DESC, "Store register values to flash")
   field(DTYP, "asynInt32")

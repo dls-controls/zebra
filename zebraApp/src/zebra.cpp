@@ -113,6 +113,7 @@ protected:
 	int zebraConfigRead;         // int32 write - read config from filename
 	int zebraConfigWrite;        // int32 write - write config to filename
 	int zebraConfigStatus;       // int32 read - config status message
+	int zebraInitialPollDone;    // int32 read - initial poll of parameters done
 	int zebraPCTime;             // float64array read - position compare timestamps
 #define LAST_PARAM zebraPCTime
 	int zebraScale[NARRAYS];     // float64 write - Scale (MRES) of motors
@@ -135,7 +136,7 @@ private:
 	asynDrvUser *pasynDrvUser;
 	void *drvUserPvt;
 	epicsMessageQueueId msgQId, intQId;
-	int maxPts, currPt, configPhase, doneInit;
+	int maxPts, currPt, configPhase;
 	char *filtArrays[NFILT];
 	double *PCTime, tOffset, *capArrays[NARRAYS];
 };
@@ -186,7 +187,8 @@ zebra::zebra(const char* portName, const char* serialPortName, int maxPts) :
 	this->currPt = 0;
 
 	/* So we know when we have a complete set of params that we are allowed to write to file */
-	this->doneInit = 0;
+	createParam("INITIAL_POLL_DONE", asynParamInt32, &zebraInitialPollDone);
+	setIntegerParam(zebraInitialPollDone, 0);	
 
 	/* Connection status */
 	createParam("ISCONNECTED", asynParamInt32, &zebraIsConnected);
@@ -636,7 +638,7 @@ void zebra::pollTask() {
 				if (++poll >= NREGS - FASTREGS) {
 					poll = 0;
 					// Done one complete cycle so write to file allowed.
-					this->doneInit = 1;
+					setIntegerParam(zebraInitialPollDone, 1);
 				}
 				r = &(reg_lookup[poll]);
 			}
@@ -896,7 +898,9 @@ asynStatus zebra::configWrite(const char* str) {
 	int value;
 	FILE *file;
 	char buff[NBUFF];
-	if (this->doneInit != 1) {
+	int initialPollDone = 0;
+	getIntegerParam(zebraInitialPollDone, &initialPollDone);
+	if (initialPollDone != 1) {
 		setStringParam(zebraConfigStatus, "Too soon, initial poll not completed, wait a minute");
 		callParamCallbacks();
 		return asynError;

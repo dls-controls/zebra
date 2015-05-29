@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1067
-y 300
+x 1069
+y 326
 w 640
 h 510
 font "helvetica-bold-r-12.0"
@@ -2384,5 +2384,46 @@ offLabel "Restore from Flash"
 3d
 useEnumNumeric
 font "helvetica-bold-r-14.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 5
+y 215
+w 55
+h 25
+controlPv "$(zebra):INITIAL_POLL_DONE"
+displayMode "hex"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "helvetica-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 5
+y 145
+w 90
+h 70
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Initial"
+  "Poll of"
+  "Params"
+  "Done?"
+}
 endObjectProperties
 
