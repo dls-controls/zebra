@@ -97,6 +97,7 @@ protected:
 	asynStatus configRead(const char* str);
 	asynStatus configWrite(const char* str);
 	asynStatus callbackWaveforms();
+	void resetBuffers();
 
 protected:
 	/* Parameter indices */
@@ -445,6 +446,20 @@ void zebra::readTask() {
 	}
 }
 
+
+void zebra::resetBuffers() {
+	// This is zebra telling us to reset our buffers
+	this->currPt = 0;
+	this->tOffset = 0.0;								
+	// We need to trigger a waveform update so that PC_NUM_DOWN
+	// will unset the busy record set by the arm
+	// Setting NumDown to -1 will trigger a waveform update even if
+	// the last waveform sent was the same as this one
+	setIntegerParam(zebraNumDown, -1);
+	this->callbackWaveforms();
+}
+
+
 /* This is the function that will be run for the interrupt service thread */
 void zebra::interruptTask() {
 	const char *functionName = "interruptTask";
@@ -462,22 +477,15 @@ void zebra::interruptTask() {
 			epicsMessageQueueReceive(this->intQId, &rxBuffer,
 					sizeof(&rxBuffer));
 			if (strcmp(rxBuffer, "PR") == 0) {
+                // Set it acquiring
+                setIntegerParam(zebraArrayAcq, 1);			
 				// This is zebra telling us to reset our buffers
-				this->currPt = 0;
-				this->tOffset = 0.0;
-				// Set it acquiring
-                setIntegerParam(zebraArrayAcq, 1);								
-				// We need to trigger a waveform update so that PC_NUM_DOWN
-				// will unset the busy record set by the arm
-				// Setting NumDown to -1 will trigger a waveform update even if
-				// the last waveform sent was the same as this one
-				setIntegerParam(zebraNumDown, -1);
-				this->callbackWaveforms();
-				// reset num cap
-				findParam("PC_NUM_CAPLO", &param);
-				setIntegerParam(param, 0);
-				findParam("PC_NUM_CAPHI", &param);
-				setIntegerParam(param, 0);
+				this->resetBuffers();
+              	// reset num cap
+	            findParam("PC_NUM_CAPLO", &param);
+	            setIntegerParam(param, 0);
+	            findParam("PC_NUM_CAPHI", &param);
+	            setIntegerParam(param, 0);				
 			} else if (strcmp(rxBuffer, "PX") == 0) {
 				// This is zebra saying there is no more data
 				setIntegerParam(zebraArrayAcq, 0);				
@@ -1027,11 +1035,9 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value) {
 		}
 		if (strcmp(r->str, "SYS_RESET") == 0) {
 			// Reset called, so stop waveform processing
-			setIntegerParam(zebraArrayAcq, 0);						
-			// Setting NumDown to -1 will trigger a waveform update even if
-			// the last waveform sent was the same as this one
-			setIntegerParam(zebraNumDown, -1);
-			this->callbackWaveforms();
+			setIntegerParam(zebraArrayAcq, 0);		
+			// Reset buffers to zero so GDA can see that we've cleared
+			this->resetBuffers();				
 		}
     } else if (param >= this->zebraHILOReg[0] && param < this->zebraHILOReg[NREGS - 1]) {
         // set 32-bit reg
