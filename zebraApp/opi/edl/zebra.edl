@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 845
-y 546
+x 850
+y 559
 w 940
 h 610
 font "helvetica-medium-r-14.0"
@@ -513,6 +513,7 @@ displayFileName {
   7 "zebraSYS"
 }
 symbols {
+  0 "P=$(P),R=$(Q):"
   1 "ANDOR=AND"
   2 "ANDOR=OR"
 }

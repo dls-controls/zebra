@@ -1,3 +1,4 @@
+#include <sstream>
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -13,9 +14,8 @@
 #include <iocsh.h>
 #include "asynOctetSyncIO.h"
 #include "asynCommonSyncIO.h"
-#include "asynPortDriver.h"
+#include "ADDriver.h"
 #include "epicsThread.h"
-#include "epicsMessageQueue.h"
 #include "ini.h"
 #include "zebraRegs.h"
 
@@ -70,9 +70,9 @@
 
 static const char *driverName = "zebra";
 
-class zebra: public asynPortDriver {
+class zebra: public ADDriver {
 public:
-	zebra(const char *portName, const char* serialPortName, int maxPts);
+	zebra(const char *portName, const char* serialPortName, int maxPts, int maxBuffers, int maxMemory);
 
 	/* These are the methods that we override from asynPortDriver */
 	virtual asynStatus writeInt32(asynUser *pasynUser, epicsInt32 value);
@@ -109,7 +109,7 @@ protected:
 	int zebraSysBus1;            // string read - system bus key first half
 	int zebraSysBus2;            // string read - system bus key second half
 	int zebraStore;              // int32 write - store config to flash
-	int zebraRestore;              // int32 write - restore config from flash	
+	int zebraRestore;              // int32 write - restore config from flash
 	int zebraConfigFile;         // charArray write - filename to read/write config to
 	int zebraConfigRead;         // int32 write - read config from filename
 	int zebraConfigWrite;        // int32 write - write config to filename
@@ -129,6 +129,10 @@ protected:
 #define NUM_PARAMS (&LAST_PARAM - &FIRST_PARAM + 1) + NARRAYS*4 + NFILT*3 + NREGS + NREGS*2
 
 private:
+    void allocateFrame(int size_y, int scale);
+    void wrapFrame();
+
+private:
 	asynUser *pasynUser;
 	asynCommon *pasynCommon;
 	void *pcommonPvt;
@@ -140,6 +144,9 @@ private:
 	int maxPts, currPt, configPhase;
 	char *filtArrays[NFILT];
 	double *PCTime, tOffset, *capArrays[NARRAYS];
+	NDArray *pArray;
+//	NDAttribute *attributeList[NARRAYS + 1];
+	int arrayCounter, numImagesCounter;
 };
 
 /* C function to call poll task from epicsThreadCreate */
@@ -168,14 +175,13 @@ static int configLineC(void* userPvt, const char* section, const char* name,
 }
 
 /* Constructor */
-zebra::zebra(const char* portName, const char* serialPortName, int maxPts) :
-		asynPortDriver(portName, 1 /*maxAddr*/, NUM_PARAMS,
-				asynInt8ArrayMask | asynFloat64ArrayMask | asynInt32Mask
-						| asynFloat64Mask | asynOctetMask | asynDrvUserMask,
-				asynInt8ArrayMask | asynFloat64ArrayMask | asynInt32Mask
-						| asynFloat64Mask | asynOctetMask, ASYN_CANBLOCK, /*ASYN_CANBLOCK=1, ASYN_MULTIDEVICE=0 */
-				1, /*autoConnect*/0, /*default priority */
-				0 /*default stack size*/) {
+zebra::zebra(const char* portName, const char* serialPortName, int maxPts, int maxBuffers, int maxMemory) :
+		ADDriver(portName, 1 /*maxAddr*/, NUM_PARAMS, maxBuffers, maxMemory,
+				asynInt8ArrayMask | asynFloat64ArrayMask | asynInt32Mask | asynFloat64Mask | asynOctetMask | asynDrvUserMask,
+				asynInt8ArrayMask | asynFloat64ArrayMask | asynInt32Mask | asynFloat64Mask | asynOctetMask,
+				ASYN_CANBLOCK, /*ASYN_CANBLOCK=1, ASYN_MULTIDEVICE=0 */
+				1, /*autoConnect*/ 0, /*default priority */ 0 /*default stack size*/) {
+
 	const char *functionName = "zebra";
 	asynStatus status = asynSuccess;
 	asynInterface *pasynInterface;
@@ -187,9 +193,14 @@ zebra::zebra(const char* portName, const char* serialPortName, int maxPts) :
 	this->maxPts = maxPts;
 	this->currPt = 0;
 
+	/* For areaDetector image */
+	this->pArray = NULL;
+	this->arrayCounter = 0;
+	this->numImagesCounter = 0;
+
 	/* So we know when we have a complete set of params that we are allowed to write to file */
 	createParam("INITIAL_POLL_DONE", asynParamInt32, &zebraInitialPollDone);
-	setIntegerParam(zebraInitialPollDone, 0);	
+	setIntegerParam(zebraInitialPollDone, 0);
 
 	/* Connection status */
 	createParam("ISCONNECTED", asynParamInt32, &zebraIsConnected);
@@ -224,7 +235,7 @@ zebra::zebra(const char* portName, const char* serialPortName, int maxPts) :
 
 	/* a parameter for a store to flash request */
 	createParam("STORE", asynParamInt32, &zebraStore);
-	createParam("RESTORE", asynParamInt32, &zebraRestore);	
+	createParam("RESTORE", asynParamInt32, &zebraRestore);
 
 	/* parameters for filename reading/writing config */
 	createParam("CONFIG_FILE", asynParamOctet, &zebraConfigFile);
@@ -298,11 +309,11 @@ zebra::zebra(const char* portName, const char* serialPortName, int maxPts) :
 		    epicsSnprintf(str, NBUFF, "%sLO", r->str);
 		} else {
 		    // need to put a dummy in to make sure our mapping calcs work
-		    epicsSnprintf(str, NBUFF, "%sHILODUMMY", r->str);		
+		    epicsSnprintf(str, NBUFF, "%sHILODUMMY", r->str);
 		}
 	    createParam(str, asynParamInt32, &zebraHILOReg[i]);
 	    // check we can lookup the HI reg from our HILO param
-	    assert(r == HILOPARAM2HIREG(zebraHILOReg[i]));		
+	    assert(r == HILOPARAM2HIREG(zebraHILOReg[i]));
 	}
 
 	/* create parameters for registers */
@@ -327,7 +338,16 @@ zebra::zebra(const char* portName, const char* serialPortName, int maxPts) :
 		// Check our reg -> param string lookup will work
 		assert(REG2PARAMSTR(r) == zebraReg[i+NREGS]);
 	}
-	
+
+	/* initialise areaDetector parameters */
+	setStringParam(ADManufacturer, "Diamond Light Source Ltd.");
+	setStringParam(ADModel, "Zebra");
+	setIntegerParam(ADMaxSizeX, NARRAYS + 1);
+	setIntegerParam(ADMaxSizeY, maxPts);
+	setIntegerParam(NDDataType, 7);
+	setIntegerParam(ADStatus, ADStatusIdle);
+	setStringParam(ADStatusMessage, "Idle");
+
 	/* Create a message queue to hold completed messages and interrupts */
 	this->msgQId = epicsMessageQueueCreate(NQUEUE, sizeof(char*));
 	this->intQId = epicsMessageQueueCreate(NQUEUE, sizeof(char*));
@@ -450,7 +470,7 @@ void zebra::readTask() {
 void zebra::resetBuffers() {
 	// This is zebra telling us to reset our buffers
 	this->currPt = 0;
-	this->tOffset = 0.0;								
+	this->tOffset = 0.0;
 	// We need to trigger a waveform update so that PC_NUM_DOWN
 	// will unset the busy record set by the arm
 	// Setting NumDown to -1 will trigger a waveform update even if
@@ -463,7 +483,7 @@ void zebra::resetBuffers() {
 /* This is the function that will be run for the interrupt service thread */
 void zebra::interruptTask() {
 	const char *functionName = "interruptTask";
-	int cap, param, incr;
+	int cap, param, incr, size_y = 0;
 	unsigned int time, nfound;
 	char *rxBuffer, *ptr, escapedbuff[NBUFF];
 	epicsTimeStamp start, end;
@@ -478,17 +498,23 @@ void zebra::interruptTask() {
 					sizeof(&rxBuffer));
 			if (strcmp(rxBuffer, "PR") == 0) {
                 // Set it acquiring
-                setIntegerParam(zebraArrayAcq, 1);			
-				// This is zebra telling us to reset our buffers
-				this->resetBuffers();
-              	// reset num cap
-	            findParam("PC_NUM_CAPLO", &param);
-	            setIntegerParam(param, 0);
-	            findParam("PC_NUM_CAPHI", &param);
-	            setIntegerParam(param, 0);				
+                setIntegerParam(zebraArrayAcq, 1);
+                // This is zebra telling us to reset our buffers
+                this->resetBuffers();
+                // Re-allocate the areaDetector frame
+		        getIntegerParam(ADSizeY, &size_y);
+		        if (size_y > this->maxPts) {
+		            size_y = this->maxPts;
+		        }
+		        allocateFrame(size_y, 1); //TODO: find out if the default 1 (s) is appropriate for the scale
+				// reset num cap
+				findParam("PC_NUM_CAPLO", &param);
+				setIntegerParam(param, 0);
+				findParam("PC_NUM_CAPHI", &param);
+				setIntegerParam(param, 0);
 			} else if (strcmp(rxBuffer, "PX") == 0) {
 				// This is zebra saying there is no more data
-				setIntegerParam(zebraArrayAcq, 0);				
+				setIntegerParam(zebraArrayAcq, 0);
 				// Setting NumDown to -1 will trigger a waveform update even if
 				// the last waveform sent was the same as this one
 				setIntegerParam(zebraNumDown, -1);
@@ -549,7 +575,23 @@ void zebra::interruptTask() {
 					if (this->currPt < this->maxPts) {
 						this->capArrays[a][this->currPt] = dvalue;
 					}
+					// save value in frame if frame isn't full
+					if ((this->currPt < size_y) && (this->pArray != NULL)) {
+					    // temporary pointer to NDArray data for easier reading
+					    double* pFrame = (double*)this->pArray->pData;
+					    // set single data point
+					    int index = (NARRAYS + 1) * this->currPt + a;
+					    pFrame[index] = dvalue;
+					}
 					// Note: don't do callParamCallbacks here, or we'll swamp asyn
+				}
+				// record the time stamp in the last column of the NDArray
+				if ((this->currPt < size_y) && (this->pArray != NULL)) {
+				    // temporary pointer to NDArray data for easier reading
+				    double* pFrame = (double*)this->pArray->pData;
+				    // set single data point
+				    int index = (NARRAYS + 1) * this->currPt + NARRAYS;
+				    pFrame[index] = this->PCTime[this->currPt];
 				}
 				// sanity check
 				if (ptr[0] != '\0') {
@@ -561,6 +603,10 @@ void zebra::interruptTask() {
 				// advance the counter if allowed
 				if (this->currPt < this->maxPts) {
 					this->currPt++;
+				}
+				// ship off the NDArray if it's full
+				if ((this->currPt == size_y) && (this->pArray != NULL)) {
+				    wrapFrame();
 				}
 			}
 			free(rxBuffer);
@@ -790,9 +836,9 @@ asynStatus zebra::receiveGetReg(const reg *r, int *value) {
 		        getIntegerParam(param, &value);
 		        hilovalue += value << 16;
 		        epicsSnprintf(str, NBUFF, "%.*sHILO", (int) strlen(r->str) - 2, r->str);
-		        findParam(str, &param);	
+		        findParam(str, &param);
 		        setIntegerParam(param, hilovalue);
-		    }	        
+		    }
 			setIntegerParam(zebraIsConnected, 1);
 			status = asynSuccess;
 		} else {
@@ -867,7 +913,7 @@ asynStatus zebra::receiveSetReg(const reg *r) {
 asynStatus zebra::setReg(const reg *r, int value) {
 	const char *functionName = "setReg";
 	asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW,
-			"%s:%s: Setting %s to value %d\n", driverName, functionName, r->str, value);	
+			"%s:%s: Setting %s to value %d\n", driverName, functionName, r->str, value);
 	asynStatus status = this->sendSetReg(r, value);
 	if (status == asynSuccess) {
 		status = this->receiveSetReg(r);
@@ -891,7 +937,7 @@ asynStatus zebra::flashCmd(const char * cmd) {
 	status = this->send(txBuffer, txSize);
 	// If we could write then get the result
 	if (status == asynSuccess) {
-	    txSize = epicsSnprintf(txBuffer, NBUFF, "%sOK", cmd);	
+	    txSize = epicsSnprintf(txBuffer, NBUFF, "%sOK", cmd);
 		status = this->receive(txBuffer, NULL, NULL);
     }
 	return status;
@@ -1013,6 +1059,83 @@ int zebra::configLine(const char* section, const char* name,
 	return 0; /* unknown section, return error */
 }
 
+void zebra::allocateFrame(int size_y, int scale) {
+	// Release the old NDArray if it exists
+	if (this->pArray != NULL) {
+        this->pArray->release();
+		this->pArray = NULL;
+	}
+	// Allocate a new NDArray
+	size_t dims[2];
+    int nDims = 2;
+    dims[0] = NARRAYS + 1;
+    getIntegerParam(ADSizeY, &size_y);
+    dims[1] = size_y;
+    this->pArray = this->pNDArrayPool->alloc(nDims, dims, NDFloat64, 0, NULL);
+	// NDAttributes are used as column headings for the captured signals
+	std::string signal("Signal ");
+	std::string desc("column heading");
+	// Record the current time stamp scale
+	std::string prefix("TS (");
+	std::string postfix(")");
+	std::string infix;
+	switch (scale) {
+	    case 0: infix = "ms";
+	        break;
+	    case 1: infix = "s";
+	        break;
+	    case 2: infix = "10s";
+	        break;
+	    default:
+	        infix = "";
+	}
+	std::stringstream ts;
+	ts << prefix << infix << postfix;
+	// Assemble the attribute values
+	std::string values[NARRAYS + 1];
+	values[0] = "Enc1";
+	values[1] = "Enc2";
+	values[2] = "Enc3";
+	values[3] = "Enc4";
+	values[4] = "Sys1";
+	values[5] = "Sys2";
+	values[6] = "Div1";
+	values[7] = "Div2";
+	values[8] = "Div3";
+	values[9] = "Div4";
+	values[10] = ts.str();
+	// Create the NDAttributes
+	for (int i = 0; i < NARRAYS + 1; i++) {
+	    std::stringstream name;
+	    name << signal << i;
+	    NDAttribute *pAttribute = new NDAttribute(name.str().c_str(), desc.c_str(), NDAttrString, (char *)(values[i].c_str()));
+	    this->pArray->pAttributeList->add(pAttribute);
+	}
+}
+
+void zebra::wrapFrame() {
+    getIntegerParam(NDArrayCounter, &(this->arrayCounter));
+    getIntegerParam(ADNumImagesCounter, &(this->numImagesCounter));
+    // Set the unique ID
+    this->pArray->uniqueId = this->arrayCounter;
+	// Set the time stamp
+	epicsTimeStamp arrayTime;
+	epicsTimeGetCurrent(&arrayTime);
+    this->pArray->timeStamp = arrayTime.secPastEpoch;
+	// Save the NDAttributes if there are any
+	getAttributes(this->pArray->pAttributeList);
+    // Update statistics
+    this->arrayCounter++;
+    this->numImagesCounter++;
+    // Ship the array off
+    doCallbacksGenericPointer(this->pArray, NDArrayData, 0);
+    this->pArray->release();
+	this->pArray = NULL;
+    // Update the counters
+	setIntegerParam(NDArrayCounter, this->arrayCounter);
+    setIntegerParam(ADNumImagesCounter, this->numImagesCounter);
+}
+
 /** Called when asyn clients call pasynInt32->write().
  * This function performs actions for some parameters
  * For all parameters it sets the value in the parameter library and calls any registered callbacks..
@@ -1025,6 +1148,11 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value) {
 
 	/* Any work we need to do */
 	int param = pasynUser->reason;
+	if (param == ADAcquire) {
+	    if (value) findParam("PC_ARM", &param);
+	    else findParam("PC_DISARM", &param);
+	    value = 1;
+	}
 	if (param >= this->zebraReg[0] && param < this->zebraReg[NREGS - 1]) {
 		const reg *r = PARAM2REG(param);
 		status = this->setReg(r, value);
@@ -1035,9 +1163,56 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value) {
 		}
 		if (strcmp(r->str, "SYS_RESET") == 0) {
 			// Reset called, so stop waveform processing
-			setIntegerParam(zebraArrayAcq, 0);		
-			// Reset buffers to zero so GDA can see that we've cleared
-			this->resetBuffers();				
+			setIntegerParam(zebraArrayAcq, 0);
+			// Stop acquiring and reset the areaDetector counter and status
+			setIntegerParam(ADAcquire, 0);
+            setIntegerParam(ADNumImagesCounter, 0);
+            setIntegerParam(ADStatus, ADStatusIdle);
+            setStringParam(ADStatusMessage, "Idle");
+            // Reset buffers to zero so GDA can see that we've cleared
+            this->resetBuffers();
+		} else if (strcmp(r->str, "PC_ARM") == 0) {
+		    //TODO: read out PC_TSPRE into scale
+		    int scale = 0;
+		    // Set the immutable array dimension
+		    setIntegerParam(NDArraySizeX, NARRAYS + 1);
+		    // Set the variable array dimension
+		    int size_y = 0;
+		    getIntegerParam(ADSizeY, &size_y);
+		    if (size_y > this->maxPts) {
+		        size_y = this->maxPts;
+		    }
+		    setIntegerParam(NDArraySizeY, size_y);
+		    // Set the frame size
+		    setIntegerParam(NDArraySize, sizeof(NDFloat64) * (NARRAYS + 1) * size_y);
+		    // Allocate an NDArray for the frame
+		    allocateFrame(size_y, scale);
+		    // Start acquiring
+		    setIntegerParam(ADAcquire, 1);
+		    setIntegerParam(ADStatus, ADStatusAcquire);
+		    setStringParam(ADStatusMessage, "Acquiring");
+		} else if (strcmp(r->str, "PC_DISARM") == 0) {
+		    int size_y = 0;
+		    getIntegerParam(ADSizeY, &size_y);
+		    if (this->pArray != NULL) {
+		        // Pad the NDArray with zeroes if the acquisition is stopping early
+		        if (this->currPt < size_y) {
+			        int pad_size = size_y - this->currPt;
+			        // Temporary pointer to NDArray data for easier reading
+			        double* pData = (double*)this->pArray->pData;
+			        // Fill in the zeroes
+			        for (int y = 0; y < pad_size; y++) {
+			            for (int x = 0; x < NARRAYS + 1; x++) {
+			                pData[(NARRAYS + 1) * (this->currPt + y) + x] = 0;
+			            }
+			        }
+			    }
+			    wrapFrame();
+            }
+			// Stop acquiring
+		    setIntegerParam(ADAcquire, 0);
+		    setIntegerParam(ADStatus, ADStatusIdle);
+		    setStringParam(ADStatusMessage, "Idle");
 		}
     } else if (param >= this->zebraHILOReg[0] && param < this->zebraHILOReg[NREGS - 1]) {
         // set 32-bit reg
@@ -1050,11 +1225,11 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value) {
         if (status == asynSuccess) {
             int lowparam;
     		char str[NBUFF];
-	        epicsSnprintf(str, NBUFF, "%.*sLO", (int) strlen(r->str) - 2, r->str);      
-	        findParam(str, &lowparam);  
-	        const reg *lowr = PARAM2REG(lowparam);          
+	        epicsSnprintf(str, NBUFF, "%.*sLO", (int) strlen(r->str) - 2, r->str);
+	        findParam(str, &lowparam);
+	        const reg *lowr = PARAM2REG(lowparam);
 	        status = this->setReg(lowr, value & 65535);
-	        // Now get both values, this will set HILO 
+	        // Now get both values, this will set HILO
             if (status == asynSuccess) {
 	            status = (asynStatus) (this->getReg(r, &value) || this->getReg(lowr, &value));
 	        }
@@ -1062,7 +1237,7 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value) {
 	} else if (param == zebraStore) {
 		status = this->flashCmd("S");
 	} else if (param == zebraRestore) {
-		status = this->flashCmd("L");		
+		status = this->flashCmd("L");
 	} else if (param == zebraConfigRead || param == zebraConfigWrite) {
 		char fileName[NBUFF];
 		getStringParam(zebraConfigFile, NBUFF, fileName);
@@ -1086,7 +1261,12 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value) {
 		// Resend all the waveforms as we have changed the filter
 		setIntegerParam(zebraNumDown, 0);
 		this->callbackWaveforms();
-	}
+    } else if (param < FIRST_PARAM) {
+        /* If this parameter belongs to a base class call its method */
+        status = ADDriver::writeInt32(pasynUser, value);
+    } else {
+        status = asynError;
+    }
 	callParamCallbacks();
 	return status;
 }
@@ -1123,7 +1303,7 @@ asynStatus zebra::callbackWaveforms() {
 				sel -= 32;
 			}
 			for (int i = 0; i < this->maxPts; i++) {
-				this->filtArrays[a][i] = (((unsigned int)(src[i]+0.5)) >> sel) & 1;				   
+				this->filtArrays[a][i] = (((unsigned int)(src[i]+0.5)) >> sel) & 1;
 			}
 			doCallbacksInt8Array(this->filtArrays[a], this->currPt,
 					zebraFiltArrays[a], 0);
@@ -1144,21 +1324,22 @@ asynStatus zebra::callbackWaveforms() {
 
 /** Configuration command, called directly or from iocsh */
 extern "C" int zebraConfig(const char *portName, const char* serialPortName,
-		int maxPts) {
-	new zebra(portName, serialPortName, maxPts);
+        int maxPts, int maxBuffers, int maxMemory) {
+	new zebra(portName, serialPortName, maxPts, maxBuffers, maxMemory);
 	return (asynSuccess);
 }
 
 /** Code for iocsh registration */
 static const iocshArg zebraConfigArg0 = { "Port name", iocshArgString };
 static const iocshArg zebraConfigArg1 = { "Serial port name", iocshArgString };
-static const iocshArg zebraConfigArg2 = {
-		"Max number of points to capture in position compare", iocshArgInt };
+static const iocshArg zebraConfigArg2 = { "Max number of points to capture in position compare", iocshArgInt };
+static const iocshArg zebraConfigArg3 = { "maxBuffers for areaDetector", iocshArgInt };
+static const iocshArg zebraConfigArg4 = { "maxMemory for areaDetector", iocshArgInt };
 static const iocshArg* const zebraConfigArgs[] = { &zebraConfigArg0,
-		&zebraConfigArg1, &zebraConfigArg2 };
-static const iocshFuncDef configzebra = { "zebraConfig", 3, zebraConfigArgs };
+		&zebraConfigArg1, &zebraConfigArg2, &zebraConfigArg3, &zebraConfigArg4 };
+static const iocshFuncDef configzebra = { "zebraConfig", 5, zebraConfigArgs };
 static void configzebraCallFunc(const iocshArgBuf *args) {
-	zebraConfig(args[0].sval, args[1].sval, args[2].ival);
+	zebraConfig(args[0].sval, args[1].sval, args[2].ival, args[3].ival, args[4].ival);
 }
 
 static void zebraRegister(void) {

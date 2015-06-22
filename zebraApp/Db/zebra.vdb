@@ -31,7 +31,10 @@
 # % macro, M4, Motor 4 PV
 # % macro, M4DIR, Set to - if motor inverted in geobrick (decode control = 3 instead of 7)
 # % macro, M4HOMESETTLE, Time to wait after an autohome before setting zebra pos to readback pos
-# % gui, $(PORT), edm, zebra.edl, zebra=$(P)$(Q)
+# % macro, ADDR, address for areaDetector port
+# % macro, TIMEOUT, timeout for areaDetector
+# % gui, $(PORT), edm, zebra.edl, zebra=$(P)$(Q), P=$(P), R=$(Q):
+# % gui, $(PORT), edm, zebraAD.edl, P=$(P), R=$(Q):
 # % gui, $(PORT), sevr
 # % archiver 10 Monitor
 record(bi, "$(P)$(Q):CONNECTED") {
@@ -1908,6 +1911,166 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
   field(INPB, "$(P)$(Q):M2:ERES CP")
   field(INPC, "$(P)$(Q):M3:ERES CP")
   field(INPD, "$(P)$(Q):M4:ERES CP")
+}
+
+#----------------------- areaDetector overrides for CAM plugin -----------------------
+
+record(mbbo, "$(P)$(Q):DataType")
+{
+   field(ZRST, "$(EMPTY=)")
+   field(ZRVL, "$(EMPTY=)")
+   field(ONST, "$(EMPTY=)")
+   field(ONVL, "$(EMPTY=)")
+   field(TWST, "$(EMPTY=)")
+   field(TWVL, "$(EMPTY=)")
+   field(THST, "$(EMPTY=)")
+   field(THVL, "$(EMPTY=)")
+   field(FRST, "$(EMPTY=)")
+   field(FRVL, "$(EMPTY=)")
+   field(FVST, "$(EMPTY=)")
+   field(FVVL, "$(EMPTY=)")
+   field(SXST, "$(EMPTY=)")
+   field(SXVL, "$(EMPTY=)")
+   field(VAL, "7")
+}
+
+record(mbbo, "$(P)$(Q):ColorMode")
+{
+   field(DISA, "1")
+}
+
+record(ao, "$(P)$(Q):Gain")
+{
+   field(DISA, "1")
+}
+
+record(ai, "$(P)$(Q):Gain_RBV")
+{
+   field(DISA, "1")
+}
+
+record(longout, "$(P)$(Q):BinX")
+{
+   field(DISA, "1")
+}
+
+record(longin, "$(P)$(Q):BinX_RBV")
+{
+   field(DISA, "1")
+}
+
+record(longout, "$(P)$(Q):BinY")
+{
+   field(DISA, "1")
+}
+
+record(longin, "$(P)$(Q):BinY_RBV")
+{
+   field(DISA, "1")
+}
+
+record(longout, "$(P)$(Q):MinX")
+{
+   field(DISA, "1")
+}
+
+record(longin, "$(P)$(Q):MinX_RBV")
+{
+   field(DISA, "1")
+}
+
+record(longout, "$(P)$(Q):MinY")
+{
+   field(DISA, "1")
+}
+
+record(longin, "$(P)$(Q):MinY_RBV")
+{
+   field(DISA, "1")
+}
+
+record(longout, "$(P)$(Q):SizeX")
+{
+   field(DISA, "1")
+}
+
+record(longin, "$(P)$(Q):SizeX_RBV")
+{
+   field(DISA, "1")
+}
+
+record(bo, "$(P)$(Q):ReverseX")
+{
+   field(DISA, "1")
+}
+
+record(bi, "$(P)$(Q):ReverseX_RBV")
+{
+   field(DISA, "1")
+}
+
+record(bo, "$(P)$(Q):ReverseY")
+{
+   field(DISA, "1")
+}
+
+record(bi, "$(P)$(Q):ReverseY_RBV")
+{
+   field(DISA, "1")
+}
+
+record(ao, "$(P)$(Q):AcquireTime")
+{
+   field(DISA, "1")
+}
+
+record(ai, "$(P)$(Q):AcquireTime_RBV")
+{
+   field(DISA, "1")
+}
+
+record(ao, "$(P)$(Q):AcquirePeriod")
+{
+   field(DISA, "1")
+}
+
+record(ai, "$(P)$(Q):AcquirePeriod_RBV")
+{
+   field(DISA, "1")
+}
+
+record(longout, "$(P)$(Q):NumExposures")
+{
+   field(DISA, "1")
+}
+
+record(longin, "$(P)$(Q):NumExposures_RBV")
+{
+   field(DISA, "1")
+}
+
+record(mbbo, "$(P)$(Q):ImageMode")
+{
+   field(ZRST, "$(EMPTY=)")
+   field(ZRVL, "$(EMPTY=)")
+   field(TWST, "$(EMPTY=)")
+   field(TWVL, "$(EMPTY=)")
+   field(VAL, "1")
+}
+
+record(mbbo, "$(P)$(Q):TriggerMode")
+{
+   field(ZRST, "Triggered")
+   field(ONST, "$(EMPTY=)")
+   field(ONVL, "$(EMPTY=)")
+   field(VAL, "0")
+}
+
+record(mbbi, "$(P)$(Q):TriggerMode_RBV")
+{
+   field(ZRST, "Triggered")
+   field(ONST, "$(EMPTY=)")
+   field(ONVL, "$(EMPTY=)")
 }
 
 #! Further lines contain data used by VisualDCT
