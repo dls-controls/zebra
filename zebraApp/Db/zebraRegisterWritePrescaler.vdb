@@ -38,6 +38,9 @@ record(calcout, "$(P)$(Q):$(PARAM):DISP") {
   field(OUT, "$(P)$(Q):$(PARAM).DISP")
 }
 
+# NOTE: The values in ZRVL, ONVL and TWVL are used in the driver in
+#       function zebra::allocateFrame(int size_y, int scale).
+#       Do not change them without revising the driver code as well.
 # % archiver 10 Monitor
 record(mbbo, "$(P)$(Q):$(PARAM)") {
   field(DESC, "Demand value for param")

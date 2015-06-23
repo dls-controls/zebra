@@ -501,12 +501,17 @@ void zebra::interruptTask() {
                 setIntegerParam(zebraArrayAcq, 1);
                 // This is zebra telling us to reset our buffers
                 this->resetBuffers();
+                //TODO: find out if the following block of code is actually needed
+                /*// Dig the current time stamp scaling out of the registry
+                int tspre, scale = 0;
+                findParam("PC_TSPRE", &tspre);
+                getIntegerParam(tspre, &scale);
                 // Re-allocate the areaDetector frame
 		        getIntegerParam(ADSizeY, &size_y);
 		        if (size_y > this->maxPts) {
 		            size_y = this->maxPts;
 		        }
-		        allocateFrame(size_y, 1); //TODO: find out if the default 1 (s) is appropriate for the scale
+		        allocateFrame(size_y, scale);*/
 				// reset num cap
 				findParam("PC_NUM_CAPLO", &param);
 				setIntegerParam(param, 0);
@@ -1080,17 +1085,18 @@ void zebra::allocateFrame(int size_y, int scale) {
 	std::string postfix(")");
 	std::string infix;
 	switch (scale) {
-	    case 0: infix = "ms";
+	    case 5:     infix = "ms";
 	        break;
-	    case 1: infix = "s";
+	    case 5000:  infix = "s";
 	        break;
-	    case 2: infix = "10s";
+	    case 50000: infix = "10s";
 	        break;
 	    default:
 	        infix = "";
 	}
 	std::stringstream ts;
 	ts << prefix << infix << postfix;
+	printf("ts.str().c_str(): %s\n", ts.str().c_str());
 	// Assemble the attribute values
 	std::string values[NARRAYS + 1];
 	values[0] = "Enc1";
@@ -1172,8 +1178,6 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value) {
             // Reset buffers to zero so GDA can see that we've cleared
             this->resetBuffers();
 		} else if (strcmp(r->str, "PC_ARM") == 0) {
-		    //TODO: read out PC_TSPRE into scale
-		    int scale = 0;
 		    // Set the immutable array dimension
 		    setIntegerParam(NDArraySizeX, NARRAYS + 1);
 		    // Set the variable array dimension
@@ -1185,6 +1189,10 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value) {
 		    setIntegerParam(NDArraySizeY, size_y);
 		    // Set the frame size
 		    setIntegerParam(NDArraySize, sizeof(NDFloat64) * (NARRAYS + 1) * size_y);
+		    // Dig the current time stamp scaling out of the registry
+		    int tspre, scale = 0;
+		    findParam("PC_TSPRE", &tspre);
+		    getIntegerParam(tspre, &scale);
 		    // Allocate an NDArray for the frame
 		    allocateFrame(size_y, scale);
 		    // Start acquiring
