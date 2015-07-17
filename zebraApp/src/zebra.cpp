@@ -1077,46 +1077,48 @@ void zebra::allocateFrame(int size_y, int scale) {
     getIntegerParam(ADSizeY, &size_y);
     dims[1] = size_y;
     this->pArray = this->pNDArrayPool->alloc(nDims, dims, NDFloat64, 0, NULL);
-	// NDAttributes are used as column headings for the captured signals
-	std::string signal("Signal ");
-	std::string desc("column heading");
-	// Record the current time stamp scale
-	std::string prefix("TS (");
-	std::string postfix(")");
-	std::string infix;
-	switch (scale) {
-	    case 5:     infix = "ms";
-	        break;
-	    case 5000:  infix = "s";
-	        break;
-	    case 50000: infix = "10s";
-	        break;
-	    default:
-	        infix = "";
-	}
-	std::stringstream ts;
-	ts << prefix << infix << postfix;
-	printf("ts.str().c_str(): %s\n", ts.str().c_str());
-	// Assemble the attribute values
-	std::string values[NARRAYS + 1];
-	values[0] = "Enc1";
-	values[1] = "Enc2";
-	values[2] = "Enc3";
-	values[3] = "Enc4";
-	values[4] = "Sys1";
-	values[5] = "Sys2";
-	values[6] = "Div1";
-	values[7] = "Div2";
-	values[8] = "Div3";
-	values[9] = "Div4";
-	values[10] = ts.str();
-	// Create the NDAttributes
-	for (int i = 0; i < NARRAYS + 1; i++) {
-	    std::stringstream name;
-	    name << signal << i;
-	    NDAttribute *pAttribute = new NDAttribute(name.str().c_str(), desc.c_str(), NDAttrString, (char *)(values[i].c_str()));
-	    this->pArray->pAttributeList->add(pAttribute);
-	}
+    if(this->pArray != NULL) {
+        // NDAttributes are used as column headings for the captured signals
+        std::string signal("Signal ");
+        std::string desc("column heading");
+        // Record the current time stamp scale
+        std::string prefix("TS (");
+        std::string postfix(")");
+        std::string infix;
+        switch (scale) {
+            case 5:     infix = "ms";
+                break;
+            case 5000:  infix = "s";
+                break;
+            case 50000: infix = "10s";
+                break;
+            default:
+                infix = "";
+        }
+        std::stringstream ts;
+        ts << prefix << infix << postfix;
+        printf("ts.str().c_str(): %s\n", ts.str().c_str());
+        // Assemble the attribute values
+        std::string values[NARRAYS + 1];
+        values[0] = "Enc1";
+        values[1] = "Enc2";
+        values[2] = "Enc3";
+        values[3] = "Enc4";
+        values[4] = "Sys1";
+        values[5] = "Sys2";
+        values[6] = "Div1";
+        values[7] = "Div2";
+        values[8] = "Div3";
+        values[9] = "Div4";
+        values[10] = ts.str();
+        // Create the NDAttributes
+        for (int i = 0; i < NARRAYS + 1; i++) {
+            std::stringstream name;
+            name << signal << i;
+            NDAttribute *pAttribute = new NDAttribute(name.str().c_str(), desc.c_str(), NDAttrString, (char *)(values[i].c_str()));
+            this->pArray->pAttributeList->add(pAttribute);
+        }
+    }
 }
 
 void zebra::wrapFrame() {
