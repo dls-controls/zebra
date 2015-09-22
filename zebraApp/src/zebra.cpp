@@ -1230,15 +1230,16 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value) {
         setIntegerParam(param, -1);
         // This is the hi reg
         const reg *r = HILOPARAM2HIREG(param);
-        status = this->setReg(r, value >> 16);
-        // now find the low param
+        // This is the lo reg
+        int lowparam;
+		char str[NBUFF];
+        epicsSnprintf(str, NBUFF, "%.*sLO", (int) strlen(r->str) - 2, r->str);
+        findParam(str, &lowparam);
+        const reg *lowr = PARAM2REG(lowparam);
+        // Set the low reg first, then the high...
+        status = this->setReg(lowr, value & 65535);
         if (status == asynSuccess) {
-            int lowparam;
-    		char str[NBUFF];
-	        epicsSnprintf(str, NBUFF, "%.*sLO", (int) strlen(r->str) - 2, r->str);
-	        findParam(str, &lowparam);
-	        const reg *lowr = PARAM2REG(lowparam);
-	        status = this->setReg(lowr, value & 65535);
+            status = this->setReg(r, value >> 16);
 	        // Now get both values, this will set HILO
             if (status == asynSuccess) {
 	            status = (asynStatus) (this->getReg(r, &value) || this->getReg(lowr, &value));
