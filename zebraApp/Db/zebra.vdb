@@ -21,15 +21,19 @@
 # % macro, PREC, Precision to show position compare gate and pulse fields
 # % macro, M1, Motor 1 PV
 # % macro, M1DIR, Set to - if motor inverted in geobrick (decode control = 3 instead of 7)
+# % macro, M1MULT, Multiplier to account for DT scaling. E.g. if *4 encoder decode, set to 0.25
 # % macro, M1HOMESETTLE, Time to wait after an autohome before setting zebra pos to readback pos
 # % macro, M2, Motor 2 PV
 # % macro, M2DIR, Set to - if motor inverted in geobrick (decode control = 3 instead of 7)
+# % macro, M2MULT, Multiplier to account for DT scaling. E.g. if *4 encoder decode, set to 0.25
 # % macro, M2HOMESETTLE, Time to wait after an autohome before setting zebra pos to readback pos
 # % macro, M3, Motor 3 PV
 # % macro, M3DIR, Set to - if motor inverted in geobrick (decode control = 3 instead of 7)
+# % macro, M3MULT, Multiplier to account for DT scaling. E.g. if *4 encoder decode, set to 0.25
 # % macro, M3HOMESETTLE, Time to wait after an autohome before setting zebra pos to readback pos
 # % macro, M4, Motor 4 PV
 # % macro, M4DIR, Set to - if motor inverted in geobrick (decode control = 3 instead of 7)
+# % macro, M4MULT, Multiplier to account for DT scaling. E.g. if *4 encoder decode, set to 0.25
 # % macro, M4HOMESETTLE, Time to wait after an autohome before setting zebra pos to readback pos
 # % macro, ADDR, address for areaDetector port
 # % macro, TIMEOUT, timeout for areaDetector
@@ -939,34 +943,38 @@ record(ai, "$(P)$(Q):NOMOTOR:SCALE") {
 }
 
 record(calcout, "$(P)$(Q):M1:ERES") {
-  field(CALC, "B?-A*(C>0?C:1)*(0$(M1DIR=+)1):A*(C>0?C:1)*(0$(M1DIR=+)1)")
+  field(CALC, "(B=0?A:-A)*(C>0?C:1)*D")
   field(INPA, "$(M1=$(P)$(Q):NOMOTOR).ERES CP")
   field(INPB, "$(M1=$(P)$(Q):NOMOTOR).DIR CP")
   field(INPC, "$(M1=$(P)$(Q):NOMOTOR):SCALE CP")
+  field(INPD, "$(M1DIR=+)$(M1MULT=1)")
   field(PREC, "4")
 }
 
 record(calcout, "$(P)$(Q):M2:ERES") {
-  field(CALC, "B?-A*(C>0?C:1)*(0$(M2DIR=+)1):A*(C>0?C:1)*(0$(M2DIR=+)1)")
+  field(CALC, "(B=0?A:-A)*(C>0?C:1)*D")
   field(INPA, "$(M2=$(P)$(Q):NOMOTOR).ERES CP")
   field(INPB, "$(M2=$(P)$(Q):NOMOTOR).DIR CP")
   field(INPC, "$(M2=$(P)$(Q):NOMOTOR):SCALE CP")
+  field(INPD, "$(M2DIR=+)$(M2MULT=1)")
   field(PREC, "4")
 }
 
 record(calcout, "$(P)$(Q):M3:ERES") {
-  field(CALC, "B?-A*(C>0?C:1)*(0$(M3DIR=+)1):A*(C>0?C:1)*(0$(M3DIR=+)1)")
+  field(CALC, "(B=0?A:-A)*(C>0?C:1)*D")
   field(INPA, "$(M3=$(P)$(Q):NOMOTOR).ERES CP")
   field(INPB, "$(M3=$(P)$(Q):NOMOTOR).DIR CP")
   field(INPC, "$(M3=$(P)$(Q):NOMOTOR):SCALE CP")
+  field(INPD, "$(M3DIR=+)$(M3MULT=1)")
   field(PREC, "4")
 }
 
 record(calcout, "$(P)$(Q):M4:ERES") {
-  field(CALC, "B?-A*(C>0?C:1)*(0$(M4DIR=+)1):A*(C>0?C:1)*(0$(M4DIR=+)1)")
+  field(CALC, "(B=0?A:-A)*(C>0?C:1)*D")
   field(INPA, "$(M4=$(P)$(Q):NOMOTOR).ERES CP")
   field(INPB, "$(M4=$(P)$(Q):NOMOTOR).DIR CP")
   field(INPC, "$(M4=$(P)$(Q):NOMOTOR):SCALE CP")
+  field(INPD, "$(M4DIR=+)$(M4MULT=1)")
   field(PREC, "4")
 }
 
