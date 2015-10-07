@@ -2007,6 +2007,16 @@ record(longin, "$(P)$(Q):SizeX_RBV")
    field(DISA, "1")
 }
 
+record(longout, "$(P)$(Q):SizeY")
+{
+   field(DISA, "1")
+}
+
+record(longin, "$(P)$(Q):SizeY_RBV")
+{
+   field(DISA, "1")
+}
+
 record(bo, "$(P)$(Q):ReverseX")
 {
    field(DISA, "1")
@@ -2061,9 +2071,9 @@ record(mbbo, "$(P)$(Q):ImageMode")
 {
    field(ZRST, "$(EMPTY=)")
    field(ZRVL, "$(EMPTY=)")
-   field(TWST, "$(EMPTY=)")
-   field(TWVL, "$(EMPTY=)")
-   field(VAL, "1")
+   field(ONST, "$(EMPTY=)")
+   field(ONVL, "$(EMPTY=)")
+   field(VAL, "2")
 }
 
 record(mbbo, "$(P)$(Q):TriggerMode")

@@ -38,6 +38,9 @@
 /* This is the number of waveforms to store */
 #define NARRAYS 10
 
+/* This is the frame height for the NDArrays */
+#define FRAMEHEIGHT 1
+
 /* This is the number of filtered waveforms to allow */
 #define NFILT 4
 
@@ -129,7 +132,7 @@ protected:
 #define NUM_PARAMS (&LAST_PARAM - &FIRST_PARAM + 1) + NARRAYS*4 + NFILT*3 + NREGS + NREGS*2
 
 private:
-    void allocateFrame(int size_y, int scale);
+    void allocateFrame();
     void wrapFrame();
 
 private:
@@ -343,7 +346,7 @@ zebra::zebra(const char* portName, const char* serialPortName, int maxPts, int m
 	setStringParam(ADManufacturer, "Diamond Light Source Ltd.");
 	setStringParam(ADModel, "Zebra");
 	setIntegerParam(ADMaxSizeX, NARRAYS + 1);
-	setIntegerParam(ADMaxSizeY, maxPts);
+	setIntegerParam(ADMaxSizeY, FRAMEHEIGHT);
 	setIntegerParam(NDDataType, 7);
 	setIntegerParam(ADStatus, ADStatusIdle);
 	setStringParam(ADStatusMessage, "Idle");
@@ -483,7 +486,7 @@ void zebra::resetBuffers() {
 /* This is the function that will be run for the interrupt service thread */
 void zebra::interruptTask() {
 	const char *functionName = "interruptTask";
-	int cap, param, incr, size_y = 0;
+	int cap, param, incr;
 	unsigned int time, nfound;
 	char *rxBuffer, *ptr, escapedbuff[NBUFF];
 	epicsTimeStamp start, end;
@@ -501,17 +504,6 @@ void zebra::interruptTask() {
                 setIntegerParam(zebraArrayAcq, 1);
                 // This is zebra telling us to reset our buffers
                 this->resetBuffers();
-                //TODO: find out if the following block of code is actually needed
-                /*// Dig the current time stamp scaling out of the registry
-                int tspre, scale = 0;
-                findParam("PC_TSPRE", &tspre);
-                getIntegerParam(tspre, &scale);
-                // Re-allocate the areaDetector frame
-		        getIntegerParam(ADSizeY, &size_y);
-		        if (size_y > this->maxPts) {
-		            size_y = this->maxPts;
-		        }
-		        allocateFrame(size_y, scale);*/
 				// reset num cap
 				findParam("PC_NUM_CAPLO", &param);
 				setIntegerParam(param, 0);
@@ -546,6 +538,20 @@ void zebra::interruptTask() {
 					free(rxBuffer);
 					continue;
 				}
+				// Allocate an NDArray for the frame
+				this->allocateFrame();
+				// Temporary pointer to NDArray data for easier reading
+				double* pFrame = NULL;
+				if (this->pArray != NULL) {
+				    pFrame = (double*)this->pArray->pData;
+				}
+				// Temporary pointer to list of NDAttributes in frame for easier reading
+				NDAttributeList* pAttrs = NULL;
+				if (this->pArray != NULL) {
+				    pAttrs = pArray->pAttributeList;
+				}
+				// Temporary pointer to iterate trough the NDAttributes
+				NDAttribute* pAttr = NULL;
 				// See which encoders are being captured so we can decode the interrupt
 				findParam("PC_BIT_CAP", &param);
 				getIntegerParam(param, &cap);
@@ -580,24 +586,28 @@ void zebra::interruptTask() {
 					if (this->currPt < this->maxPts) {
 						this->capArrays[a][this->currPt] = dvalue;
 					}
-					// save value in frame if frame isn't full
-					if ((this->currPt < size_y) && (this->pArray != NULL)) {
-					    // temporary pointer to NDArray data for easier reading
-					    double* pFrame = (double*)this->pArray->pData;
+					// save value in NDArray frame data array
+					if (pFrame != NULL) {
 					    // set single data point
-					    int index = (NARRAYS + 1) * this->currPt + a;
-					    pFrame[index] = dvalue;
+					    pFrame[a] = dvalue;
+					}
+					// save value as an NDAttribute
+					if (pAttrs != NULL) {
+					    pAttr = pAttrs->next(pAttr);
+					    if (pAttr != NULL) pAttr->setValue(NDAttrFloat64, &dvalue);
 					}
 					// Note: don't do callParamCallbacks here, or we'll swamp asyn
 				}
 				// record the time stamp in the last column of the NDArray
-				if ((this->currPt < size_y) && (this->pArray != NULL)) {
-				    // temporary pointer to NDArray data for easier reading
-				    double* pFrame = (double*)this->pArray->pData;
-				    // set single data point
-				    int index = (NARRAYS + 1) * this->currPt + NARRAYS;
-				    pFrame[index] = this->PCTime[this->currPt];
+				if (pFrame != NULL) {
+				    pFrame[NARRAYS] = this->PCTime[this->currPt];
 				}
+				// record the time stamp as the last NDAttribute
+				if (pAttrs != NULL) {
+					    pAttr = pAttrs->next(pAttr);
+					    double ts = this->PCTime[this->currPt];
+					    if (pAttr != NULL) pAttr->setValue(NDAttrFloat64, &ts);
+					}
 				// sanity check
 				if (ptr[0] != '\0') {
 					epicsStrnEscapedFromRaw(escapedbuff, NBUFF, ptr,
@@ -609,10 +619,8 @@ void zebra::interruptTask() {
 				if (this->currPt < this->maxPts) {
 					this->currPt++;
 				}
-				// ship off the NDArray if it's full
-				if ((this->currPt == size_y) && (this->pArray != NULL)) {
-				    wrapFrame();
-				}
+				// ship off the NDArray
+				this->wrapFrame();
 			}
 			free(rxBuffer);
 		}
@@ -1064,7 +1072,7 @@ int zebra::configLine(const char* section, const char* name,
 	return 0; /* unknown section, return error */
 }
 
-void zebra::allocateFrame(int size_y, int scale) {
+void zebra::allocateFrame() {
 	// Release the old NDArray if it exists
 	if (this->pArray != NULL) {
         this->pArray->release();
@@ -1074,30 +1082,11 @@ void zebra::allocateFrame(int size_y, int scale) {
 	size_t dims[2];
     int nDims = 2;
     dims[0] = NARRAYS + 1;
-    getIntegerParam(ADSizeY, &size_y);
-    dims[1] = size_y;
+    dims[1] = FRAMEHEIGHT;
     this->pArray = this->pNDArrayPool->alloc(nDims, dims, NDFloat64, 0, NULL);
     if(this->pArray != NULL) {
-        // NDAttributes are used as column headings for the captured signals
-        std::string signal("Signal ");
-        std::string desc("column heading");
-        // Record the current time stamp scale
-        std::string prefix("TS (");
-        std::string postfix(")");
-        std::string infix;
-        switch (scale) {
-            case 5:     infix = "ms";
-                break;
-            case 5000:  infix = "s";
-                break;
-            case 50000: infix = "10s";
-                break;
-            default:
-                infix = "";
-        }
-        std::stringstream ts;
-        ts << prefix << infix << postfix;
-        printf("ts.str().c_str(): %s\n", ts.str().c_str());
+        // NDAttributes are used to store the samples a second time
+        std::string desc("sample value");
         // Assemble the attribute values
         std::string values[NARRAYS + 1];
         values[0] = "Enc1";
@@ -1110,12 +1099,12 @@ void zebra::allocateFrame(int size_y, int scale) {
         values[7] = "Div2";
         values[8] = "Div3";
         values[9] = "Div4";
-        values[10] = ts.str();
-        // Create the NDAttributes
+        values[10] = "TS";
+        // Create the NDAttributes and initialise them with value 0
         for (int i = 0; i < NARRAYS + 1; i++) {
             std::stringstream name;
-            name << signal << i;
-            NDAttribute *pAttribute = new NDAttribute(name.str().c_str(), desc.c_str(), NDAttrString, (char *)(values[i].c_str()));
+            name << values[i];
+            NDAttribute *pAttribute = new NDAttribute(name.str().c_str(), desc.c_str(), NDAttrFloat64, 0);
             this->pArray->pAttributeList->add(pAttribute);
         }
     }
@@ -1180,45 +1169,16 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value) {
             // Reset buffers to zero so GDA can see that we've cleared
             this->resetBuffers();
 		} else if (strcmp(r->str, "PC_ARM") == 0) {
-		    // Set the immutable array dimension
+		    // Set the frame dimensions
 		    setIntegerParam(NDArraySizeX, NARRAYS + 1);
-		    // Set the variable array dimension
-		    int size_y = 0;
-		    getIntegerParam(ADSizeY, &size_y);
-		    if (size_y > this->maxPts) {
-		        size_y = this->maxPts;
-		    }
-		    setIntegerParam(NDArraySizeY, size_y);
+		    setIntegerParam(NDArraySizeY, FRAMEHEIGHT);
 		    // Set the frame size
-		    setIntegerParam(NDArraySize, sizeof(NDFloat64) * (NARRAYS + 1) * size_y);
-		    // Dig the current time stamp scaling out of the registry
-		    int tspre, scale = 0;
-		    findParam("PC_TSPRE", &tspre);
-		    getIntegerParam(tspre, &scale);
-		    // Allocate an NDArray for the frame
-		    allocateFrame(size_y, scale);
+		    setIntegerParam(NDArraySize, sizeof(NDFloat64) * (NARRAYS + 1) * FRAMEHEIGHT);
 		    // Start acquiring
 		    setIntegerParam(ADAcquire, 1);
 		    setIntegerParam(ADStatus, ADStatusAcquire);
 		    setStringParam(ADStatusMessage, "Acquiring");
 		} else if (strcmp(r->str, "PC_DISARM") == 0) {
-		    int size_y = 0;
-		    getIntegerParam(ADSizeY, &size_y);
-		    if (this->pArray != NULL) {
-		        // Pad the NDArray with zeroes if the acquisition is stopping early
-		        if (this->currPt < size_y) {
-			        int pad_size = size_y - this->currPt;
-			        // Temporary pointer to NDArray data for easier reading
-			        double* pData = (double*)this->pArray->pData;
-			        // Fill in the zeroes
-			        for (int y = 0; y < pad_size; y++) {
-			            for (int x = 0; x < NARRAYS + 1; x++) {
-			                pData[(NARRAYS + 1) * (this->currPt + y) + x] = 0;
-			            }
-			        }
-			    }
-			    wrapFrame();
-            }
 			// Stop acquiring
 		    setIntegerParam(ADAcquire, 0);
 		    setIntegerParam(ADStatus, ADStatusIdle);
