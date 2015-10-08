@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <components arch="linux-x86_64">
 	<asyn.AsynIP name="zebra_ip" port="172.23.241.3:7012"/>
-	<zebra.zebra ADDR="1" P="AD-ZEBRA-01" PORT="zebra_ad" Q="" TIMEOUT="0" serialPort="zebra_ip"/>
-	<areaDetector.NDROI ADDR="0" Enabled="0" NDARRAY_ADDR="0" NDARRAY_PORT="zebra_ad" P="AD-ZEBRA-01" PORT="zebra_ad.roi" R=":ROI:" TIMEOUT="1"/>
-	<areaDetector.NDFileHDF5 ADDR="0" NDARRAY_ADDR="0" NDARRAY_PORT="zebra_ad" P="AD-ZEBRA-01" PORT="zebra_ad.hdf" R=":HDF:" TIMEOUT="1"/>
+	<zebra.zebra ADDR="1" MAXBUF="500" P="AD-ZEBRA-01" PORT="zebra_ad" Q="" TIMEOUT="0" serialPort="zebra_ip"/>
+	<areaDetector.NDROI ADDR="0" Enabled="0" NDARRAY_ADDR="0" NDARRAY_PORT="zebra_ad" P="AD-ZEBRA-01" PORT="zebra_ad.roi" QUEUE="500" R=":ROI:" TIMEOUT="1"/>
+	<areaDetector.NDFileHDF5 ADDR="0" NDARRAY_ADDR="0" NDARRAY_PORT="zebra_ad" P="AD-ZEBRA-01" PORT="zebra_ad.hdf" QUEUE="500" R=":HDF:" TIMEOUT="1"/>
 </components>
