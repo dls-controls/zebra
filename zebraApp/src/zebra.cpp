@@ -112,7 +112,7 @@ protected:
 	int zebraSysBus1;            // string read - system bus key first half
 	int zebraSysBus2;            // string read - system bus key second half
 	int zebraStore;              // int32 write - store config to flash
-	int zebraRestore;              // int32 write - restore config from flash
+	int zebraRestore;            // int32 write - restore config from flash
 	int zebraConfigFile;         // charArray write - filename to read/write config to
 	int zebraConfigRead;         // int32 write - read config from filename
 	int zebraConfigWrite;        // int32 write - write config to filename
@@ -127,7 +127,7 @@ protected:
 	int zebraFiltArrays[NFILT];  // int8array read - position compare sys bus filtered
 	int zebraFiltSel[NFILT];     // int32 read/write - which index of system bus to select for zebraFiltArrays
 	int zebraFiltSelStr[NFILT];  // string read - the name of the entry in the system bus
-	int zebraHILOReg[NREGS];  // int32 read/write - with HI and LO FPGA params behind it
+	int zebraHILOReg[NREGS];     // int32 read/write - with HI and LO FPGA params behind it
 	int zebraReg[NREGS * 2];     // int32 read/write - all zebra params in reg_lookup
 #define NUM_PARAMS (&LAST_PARAM - &FIRST_PARAM + 1) + NARRAYS*4 + NFILT*3 + NREGS + NREGS*2
 
