@@ -1140,8 +1140,9 @@ record(ao, "$(P)$(Q):PC_ARM") {
   field(FLNK, "$(P)$(Q):ARM_SET_BUSY")
 }
 
-record(ao, "$(P)$(Q):ARM_SET_BUSY") {
-  field(OUT, "$(P)$(Q):ARM_BUSY PP")
+record(dfanout, "$(P)$(Q):ARM_SET_BUSY") {
+  field(OUTA, "$(P)$(Q):ARM_BUSY PP")
+  field(OUTB, "$(P)$(Q):Acquire PP")
   field(VAL, "1")
 }
 
@@ -2905,8 +2906,8 @@ record(mbbi, "$(P)$(Q):TriggerMode_RBV")
 #! Link("$(P)$(Q):PC_ARM.FLNK","$(P)$(Q):ARM_SET_BUSY")
 #! Field("$(P)$(Q):PC_ARM.DISP",16777215,1,"$(P)$(Q):PC_ARM.DISP")
 #! Record("$(P)$(Q):ARM_SET_BUSY",660,4836,0,0,"$(P)$(Q):ARM_SET_BUSY")
-#! Field("$(P)$(Q):ARM_SET_BUSY.OUT",16777215,1,"$(P)$(Q):ARM_SET_BUSY.OUT")
-#! Link("$(P)$(Q):ARM_SET_BUSY.OUT","$(P)$(Q):ARM_BUSY.VAL")
+#! Field("$(P)$(Q):ARM_SET_BUSY.OUTA",16777215,1,"$(P)$(Q):ARM_SET_BUSY.OUTA")
+#! Link("$(P)$(Q):ARM_SET_BUSY.OUTA","$(P)$(Q):ARM_BUSY.VAL")
 #! Record("$(P)$(Q):ARM_BUSY",900,4863,0,0,"$(P)$(Q):ARM_BUSY")
 #! Field("$(P)$(Q):ARM_BUSY.VAL",16777215,1,"$(P)$(Q):ARM_BUSY.VAL")
 #! Record("$(P)$(Q):PC_DISARM",180,4856,0,0,"$(P)$(Q):PC_DISARM")

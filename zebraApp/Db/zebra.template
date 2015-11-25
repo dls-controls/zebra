@@ -12462,28 +12462,14 @@ record(ao, "$(P)$(Q):PC_ARM") {
   field(FLNK, "$(P)$(Q):ARM_SET_BUSY")
 }
 
-record(fanout, "$(P)$(Q):ARM_SET_BUSY") {
-    field(LNK1, "$(P)$(Q):ARM_TO_BUSY")
-    field(LNK2, "$(P)$(Q):ARM_TO_ACQ")
-    field(SELM, "All")
-}
-
-record(ao, "$(P)$(Q):ARM_TO_BUSY") {
-  field(OUT, "$(P)$(Q):ARM_BUSY PP")
+record(dfanout, "$(P)$(Q):ARM_SET_BUSY") {
+  field(OUTA, "$(P)$(Q):ARM_BUSY PP")
+  field(OUTB, "$(P)$(Q):Acquire PP")
   field(VAL, "1")
-}
-
-record(ao, "$(P)$(Q):ARM_TO_ACQ") {
-    field(OUT, "$(P)$(Q):Acquire PP")
-    field(VAL, "1")
 }
 
 # % archiver 10 Monitor
 record(busy, "$(P)$(Q):ARM_BUSY") {
-}
-
-record(ao, "$(P)$(Q):ARM_TO_ACQ") {
-
 }
 
 record(ao, "$(P)$(Q):PC_DISARM") {
