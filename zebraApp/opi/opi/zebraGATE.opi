@@ -92,7 +92,7 @@
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)GATE1_INP1:STR</pv_name>
+      <pv_name>$(zebra):GATE1_INP1:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -141,7 +141,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)GATE1_INP1</pv_name>
+      <pv_name>$(zebra):GATE1_INP1</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -214,7 +214,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)GATE1_INP1:STA</pv_name>
+      <pv_name>$(zebra):GATE1_INP1:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -249,7 +249,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)GATE1_INP2:STR</pv_name>
+      <pv_name>$(zebra):GATE1_INP2:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -298,7 +298,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)GATE1_INP2</pv_name>
+      <pv_name>$(zebra):GATE1_INP2</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -371,7 +371,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)GATE1_INP2:STA</pv_name>
+      <pv_name>$(zebra):GATE1_INP2:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -519,7 +519,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)GATE1_OUT</pv_name>
+      <pv_name>$(zebra):GATE1_OUT</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -668,7 +668,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)POLARITY:B0</pv_name>
+      <pv_name>$(zebra):POLARITY:B0</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -761,7 +761,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)POLARITY:B4</pv_name>
+      <pv_name>$(zebra):POLARITY:B4</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -861,7 +861,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)GATE2_INP1:STR</pv_name>
+      <pv_name>$(zebra):GATE2_INP1:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -910,7 +910,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)GATE2_INP1</pv_name>
+      <pv_name>$(zebra):GATE2_INP1</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -983,7 +983,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)GATE2_INP1:STA</pv_name>
+      <pv_name>$(zebra):GATE2_INP1:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -1018,7 +1018,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)GATE2_INP2:STR</pv_name>
+      <pv_name>$(zebra):GATE2_INP2:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1067,7 +1067,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)GATE2_INP2</pv_name>
+      <pv_name>$(zebra):GATE2_INP2</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -1140,7 +1140,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)GATE2_INP2:STA</pv_name>
+      <pv_name>$(zebra):GATE2_INP2:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -1288,7 +1288,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)GATE2_OUT</pv_name>
+      <pv_name>$(zebra):GATE2_OUT</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -1437,7 +1437,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)POLARITY:B1</pv_name>
+      <pv_name>$(zebra):POLARITY:B1</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -1530,7 +1530,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)POLARITY:B5</pv_name>
+      <pv_name>$(zebra):POLARITY:B5</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -1630,7 +1630,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)GATE3_INP1:STR</pv_name>
+      <pv_name>$(zebra):GATE3_INP1:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1679,7 +1679,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)GATE3_INP1</pv_name>
+      <pv_name>$(zebra):GATE3_INP1</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -1752,7 +1752,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)GATE3_INP1:STA</pv_name>
+      <pv_name>$(zebra):GATE3_INP1:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -1787,7 +1787,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)GATE3_INP2:STR</pv_name>
+      <pv_name>$(zebra):GATE3_INP2:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1836,7 +1836,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)GATE3_INP2</pv_name>
+      <pv_name>$(zebra):GATE3_INP2</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -1909,7 +1909,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)GATE3_INP2:STA</pv_name>
+      <pv_name>$(zebra):GATE3_INP2:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2057,7 +2057,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)GATE3_OUT</pv_name>
+      <pv_name>$(zebra):GATE3_OUT</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2206,7 +2206,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)POLARITY:B2</pv_name>
+      <pv_name>$(zebra):POLARITY:B2</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -2299,7 +2299,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)POLARITY:B6</pv_name>
+      <pv_name>$(zebra):POLARITY:B6</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -2399,7 +2399,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)GATE4_INP1:STR</pv_name>
+      <pv_name>$(zebra):GATE4_INP1:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -2448,7 +2448,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)GATE4_INP1</pv_name>
+      <pv_name>$(zebra):GATE4_INP1</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -2521,7 +2521,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)GATE4_INP1:STA</pv_name>
+      <pv_name>$(zebra):GATE4_INP1:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2556,7 +2556,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)GATE4_INP2:STR</pv_name>
+      <pv_name>$(zebra):GATE4_INP2:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -2605,7 +2605,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)GATE4_INP2</pv_name>
+      <pv_name>$(zebra):GATE4_INP2</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -2678,7 +2678,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)GATE4_INP2:STA</pv_name>
+      <pv_name>$(zebra):GATE4_INP2:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2826,7 +2826,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)GATE4_OUT</pv_name>
+      <pv_name>$(zebra):GATE4_OUT</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2975,7 +2975,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)POLARITY:B3</pv_name>
+      <pv_name>$(zebra):POLARITY:B3</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -3068,7 +3068,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)POLARITY:B7</pv_name>
+      <pv_name>$(zebra):POLARITY:B7</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>

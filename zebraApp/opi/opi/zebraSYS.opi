@@ -92,7 +92,7 @@
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT1_TTL:STR</pv_name>
+      <pv_name>$(zebra):OUT1_TTL:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -141,7 +141,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT1_TTL</pv_name>
+      <pv_name>$(zebra):OUT1_TTL</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -214,7 +214,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT1_TTL:STA</pv_name>
+      <pv_name>$(zebra):OUT1_TTL:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -290,7 +290,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT1_NIM:STR</pv_name>
+      <pv_name>$(zebra):OUT1_NIM:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -339,7 +339,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT1_NIM</pv_name>
+      <pv_name>$(zebra):OUT1_NIM</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -412,7 +412,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT1_NIM:STA</pv_name>
+      <pv_name>$(zebra):OUT1_NIM:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -488,7 +488,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT1_LVDS:STR</pv_name>
+      <pv_name>$(zebra):OUT1_LVDS:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -537,7 +537,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT1_LVDS</pv_name>
+      <pv_name>$(zebra):OUT1_LVDS</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -610,7 +610,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT1_LVDS:STA</pv_name>
+      <pv_name>$(zebra):OUT1_LVDS:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -686,7 +686,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT2_TTL:STR</pv_name>
+      <pv_name>$(zebra):OUT2_TTL:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -735,7 +735,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT2_TTL</pv_name>
+      <pv_name>$(zebra):OUT2_TTL</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -808,7 +808,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT2_TTL:STA</pv_name>
+      <pv_name>$(zebra):OUT2_TTL:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -884,7 +884,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT2_NIM:STR</pv_name>
+      <pv_name>$(zebra):OUT2_NIM:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -933,7 +933,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT2_NIM</pv_name>
+      <pv_name>$(zebra):OUT2_NIM</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -1006,7 +1006,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT2_NIM:STA</pv_name>
+      <pv_name>$(zebra):OUT2_NIM:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -1082,7 +1082,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT2_LVDS:STR</pv_name>
+      <pv_name>$(zebra):OUT2_LVDS:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1131,7 +1131,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT2_LVDS</pv_name>
+      <pv_name>$(zebra):OUT2_LVDS</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -1204,7 +1204,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT2_LVDS:STA</pv_name>
+      <pv_name>$(zebra):OUT2_LVDS:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -1280,7 +1280,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT3_TTL:STR</pv_name>
+      <pv_name>$(zebra):OUT3_TTL:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1329,7 +1329,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT3_TTL</pv_name>
+      <pv_name>$(zebra):OUT3_TTL</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -1402,7 +1402,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT3_TTL:STA</pv_name>
+      <pv_name>$(zebra):OUT3_TTL:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -1478,7 +1478,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT3_OC:STR</pv_name>
+      <pv_name>$(zebra):OUT3_OC:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1527,7 +1527,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT3_OC</pv_name>
+      <pv_name>$(zebra):OUT3_OC</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -1600,7 +1600,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT3_OC:STA</pv_name>
+      <pv_name>$(zebra):OUT3_OC:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -1676,7 +1676,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT3_LVDS:STR</pv_name>
+      <pv_name>$(zebra):OUT3_LVDS:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1725,7 +1725,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT3_LVDS</pv_name>
+      <pv_name>$(zebra):OUT3_LVDS</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -1798,7 +1798,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT3_LVDS:STA</pv_name>
+      <pv_name>$(zebra):OUT3_LVDS:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -1874,7 +1874,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT4_TTL:STR</pv_name>
+      <pv_name>$(zebra):OUT4_TTL:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1923,7 +1923,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT4_TTL</pv_name>
+      <pv_name>$(zebra):OUT4_TTL</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -1996,7 +1996,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT4_TTL:STA</pv_name>
+      <pv_name>$(zebra):OUT4_TTL:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2072,7 +2072,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT4_NIM:STR</pv_name>
+      <pv_name>$(zebra):OUT4_NIM:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -2121,7 +2121,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT4_NIM</pv_name>
+      <pv_name>$(zebra):OUT4_NIM</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -2194,7 +2194,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT4_NIM:STA</pv_name>
+      <pv_name>$(zebra):OUT4_NIM:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2270,7 +2270,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT4_PECL:STR</pv_name>
+      <pv_name>$(zebra):OUT4_PECL:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -2319,7 +2319,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT4_PECL</pv_name>
+      <pv_name>$(zebra):OUT4_PECL</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -2392,7 +2392,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT4_PECL:STA</pv_name>
+      <pv_name>$(zebra):OUT4_PECL:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2509,7 +2509,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT5_ENCA:STR</pv_name>
+      <pv_name>$(zebra):OUT5_ENCA:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -2558,7 +2558,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT5_ENCA</pv_name>
+      <pv_name>$(zebra):OUT5_ENCA</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -2631,7 +2631,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT5_ENCA:STA</pv_name>
+      <pv_name>$(zebra):OUT5_ENCA:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2707,7 +2707,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT5_ENCB:STR</pv_name>
+      <pv_name>$(zebra):OUT5_ENCB:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -2756,7 +2756,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT5_ENCB</pv_name>
+      <pv_name>$(zebra):OUT5_ENCB</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -2829,7 +2829,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT5_ENCB:STA</pv_name>
+      <pv_name>$(zebra):OUT5_ENCB:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2905,7 +2905,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT5_ENCZ:STR</pv_name>
+      <pv_name>$(zebra):OUT5_ENCZ:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -2954,7 +2954,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT5_ENCZ</pv_name>
+      <pv_name>$(zebra):OUT5_ENCZ</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -3027,7 +3027,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT5_ENCZ:STA</pv_name>
+      <pv_name>$(zebra):OUT5_ENCZ:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -3103,7 +3103,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT5_CONN:STR</pv_name>
+      <pv_name>$(zebra):OUT5_CONN:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -3152,7 +3152,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT5_CONN</pv_name>
+      <pv_name>$(zebra):OUT5_CONN</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -3225,7 +3225,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT5_CONN:STA</pv_name>
+      <pv_name>$(zebra):OUT5_CONN:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -3301,7 +3301,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT6_ENCA:STR</pv_name>
+      <pv_name>$(zebra):OUT6_ENCA:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -3350,7 +3350,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT6_ENCA</pv_name>
+      <pv_name>$(zebra):OUT6_ENCA</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -3423,7 +3423,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT6_ENCA:STA</pv_name>
+      <pv_name>$(zebra):OUT6_ENCA:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -3499,7 +3499,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT6_ENCB:STR</pv_name>
+      <pv_name>$(zebra):OUT6_ENCB:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -3548,7 +3548,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT6_ENCB</pv_name>
+      <pv_name>$(zebra):OUT6_ENCB</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -3621,7 +3621,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT6_ENCB:STA</pv_name>
+      <pv_name>$(zebra):OUT6_ENCB:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -3697,7 +3697,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT6_ENCZ:STR</pv_name>
+      <pv_name>$(zebra):OUT6_ENCZ:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -3746,7 +3746,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT6_ENCZ</pv_name>
+      <pv_name>$(zebra):OUT6_ENCZ</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -3819,7 +3819,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT6_ENCZ:STA</pv_name>
+      <pv_name>$(zebra):OUT6_ENCZ:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -3895,7 +3895,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT6_CONN:STR</pv_name>
+      <pv_name>$(zebra):OUT6_CONN:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -3944,7 +3944,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT6_CONN</pv_name>
+      <pv_name>$(zebra):OUT6_CONN</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -4017,7 +4017,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT6_CONN:STA</pv_name>
+      <pv_name>$(zebra):OUT6_CONN:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -4093,7 +4093,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT7_ENCA:STR</pv_name>
+      <pv_name>$(zebra):OUT7_ENCA:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -4142,7 +4142,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT7_ENCA</pv_name>
+      <pv_name>$(zebra):OUT7_ENCA</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -4215,7 +4215,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT7_ENCA:STA</pv_name>
+      <pv_name>$(zebra):OUT7_ENCA:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -4291,7 +4291,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT7_ENCB:STR</pv_name>
+      <pv_name>$(zebra):OUT7_ENCB:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -4340,7 +4340,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT7_ENCB</pv_name>
+      <pv_name>$(zebra):OUT7_ENCB</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -4413,7 +4413,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT7_ENCB:STA</pv_name>
+      <pv_name>$(zebra):OUT7_ENCB:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -4489,7 +4489,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT7_ENCZ:STR</pv_name>
+      <pv_name>$(zebra):OUT7_ENCZ:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -4538,7 +4538,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT7_ENCZ</pv_name>
+      <pv_name>$(zebra):OUT7_ENCZ</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -4611,7 +4611,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT7_ENCZ:STA</pv_name>
+      <pv_name>$(zebra):OUT7_ENCZ:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -4687,7 +4687,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT7_CONN:STR</pv_name>
+      <pv_name>$(zebra):OUT7_CONN:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -4736,7 +4736,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT7_CONN</pv_name>
+      <pv_name>$(zebra):OUT7_CONN</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -4809,7 +4809,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT7_CONN:STA</pv_name>
+      <pv_name>$(zebra):OUT7_CONN:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -4885,7 +4885,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT8_ENCA:STR</pv_name>
+      <pv_name>$(zebra):OUT8_ENCA:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -4934,7 +4934,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT8_ENCA</pv_name>
+      <pv_name>$(zebra):OUT8_ENCA</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -5007,7 +5007,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT8_ENCA:STA</pv_name>
+      <pv_name>$(zebra):OUT8_ENCA:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -5083,7 +5083,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT8_ENCB:STR</pv_name>
+      <pv_name>$(zebra):OUT8_ENCB:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -5132,7 +5132,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT8_ENCB</pv_name>
+      <pv_name>$(zebra):OUT8_ENCB</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -5205,7 +5205,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT8_ENCB:STA</pv_name>
+      <pv_name>$(zebra):OUT8_ENCB:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -5281,7 +5281,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT8_ENCZ:STR</pv_name>
+      <pv_name>$(zebra):OUT8_ENCZ:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -5330,7 +5330,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT8_ENCZ</pv_name>
+      <pv_name>$(zebra):OUT8_ENCZ</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -5403,7 +5403,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT8_ENCZ:STA</pv_name>
+      <pv_name>$(zebra):OUT8_ENCZ:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -5479,7 +5479,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT8_CONN:STR</pv_name>
+      <pv_name>$(zebra):OUT8_CONN:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -5528,7 +5528,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)OUT8_CONN</pv_name>
+      <pv_name>$(zebra):OUT8_CONN</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -5601,7 +5601,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)OUT8_CONN:STA</pv_name>
+      <pv_name>$(zebra):OUT8_CONN:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -5718,7 +5718,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)SYS_VER</pv_name>
+      <pv_name>$(zebra):SYS_VER</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -5804,7 +5804,7 @@ $(pv_value)</tooltip>
         <height_scalable>true</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)CONFIG_WRITE.PROC</pv_name>
+      <pv_name>$(zebra):CONFIG_WRITE.PROC</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -5853,7 +5853,7 @@ $(pv_value)</tooltip>
         <height_scalable>true</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)CONFIG_READ.PROC</pv_name>
+      <pv_name>$(zebra):CONFIG_READ.PROC</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -5927,7 +5927,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>1</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)CONFIG_FILE</pv_name>
+      <pv_name>$(zebra):CONFIG_FILE</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -5960,7 +5960,7 @@ $(pv_value)</tooltip>
         <height_scalable>true</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)STORE.PROC</pv_name>
+      <pv_name>$(zebra):STORE.PROC</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -6009,7 +6009,7 @@ $(pv_value)</tooltip>
         <height_scalable>true</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)RESTORE.PROC</pv_name>
+      <pv_name>$(zebra):RESTORE.PROC</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -6064,7 +6064,7 @@ $(pv_value)</tooltip>
       <format_type>4</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)CONFIG_STATUS</pv_name>
+      <pv_name>$(zebra):CONFIG_STATUS</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>

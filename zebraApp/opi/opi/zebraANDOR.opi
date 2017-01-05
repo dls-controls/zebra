@@ -92,7 +92,7 @@
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)1_INP1:STR</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_INP1:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -141,7 +141,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)1_INP1</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_INP1</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -214,7 +214,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)1_INP1:STA</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_INP1:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -249,7 +249,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)1_INP2:STR</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_INP2:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -298,7 +298,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)1_INP2</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_INP2</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -371,7 +371,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)1_INP2:STA</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_INP2:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -406,7 +406,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)1_INP3:STR</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_INP3:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -455,7 +455,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)1_INP3</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_INP3</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -528,7 +528,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)1_INP3:STA</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_INP3:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -563,7 +563,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)1_INP4:STR</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_INP4:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -612,7 +612,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)1_INP4</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_INP4</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -685,7 +685,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)1_INP4:STA</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_INP4:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -714,7 +714,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)1_INV:B0</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_INV:B0</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -760,7 +760,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)1_INV:B1</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_INV:B1</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -806,7 +806,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)1_INV:B2</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_INV:B2</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -852,7 +852,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)1_INV:B3</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_INV:B3</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -978,7 +978,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)1_ENA:B0</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_ENA:B0</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -1103,7 +1103,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)1_OUT</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_OUT</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -1212,7 +1212,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)1_ENA:B1</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_ENA:B1</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -1258,7 +1258,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)1_ENA:B2</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_ENA:B2</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -1304,7 +1304,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)1_ENA:B3</pv_name>
+      <pv_name>$(zebra):$(ANDOR)1_ENA:B3</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -1397,7 +1397,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)2_INP1:STR</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_INP1:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1446,7 +1446,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)2_INP1</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_INP1</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -1519,7 +1519,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)2_INP1:STA</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_INP1:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -1554,7 +1554,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)2_INP2:STR</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_INP2:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1603,7 +1603,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)2_INP2</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_INP2</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -1676,7 +1676,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)2_INP2:STA</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_INP2:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -1711,7 +1711,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)2_INP3:STR</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_INP3:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1760,7 +1760,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)2_INP3</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_INP3</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -1833,7 +1833,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)2_INP3:STA</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_INP3:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -1868,7 +1868,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)2_INP4:STR</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_INP4:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1917,7 +1917,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)2_INP4</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_INP4</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -1990,7 +1990,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)2_INP4:STA</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_INP4:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2019,7 +2019,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)2_INV:B0</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_INV:B0</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -2065,7 +2065,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)2_INV:B1</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_INV:B1</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -2111,7 +2111,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)2_INV:B2</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_INV:B2</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -2157,7 +2157,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)2_INV:B3</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_INV:B3</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -2283,7 +2283,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)2_ENA:B0</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_ENA:B0</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -2408,7 +2408,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)2_OUT</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_OUT</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2517,7 +2517,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)2_ENA:B1</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_ENA:B1</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -2563,7 +2563,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)2_ENA:B2</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_ENA:B2</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -2609,7 +2609,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)2_ENA:B3</pv_name>
+      <pv_name>$(zebra):$(ANDOR)2_ENA:B3</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -2702,7 +2702,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)3_INP1:STR</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_INP1:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -2751,7 +2751,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)3_INP1</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_INP1</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -2824,7 +2824,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)3_INP1:STA</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_INP1:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2859,7 +2859,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)3_INP2:STR</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_INP2:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -2908,7 +2908,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)3_INP2</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_INP2</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -2981,7 +2981,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)3_INP2:STA</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_INP2:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -3016,7 +3016,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)3_INP3:STR</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_INP3:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -3065,7 +3065,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)3_INP3</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_INP3</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -3138,7 +3138,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)3_INP3:STA</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_INP3:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -3173,7 +3173,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)3_INP4:STR</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_INP4:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -3222,7 +3222,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)3_INP4</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_INP4</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -3295,7 +3295,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)3_INP4:STA</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_INP4:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -3324,7 +3324,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)3_INV:B0</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_INV:B0</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -3370,7 +3370,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)3_INV:B1</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_INV:B1</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -3416,7 +3416,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)3_INV:B2</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_INV:B2</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -3462,7 +3462,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)3_INV:B3</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_INV:B3</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -3588,7 +3588,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)3_ENA:B0</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_ENA:B0</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -3713,7 +3713,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)3_OUT</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_OUT</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -3822,7 +3822,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)3_ENA:B1</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_ENA:B1</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -3868,7 +3868,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)3_ENA:B2</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_ENA:B2</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -3914,7 +3914,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)3_ENA:B3</pv_name>
+      <pv_name>$(zebra):$(ANDOR)3_ENA:B3</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -4007,7 +4007,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)4_INP1:STR</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_INP1:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -4056,7 +4056,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)4_INP1</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_INP1</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -4129,7 +4129,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)4_INP1:STA</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_INP1:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -4164,7 +4164,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)4_INP2:STR</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_INP2:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -4213,7 +4213,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)4_INP2</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_INP2</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -4286,7 +4286,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)4_INP2:STA</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_INP2:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -4321,7 +4321,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)4_INP3:STR</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_INP3:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -4370,7 +4370,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)4_INP3</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_INP3</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -4443,7 +4443,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)4_INP3:STA</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_INP3:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -4478,7 +4478,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)4_INP4:STR</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_INP4:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -4527,7 +4527,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)$(ANDOR)4_INP4</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_INP4</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -4600,7 +4600,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)4_INP4:STA</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_INP4:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -4629,7 +4629,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)4_INV:B0</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_INV:B0</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -4675,7 +4675,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)4_INV:B1</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_INV:B1</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -4721,7 +4721,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)4_INV:B2</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_INV:B2</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -4767,7 +4767,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)4_INV:B3</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_INV:B3</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -4893,7 +4893,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)4_ENA:B0</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_ENA:B0</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -5018,7 +5018,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)$(ANDOR)4_OUT</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_OUT</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -5127,7 +5127,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)4_ENA:B1</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_ENA:B1</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -5173,7 +5173,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)4_ENA:B2</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_ENA:B2</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -5219,7 +5219,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)$(ANDOR)4_ENA:B3</pv_name>
+      <pv_name>$(zebra):$(ANDOR)4_ENA:B3</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>

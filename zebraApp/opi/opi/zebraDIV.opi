@@ -92,7 +92,7 @@
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)DIV1_INP:STR</pv_name>
+      <pv_name>$(zebra):DIV1_INP:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -141,7 +141,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)DIV1_INP</pv_name>
+      <pv_name>$(zebra):DIV1_INP</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -214,7 +214,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)DIV1_INP:STA</pv_name>
+      <pv_name>$(zebra):DIV1_INP:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -362,7 +362,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)DIV1_OUTD</pv_name>
+      <pv_name>$(zebra):DIV1_OUTD</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -511,7 +511,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)POLARITY:B8</pv_name>
+      <pv_name>$(zebra):POLARITY:B8</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -604,7 +604,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)DIV_FIRST:B0</pv_name>
+      <pv_name>$(zebra):DIV_FIRST:B0</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -680,7 +680,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)DIV1_DIV</pv_name>
+      <pv_name>$(zebra):DIV1_DIV</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -737,7 +737,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)DIV1_OUTN</pv_name>
+      <pv_name>$(zebra):DIV1_OUTN</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -853,7 +853,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)DIV2_INP:STR</pv_name>
+      <pv_name>$(zebra):DIV2_INP:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -902,7 +902,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)DIV2_INP</pv_name>
+      <pv_name>$(zebra):DIV2_INP</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -975,7 +975,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)DIV2_INP:STA</pv_name>
+      <pv_name>$(zebra):DIV2_INP:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -1123,7 +1123,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)DIV2_OUTD</pv_name>
+      <pv_name>$(zebra):DIV2_OUTD</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -1272,7 +1272,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)POLARITY:B9</pv_name>
+      <pv_name>$(zebra):POLARITY:B9</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -1365,7 +1365,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)DIV_FIRST:B1</pv_name>
+      <pv_name>$(zebra):DIV_FIRST:B1</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -1441,7 +1441,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)DIV2_DIV</pv_name>
+      <pv_name>$(zebra):DIV2_DIV</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -1498,7 +1498,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)DIV2_OUTN</pv_name>
+      <pv_name>$(zebra):DIV2_OUTN</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -1614,7 +1614,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)DIV3_INP:STR</pv_name>
+      <pv_name>$(zebra):DIV3_INP:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1663,7 +1663,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)DIV3_INP</pv_name>
+      <pv_name>$(zebra):DIV3_INP</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -1736,7 +1736,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)DIV3_INP:STA</pv_name>
+      <pv_name>$(zebra):DIV3_INP:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -1884,7 +1884,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)DIV3_OUTD</pv_name>
+      <pv_name>$(zebra):DIV3_OUTD</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2033,7 +2033,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)POLARITY:BA</pv_name>
+      <pv_name>$(zebra):POLARITY:BA</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -2126,7 +2126,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)DIV_FIRST:B2</pv_name>
+      <pv_name>$(zebra):DIV_FIRST:B2</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -2202,7 +2202,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)DIV3_DIV</pv_name>
+      <pv_name>$(zebra):DIV3_DIV</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -2259,7 +2259,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)DIV3_OUTN</pv_name>
+      <pv_name>$(zebra):DIV3_OUTN</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2375,7 +2375,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)DIV4_INP:STR</pv_name>
+      <pv_name>$(zebra):DIV4_INP:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -2424,7 +2424,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)DIV4_INP</pv_name>
+      <pv_name>$(zebra):DIV4_INP</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -2497,7 +2497,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)DIV4_INP:STA</pv_name>
+      <pv_name>$(zebra):DIV4_INP:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2645,7 +2645,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)DIV4_OUTD</pv_name>
+      <pv_name>$(zebra):DIV4_OUTD</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2794,7 +2794,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)POLARITY:BB</pv_name>
+      <pv_name>$(zebra):POLARITY:BB</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -2887,7 +2887,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)DIV_FIRST:B3</pv_name>
+      <pv_name>$(zebra):DIV_FIRST:B3</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -2963,7 +2963,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)DIV4_DIV</pv_name>
+      <pv_name>$(zebra):DIV4_DIV</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -3020,7 +3020,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)DIV4_OUTN</pv_name>
+      <pv_name>$(zebra):DIV4_OUTN</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>

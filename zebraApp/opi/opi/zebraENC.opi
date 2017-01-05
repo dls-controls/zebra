@@ -204,7 +204,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)POS1_SET</pv_name>
+      <pv_name>$(zebra):POS1_SET</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -243,7 +243,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)M1:RBV</pv_name>
+      <pv_name>$(zebra):M1:RBV</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -391,7 +391,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)M1:MRES</pv_name>
+      <pv_name>$(zebra):M1:MRES</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -487,7 +487,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)M1:OFF</pv_name>
+      <pv_name>$(zebra):M1:OFF</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -520,7 +520,7 @@ $(pv_value)</tooltip>
         <height_scalable>true</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)M1:SETPOS.PROC</pv_name>
+      <pv_name>$(zebra):M1:SETPOS.PROC</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -728,7 +728,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)POS2_SET</pv_name>
+      <pv_name>$(zebra):POS2_SET</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -767,7 +767,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)M2:RBV</pv_name>
+      <pv_name>$(zebra):M2:RBV</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -915,7 +915,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)M2:MRES</pv_name>
+      <pv_name>$(zebra):M2:MRES</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -1011,7 +1011,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)M2:OFF</pv_name>
+      <pv_name>$(zebra):M2:OFF</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -1044,7 +1044,7 @@ $(pv_value)</tooltip>
         <height_scalable>true</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)M2:SETPOS.PROC</pv_name>
+      <pv_name>$(zebra):M2:SETPOS.PROC</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -1252,7 +1252,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)POS3_SET</pv_name>
+      <pv_name>$(zebra):POS3_SET</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -1291,7 +1291,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)M3:RBV</pv_name>
+      <pv_name>$(zebra):M3:RBV</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1439,7 +1439,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)M3:MRES</pv_name>
+      <pv_name>$(zebra):M3:MRES</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -1535,7 +1535,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)M3:OFF</pv_name>
+      <pv_name>$(zebra):M3:OFF</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -1568,7 +1568,7 @@ $(pv_value)</tooltip>
         <height_scalable>true</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)M3:SETPOS.PROC</pv_name>
+      <pv_name>$(zebra):M3:SETPOS.PROC</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -1776,7 +1776,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)POS4_SET</pv_name>
+      <pv_name>$(zebra):POS4_SET</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -1815,7 +1815,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)M4:RBV</pv_name>
+      <pv_name>$(zebra):M4:RBV</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1963,7 +1963,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)M4:MRES</pv_name>
+      <pv_name>$(zebra):M4:MRES</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -2059,7 +2059,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)M4:OFF</pv_name>
+      <pv_name>$(zebra):M4:OFF</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -2092,7 +2092,7 @@ $(pv_value)</tooltip>
         <height_scalable>true</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)M4:SETPOS.PROC</pv_name>
+      <pv_name>$(zebra):M4:SETPOS.PROC</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -2188,7 +2188,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)QUAD_STEP:STR</pv_name>
+      <pv_name>$(zebra):QUAD_STEP:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -2237,7 +2237,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)QUAD_STEP</pv_name>
+      <pv_name>$(zebra):QUAD_STEP</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -2310,7 +2310,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)QUAD_STEP:STA</pv_name>
+      <pv_name>$(zebra):QUAD_STEP:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2345,7 +2345,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)QUAD_DIR:STR</pv_name>
+      <pv_name>$(zebra):QUAD_DIR:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -2394,7 +2394,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)QUAD_DIR</pv_name>
+      <pv_name>$(zebra):QUAD_DIR</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -2467,7 +2467,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)QUAD_DIR:STA</pv_name>
+      <pv_name>$(zebra):QUAD_DIR:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2616,7 +2616,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)QUAD_OUTA</pv_name>
+      <pv_name>$(zebra):QUAD_OUTA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2750,7 +2750,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)QUAD_OUTB</pv_name>
+      <pv_name>$(zebra):QUAD_OUTB</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>

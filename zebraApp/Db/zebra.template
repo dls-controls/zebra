@@ -33,7 +33,7 @@
 # % macro, M4HOMESETTLE, Time to wait after an autohome before setting zebra pos to readback pos
 # % macro, ADDR, address for areaDetector port
 # % macro, TIMEOUT, timeout for areaDetector
-# % gui, $(PORT), boydetail, zebraApp_opi/zebra.opi, P=$(P)$(Q):, TITLE=$(P)$(Q)
+# % gui, $(PORT), boydetail, zebraApp_opi/zebra.opi, zebra=$(P)$(Q), P=$(P), R=$(Q):
 # % gui, $(PORT), edm, zebra.edl, zebra=$(P)$(Q), P=$(P), R=$(Q):
 # % gui, $(PORT), edm, zebraAD.edl, P=$(P), R=$(Q):
 # % gui, $(PORT), sevr

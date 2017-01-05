@@ -94,7 +94,7 @@
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)SYS_STAT1LO</pv_name>
+      <pv_name>$(zebra):SYS_STAT1LO</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -164,7 +164,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)SYS_STAT1HI</pv_name>
+      <pv_name>$(zebra):SYS_STAT1HI</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -275,7 +275,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)SYS_STAT2LO</pv_name>
+      <pv_name>$(zebra):SYS_STAT2LO</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -345,7 +345,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)SYS_STAT2HI</pv_name>
+      <pv_name>$(zebra):SYS_STAT2HI</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -456,7 +456,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="165" green="42" blue="42" />
       </off_color>
-      <pv_name>$(P)SYS_STATERR</pv_name>
+      <pv_name>$(zebra):SYS_STATERR</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>

@@ -34,7 +34,7 @@
   <x>-1</x>
   <widget typeId="org.csstudio.opibuilder.widgets.xyGraph" version="1.0.0">
     <trace_1_visible>true</trace_1_visible>
-    <trace_9_y_pv>$(P)PC_FILT2</trace_9_y_pv>
+    <trace_9_y_pv>$(zebra):PC_FILT2</trace_9_y_pv>
     <trace_6_update_delay>100</trace_6_update_delay>
     <trace_1_trace_type>0</trace_1_trace_type>
     <trace_4_point_style>1</trace_4_point_style>
@@ -84,7 +84,7 @@
     <x>0</x>
     <visible>true</visible>
     <trace_0_x_pv_value />
-    <trace_11_x_pv>$(P)PC_TIME</trace_11_x_pv>
+    <trace_11_x_pv>$(zebra):PC_TIME</trace_11_x_pv>
     <axis_1_visible>true</axis_1_visible>
     <trace_9_x_pv_value />
     <height>552</height>
@@ -94,11 +94,11 @@
     <trace_9_name>$(trace_9_y_pv)</trace_9_name>
     <trace_8_buffer_size>1000</trace_8_buffer_size>
     <trace_9_plot_mode>0</trace_9_plot_mode>
-    <trace_4_x_pv>$(P)PC_TIME</trace_4_x_pv>
+    <trace_4_x_pv>$(zebra):PC_TIME</trace_4_x_pv>
     <trace_9_trace_color>
       <color red="0" green="214" blue="255" />
     </trace_9_trace_color>
-    <trace_2_x_pv>$(P)PC_TIME</trace_2_x_pv>
+    <trace_2_x_pv>$(zebra):PC_TIME</trace_2_x_pv>
     <trace_7_update_delay>100</trace_7_update_delay>
     <axis_1_title_font>
       <opifont.name fontName="Sans" height="9" style="0">Default</opifont.name>
@@ -136,12 +136,12 @@
     <trace_2_trace_type>0</trace_2_trace_type>
     <trace_0_name>$(trace_0_y_pv)</trace_0_name>
     <trace_1_anti_alias>true</trace_1_anti_alias>
-    <trace_3_x_pv>$(P)PC_TIME</trace_3_x_pv>
+    <trace_3_x_pv>$(zebra):PC_TIME</trace_3_x_pv>
     <trace_11_y_axis_index>2</trace_11_y_axis_index>
     <axis_2_maximum>2.0</axis_2_maximum>
     <trace_0_update_mode>0</trace_0_update_mode>
-    <trace_10_y_pv>$(P)PC_FILT3</trace_10_y_pv>
-    <trace_9_x_pv>$(P)PC_TIME</trace_9_x_pv>
+    <trace_10_y_pv>$(zebra):PC_FILT3</trace_10_y_pv>
+    <trace_9_x_pv>$(zebra):PC_TIME</trace_9_x_pv>
     <trace_1_buffer_size>1000</trace_1_buffer_size>
     <axis_0_axis_title>Time (          )</axis_0_axis_title>
     <trace_3_line_width>1</trace_3_line_width>
@@ -181,7 +181,7 @@
     <trace_8_name>$(trace_8_y_pv)</trace_8_name>
     <trace_4_update_mode>0</trace_4_update_mode>
     <trace_8_point_style>1</trace_8_point_style>
-    <trace_10_x_pv>$(P)PC_TIME</trace_10_x_pv>
+    <trace_10_x_pv>$(zebra):PC_TIME</trace_10_x_pv>
     <trace_10_visible>true</trace_10_visible>
     <trace_3_concatenate_data>false</trace_3_concatenate_data>
     <trace_3_trace_color>
@@ -199,9 +199,9 @@
     <axis_1_log_scale>false</axis_1_log_scale>
     <trace_8_trace_type>0</trace_8_trace_type>
     <trace_1_point_style>1</trace_1_point_style>
-    <trace_5_x_pv>$(P)PC_TIME</trace_5_x_pv>
+    <trace_5_x_pv>$(zebra):PC_TIME</trace_5_x_pv>
     <axis_2_auto_scale_threshold>1.0</axis_2_auto_scale_threshold>
-    <trace_7_y_pv>$(P)PC_DIV4</trace_7_y_pv>
+    <trace_7_y_pv>$(zebra):PC_DIV4</trace_7_y_pv>
     <trace_11_x_pv_value />
     <trace_11_anti_alias>true</trace_11_anti_alias>
     <trace_5_point_style>1</trace_5_point_style>
@@ -209,7 +209,7 @@
     <title_font>
       <fontdata fontName="Arial" height="12" style="1" />
     </title_font>
-    <trace_6_y_pv>$(P)PC_DIV3</trace_6_y_pv>
+    <trace_6_y_pv>$(zebra):PC_DIV3</trace_6_y_pv>
     <trace_8_y_pv_value />
     <trace_8_trace_color>
       <color red="0" green="255" blue="11" />
@@ -232,9 +232,9 @@
     <trace_6_visible>true</trace_6_visible>
     <trace_7_buffer_size>1000</trace_7_buffer_size>
     <trace_4_trace_type>0</trace_4_trace_type>
-    <trace_0_x_pv>$(P)PC_TIME</trace_0_x_pv>
+    <trace_0_x_pv>$(zebra):PC_TIME</trace_0_x_pv>
     <trace_7_line_width>1</trace_7_line_width>
-    <trace_0_y_pv>$(P)PC_ENC1</trace_0_y_pv>
+    <trace_0_y_pv>$(zebra):PC_ENC1</trace_0_y_pv>
     <trace_5_point_size>4</trace_5_point_size>
     <trace_6_x_pv_value />
     <trace_6_update_mode>0</trace_6_update_mode>
@@ -252,16 +252,16 @@
     <trace_5_y_axis_index>1</trace_5_y_axis_index>
     <trace_7_update_mode>0</trace_7_update_mode>
     <trace_9_trace_type>0</trace_9_trace_type>
-    <trace_3_y_pv>$(P)PC_ENC4</trace_3_y_pv>
+    <trace_3_y_pv>$(zebra):PC_ENC4</trace_3_y_pv>
     <actions hook="false" hook_all="false" />
     <trigger_pv_value />
-    <trace_1_x_pv>$(P)PC_TIME</trace_1_x_pv>
+    <trace_1_x_pv>$(zebra):PC_TIME</trace_1_x_pv>
     <show_plot_area_border>true</show_plot_area_border>
     <trace_4_trace_color>
       <color red="128" green="0" blue="255" />
     </trace_4_trace_color>
     <axis_2_axis_title>Sys Filt(1-4)</axis_2_axis_title>
-    <trace_11_y_pv>$(P)PC_FILT4</trace_11_y_pv>
+    <trace_11_y_pv>$(zebra):PC_FILT4</trace_11_y_pv>
     <trace_8_x_axis_index>0</trace_8_x_axis_index>
     <widget_type>XY Graph</widget_type>
     <enabled>true</enabled>
@@ -284,7 +284,7 @@
     <axis_0_dash_grid_line>true</axis_0_dash_grid_line>
     <trace_2_visible>true</trace_2_visible>
     <trace_5_update_delay>100</trace_5_update_delay>
-    <trace_8_y_pv>$(P)PC_FILT1</trace_8_y_pv>
+    <trace_8_y_pv>$(zebra):PC_FILT1</trace_8_y_pv>
     <trace_0_x_axis_index>0</trace_0_x_axis_index>
     <axis_2_time_format>0</axis_2_time_format>
     <trace_6_y_axis_index>1</trace_6_y_axis_index>
@@ -297,7 +297,7 @@ $(trace_0_y_pv_value)</tooltip>
     <axis_2_title_font>
       <fontdata fontName="Arial" height="9" style="1" />
     </axis_2_title_font>
-    <trace_4_y_pv>$(P)PC_DIV1</trace_4_y_pv>
+    <trace_4_y_pv>$(zebra):PC_DIV1</trace_4_y_pv>
     <trace_1_x_axis_index>0</trace_1_x_axis_index>
     <trace_11_buffer_size>1000</trace_11_buffer_size>
     <trace_6_name>$(trace_6_y_pv)</trace_6_name>
@@ -321,8 +321,8 @@ $(trace_0_y_pv_value)</tooltip>
     <title></title>
     <trace_8_anti_alias>true</trace_8_anti_alias>
     <trace_10_update_delay>100</trace_10_update_delay>
-    <trace_1_y_pv>$(P)PC_ENC2</trace_1_y_pv>
-    <trace_8_x_pv>$(P)PC_TIME</trace_8_x_pv>
+    <trace_1_y_pv>$(zebra):PC_ENC2</trace_1_y_pv>
+    <trace_8_x_pv>$(zebra):PC_TIME</trace_8_x_pv>
     <axis_2_auto_scale>true</axis_2_auto_scale>
     <pv_name></pv_name>
     <axis_1_minimum>0.0</axis_1_minimum>
@@ -337,7 +337,7 @@ $(trace_0_y_pv_value)</tooltip>
     </axis_2_scale_font>
     <trace_11_visible>true</trace_11_visible>
     <axis_2_scale_format></axis_2_scale_format>
-    <trace_7_x_pv>$(P)PC_TIME</trace_7_x_pv>
+    <trace_7_x_pv>$(zebra):PC_TIME</trace_7_x_pv>
     <axis_0_minimum>0.0</axis_0_minimum>
     <trace_5_trace_color>
       <color red="255" green="170" blue="0" />
@@ -380,7 +380,7 @@ $(trace_0_y_pv_value)</tooltip>
     <trace_5_line_width>1</trace_5_line_width>
     <trace_4_y_pv_value />
     <trace_8_plot_mode>0</trace_8_plot_mode>
-    <trace_5_y_pv>$(P)PC_DIV2</trace_5_y_pv>
+    <trace_5_y_pv>$(zebra):PC_DIV2</trace_5_y_pv>
     <trace_7_y_pv_value />
     <trace_5_x_axis_index>0</trace_5_x_axis_index>
     <axis_2_visible>true</axis_2_visible>
@@ -393,7 +393,7 @@ $(trace_0_y_pv_value)</tooltip>
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <trace_1_concatenate_data>false</trace_1_concatenate_data>
-    <trace_6_x_pv>$(P)PC_TIME</trace_6_x_pv>
+    <trace_6_x_pv>$(zebra):PC_TIME</trace_6_x_pv>
     <rules>
       <rule name="trace0" prop_id="trace_0_visible" out_exp="false">
         <exp bool_exp="pv0 != 1.0">
@@ -468,7 +468,7 @@ $(trace_0_y_pv_value)</tooltip>
         <pv trig="true">loc://trace11</pv>
       </rule>
     </rules>
-    <trace_2_y_pv>$(P)PC_ENC3</trace_2_y_pv>
+    <trace_2_y_pv>$(zebra):PC_ENC3</trace_2_y_pv>
     <trace_0_y_pv_value />
     <trace_0_trace_type>0</trace_0_trace_type>
     <axis_1_grid_color>
@@ -908,7 +908,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_ENC1_LAST</pv_name>
+      <pv_name>$(zebra):PC_ENC1_LAST</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -999,7 +999,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_ENC2_LAST</pv_name>
+      <pv_name>$(zebra):PC_ENC2_LAST</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1090,7 +1090,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_ENC3_LAST</pv_name>
+      <pv_name>$(zebra):PC_ENC3_LAST</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1181,7 +1181,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_ENC4_LAST</pv_name>
+      <pv_name>$(zebra):PC_ENC4_LAST</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1272,7 +1272,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_DIV1_LAST</pv_name>
+      <pv_name>$(zebra):PC_DIV1_LAST</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1363,7 +1363,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_DIV2_LAST</pv_name>
+      <pv_name>$(zebra):PC_DIV2_LAST</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1454,7 +1454,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_DIV3_LAST</pv_name>
+      <pv_name>$(zebra):PC_DIV3_LAST</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1545,7 +1545,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_DIV4_LAST</pv_name>
+      <pv_name>$(zebra):PC_DIV4_LAST</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1634,7 +1634,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_FILTSEL1</pv_name>
+      <pv_name>$(zebra):PC_FILTSEL1</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -2097,7 +2097,7 @@ $(pv_value)</tooltip>
         <format_type>0</format_type>
         <precision_from_pv>true</precision_from_pv>
         <transparent>false</transparent>
-        <pv_name>$(P)PC_ENC1_LAST</pv_name>
+        <pv_name>$(zebra):PC_ENC1_LAST</pv_name>
         <background_color>
           <color red="255" green="255" blue="255" />
         </background_color>
@@ -2188,7 +2188,7 @@ $(pv_value)</tooltip>
         <format_type>0</format_type>
         <precision_from_pv>true</precision_from_pv>
         <transparent>false</transparent>
-        <pv_name>$(P)PC_ENC2_LAST</pv_name>
+        <pv_name>$(zebra):PC_ENC2_LAST</pv_name>
         <background_color>
           <color red="255" green="255" blue="255" />
         </background_color>
@@ -2279,7 +2279,7 @@ $(pv_value)</tooltip>
         <format_type>0</format_type>
         <precision_from_pv>true</precision_from_pv>
         <transparent>false</transparent>
-        <pv_name>$(P)PC_ENC3_LAST</pv_name>
+        <pv_name>$(zebra):PC_ENC3_LAST</pv_name>
         <background_color>
           <color red="255" green="255" blue="255" />
         </background_color>
@@ -2370,7 +2370,7 @@ $(pv_value)</tooltip>
         <format_type>0</format_type>
         <precision_from_pv>true</precision_from_pv>
         <transparent>false</transparent>
-        <pv_name>$(P)PC_ENC4_LAST</pv_name>
+        <pv_name>$(zebra):PC_ENC4_LAST</pv_name>
         <background_color>
           <color red="255" green="255" blue="255" />
         </background_color>
@@ -2461,7 +2461,7 @@ $(pv_value)</tooltip>
         <format_type>0</format_type>
         <precision_from_pv>true</precision_from_pv>
         <transparent>false</transparent>
-        <pv_name>$(P)PC_DIV1_LAST</pv_name>
+        <pv_name>$(zebra):PC_DIV1_LAST</pv_name>
         <background_color>
           <color red="255" green="255" blue="255" />
         </background_color>
@@ -2552,7 +2552,7 @@ $(pv_value)</tooltip>
         <format_type>0</format_type>
         <precision_from_pv>true</precision_from_pv>
         <transparent>false</transparent>
-        <pv_name>$(P)PC_DIV2_LAST</pv_name>
+        <pv_name>$(zebra):PC_DIV2_LAST</pv_name>
         <background_color>
           <color red="255" green="255" blue="255" />
         </background_color>
@@ -2643,7 +2643,7 @@ $(pv_value)</tooltip>
         <format_type>0</format_type>
         <precision_from_pv>true</precision_from_pv>
         <transparent>false</transparent>
-        <pv_name>$(P)PC_DIV3_LAST</pv_name>
+        <pv_name>$(zebra):PC_DIV3_LAST</pv_name>
         <background_color>
           <color red="255" green="255" blue="255" />
         </background_color>
@@ -2734,7 +2734,7 @@ $(pv_value)</tooltip>
         <format_type>0</format_type>
         <precision_from_pv>true</precision_from_pv>
         <transparent>false</transparent>
-        <pv_name>$(P)PC_DIV4_LAST</pv_name>
+        <pv_name>$(zebra):PC_DIV4_LAST</pv_name>
         <background_color>
           <color red="255" green="255" blue="255" />
         </background_color>
@@ -2922,7 +2922,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_FILTSEL1:STR</pv_name>
+      <pv_name>$(zebra):PC_FILTSEL1:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -2973,7 +2973,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_FILTSEL2:STR</pv_name>
+      <pv_name>$(zebra):PC_FILTSEL2:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -3024,7 +3024,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_FILTSEL3:STR</pv_name>
+      <pv_name>$(zebra):PC_FILTSEL3:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -3075,7 +3075,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_FILTSEL4:STR</pv_name>
+      <pv_name>$(zebra):PC_FILTSEL4:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -3308,7 +3308,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_FILTSEL2</pv_name>
+      <pv_name>$(zebra):PC_FILTSEL2</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -3361,7 +3361,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_FILTSEL4</pv_name>
+      <pv_name>$(zebra):PC_FILTSEL4</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -3414,7 +3414,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_FILTSEL3</pv_name>
+      <pv_name>$(zebra):PC_FILTSEL3</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -3509,7 +3509,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_NUM_CAP</pv_name>
+      <pv_name>$(zebra):PC_NUM_CAP</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -3600,7 +3600,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_NUM_DOWN</pv_name>
+      <pv_name>$(zebra):PC_NUM_DOWN</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -3709,7 +3709,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)ARRAY_ACQ</pv_name>
+      <pv_name>$(zebra):ARRAY_ACQ</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -3914,7 +3914,7 @@ $(pv_value)</tooltip>
     </foreground_color>
     <widget_type>Label</widget_type>
     <enabled>true</enabled>
-    <text>$(TITLE)</text>
+    <text>Zebra $(zebra)</text>
     <font>
       <fontdata fontName="Sans" height="22" style="1" />
     </font>
@@ -4007,7 +4007,7 @@ $(pv_value)</tooltip>
     <format_type>0</format_type>
     <precision_from_pv>true</precision_from_pv>
     <transparent>true</transparent>
-    <pv_name>$(P)PC_TSPRE:RBV</pv_name>
+    <pv_name>$(zebra):PC_TSPRE:RBV</pv_name>
     <background_color>
       <color red="255" green="255" blue="255" />
     </background_color>

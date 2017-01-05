@@ -126,7 +126,7 @@
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)PC_BIT_CAP:B2</pv_name>
+      <pv_name>$(zebra):PC_BIT_CAP:B2</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -172,7 +172,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)PC_BIT_CAP:B9</pv_name>
+      <pv_name>$(zebra):PC_BIT_CAP:B9</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -218,7 +218,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)PC_BIT_CAP:B3</pv_name>
+      <pv_name>$(zebra):PC_BIT_CAP:B3</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -264,7 +264,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)PC_BIT_CAP:B4</pv_name>
+      <pv_name>$(zebra):PC_BIT_CAP:B4</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -310,7 +310,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)PC_BIT_CAP:B7</pv_name>
+      <pv_name>$(zebra):PC_BIT_CAP:B7</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -356,7 +356,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)PC_BIT_CAP:B8</pv_name>
+      <pv_name>$(zebra):PC_BIT_CAP:B8</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -402,7 +402,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)PC_BIT_CAP:B1</pv_name>
+      <pv_name>$(zebra):PC_BIT_CAP:B1</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -448,7 +448,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)PC_BIT_CAP:B5</pv_name>
+      <pv_name>$(zebra):PC_BIT_CAP:B5</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -494,7 +494,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)PC_BIT_CAP:B6</pv_name>
+      <pv_name>$(zebra):PC_BIT_CAP:B6</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -540,7 +540,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)PC_BIT_CAP:B0</pv_name>
+      <pv_name>$(zebra):PC_BIT_CAP:B0</pv_name>
       <background_color>
         <color red="240" green="240" blue="240" />
       </background_color>
@@ -625,7 +625,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)PC_ENC</pv_name>
+      <pv_name>$(zebra):PC_ENC</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -706,7 +706,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)PC_DIR</pv_name>
+      <pv_name>$(zebra):PC_DIR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -787,7 +787,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)PC_TSPRE</pv_name>
+      <pv_name>$(zebra):PC_TSPRE</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -835,7 +835,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_ENC:RBV</pv_name>
+      <pv_name>$(zebra):PC_ENC:RBV</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -886,7 +886,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_DIR:RBV</pv_name>
+      <pv_name>$(zebra):PC_DIR:RBV</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -937,7 +937,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_TSPRE:RBV</pv_name>
+      <pv_name>$(zebra):PC_TSPRE:RBV</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1117,7 +1117,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)PC_ARM_SEL</pv_name>
+      <pv_name>$(zebra):PC_ARM_SEL</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1159,7 +1159,7 @@ $(pv_value)</tooltip>
         <height_scalable>true</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)PC_ARM</pv_name>
+      <pv_name>$(zebra):PC_ARM</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -1178,7 +1178,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 != &quot;Soft&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_ARM_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_ARM_SEL:RBV</pv>
         </rule>
       </rules>
       <pv_value />
@@ -1215,7 +1215,7 @@ $(pv_value)</tooltip>
         <height_scalable>true</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)PC_DISARM</pv_name>
+      <pv_name>$(zebra):PC_DISARM</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -1246,7 +1246,7 @@ $(pv_value)</tooltip>
           <description></description>
         </action>
         <action type="WRITE_PV">
-          <pv_name>$(P)PC_ARM_OUT</pv_name>
+          <pv_name>$(zebra):PC_ARM_OUT</pv_name>
           <value>0</value>
           <timeout>10</timeout>
           <confirm_message></confirm_message>
@@ -1295,7 +1295,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)PC_ARM_OUT</pv_name>
+      <pv_name>$(zebra):PC_ARM_OUT</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -1303,9 +1303,9 @@ $(pv_value)</tooltip>
       <rules>
         <rule name="Rule" prop_id="pv_name" out_exp="false">
           <exp bool_exp="pvStr0 != &quot;Soft&quot;">
-            <value>$(P)PC_ARM_INP:STA</value>
+            <value>$(zebra):PC_ARM_INP:STA</value>
           </exp>
-          <pv trig="true">$(P)PC_ARM_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_ARM_SEL:RBV</pv>
         </rule>
       </rules>
       <border_color>
@@ -1377,7 +1377,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_ARM_SEL:RBV</pv_name>
+      <pv_name>$(zebra):PC_ARM_SEL:RBV</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1428,7 +1428,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_ARM_INP:STR</pv_name>
+      <pv_name>$(zebra):PC_ARM_INP:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1450,7 +1450,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 != &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_ARM_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_ARM_SEL:RBV</pv>
         </rule>
       </rules>
       <pv_value />
@@ -1484,7 +1484,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_ARM_INP</pv_name>
+      <pv_name>$(zebra):PC_ARM_INP</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -1508,7 +1508,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 != &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_ARM_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_ARM_SEL:RBV</pv>
         </rule>
       </rules>
       <pv_value />
@@ -1620,7 +1620,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)PC_GATE_SEL</pv_name>
+      <pv_name>$(zebra):PC_GATE_SEL</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1686,7 +1686,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)PC_GATE_OUT</pv_name>
+      <pv_name>$(zebra):PC_GATE_OUT</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -1694,9 +1694,9 @@ $(pv_value)</tooltip>
       <rules>
         <rule name="Rule" prop_id="pv_name" out_exp="false">
           <exp bool_exp="pvStr0 != &quot;Soft&quot;">
-            <value>$(P)PC_ARM_INP:STA</value>
+            <value>$(zebra):PC_ARM_INP:STA</value>
           </exp>
-          <pv trig="true">$(P)PC_ARM_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_ARM_SEL:RBV</pv>
         </rule>
       </rules>
       <border_color>
@@ -1768,7 +1768,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_GATE_SEL:RBV</pv_name>
+      <pv_name>$(zebra):PC_GATE_SEL:RBV</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1836,7 +1836,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_GATE_START</pv_name>
+      <pv_name>$(zebra):PC_GATE_START</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -1848,7 +1848,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_GATE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_GATE_SEL:RBV</pv>
         </rule>
       </rules>
       <limits_from_pv>false</limits_from_pv>
@@ -1882,7 +1882,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>true</transparent>
-      <pv_name>$(P)M1:EGU</pv_name>
+      <pv_name>$(zebra):M1:EGU</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1904,13 +1904,13 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_GATE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_GATE_SEL:RBV</pv>
         </rule>
         <rule name="Rule" prop_id="pv_name" out_exp="false">
           <exp bool_exp="pvStr0 == &quot;Time&quot;">
-            <value>$(P)PC_TSPRE:RBV</value>
+            <value>$(zebra):PC_TSPRE:RBV</value>
           </exp>
-          <pv trig="true">$(P)PC_GATE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_GATE_SEL:RBV</pv>
         </rule>
       </rules>
       <pv_value />
@@ -1959,7 +1959,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_GATE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_GATE_SEL:RBV</pv>
         </rule>
       </rules>
       <border_width>1</border_width>
@@ -2010,7 +2010,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_GATE_WID</pv_name>
+      <pv_name>$(zebra):PC_GATE_WID</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -2022,7 +2022,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_GATE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_GATE_SEL:RBV</pv>
         </rule>
       </rules>
       <limits_from_pv>false</limits_from_pv>
@@ -2056,7 +2056,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>true</transparent>
-      <pv_name>$(P)M1:EGU</pv_name>
+      <pv_name>$(zebra):M1:EGU</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -2078,13 +2078,13 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_GATE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_GATE_SEL:RBV</pv>
         </rule>
         <rule name="Rule" prop_id="pv_name" out_exp="false">
           <exp bool_exp="pvStr0 == &quot;Time&quot;">
-            <value>$(P)PC_TSPRE:RBV</value>
+            <value>$(zebra):PC_TSPRE:RBV</value>
           </exp>
-          <pv trig="true">$(P)PC_GATE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_GATE_SEL:RBV</pv>
         </rule>
       </rules>
       <pv_value />
@@ -2133,7 +2133,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_GATE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_GATE_SEL:RBV</pv>
         </rule>
       </rules>
       <border_width>1</border_width>
@@ -2184,7 +2184,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_GATE_STEP</pv_name>
+      <pv_name>$(zebra):PC_GATE_STEP</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -2196,7 +2196,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_GATE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_GATE_SEL:RBV</pv>
         </rule>
       </rules>
       <limits_from_pv>false</limits_from_pv>
@@ -2230,7 +2230,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>true</transparent>
-      <pv_name>$(P)M1:EGU</pv_name>
+      <pv_name>$(zebra):M1:EGU</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -2252,13 +2252,13 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_GATE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_GATE_SEL:RBV</pv>
         </rule>
         <rule name="Rule" prop_id="pv_name" out_exp="false">
           <exp bool_exp="pvStr0 == &quot;Time&quot;">
-            <value>$(P)PC_TSPRE:RBV</value>
+            <value>$(zebra):PC_TSPRE:RBV</value>
           </exp>
-          <pv trig="true">$(P)PC_GATE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_GATE_SEL:RBV</pv>
         </rule>
       </rules>
       <pv_value />
@@ -2307,7 +2307,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_GATE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_GATE_SEL:RBV</pv>
         </rule>
       </rules>
       <border_width>1</border_width>
@@ -2358,7 +2358,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_GATE_NGATE</pv_name>
+      <pv_name>$(zebra):PC_GATE_NGATE</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -2370,7 +2370,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>325</value>
           </exp>
-          <pv trig="true">$(P)PC_GATE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_GATE_SEL:RBV</pv>
         </rule>
       </rules>
       <limits_from_pv>false</limits_from_pv>
@@ -2417,7 +2417,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>325</value>
           </exp>
-          <pv trig="true">$(P)PC_GATE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_GATE_SEL:RBV</pv>
         </rule>
       </rules>
       <border_width>1</border_width>
@@ -2451,7 +2451,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_GATE_INP:STR</pv_name>
+      <pv_name>$(zebra):PC_GATE_INP:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -2473,7 +2473,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 != &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_GATE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_GATE_SEL:RBV</pv>
         </rule>
       </rules>
       <pv_value />
@@ -2507,7 +2507,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_GATE_INP</pv_name>
+      <pv_name>$(zebra):PC_GATE_INP</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -2531,7 +2531,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 != &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_GATE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_GATE_SEL:RBV</pv>
         </rule>
       </rules>
       <pv_value />
@@ -2587,7 +2587,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)PC_GATE_INP:STA</pv_name>
+      <pv_name>$(zebra):PC_GATE_INP:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2597,7 +2597,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 != &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_GATE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_GATE_SEL:RBV</pv>
         </rule>
       </rules>
       <border_color>
@@ -2703,7 +2703,7 @@ $(pv_value)</tooltip>
         <height_scalable>false</height_scalable>
         <keep_wh_ratio>false</keep_wh_ratio>
       </scale_options>
-      <pv_name>$(P)PC_PULSE_SEL</pv_name>
+      <pv_name>$(zebra):PC_PULSE_SEL</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -2769,7 +2769,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)PC_PULSE_OUT</pv_name>
+      <pv_name>$(zebra):PC_PULSE_OUT</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -2777,9 +2777,9 @@ $(pv_value)</tooltip>
       <rules>
         <rule name="Rule" prop_id="pv_name" out_exp="false">
           <exp bool_exp="pvStr0 != &quot;Soft&quot;">
-            <value>$(P)PC_ARM_INP:STA</value>
+            <value>$(zebra):PC_ARM_INP:STA</value>
           </exp>
-          <pv trig="true">$(P)PC_ARM_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_ARM_SEL:RBV</pv>
         </rule>
       </rules>
       <border_color>
@@ -2851,7 +2851,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_PULSE_SEL:RBV</pv_name>
+      <pv_name>$(zebra):PC_PULSE_SEL:RBV</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -2919,7 +2919,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_PULSE_START</pv_name>
+      <pv_name>$(zebra):PC_PULSE_START</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -2931,7 +2931,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
       </rules>
       <limits_from_pv>false</limits_from_pv>
@@ -2965,7 +2965,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>true</transparent>
-      <pv_name>$(P)M1:EGU</pv_name>
+      <pv_name>$(zebra):M1:EGU</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -2987,13 +2987,13 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
         <rule name="Rule" prop_id="pv_name" out_exp="false">
           <exp bool_exp="pvStr0 == &quot;Time&quot;">
-            <value>$(P)PC_TSPRE:RBV</value>
+            <value>$(zebra):PC_TSPRE:RBV</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
       </rules>
       <pv_value />
@@ -3042,7 +3042,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
       </rules>
       <border_width>1</border_width>
@@ -3093,7 +3093,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_PULSE_WID</pv_name>
+      <pv_name>$(zebra):PC_PULSE_WID</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -3105,7 +3105,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
       </rules>
       <limits_from_pv>false</limits_from_pv>
@@ -3139,7 +3139,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>true</transparent>
-      <pv_name>$(P)M1:EGU</pv_name>
+      <pv_name>$(zebra):M1:EGU</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -3161,13 +3161,13 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
         <rule name="Rule" prop_id="pv_name" out_exp="false">
           <exp bool_exp="pvStr0 == &quot;Time&quot;">
-            <value>$(P)PC_TSPRE:RBV</value>
+            <value>$(zebra):PC_TSPRE:RBV</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
       </rules>
       <pv_value />
@@ -3216,7 +3216,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
       </rules>
       <border_width>1</border_width>
@@ -3267,7 +3267,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_PULSE_STEP</pv_name>
+      <pv_name>$(zebra):PC_PULSE_STEP</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -3279,7 +3279,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
       </rules>
       <limits_from_pv>false</limits_from_pv>
@@ -3313,7 +3313,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>true</transparent>
-      <pv_name>$(P)M1:EGU</pv_name>
+      <pv_name>$(zebra):M1:EGU</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -3335,13 +3335,13 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
         <rule name="Rule" prop_id="pv_name" out_exp="false">
           <exp bool_exp="pvStr0 == &quot;Time&quot;">
-            <value>$(P)PC_TSPRE:RBV</value>
+            <value>$(zebra):PC_TSPRE:RBV</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
       </rules>
       <pv_value />
@@ -3390,7 +3390,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
       </rules>
       <border_width>1</border_width>
@@ -3441,7 +3441,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_PULSE_MAX</pv_name>
+      <pv_name>$(zebra):PC_PULSE_MAX</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -3453,7 +3453,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>325</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
       </rules>
       <limits_from_pv>false</limits_from_pv>
@@ -3500,7 +3500,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 == &quot;External&quot;">
             <value>325</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
       </rules>
       <border_width>1</border_width>
@@ -3534,7 +3534,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_PULSE_INP:STR</pv_name>
+      <pv_name>$(zebra):PC_PULSE_INP:STR</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -3556,7 +3556,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 != &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
       </rules>
       <pv_value />
@@ -3590,7 +3590,7 @@ $(pv_value)</tooltip>
       <page_increment>10.0</page_increment>
       <precision_from_pv>false</precision_from_pv>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_PULSE_INP</pv_name>
+      <pv_name>$(zebra):PC_PULSE_INP</pv_name>
       <buttons_on_left>false</buttons_on_left>
       <background_color>
         <color red="255" green="255" blue="255" />
@@ -3614,7 +3614,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 != &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
       </rules>
       <pv_value />
@@ -3670,7 +3670,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)PC_PULSE_INP:STA</pv_name>
+      <pv_name>$(zebra):PC_PULSE_INP:STA</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
@@ -3680,7 +3680,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 != &quot;External&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
       </rules>
       <border_color>
@@ -3712,7 +3712,7 @@ $(pv_value)</tooltip>
       <format_type>0</format_type>
       <precision_from_pv>true</precision_from_pv>
       <transparent>true</transparent>
-      <pv_name>$(P)PC_TSPRE:RBV</pv_name>
+      <pv_name>$(zebra):PC_TSPRE:RBV</pv_name>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -3734,7 +3734,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 != &quot;Time&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
       </rules>
       <pv_value />
@@ -3783,7 +3783,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 != &quot;Time&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
       </rules>
       <border_width>1</border_width>
@@ -3834,7 +3834,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)PC_PULSE_DLY</pv_name>
+      <pv_name>$(zebra):PC_PULSE_DLY</pv_name>
       <foreground_color>
         <color red="0" green="0" blue="0" />
       </foreground_color>
@@ -3846,7 +3846,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pvStr0 != &quot;Time&quot;">
             <value>false</value>
           </exp>
-          <pv trig="true">$(P)PC_PULSE_SEL:RBV</pv>
+          <pv trig="true">$(zebra):PC_PULSE_SEL:RBV</pv>
         </rule>
       </rules>
       <limits_from_pv>false</limits_from_pv>
@@ -3939,7 +3939,7 @@ $(pv_value)</tooltip>
       <off_color>
         <color red="0" green="100" blue="0" />
       </off_color>
-      <pv_name>$(P)ARRAY_ACQ</pv_name>
+      <pv_name>$(zebra):ARRAY_ACQ</pv_name>
       <foreground_color>
         <color red="192" green="192" blue="192" />
       </foreground_color>
