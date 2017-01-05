@@ -33,6 +33,7 @@
 # % macro, M4HOMESETTLE, Time to wait after an autohome before setting zebra pos to readback pos
 # % macro, ADDR, address for areaDetector port
 # % macro, TIMEOUT, timeout for areaDetector
+# % gui, $(PORT), boydetail, zebraApp_opi/zebra.opi, P=$(P)$(Q):, TITLE=$(P)$(Q)
 # % gui, $(PORT), edm, zebra.edl, zebra=$(P)$(Q), P=$(P), R=$(Q):
 # % gui, $(PORT), edm, zebraAD.edl, P=$(P), R=$(Q):
 # % gui, $(PORT), sevr
@@ -198,7 +199,7 @@ record(calc, "$(P)$(Q):SYS_STAT2") {
   field(CALC, "A+(B<<16)")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", AND1_ENA)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", AND1_ENA)
 
 record(ai, "$(P)$(Q):AND1_ENA:RBV") {
   field(DESC, "Readback param value ai")
@@ -565,7 +566,7 @@ record(ao, "$(P)$(Q):AND1_ENA:SET") {
 
 # end(AND1_ENA)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", AND1_INV)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", AND1_INV)
 
 record(ai, "$(P)$(Q):AND1_INV:RBV") {
   field(DESC, "Readback param value ai")
@@ -932,7 +933,7 @@ record(ao, "$(P)$(Q):AND1_INV:SET") {
 
 # end(AND1_INV)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND1_INP1)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND1_INP1)
 
 record(ai, "$(P)$(Q):AND1_INP1:RBV") {
   field(DESC, "Readback param value")
@@ -988,7 +989,7 @@ record(calcout, "$(P)$(Q):AND1_INP1:STA") {
 
 # end(AND1_INP1)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND1_INP2)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND1_INP2)
 
 record(ai, "$(P)$(Q):AND1_INP2:RBV") {
   field(DESC, "Readback param value")
@@ -1044,7 +1045,7 @@ record(calcout, "$(P)$(Q):AND1_INP2:STA") {
 
 # end(AND1_INP2)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND1_INP3)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND1_INP3)
 
 record(ai, "$(P)$(Q):AND1_INP3:RBV") {
   field(DESC, "Readback param value")
@@ -1100,7 +1101,7 @@ record(calcout, "$(P)$(Q):AND1_INP3:STA") {
 
 # end(AND1_INP3)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND1_INP4)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND1_INP4)
 
 record(ai, "$(P)$(Q):AND1_INP4:RBV") {
   field(DESC, "Readback param value")
@@ -1163,7 +1164,7 @@ record(calcout, "$(P)$(Q):AND1_OUT") {
   field(CALC, "A>>0&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", AND2_ENA)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", AND2_ENA)
 
 record(ai, "$(P)$(Q):AND2_ENA:RBV") {
   field(DESC, "Readback param value ai")
@@ -1530,7 +1531,7 @@ record(ao, "$(P)$(Q):AND2_ENA:SET") {
 
 # end(AND2_ENA)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", AND2_INV)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", AND2_INV)
 
 record(ai, "$(P)$(Q):AND2_INV:RBV") {
   field(DESC, "Readback param value ai")
@@ -1897,7 +1898,7 @@ record(ao, "$(P)$(Q):AND2_INV:SET") {
 
 # end(AND2_INV)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND2_INP1)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND2_INP1)
 
 record(ai, "$(P)$(Q):AND2_INP1:RBV") {
   field(DESC, "Readback param value")
@@ -1953,7 +1954,7 @@ record(calcout, "$(P)$(Q):AND2_INP1:STA") {
 
 # end(AND2_INP1)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND2_INP2)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND2_INP2)
 
 record(ai, "$(P)$(Q):AND2_INP2:RBV") {
   field(DESC, "Readback param value")
@@ -2009,7 +2010,7 @@ record(calcout, "$(P)$(Q):AND2_INP2:STA") {
 
 # end(AND2_INP2)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND2_INP3)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND2_INP3)
 
 record(ai, "$(P)$(Q):AND2_INP3:RBV") {
   field(DESC, "Readback param value")
@@ -2065,7 +2066,7 @@ record(calcout, "$(P)$(Q):AND2_INP3:STA") {
 
 # end(AND2_INP3)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND2_INP4)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND2_INP4)
 
 record(ai, "$(P)$(Q):AND2_INP4:RBV") {
   field(DESC, "Readback param value")
@@ -2128,7 +2129,7 @@ record(calcout, "$(P)$(Q):AND2_OUT") {
   field(CALC, "A>>1&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", AND3_ENA)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", AND3_ENA)
 
 record(ai, "$(P)$(Q):AND3_ENA:RBV") {
   field(DESC, "Readback param value ai")
@@ -2495,7 +2496,7 @@ record(ao, "$(P)$(Q):AND3_ENA:SET") {
 
 # end(AND3_ENA)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", AND3_INV)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", AND3_INV)
 
 record(ai, "$(P)$(Q):AND3_INV:RBV") {
   field(DESC, "Readback param value ai")
@@ -2862,7 +2863,7 @@ record(ao, "$(P)$(Q):AND3_INV:SET") {
 
 # end(AND3_INV)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND3_INP1)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND3_INP1)
 
 record(ai, "$(P)$(Q):AND3_INP1:RBV") {
   field(DESC, "Readback param value")
@@ -2918,7 +2919,7 @@ record(calcout, "$(P)$(Q):AND3_INP1:STA") {
 
 # end(AND3_INP1)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND3_INP2)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND3_INP2)
 
 record(ai, "$(P)$(Q):AND3_INP2:RBV") {
   field(DESC, "Readback param value")
@@ -2974,7 +2975,7 @@ record(calcout, "$(P)$(Q):AND3_INP2:STA") {
 
 # end(AND3_INP2)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND3_INP3)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND3_INP3)
 
 record(ai, "$(P)$(Q):AND3_INP3:RBV") {
   field(DESC, "Readback param value")
@@ -3030,7 +3031,7 @@ record(calcout, "$(P)$(Q):AND3_INP3:STA") {
 
 # end(AND3_INP3)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND3_INP4)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND3_INP4)
 
 record(ai, "$(P)$(Q):AND3_INP4:RBV") {
   field(DESC, "Readback param value")
@@ -3093,7 +3094,7 @@ record(calcout, "$(P)$(Q):AND3_OUT") {
   field(CALC, "A>>2&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", AND4_ENA)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", AND4_ENA)
 
 record(ai, "$(P)$(Q):AND4_ENA:RBV") {
   field(DESC, "Readback param value ai")
@@ -3460,7 +3461,7 @@ record(ao, "$(P)$(Q):AND4_ENA:SET") {
 
 # end(AND4_ENA)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", AND4_INV)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", AND4_INV)
 
 record(ai, "$(P)$(Q):AND4_INV:RBV") {
   field(DESC, "Readback param value ai")
@@ -3827,7 +3828,7 @@ record(ao, "$(P)$(Q):AND4_INV:SET") {
 
 # end(AND4_INV)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND4_INP1)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND4_INP1)
 
 record(ai, "$(P)$(Q):AND4_INP1:RBV") {
   field(DESC, "Readback param value")
@@ -3883,7 +3884,7 @@ record(calcout, "$(P)$(Q):AND4_INP1:STA") {
 
 # end(AND4_INP1)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND4_INP2)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND4_INP2)
 
 record(ai, "$(P)$(Q):AND4_INP2:RBV") {
   field(DESC, "Readback param value")
@@ -3939,7 +3940,7 @@ record(calcout, "$(P)$(Q):AND4_INP2:STA") {
 
 # end(AND4_INP2)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND4_INP3)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND4_INP3)
 
 record(ai, "$(P)$(Q):AND4_INP3:RBV") {
   field(DESC, "Readback param value")
@@ -3995,7 +3996,7 @@ record(calcout, "$(P)$(Q):AND4_INP3:STA") {
 
 # end(AND4_INP3)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND4_INP4)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", AND4_INP4)
 
 record(ai, "$(P)$(Q):AND4_INP4:RBV") {
   field(DESC, "Readback param value")
@@ -4058,7 +4059,7 @@ record(calcout, "$(P)$(Q):AND4_OUT") {
   field(CALC, "A>>3&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", OR1_ENA)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", OR1_ENA)
 
 record(ai, "$(P)$(Q):OR1_ENA:RBV") {
   field(DESC, "Readback param value ai")
@@ -4425,7 +4426,7 @@ record(ao, "$(P)$(Q):OR1_ENA:SET") {
 
 # end(OR1_ENA)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", OR1_INV)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", OR1_INV)
 
 record(ai, "$(P)$(Q):OR1_INV:RBV") {
   field(DESC, "Readback param value ai")
@@ -4792,7 +4793,7 @@ record(ao, "$(P)$(Q):OR1_INV:SET") {
 
 # end(OR1_INV)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR1_INP1)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR1_INP1)
 
 record(ai, "$(P)$(Q):OR1_INP1:RBV") {
   field(DESC, "Readback param value")
@@ -4848,7 +4849,7 @@ record(calcout, "$(P)$(Q):OR1_INP1:STA") {
 
 # end(OR1_INP1)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR1_INP2)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR1_INP2)
 
 record(ai, "$(P)$(Q):OR1_INP2:RBV") {
   field(DESC, "Readback param value")
@@ -4904,7 +4905,7 @@ record(calcout, "$(P)$(Q):OR1_INP2:STA") {
 
 # end(OR1_INP2)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR1_INP3)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR1_INP3)
 
 record(ai, "$(P)$(Q):OR1_INP3:RBV") {
   field(DESC, "Readback param value")
@@ -4960,7 +4961,7 @@ record(calcout, "$(P)$(Q):OR1_INP3:STA") {
 
 # end(OR1_INP3)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR1_INP4)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR1_INP4)
 
 record(ai, "$(P)$(Q):OR1_INP4:RBV") {
   field(DESC, "Readback param value")
@@ -5023,7 +5024,7 @@ record(calcout, "$(P)$(Q):OR1_OUT") {
   field(CALC, "A>>4&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", OR2_ENA)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", OR2_ENA)
 
 record(ai, "$(P)$(Q):OR2_ENA:RBV") {
   field(DESC, "Readback param value ai")
@@ -5390,7 +5391,7 @@ record(ao, "$(P)$(Q):OR2_ENA:SET") {
 
 # end(OR2_ENA)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", OR2_INV)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", OR2_INV)
 
 record(ai, "$(P)$(Q):OR2_INV:RBV") {
   field(DESC, "Readback param value ai")
@@ -5757,7 +5758,7 @@ record(ao, "$(P)$(Q):OR2_INV:SET") {
 
 # end(OR2_INV)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR2_INP1)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR2_INP1)
 
 record(ai, "$(P)$(Q):OR2_INP1:RBV") {
   field(DESC, "Readback param value")
@@ -5813,7 +5814,7 @@ record(calcout, "$(P)$(Q):OR2_INP1:STA") {
 
 # end(OR2_INP1)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR2_INP2)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR2_INP2)
 
 record(ai, "$(P)$(Q):OR2_INP2:RBV") {
   field(DESC, "Readback param value")
@@ -5869,7 +5870,7 @@ record(calcout, "$(P)$(Q):OR2_INP2:STA") {
 
 # end(OR2_INP2)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR2_INP3)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR2_INP3)
 
 record(ai, "$(P)$(Q):OR2_INP3:RBV") {
   field(DESC, "Readback param value")
@@ -5925,7 +5926,7 @@ record(calcout, "$(P)$(Q):OR2_INP3:STA") {
 
 # end(OR2_INP3)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR2_INP4)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR2_INP4)
 
 record(ai, "$(P)$(Q):OR2_INP4:RBV") {
   field(DESC, "Readback param value")
@@ -5988,7 +5989,7 @@ record(calcout, "$(P)$(Q):OR2_OUT") {
   field(CALC, "A>>5&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", OR3_ENA)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", OR3_ENA)
 
 record(ai, "$(P)$(Q):OR3_ENA:RBV") {
   field(DESC, "Readback param value ai")
@@ -6355,7 +6356,7 @@ record(ao, "$(P)$(Q):OR3_ENA:SET") {
 
 # end(OR3_ENA)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", OR3_INV)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", OR3_INV)
 
 record(ai, "$(P)$(Q):OR3_INV:RBV") {
   field(DESC, "Readback param value ai")
@@ -6722,7 +6723,7 @@ record(ao, "$(P)$(Q):OR3_INV:SET") {
 
 # end(OR3_INV)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR3_INP1)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR3_INP1)
 
 record(ai, "$(P)$(Q):OR3_INP1:RBV") {
   field(DESC, "Readback param value")
@@ -6778,7 +6779,7 @@ record(calcout, "$(P)$(Q):OR3_INP1:STA") {
 
 # end(OR3_INP1)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR3_INP2)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR3_INP2)
 
 record(ai, "$(P)$(Q):OR3_INP2:RBV") {
   field(DESC, "Readback param value")
@@ -6834,7 +6835,7 @@ record(calcout, "$(P)$(Q):OR3_INP2:STA") {
 
 # end(OR3_INP2)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR3_INP3)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR3_INP3)
 
 record(ai, "$(P)$(Q):OR3_INP3:RBV") {
   field(DESC, "Readback param value")
@@ -6890,7 +6891,7 @@ record(calcout, "$(P)$(Q):OR3_INP3:STA") {
 
 # end(OR3_INP3)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR3_INP4)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR3_INP4)
 
 record(ai, "$(P)$(Q):OR3_INP4:RBV") {
   field(DESC, "Readback param value")
@@ -6953,7 +6954,7 @@ record(calcout, "$(P)$(Q):OR3_OUT") {
   field(CALC, "A>>6&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", OR4_ENA)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", OR4_ENA)
 
 record(ai, "$(P)$(Q):OR4_ENA:RBV") {
   field(DESC, "Readback param value ai")
@@ -7320,7 +7321,7 @@ record(ao, "$(P)$(Q):OR4_ENA:SET") {
 
 # end(OR4_ENA)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", OR4_INV)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", OR4_INV)
 
 record(ai, "$(P)$(Q):OR4_INV:RBV") {
   field(DESC, "Readback param value ai")
@@ -7687,7 +7688,7 @@ record(ao, "$(P)$(Q):OR4_INV:SET") {
 
 # end(OR4_INV)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR4_INP1)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR4_INP1)
 
 record(ai, "$(P)$(Q):OR4_INP1:RBV") {
   field(DESC, "Readback param value")
@@ -7743,7 +7744,7 @@ record(calcout, "$(P)$(Q):OR4_INP1:STA") {
 
 # end(OR4_INP1)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR4_INP2)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR4_INP2)
 
 record(ai, "$(P)$(Q):OR4_INP2:RBV") {
   field(DESC, "Readback param value")
@@ -7799,7 +7800,7 @@ record(calcout, "$(P)$(Q):OR4_INP2:STA") {
 
 # end(OR4_INP2)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR4_INP3)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR4_INP3)
 
 record(ai, "$(P)$(Q):OR4_INP3:RBV") {
   field(DESC, "Readback param value")
@@ -7855,7 +7856,7 @@ record(calcout, "$(P)$(Q):OR4_INP3:STA") {
 
 # end(OR4_INP3)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR4_INP4)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OR4_INP4)
 
 record(ai, "$(P)$(Q):OR4_INP4:RBV") {
   field(DESC, "Readback param value")
@@ -7918,7 +7919,7 @@ record(calcout, "$(P)$(Q):OR4_OUT") {
   field(CALC, "A>>7&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", GATE1_INP1)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", GATE1_INP1)
 
 record(ai, "$(P)$(Q):GATE1_INP1:RBV") {
   field(DESC, "Readback param value")
@@ -7974,7 +7975,7 @@ record(calcout, "$(P)$(Q):GATE1_INP1:STA") {
 
 # end(GATE1_INP1)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", GATE1_INP2)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", GATE1_INP2)
 
 record(ai, "$(P)$(Q):GATE1_INP2:RBV") {
   field(DESC, "Readback param value")
@@ -8037,7 +8038,7 @@ record(calcout, "$(P)$(Q):GATE1_OUT") {
   field(CALC, "A>>8&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", GATE2_INP1)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", GATE2_INP1)
 
 record(ai, "$(P)$(Q):GATE2_INP1:RBV") {
   field(DESC, "Readback param value")
@@ -8093,7 +8094,7 @@ record(calcout, "$(P)$(Q):GATE2_INP1:STA") {
 
 # end(GATE2_INP1)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", GATE2_INP2)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", GATE2_INP2)
 
 record(ai, "$(P)$(Q):GATE2_INP2:RBV") {
   field(DESC, "Readback param value")
@@ -8156,7 +8157,7 @@ record(calcout, "$(P)$(Q):GATE2_OUT") {
   field(CALC, "A>>9&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", GATE3_INP1)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", GATE3_INP1)
 
 record(ai, "$(P)$(Q):GATE3_INP1:RBV") {
   field(DESC, "Readback param value")
@@ -8212,7 +8213,7 @@ record(calcout, "$(P)$(Q):GATE3_INP1:STA") {
 
 # end(GATE3_INP1)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", GATE3_INP2)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", GATE3_INP2)
 
 record(ai, "$(P)$(Q):GATE3_INP2:RBV") {
   field(DESC, "Readback param value")
@@ -8275,7 +8276,7 @@ record(calcout, "$(P)$(Q):GATE3_OUT") {
   field(CALC, "A>>10&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", GATE4_INP1)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", GATE4_INP1)
 
 record(ai, "$(P)$(Q):GATE4_INP1:RBV") {
   field(DESC, "Readback param value")
@@ -8331,7 +8332,7 @@ record(calcout, "$(P)$(Q):GATE4_INP1:STA") {
 
 # end(GATE4_INP1)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", GATE4_INP2)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", GATE4_INP2)
 
 record(ai, "$(P)$(Q):GATE4_INP2:RBV") {
   field(DESC, "Readback param value")
@@ -8394,7 +8395,7 @@ record(calcout, "$(P)$(Q):GATE4_OUT") {
   field(CALC, "A>>11&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", DIV_FIRST)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", DIV_FIRST)
 
 record(ai, "$(P)$(Q):DIV_FIRST:RBV") {
   field(DESC, "Readback param value ai")
@@ -8761,7 +8762,7 @@ record(ao, "$(P)$(Q):DIV_FIRST:SET") {
 
 # end(DIV_FIRST)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", DIV1_INP)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", DIV1_INP)
 
 record(ai, "$(P)$(Q):DIV1_INP:RBV") {
   field(DESC, "Readback param value")
@@ -8817,7 +8818,7 @@ record(calcout, "$(P)$(Q):DIV1_INP:STA") {
 
 # end(DIV1_INP)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", DIV1_DIV)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", DIV1_DIV)
 
 record(ai, "$(P)$(Q):DIV1_DIV:RBV_CTS") {
   field(DESC, "Readback param int32 value")
@@ -8906,7 +8907,7 @@ record(calcout, "$(P)$(Q):DIV1_OUTN") {
   field(CALC, "A>>16&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", DIV2_INP)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", DIV2_INP)
 
 record(ai, "$(P)$(Q):DIV2_INP:RBV") {
   field(DESC, "Readback param value")
@@ -8962,7 +8963,7 @@ record(calcout, "$(P)$(Q):DIV2_INP:STA") {
 
 # end(DIV2_INP)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", DIV2_DIV)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", DIV2_DIV)
 
 record(ai, "$(P)$(Q):DIV2_DIV:RBV_CTS") {
   field(DESC, "Readback param int32 value")
@@ -9051,7 +9052,7 @@ record(calcout, "$(P)$(Q):DIV2_OUTN") {
   field(CALC, "A>>17&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", DIV3_INP)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", DIV3_INP)
 
 record(ai, "$(P)$(Q):DIV3_INP:RBV") {
   field(DESC, "Readback param value")
@@ -9107,7 +9108,7 @@ record(calcout, "$(P)$(Q):DIV3_INP:STA") {
 
 # end(DIV3_INP)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", DIV3_DIV)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", DIV3_DIV)
 
 record(ai, "$(P)$(Q):DIV3_DIV:RBV_CTS") {
   field(DESC, "Readback param int32 value")
@@ -9196,7 +9197,7 @@ record(calcout, "$(P)$(Q):DIV3_OUTN") {
   field(CALC, "A>>18&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", DIV4_INP)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", DIV4_INP)
 
 record(ai, "$(P)$(Q):DIV4_INP:RBV") {
   field(DESC, "Readback param value")
@@ -9252,7 +9253,7 @@ record(calcout, "$(P)$(Q):DIV4_INP:STA") {
 
 # end(DIV4_INP)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", DIV4_DIV)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", DIV4_DIV)
 
 record(ai, "$(P)$(Q):DIV4_DIV:RBV_CTS") {
   field(DESC, "Readback param int32 value")
@@ -9341,7 +9342,7 @@ record(calcout, "$(P)$(Q):DIV4_OUTN") {
   field(CALC, "A>>19&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite.vdb", PULSE1_DLY)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite.vdb", PULSE1_DLY)
 
 record(ai, "$(P)$(Q):PULSE1_DLY:RBV") {
   field(DESC, "Readback param value")
@@ -9392,7 +9393,7 @@ record(ao, "$(P)$(Q):PULSE1_DLY:SET") {
 
 # end(PULSE1_DLY)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite.vdb", PULSE1_WID)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite.vdb", PULSE1_WID)
 
 record(ai, "$(P)$(Q):PULSE1_WID:RBV") {
   field(DESC, "Readback param value")
@@ -9443,7 +9444,7 @@ record(ao, "$(P)$(Q):PULSE1_WID:SET") {
 
 # end(PULSE1_WID)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWritePrescaler.vdb", PULSE1_PRE)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWritePrescaler.vdb", PULSE1_PRE)
 
 record(mbbi, "$(P)$(Q):PULSE1_PRE:RBV") {
   field(DESC, "Readback param value")
@@ -9498,7 +9499,7 @@ record(ao, "$(P)$(Q):PULSE1_PRE:SET") {
 
 # end(PULSE1_PRE)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PULSE1_INP)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PULSE1_INP)
 
 record(ai, "$(P)$(Q):PULSE1_INP:RBV") {
   field(DESC, "Readback param value")
@@ -9561,7 +9562,7 @@ record(calcout, "$(P)$(Q):PULSE1_OUT") {
   field(CALC, "A>>20&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite.vdb", PULSE2_DLY)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite.vdb", PULSE2_DLY)
 
 record(ai, "$(P)$(Q):PULSE2_DLY:RBV") {
   field(DESC, "Readback param value")
@@ -9612,7 +9613,7 @@ record(ao, "$(P)$(Q):PULSE2_DLY:SET") {
 
 # end(PULSE2_DLY)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite.vdb", PULSE2_WID)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite.vdb", PULSE2_WID)
 
 record(ai, "$(P)$(Q):PULSE2_WID:RBV") {
   field(DESC, "Readback param value")
@@ -9663,7 +9664,7 @@ record(ao, "$(P)$(Q):PULSE2_WID:SET") {
 
 # end(PULSE2_WID)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWritePrescaler.vdb", PULSE2_PRE)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWritePrescaler.vdb", PULSE2_PRE)
 
 record(mbbi, "$(P)$(Q):PULSE2_PRE:RBV") {
   field(DESC, "Readback param value")
@@ -9718,7 +9719,7 @@ record(ao, "$(P)$(Q):PULSE2_PRE:SET") {
 
 # end(PULSE2_PRE)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PULSE2_INP)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PULSE2_INP)
 
 record(ai, "$(P)$(Q):PULSE2_INP:RBV") {
   field(DESC, "Readback param value")
@@ -9781,7 +9782,7 @@ record(calcout, "$(P)$(Q):PULSE2_OUT") {
   field(CALC, "A>>21&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite.vdb", PULSE3_DLY)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite.vdb", PULSE3_DLY)
 
 record(ai, "$(P)$(Q):PULSE3_DLY:RBV") {
   field(DESC, "Readback param value")
@@ -9832,7 +9833,7 @@ record(ao, "$(P)$(Q):PULSE3_DLY:SET") {
 
 # end(PULSE3_DLY)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite.vdb", PULSE3_WID)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite.vdb", PULSE3_WID)
 
 record(ai, "$(P)$(Q):PULSE3_WID:RBV") {
   field(DESC, "Readback param value")
@@ -9883,7 +9884,7 @@ record(ao, "$(P)$(Q):PULSE3_WID:SET") {
 
 # end(PULSE3_WID)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWritePrescaler.vdb", PULSE3_PRE)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWritePrescaler.vdb", PULSE3_PRE)
 
 record(mbbi, "$(P)$(Q):PULSE3_PRE:RBV") {
   field(DESC, "Readback param value")
@@ -9938,7 +9939,7 @@ record(ao, "$(P)$(Q):PULSE3_PRE:SET") {
 
 # end(PULSE3_PRE)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PULSE3_INP)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PULSE3_INP)
 
 record(ai, "$(P)$(Q):PULSE3_INP:RBV") {
   field(DESC, "Readback param value")
@@ -10001,7 +10002,7 @@ record(calcout, "$(P)$(Q):PULSE3_OUT") {
   field(CALC, "A>>22&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite.vdb", PULSE4_DLY)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite.vdb", PULSE4_DLY)
 
 record(ai, "$(P)$(Q):PULSE4_DLY:RBV") {
   field(DESC, "Readback param value")
@@ -10052,7 +10053,7 @@ record(ao, "$(P)$(Q):PULSE4_DLY:SET") {
 
 # end(PULSE4_DLY)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite.vdb", PULSE4_WID)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite.vdb", PULSE4_WID)
 
 record(ai, "$(P)$(Q):PULSE4_WID:RBV") {
   field(DESC, "Readback param value")
@@ -10103,7 +10104,7 @@ record(ao, "$(P)$(Q):PULSE4_WID:SET") {
 
 # end(PULSE4_WID)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWritePrescaler.vdb", PULSE4_PRE)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWritePrescaler.vdb", PULSE4_PRE)
 
 record(mbbi, "$(P)$(Q):PULSE4_PRE:RBV") {
   field(DESC, "Readback param value")
@@ -10158,7 +10159,7 @@ record(ao, "$(P)$(Q):PULSE4_PRE:SET") {
 
 # end(PULSE4_PRE)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PULSE4_INP)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PULSE4_INP)
 
 record(ai, "$(P)$(Q):PULSE4_INP:RBV") {
   field(DESC, "Readback param value")
@@ -10221,7 +10222,7 @@ record(calcout, "$(P)$(Q):PULSE4_OUT") {
   field(CALC, "A>>23&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT1_TTL)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT1_TTL)
 
 record(ai, "$(P)$(Q):OUT1_TTL:RBV") {
   field(DESC, "Readback param value")
@@ -10277,7 +10278,7 @@ record(calcout, "$(P)$(Q):OUT1_TTL:STA") {
 
 # end(OUT1_TTL)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT1_NIM)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT1_NIM)
 
 record(ai, "$(P)$(Q):OUT1_NIM:RBV") {
   field(DESC, "Readback param value")
@@ -10333,7 +10334,7 @@ record(calcout, "$(P)$(Q):OUT1_NIM:STA") {
 
 # end(OUT1_NIM)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT1_LVDS)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT1_LVDS)
 
 record(ai, "$(P)$(Q):OUT1_LVDS:RBV") {
   field(DESC, "Readback param value")
@@ -10389,7 +10390,7 @@ record(calcout, "$(P)$(Q):OUT1_LVDS:STA") {
 
 # end(OUT1_LVDS)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT2_TTL)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT2_TTL)
 
 record(ai, "$(P)$(Q):OUT2_TTL:RBV") {
   field(DESC, "Readback param value")
@@ -10445,7 +10446,7 @@ record(calcout, "$(P)$(Q):OUT2_TTL:STA") {
 
 # end(OUT2_TTL)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT2_NIM)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT2_NIM)
 
 record(ai, "$(P)$(Q):OUT2_NIM:RBV") {
   field(DESC, "Readback param value")
@@ -10501,7 +10502,7 @@ record(calcout, "$(P)$(Q):OUT2_NIM:STA") {
 
 # end(OUT2_NIM)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT2_LVDS)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT2_LVDS)
 
 record(ai, "$(P)$(Q):OUT2_LVDS:RBV") {
   field(DESC, "Readback param value")
@@ -10557,7 +10558,7 @@ record(calcout, "$(P)$(Q):OUT2_LVDS:STA") {
 
 # end(OUT2_LVDS)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT3_TTL)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT3_TTL)
 
 record(ai, "$(P)$(Q):OUT3_TTL:RBV") {
   field(DESC, "Readback param value")
@@ -10613,7 +10614,7 @@ record(calcout, "$(P)$(Q):OUT3_TTL:STA") {
 
 # end(OUT3_TTL)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT3_OC)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT3_OC)
 
 record(ai, "$(P)$(Q):OUT3_OC:RBV") {
   field(DESC, "Readback param value")
@@ -10669,7 +10670,7 @@ record(calcout, "$(P)$(Q):OUT3_OC:STA") {
 
 # end(OUT3_OC)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT3_LVDS)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT3_LVDS)
 
 record(ai, "$(P)$(Q):OUT3_LVDS:RBV") {
   field(DESC, "Readback param value")
@@ -10725,7 +10726,7 @@ record(calcout, "$(P)$(Q):OUT3_LVDS:STA") {
 
 # end(OUT3_LVDS)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT4_TTL)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT4_TTL)
 
 record(ai, "$(P)$(Q):OUT4_TTL:RBV") {
   field(DESC, "Readback param value")
@@ -10781,7 +10782,7 @@ record(calcout, "$(P)$(Q):OUT4_TTL:STA") {
 
 # end(OUT4_TTL)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT4_NIM)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT4_NIM)
 
 record(ai, "$(P)$(Q):OUT4_NIM:RBV") {
   field(DESC, "Readback param value")
@@ -10837,7 +10838,7 @@ record(calcout, "$(P)$(Q):OUT4_NIM:STA") {
 
 # end(OUT4_NIM)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT4_PECL)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT4_PECL)
 
 record(ai, "$(P)$(Q):OUT4_PECL:RBV") {
   field(DESC, "Readback param value")
@@ -10893,7 +10894,7 @@ record(calcout, "$(P)$(Q):OUT4_PECL:STA") {
 
 # end(OUT4_PECL)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT5_ENCA)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT5_ENCA)
 
 record(ai, "$(P)$(Q):OUT5_ENCA:RBV") {
   field(DESC, "Readback param value")
@@ -10949,7 +10950,7 @@ record(calcout, "$(P)$(Q):OUT5_ENCA:STA") {
 
 # end(OUT5_ENCA)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT5_ENCB)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT5_ENCB)
 
 record(ai, "$(P)$(Q):OUT5_ENCB:RBV") {
   field(DESC, "Readback param value")
@@ -11005,7 +11006,7 @@ record(calcout, "$(P)$(Q):OUT5_ENCB:STA") {
 
 # end(OUT5_ENCB)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT5_ENCZ)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT5_ENCZ)
 
 record(ai, "$(P)$(Q):OUT5_ENCZ:RBV") {
   field(DESC, "Readback param value")
@@ -11061,7 +11062,7 @@ record(calcout, "$(P)$(Q):OUT5_ENCZ:STA") {
 
 # end(OUT5_ENCZ)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT6_ENCA)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT6_ENCA)
 
 record(ai, "$(P)$(Q):OUT6_ENCA:RBV") {
   field(DESC, "Readback param value")
@@ -11117,7 +11118,7 @@ record(calcout, "$(P)$(Q):OUT6_ENCA:STA") {
 
 # end(OUT6_ENCA)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT6_ENCB)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT6_ENCB)
 
 record(ai, "$(P)$(Q):OUT6_ENCB:RBV") {
   field(DESC, "Readback param value")
@@ -11173,7 +11174,7 @@ record(calcout, "$(P)$(Q):OUT6_ENCB:STA") {
 
 # end(OUT6_ENCB)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT6_ENCZ)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT6_ENCZ)
 
 record(ai, "$(P)$(Q):OUT6_ENCZ:RBV") {
   field(DESC, "Readback param value")
@@ -11229,7 +11230,7 @@ record(calcout, "$(P)$(Q):OUT6_ENCZ:STA") {
 
 # end(OUT6_ENCZ)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT7_ENCA)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT7_ENCA)
 
 record(ai, "$(P)$(Q):OUT7_ENCA:RBV") {
   field(DESC, "Readback param value")
@@ -11285,7 +11286,7 @@ record(calcout, "$(P)$(Q):OUT7_ENCA:STA") {
 
 # end(OUT7_ENCA)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT7_ENCB)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT7_ENCB)
 
 record(ai, "$(P)$(Q):OUT7_ENCB:RBV") {
   field(DESC, "Readback param value")
@@ -11341,7 +11342,7 @@ record(calcout, "$(P)$(Q):OUT7_ENCB:STA") {
 
 # end(OUT7_ENCB)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT7_ENCZ)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT7_ENCZ)
 
 record(ai, "$(P)$(Q):OUT7_ENCZ:RBV") {
   field(DESC, "Readback param value")
@@ -11397,7 +11398,7 @@ record(calcout, "$(P)$(Q):OUT7_ENCZ:STA") {
 
 # end(OUT7_ENCZ)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT8_ENCA)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT8_ENCA)
 
 record(ai, "$(P)$(Q):OUT8_ENCA:RBV") {
   field(DESC, "Readback param value")
@@ -11453,7 +11454,7 @@ record(calcout, "$(P)$(Q):OUT8_ENCA:STA") {
 
 # end(OUT8_ENCA)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT8_ENCB)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT8_ENCB)
 
 record(ai, "$(P)$(Q):OUT8_ENCB:RBV") {
   field(DESC, "Readback param value")
@@ -11509,7 +11510,7 @@ record(calcout, "$(P)$(Q):OUT8_ENCB:STA") {
 
 # end(OUT8_ENCB)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT8_ENCZ)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT8_ENCZ)
 
 record(ai, "$(P)$(Q):OUT8_ENCZ:RBV") {
   field(DESC, "Readback param value")
@@ -11565,7 +11566,7 @@ record(calcout, "$(P)$(Q):OUT8_ENCZ:STA") {
 
 # end(OUT8_ENCZ)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", SOFT_IN)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", SOFT_IN)
 
 record(ai, "$(P)$(Q):SOFT_IN:RBV") {
   field(DESC, "Readback param value ai")
@@ -12094,7 +12095,7 @@ record(sel, "$(P)$(Q):PULSE:ERES") {
   field(NVL, "$(P)$(Q):PC_PULSE_SEL CP")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", POS1_SET)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", POS1_SET)
 
 record(ai, "$(P)$(Q):POS1_SET:RBV_CTS") {
   field(DESC, "Readback param int32 value")
@@ -12169,7 +12170,7 @@ record(ao, "$(P)$(Q):POS1_SET:SET") {
 
 # end(POS1_SET)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", POS2_SET)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", POS2_SET)
 
 record(ai, "$(P)$(Q):POS2_SET:RBV_CTS") {
   field(DESC, "Readback param int32 value")
@@ -12244,7 +12245,7 @@ record(ao, "$(P)$(Q):POS2_SET:SET") {
 
 # end(POS2_SET)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", POS3_SET)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", POS3_SET)
 
 record(ai, "$(P)$(Q):POS3_SET:RBV_CTS") {
   field(DESC, "Readback param int32 value")
@@ -12319,7 +12320,7 @@ record(ao, "$(P)$(Q):POS3_SET:SET") {
 
 # end(POS3_SET)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", POS4_SET)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", POS4_SET)
 
 record(ai, "$(P)$(Q):POS4_SET:RBV_CTS") {
   field(DESC, "Readback param int32 value")
@@ -12394,7 +12395,7 @@ record(ao, "$(P)$(Q):POS4_SET:SET") {
 
 # end(POS4_SET)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWritePrescaler.vdb", PC_TSPRE)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWritePrescaler.vdb", PC_TSPRE)
 
 record(mbbi, "$(P)$(Q):PC_TSPRE:RBV") {
   field(DESC, "Readback param value")
@@ -12477,7 +12478,7 @@ record(ao, "$(P)$(Q):PC_DISARM") {
   field(OUT, "@asyn($(PORT),0) PC_DISARM")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PC_GATE_INP)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PC_GATE_INP)
 
 record(ai, "$(P)$(Q):PC_GATE_INP:RBV") {
   field(DESC, "Readback param value")
@@ -12533,7 +12534,7 @@ record(calcout, "$(P)$(Q):PC_GATE_INP:STA") {
 
 # end(PC_GATE_INP)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWritePosCompInp.vdb", PC_GATE_SEL)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWritePosCompInp.vdb", PC_GATE_SEL)
 
 record(ai, "$(P)$(Q):PC_GATE_SEL:RRBV") {
   field(DESC, "Raw Readback param value")
@@ -12611,7 +12612,7 @@ record(dfanout, "$(P)$(Q):PC_GATE_SEL:DFANOUT") {
   field(OUTC, "$(P)$(Q):STARTGATE:OFF.SELN PP")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_GATE_START)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_GATE_START)
 
 record(ai, "$(P)$(Q):PC_GATE_START:RBV_CTS") {
   field(DESC, "Readback param int32 value")
@@ -12686,7 +12687,7 @@ record(ao, "$(P)$(Q):PC_GATE_START:SET") {
 
 # end(PC_GATE_START)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_GATE_WID)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_GATE_WID)
 
 record(ai, "$(P)$(Q):PC_GATE_WID:RBV_CTS") {
   field(DESC, "Readback param int32 value")
@@ -12761,7 +12762,7 @@ record(ao, "$(P)$(Q):PC_GATE_WID:SET") {
 
 # end(PC_GATE_WID)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_GATE_NGATE)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_GATE_NGATE)
 
 record(ai, "$(P)$(Q):PC_GATE_NGATE:RBV_CTS") {
   field(DESC, "Readback param int32 value")
@@ -12836,7 +12837,7 @@ record(ao, "$(P)$(Q):PC_GATE_NGATE:SET") {
 
 # end(PC_GATE_NGATE)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_GATE_STEP)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_GATE_STEP)
 
 record(ai, "$(P)$(Q):PC_GATE_STEP:RBV_CTS") {
   field(DESC, "Readback param int32 value")
@@ -12911,7 +12912,7 @@ record(ao, "$(P)$(Q):PC_GATE_STEP:SET") {
 
 # end(PC_GATE_STEP)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PC_PULSE_INP)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PC_PULSE_INP)
 
 record(ai, "$(P)$(Q):PC_PULSE_INP:RBV") {
   field(DESC, "Readback param value")
@@ -12967,7 +12968,7 @@ record(calcout, "$(P)$(Q):PC_PULSE_INP:STA") {
 
 # end(PC_PULSE_INP)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWritePosCompInp.vdb", PC_PULSE_SEL)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWritePosCompInp.vdb", PC_PULSE_SEL)
 
 record(ai, "$(P)$(Q):PC_PULSE_SEL:RRBV") {
   field(DESC, "Raw Readback param value")
@@ -13045,7 +13046,7 @@ record(dfanout, "$(P)$(Q):PC_PULSE_SEL:DFANOUT") {
   field(OUTC, "$(P)$(Q):PC_PULSE:VALID.D PP")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_PULSE_START)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_PULSE_START)
 
 record(ai, "$(P)$(Q):PC_PULSE_START:RBV_CTS") {
   field(DESC, "Readback param int32 value")
@@ -13120,7 +13121,7 @@ record(ao, "$(P)$(Q):PC_PULSE_START:SET") {
 
 # end(PC_PULSE_START)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_PULSE_DLY)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_PULSE_DLY)
 
 record(ai, "$(P)$(Q):PC_PULSE_DLY:RBV_CTS") {
   field(DESC, "Readback param int32 value")
@@ -13195,7 +13196,7 @@ record(ao, "$(P)$(Q):PC_PULSE_DLY:SET") {
 
 # end(PC_PULSE_DLY)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_PULSE_WID)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_PULSE_WID)
 
 record(ai, "$(P)$(Q):PC_PULSE_WID:RBV_CTS") {
   field(DESC, "Readback param int32 value")
@@ -13270,7 +13271,7 @@ record(ao, "$(P)$(Q):PC_PULSE_WID:SET") {
 
 # end(PC_PULSE_WID)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_PULSE_STEP)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_PULSE_STEP)
 
 record(ai, "$(P)$(Q):PC_PULSE_STEP:RBV_CTS") {
   field(DESC, "Readback param int32 value")
@@ -13484,7 +13485,7 @@ record(calcout, "$(P)$(Q):M4:SETPOS") {
   field(OUT, "$(P)$(Q):POS4_SET PP")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PC_ARM_INP)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PC_ARM_INP)
 
 record(ai, "$(P)$(Q):PC_ARM_INP:RBV") {
   field(DESC, "Readback param value")
@@ -13560,7 +13561,7 @@ record(stringin, "$(P)$(Q):NOMOTOR:EGU") {
   field(VAL, "cts")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", POLARITY)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", POLARITY)
 
 record(ai, "$(P)$(Q):POLARITY:RBV") {
   field(DESC, "Readback param value ai")
@@ -13941,7 +13942,7 @@ record(mbbiDirect, "$(P)$(Q):SYS_STATERR") {
   field(INP, "$(P)$(Q):SYS_STATERR:RBVA")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWritePosCompInp.vdb", PC_ARM_SEL)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWritePosCompInp.vdb", PC_ARM_SEL)
 
 record(ai, "$(P)$(Q):PC_ARM_SEL:RRBV") {
   field(DESC, "Raw Readback param value")
@@ -14048,7 +14049,7 @@ record(sel, "$(P)$(Q):GATE:ERES") {
   field(INPD, "$(P)$(Q):MOTOR:ABSERES CP")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWritePosCompInp.vdb", PC_ENC)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWritePosCompInp.vdb", PC_ENC)
 
 record(ai, "$(P)$(Q):PC_ENC:RRBV") {
   field(DESC, "Raw Readback param value")
@@ -14207,7 +14208,7 @@ record(waveform, "$(P)$(Q):PC_FILT1") {
   field(SCAN, "I/O Intr")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PC_FILTSEL1)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PC_FILTSEL1)
 
 record(ai, "$(P)$(Q):PC_FILTSEL1:RBV") {
   field(DESC, "Readback param value")
@@ -14271,7 +14272,7 @@ record(waveform, "$(P)$(Q):PC_FILT2") {
   field(SCAN, "I/O Intr")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PC_FILTSEL2)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PC_FILTSEL2)
 
 record(ai, "$(P)$(Q):PC_FILTSEL2:RBV") {
   field(DESC, "Readback param value")
@@ -14335,7 +14336,7 @@ record(waveform, "$(P)$(Q):PC_FILT3") {
   field(SCAN, "I/O Intr")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PC_FILTSEL3)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PC_FILTSEL3)
 
 record(ai, "$(P)$(Q):PC_FILTSEL3:RBV") {
   field(DESC, "Readback param value")
@@ -14399,7 +14400,7 @@ record(waveform, "$(P)$(Q):PC_FILT4") {
   field(SCAN, "I/O Intr")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PC_FILTSEL4)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", PC_FILTSEL4)
 
 record(ai, "$(P)$(Q):PC_FILTSEL4:RBV") {
   field(DESC, "Readback param value")
@@ -14462,7 +14463,7 @@ record(calcout, "$(P)$(Q):QUAD_OUTA") {
   field(CALC, "A>>24&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", QUAD_STEP)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", QUAD_STEP)
 
 record(ai, "$(P)$(Q):QUAD_STEP:RBV") {
   field(DESC, "Readback param value")
@@ -14518,7 +14519,7 @@ record(calcout, "$(P)$(Q):QUAD_STEP:STA") {
 
 # end(QUAD_STEP)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", QUAD_DIR)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", QUAD_DIR)
 
 record(ai, "$(P)$(Q):QUAD_DIR:RBV") {
   field(DESC, "Readback param value")
@@ -14581,7 +14582,7 @@ record(calcout, "$(P)$(Q):QUAD_OUTB") {
   field(CALC, "A>>25&1")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT5_CONN)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT5_CONN)
 
 record(ai, "$(P)$(Q):OUT5_CONN:RBV") {
   field(DESC, "Readback param value")
@@ -14637,7 +14638,7 @@ record(calcout, "$(P)$(Q):OUT5_CONN:STA") {
 
 # end(OUT5_CONN)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT6_CONN)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT6_CONN)
 
 record(ai, "$(P)$(Q):OUT6_CONN:RBV") {
   field(DESC, "Readback param value")
@@ -14693,7 +14694,7 @@ record(calcout, "$(P)$(Q):OUT6_CONN:STA") {
 
 # end(OUT6_CONN)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT7_CONN)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT7_CONN)
 
 record(ai, "$(P)$(Q):OUT7_CONN:RBV") {
   field(DESC, "Readback param value")
@@ -14749,7 +14750,7 @@ record(calcout, "$(P)$(Q):OUT7_CONN:STA") {
 
 # end(OUT7_CONN)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT8_CONN)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteMux.vdb", OUT8_CONN)
 
 record(ai, "$(P)$(Q):OUT8_CONN:RBV") {
   field(DESC, "Readback param value")
@@ -14805,7 +14806,7 @@ record(calcout, "$(P)$(Q):OUT8_CONN:STA") {
 
 # end(OUT8_CONN)
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", PC_BIT_CAP)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWriteBitfield.vdb", PC_BIT_CAP)
 
 record(ai, "$(P)$(Q):PC_BIT_CAP:RBV") {
   field(DESC, "Readback param value ai")
@@ -15265,7 +15266,7 @@ record(ao, "$(P)$(Q):ARM_BUSY_DONE") {
   field(OUT, "$(P)$(Q):ARM_BUSY CA")
 }
 
-# expand("/home/mjn19172/Development/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_PULSE_MAX)
+# expand("/dls_sw/work/R3.14.12.3/support/zebra/zebraApp/Db/O.linux-x86_64/../zebraRegisterWrite32.vdb", PC_PULSE_MAX)
 
 record(ai, "$(P)$(Q):PC_PULSE_MAX:RBV_CTS") {
   field(DESC, "Readback param int32 value")
