@@ -515,6 +515,10 @@ void zebra::interruptTask() {
 				// Setting NumDown to -1 will trigger a waveform update even if
 				// the last waveform sent was the same as this one
 				setIntegerParam(zebraNumDown, -1);
+                // Tell areaDetector to stop acquiring
+                setIntegerParam(ADAcquire, 0);
+                setIntegerParam(ADStatus, ADStatusIdle);
+                setStringParam(ADStatusMessage, "Idle");
 				this->callbackWaveforms();
 			} else {
 				// This is a data buffer
