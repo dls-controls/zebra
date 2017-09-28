@@ -1,0 +1,51 @@
+record(mbbi, "$(P)$(Q):$(PARAM):RBV") {
+  field(DESC, "Readback param value")
+  field(DTYP, "asynInt32")
+  field(FLNK, "$(P)$(Q):$(PARAM):SYNC")
+  field(INP, "@asyn($(PORT),0) $(PARAM)")
+  field(SCAN, "I/O Intr")
+  field(ZRST, "ms")
+  field(ZRVL, "5")
+  field(ONST, "s")
+  field(ONVL, "5000")
+  field(TWST, "10s")
+  field(TWVL, "50000")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):SYNC") {
+  field(DESC, "Sync demand with readback")
+  field(CALC, "A")
+  field(OUT, "$(P)$(Q):$(PARAM) PP")
+  field(INPA, "$(P)$(Q):$(PARAM):RBV")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM).DISP")
+}
+
+# NOTE: The values in ZRVL, ONVL and TWVL are used in the driver in
+#       function zebra::allocateFrame(int size_y, int scale).
+#       Do not change them without revising the driver code as well.
+# % archiver 10 Monitor
+record(mbbo, "$(P)$(Q):$(PARAM)") {
+  field(DESC, "Demand value for param")
+  field(DTYP, "Raw Soft Channel")
+  field(OUT, "$(P)$(Q):$(PARAM):SET PP")
+  field(ZRST, "ms")
+  field(ZRVL, "5")
+  field(ONST, "s")
+  field(ONVL, "5000")
+  field(TWST, "10s")
+  field(TWVL, "50000")
+}
+
+record(ao, "$(P)$(Q):$(PARAM):SET") {
+  field(DESC, "Write param value to zebra")
+  field(DTYP, "asynInt32")
+  field(SDIS, "$(P)$(Q):$(PARAM):SYNC.PACT")
+  field(OUT, "@asyn($(PORT),0) $(PARAM)")
+}
+

@@ -1,0 +1,71 @@
+record(ai, "$(P)$(Q):$(PARAM):RBV_CTS") {
+  field(DESC, "Readback param int32 value")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0) $(PARAM)HILO")
+  field(SCAN, "I/O Intr")
+  field(MDEL, "-1")
+  field(FLNK, "$(P)$(Q):$(PARAM):RBV PP")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):RBV") {
+  field(DESC, "Convert cts into EGUs")
+  field(INPA, "$(P)$(Q):$(MOTOR):ERES CP")
+  field(INPB, "$(P)$(Q):$(MOTOR):OFF CP")
+  field(INPC, "$(P)$(Q):$(PARAM):RBV_CTS")
+  field(CALC, "A*C+B")
+  field(FLNK, "$(P)$(Q):$(PARAM):SYNC")
+  field(PREC, "4")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):SYNC") {
+  field(DESC, "Sync demand with readback")
+  field(CALC, "A")
+  field(OUT, "$(P)$(Q):$(PARAM) PP")
+  field(INPA, "$(P)$(Q):$(PARAM):RBV")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DRVH") {
+  field(CALC, "A*2**31+B")
+  field(INPA, "$(P)$(Q):$(MOTOR):ERES CP")
+  field(INPB, "$(P)$(Q):$(MOTOR):OFF CP")
+  field(OUT, "$(P)$(Q):$(PARAM).DRVH")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DRVL") {
+  field(CALC, "$(DRVL)")
+  field(INPA, "$(P)$(Q):$(MOTOR):ERES CP")
+  field(INPB, "$(P)$(Q):$(MOTOR):OFF CP")
+  field(OUT, "$(P)$(Q):$(PARAM).DRVL")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM).DISP")
+}
+
+# % archiver 10 Monitor
+record(ao, "$(P)$(Q):$(PARAM)") {
+  field(DESC, "Demand value for param")
+  field(FLNK, "$(P)$(Q):$(PARAM):CALC PP")
+  field(PREC, "$(SUB_PREC)")
+  field(DRVL, "0")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):CALC") {
+  field(CALC, "FLOOR((A-D)/C+0.5)")
+  field(INPA, "$(P)$(Q):$(PARAM)")
+  field(INPC, "$(P)$(Q):$(MOTOR):ERES PP")
+  field(INPD, "$(P)$(Q):$(MOTOR):OFF PP")
+  field(OUT, "$(P)$(Q):$(PARAM):SET PP")
+}
+
+record(ao, "$(P)$(Q):$(PARAM):SET") {
+  field(DESC, "Write param value to zebra")
+  field(DTYP, "asynInt32")
+  field(SDIS, "$(P)$(Q):$(PARAM):SYNC.PACT")
+  field(OUT, "@asyn($(PORT),0) $(PARAM)HILO")
+  field(FLNK, "$(P)$(Q):$(PARAM):RBV")
+}
+

@@ -1,0 +1,47 @@
+record(ai, "$(P)$(Q):$(PARAM):RBV") {
+  field(DESC, "Readback param value")
+  field(DTYP, "asynInt32")
+  field(FLNK, "$(P)$(Q):$(PARAM):SYNC")
+  field(INP, "@asyn($(PORT),0) $(PARAM)")
+  field(SCAN, "I/O Intr")
+  field(ASLO, "$(ASLO)")
+  field(PREC, "$(PREC)")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):SYNC") {
+  field(DESC, "Sync demand with readback")
+  field(CALC, "A")
+  field(OUT, "$(P)$(Q):$(PARAM) PP")
+  field(INPA, "$(P)$(Q):$(PARAM):RBV")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DRVH") {
+  field(CALC, "A*65535")
+  field(A, "$(ASLO)")
+  field(OUT, "$(P)$(Q):$(PARAM).DRVH")
+  field(PINI, "YES")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM).DISP")
+}
+
+# % archiver 10 Monitor
+record(ao, "$(P)$(Q):$(PARAM)") {
+  field(DESC, "Demand value for param")
+  field(OUT, "$(P)$(Q):$(PARAM):SET PP")
+  field(PREC, "$(PREC)")
+  field(DRVL, "0")
+}
+
+record(ao, "$(P)$(Q):$(PARAM):SET") {
+  field(DESC, "Write param value to zebra")
+  field(DTYP, "asynInt32")
+  field(SDIS, "$(P)$(Q):$(PARAM):SYNC.PACT")
+  field(OUT, "@asyn($(PORT),0) $(PARAM)")
+  field(ASLO, "$(ASLO)")
+}
+

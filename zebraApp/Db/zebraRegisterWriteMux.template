@@ -1,0 +1,52 @@
+record(ai, "$(P)$(Q):$(PARAM):RBV") {
+  field(DESC, "Readback param value")
+  field(DTYP, "asynInt32")
+  field(FLNK, "$(P)$(Q):$(PARAM):SYNC")
+  field(INP, "@asyn($(PORT),0) $(PARAM)")
+  field(SCAN, "I/O Intr")
+}
+
+record(stringin, "$(P)$(Q):$(PARAM):STR") {
+  field(DESC, "Readback param string value")
+  field(DTYP, "asynOctetRead")
+  field(INP, "@asyn($(PORT),0) $(PARAM)_STR")
+  field(SCAN, "I/O Intr")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):SYNC") {
+  field(DESC, "Sync demand with readback")
+  field(CALC, "A")
+  field(OUT, "$(P)$(Q):$(PARAM) PP")
+  field(INPA, "$(P)$(Q):$(PARAM):RBV")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):DISP") {
+  field(DESC, "Disable caputs")
+  field(CALC, "A")
+  field(INPA, "$(DISP)")
+  field(OUT, "$(P)$(Q):$(PARAM).DISP")
+}
+
+# % archiver 10 Monitor
+record(ao, "$(P)$(Q):$(PARAM)") {
+  field(DESC, "Demand value for param")
+  field(OUT, "$(P)$(Q):$(PARAM):SET PP")
+  field(DRVL, "0")
+  field(DRVH, "63")
+}
+
+record(ao, "$(P)$(Q):$(PARAM):SET") {
+  field(DESC, "Write param value to zebra")
+  field(DTYP, "asynInt32")
+  field(SDIS, "$(P)$(Q):$(PARAM):SYNC.PACT")
+  field(OUT, "@asyn($(PORT),0) $(PARAM)")
+}
+
+record(calcout, "$(P)$(Q):$(PARAM):STA") {
+  field(DESC, "Current system bus status for output")
+  field(INPA, "$(P)$(Q):$(PARAM):RBV CP")
+  field(INPB, "$(P)$(Q):SYS_STAT1 CP")
+  field(INPC, "$(P)$(Q):SYS_STAT2 CP")
+  field(CALC, "A<32?B>>A&1:C>>(A-32)&1")
+}
+

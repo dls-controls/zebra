@@ -9,5 +9,5 @@ cd "$(dirname "$0")"
 export ZEBRAPREFIX="${1:-TESTZEBRA}"
 exec ./test sttest.boot
 EOF
-sed -e 's/\$(ZEBRAPREFIX)/${1:-TESTZEBRA}/' \
+sed -e 's/testTop.edl/-m "ZEBRAPREFIX=${1:-TESTZEBRA}" testTop.edl/' \
     -i $1/testApp/opi/edl/sttest-gui

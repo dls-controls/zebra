@@ -107,7 +107,6 @@ protected:
 #define FIRST_PARAM zebraIsConnected
 	int zebraIsConnected;        // int32 read  - is zebra connected?
 	int zebraArrayUpdate;        // int32 write - update arrays
-	int zebraArrayAcq;           // int32 read - when data is acquiring
 	int zebraNumDown;            // int32 read - number of data points downloaded
 	int zebraSysBus1;            // string read - system bus key first half
 	int zebraSysBus2;            // string read - system bus key second half
@@ -136,7 +135,7 @@ private:
     void wrapFrame();
 
 private:
-	asynUser *pasynUser;
+	asynUser *pasynUser, *pasynUserStop;
 	asynCommon *pasynCommon;
 	void *pcommonPvt;
 	asynOctet *pasynOctet;
@@ -211,10 +210,6 @@ zebra::zebra(const char* portName, const char* serialPortName, int maxPts, int m
 
 	/* a parameter that controls polling of waveforms */
 	createParam("ARRAY_UPDATE", asynParamInt32, &zebraArrayUpdate);
-
-	/* and one that says when we are acquiring arrays */
-	createParam("ARRAY_ACQ", asynParamInt32, &zebraArrayAcq);
-	setIntegerParam(zebraArrayAcq, 0);
 
 	/* a parameter showing the number of points we have downloaded */
 	createParam("PC_NUM_DOWN", asynParamInt32, &zebraNumDown);
@@ -391,6 +386,9 @@ zebra::zebra(const char* portName, const char* serialPortName, int maxPts, int m
 	pasynOctet->setInputEos(octetPvt, pasynUser, "\n", 1);
 	pasynOctet->setOutputEos(octetPvt, pasynUser, "\n", 1);
 
+	/* asyn user just for stopping? */
+	pasynUserStop = pasynManager->createAsynUser(0, 0);
+
 	/* Create the thread that reads from the device  */
 	if (epicsThreadCreate("ZebraReadTask", epicsThreadPriorityMedium,
 			epicsThreadGetStackSize(epicsThreadStackMedium),
@@ -499,9 +497,11 @@ void zebra::interruptTask() {
 		while (epicsMessageQueuePending(this->intQId) > 0) {
 			epicsMessageQueueReceive(this->intQId, &rxBuffer,
 					sizeof(&rxBuffer));
+			int acquiring;
+			getIntegerParam(ADAcquire, &acquiring);
 			if (strcmp(rxBuffer, "PR") == 0) {
                 // Set it acquiring
-                setIntegerParam(zebraArrayAcq, 1);
+                setIntegerParam(ADAcquire, 1);
                 // This is zebra telling us to reset our buffers
                 this->resetBuffers();
 				// reset num cap
@@ -511,7 +511,7 @@ void zebra::interruptTask() {
 				setIntegerParam(param, 0);
 			} else if (strcmp(rxBuffer, "PX") == 0) {
 				// This is zebra saying there is no more data
-				setIntegerParam(zebraArrayAcq, 0);
+				setIntegerParam(ADAcquire, 0);
 				// Setting NumDown to -1 will trigger a waveform update even if
 				// the last waveform sent was the same as this one
 				setIntegerParam(zebraNumDown, -1);
@@ -520,7 +520,7 @@ void zebra::interruptTask() {
                 setIntegerParam(ADStatus, ADStatusIdle);
                 setStringParam(ADStatusMessage, "Idle");
 				this->callbackWaveforms();
-			} else {
+			} else if (acquiring) {
 				// This is a data buffer
 				ptr = rxBuffer;
 				// First get time
@@ -549,16 +549,23 @@ void zebra::interruptTask() {
 				if (this->pArray != NULL) {
 				    pFrame = (double*)this->pArray->pData;
 				}
-				// Temporary pointer to list of NDAttributes in frame for easier reading
-				NDAttributeList* pAttrs = NULL;
-				if (this->pArray != NULL) {
-				    pAttrs = pArray->pAttributeList;
-				}
-				// Temporary pointer to iterate trough the NDAttributes
-				NDAttribute* pAttr = NULL;
 				// See which encoders are being captured so we can decode the interrupt
 				findParam("PC_BIT_CAP", &param);
 				getIntegerParam(param, &cap);
+				// NDAttributes are used to store the samples a second time
+				std::string desc("sample value");
+				// Assemble the attribute values
+				std::string values[NARRAYS];
+				values[0] = "Enc1";
+				values[1] = "Enc2";
+				values[2] = "Enc3";
+				values[3] = "Enc4";
+				values[4] = "Sys1";
+				values[5] = "Sys2";
+				values[6] = "Div1";
+				values[7] = "Div2";
+				values[8] = "Div3";
+				values[9] = "Div4";
 				// Now step through the bytes
 				for (int a = 0; a < NARRAYS; a++) {
 					double scale, off, dvalue = 0;
@@ -594,24 +601,21 @@ void zebra::interruptTask() {
 					if (pFrame != NULL) {
 					    // set single data point
 					    pFrame[a] = dvalue;
-					}
-					// save value as an NDAttribute
-					if (pAttrs != NULL) {
-					    pAttr = pAttrs->next(pAttr);
-					    if (pAttr != NULL) pAttr->setValue((void *)&dvalue);
+					    std::stringstream name;
+					    name << values[a];
+					    NDAttribute *pAttribute = new NDAttribute(
+						name.str().c_str(), desc.c_str(), NDAttrSourceUndefined, "source string", NDAttrFloat64, &dvalue);
+					    this->pArray->pAttributeList->add(pAttribute);
 					}
 					// Note: don't do callParamCallbacks here, or we'll swamp asyn
 				}
 				// record the time stamp in the last column of the NDArray
 				if (pFrame != NULL) {
 				    pFrame[NARRAYS] = this->PCTime[this->currPt];
+				    NDAttribute *pAttribute = new NDAttribute(
+					"TS", desc.c_str(), NDAttrSourceUndefined, "source string", NDAttrFloat64, &this->PCTime[this->currPt]);
+				    this->pArray->pAttributeList->add(pAttribute);
 				}
-				// record the time stamp as the last NDAttribute
-				if (pAttrs != NULL) {
-					    pAttr = pAttrs->next(pAttr);
-					    double ts = this->PCTime[this->currPt];
-					    if (pAttr != NULL) pAttr->setValue((void *)&ts);
-					}
 				// sanity check
 				if (ptr[0] != '\0') {
 					epicsStrnEscapedFromRaw(escapedbuff, NBUFF, ptr,
@@ -675,7 +679,7 @@ void zebra::pollTask() {
 			free(rxBuffer);
 		}
 		// Work out if we are currently downloading
-		getIntegerParam(zebraArrayAcq, &downloading);
+		getIntegerParam(ADAcquire, &downloading);
 		// Check what PC_NUM_CAPLO is now so can check if it rolled over
 		getIntegerParam(caploparam, &lastcap);
 		if (downloading) {
@@ -1089,45 +1093,24 @@ void zebra::allocateFrame() {
     dims[1] = FRAMEHEIGHT;
     this->pArray = this->pNDArrayPool->alloc(nDims, dims, NDFloat64, 0, NULL);
     if(this->pArray != NULL) {
-        // NDAttributes are used to store the samples a second time
-        std::string desc("sample value");
-        // Assemble the attribute values
-        std::string values[NARRAYS + 1];
-        values[0] = "Enc1";
-        values[1] = "Enc2";
-        values[2] = "Enc3";
-        values[3] = "Enc4";
-        values[4] = "Sys1";
-        values[5] = "Sys2";
-        values[6] = "Div1";
-        values[7] = "Div2";
-        values[8] = "Div3";
-        values[9] = "Div4";
-        values[10] = "TS";
-        // Create the NDAttributes and initialise them with value 0
-        for (int i = 0; i < NARRAYS + 1; i++) {
-            std::stringstream name;
-            name << values[i];
-            NDAttribute *pAttribute = new NDAttribute(name.str().c_str(), desc.c_str(), NDAttrSourceUndefined, NULL, NDAttrFloat64, 0);
-            this->pArray->pAttributeList->add(pAttribute);
-        }
+    	this->pArray->pAttributeList->clear();
     }
 }
 
 void zebra::wrapFrame() {
     getIntegerParam(NDArrayCounter, &(this->arrayCounter));
     getIntegerParam(ADNumImagesCounter, &(this->numImagesCounter));
+    // Update statistics
     // Set the unique ID
-    this->pArray->uniqueId = this->arrayCounter;
 	// Set the time stamp
 	epicsTimeStamp arrayTime;
 	epicsTimeGetCurrent(&arrayTime);
     this->pArray->timeStamp = arrayTime.secPastEpoch;
 	// Save the NDAttributes if there are any
 	getAttributes(this->pArray->pAttributeList);
-    // Update statistics
     this->arrayCounter++;
     this->numImagesCounter++;
+    this->pArray->uniqueId = this->arrayCounter;
     // Ship the array off
     doCallbacksGenericPointer(this->pArray, NDArrayData, 0);
     this->pArray->release();
@@ -1135,6 +1118,18 @@ void zebra::wrapFrame() {
     // Update the counters
 	setIntegerParam(NDArrayCounter, this->arrayCounter);
     setIntegerParam(ADNumImagesCounter, this->numImagesCounter);
+    // Stop if we need to
+    /* See if acquisition is done */
+    int imageMode, numImages;
+    getIntegerParam(ADNumImages, &numImages);
+    getIntegerParam(ADImageMode, &imageMode);
+    if ((imageMode == ADImageSingle) ||
+        ((imageMode == ADImageMultiple) &&
+         (this->numImagesCounter >= numImages))) {
+    	printf("Stopping as %d >= %d\n", this->numImagesCounter, numImages);
+    	pasynUserStop->reason = ADAcquire;
+    	this->writeInt32(pasynUserStop, 0);
+    }
 }
 
 /** Called when asyn clients call pasynInt32->write().
@@ -1163,8 +1158,6 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value) {
 			status = this->getReg(r, &value);
 		}
 		if (strcmp(r->str, "SYS_RESET") == 0) {
-			// Reset called, so stop waveform processing
-			setIntegerParam(zebraArrayAcq, 0);
 			// Stop acquiring and reset the areaDetector counter and status
 			setIntegerParam(ADAcquire, 0);
             setIntegerParam(ADNumImagesCounter, 0);
@@ -1182,6 +1175,7 @@ asynStatus zebra::writeInt32(asynUser *pasynUser, epicsInt32 value) {
 		    setIntegerParam(ADAcquire, 1);
 		    setIntegerParam(ADStatus, ADStatusAcquire);
 		    setStringParam(ADStatusMessage, "Acquiring");
+		    setIntegerParam(ADNumImagesCounter, 0);
 		} else if (strcmp(r->str, "PC_DISARM") == 0) {
 			// Stop acquiring
 		    setIntegerParam(ADAcquire, 0);
