@@ -13367,6 +13367,46 @@ record(calcout, "$(P)$(Q):PC_PULSE_OUT") {
   field(CALC, "A>>31&1")
 }
 
+record(stringin, "$(P)$(Q):M1") {
+  field(VAL, "$(M1=$(P)$(Q):NOMOTOR)")
+  field(PINI, "YES")
+}
+
+record(stringin, "$(P)$(Q):M2") {
+  field(VAL, "$(M2=$(P)$(Q):NOMOTOR)")
+  field(PINI, "YES")
+}
+
+record(stringin, "$(P)$(Q):M3") {
+  field(VAL, "$(M3=$(P)$(Q):NOMOTOR)")
+  field(PINI, "YES")
+}
+
+record(stringin, "$(P)$(Q):M4") {
+  field(VAL, "$(M4=$(P)$(Q):NOMOTOR)")
+  field(PINI, "YES")
+}
+
+record(stringin, "$(P)$(Q):M1:DESC") {
+  field(INP, "$(M1=$(P)$(Q):NOMOTOR).DESC CP")
+  field(PINI, "YES")
+}
+
+record(stringin, "$(P)$(Q):M2:DESC") {
+  field(INP, "$(M2=$(P)$(Q):NOMOTOR).DESC CP")
+  field(PINI, "YES")
+}
+
+record(stringin, "$(P)$(Q):M3:DESC") {
+  field(INP, "$(M3=$(P)$(Q):NOMOTOR).DESC CP")
+  field(PINI, "YES")
+}
+
+record(stringin, "$(P)$(Q):M4:DESC") {
+  field(INP, "$(M4=$(P)$(Q):NOMOTOR).DESC CP")
+  field(PINI, "YES")
+}
+
 record(ai, "$(P)$(Q):M1:RBV") {
   field(INP, "$(M1=$(P)$(Q):NOMOTOR).RBV CP")
   field(PREC, "4")

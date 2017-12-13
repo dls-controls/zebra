@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 721
-y 123
+x 945
+y 728
 w 640
 h 510
 font "helvetica-bold-r-12.0"
@@ -95,7 +95,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 30
 y 370
 w 100
@@ -114,7 +114,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 25
 y 355
 w 52
@@ -170,7 +170,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 30
 y 400
 w 100
@@ -223,7 +223,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 30
 y 465
 w 45
@@ -282,7 +282,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 30
 y 435
 w 45
@@ -318,7 +318,7 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 325
 y 360
 w 312
@@ -341,6 +341,28 @@ value {
 autoSize
 endObjectProperties
 
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 120
+y 305
+w 445
+h 48
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "If you zero the motor on the motor controller by homing, "
+  "then you must write down the new position of the motor to Zebra"
+  "by pressing the copy button above"
+}
+autoSize
+endObjectProperties
+
 # (Rectangle)
 object activeRectangleClass
 beginObjectProperties
@@ -350,7 +372,7 @@ release 0
 x 25
 y 20
 w 280
-h 100
+h 130
 lineColor index 14
 fill
 fillColor index 3
@@ -361,10 +383,10 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 30
-y 25
-w 140
+y 55
+w 130
 h 25
 font "helvetica-bold-r-14.0"
 fgColor index 14
@@ -380,18 +402,17 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 25
-y 10
-w 50
-h 14
+y 6
+w 281
+h 15
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
 value {
-  "  POS1  "
+  "  POS1 - "
 }
-autoSize
 border
 endObjectProperties
 
@@ -402,7 +423,7 @@ major 4
 minor 0
 release 1
 x 30
-y 85
+y 115
 w 270
 h 0
 lineColor index 14
@@ -413,8 +434,8 @@ xPoints {
   1 300
 }
 yPoints {
-  0 85
-  1 85
+  0 115
+  1 115
 }
 endObjectProperties
 
@@ -424,9 +445,9 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 175
-y 25
-w 125
+x 165
+y 55
+w 135
 h 25
 controlPv "$(zebra):M1:RBV"
 fgColor index 16
@@ -441,10 +462,10 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 30
-y 55
-w 140
+y 85
+w 130
 h 25
 font "helvetica-bold-r-14.0"
 fgColor index 14
@@ -461,9 +482,9 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 175
-y 55
-w 125
+x 165
+y 85
+w 135
 h 25
 controlPv "$(zebra):POS1_SET"
 fgColor index 25
@@ -477,10 +498,10 @@ endObjectProperties
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 30
-y 90
+y 120
 w 270
 h 25
 fgColor index 25
@@ -506,7 +527,7 @@ release 0
 x 335
 y 20
 w 280
-h 100
+h 130
 lineColor index 14
 fill
 fillColor index 3
@@ -517,37 +538,17 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 340
-y 25
-w 140
-h 25
-font "helvetica-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Motor current pos"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
+release 1
 x 335
-y 10
-w 50
-h 14
+y 6
+w 281
+h 15
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
 value {
-  "  POS2  "
+  "  POS2 - "
 }
-autoSize
 border
 endObjectProperties
 
@@ -558,7 +559,7 @@ major 4
 minor 0
 release 1
 x 340
-y 85
+y 115
 w 270
 h 0
 lineColor index 14
@@ -569,74 +570,19 @@ xPoints {
   1 610
 }
 yPoints {
-  0 85
-  1 85
+  0 115
+  1 115
 }
-endObjectProperties
-
-# (Textupdate)
-object TextupdateClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 485
-y 25
-w 125
-h 25
-controlPv "$(zebra):M2:RBV"
-fgColor index 16
-fgAlarm
-bgColor index 10
-fill
-font "helvetica-bold-r-14.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 340
-y 55
-w 140
-h 25
-font "helvetica-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Set Zebra pos"
-}
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 485
-y 55
-w 125
-h 25
-controlPv "$(zebra):POS2_SET"
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "helvetica-bold-r-14.0"
 endObjectProperties
 
 # (Message Button)
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 340
-y 90
+y 120
 w 270
 h 25
 fgColor index 25
@@ -653,6 +599,23 @@ useEnumNumeric
 font "helvetica-bold-r-14.0"
 endObjectProperties
 
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 80
+y 4
+w 220
+h 16
+controlPv "$(zebra):M1"
+fgColor index 14
+fgAlarm
+bgColor index 10
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
 # (Rectangle)
 object activeRectangleClass
 beginObjectProperties
@@ -660,9 +623,9 @@ major 4
 minor 0
 release 0
 x 25
-y 145
+y 170
 w 280
-h 100
+h 130
 lineColor index 14
 fill
 fillColor index 3
@@ -673,10 +636,10 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 30
-y 150
-w 140
+y 205
+w 130
 h 25
 font "helvetica-bold-r-14.0"
 fgColor index 14
@@ -692,18 +655,17 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 25
-y 135
-w 50
-h 14
+y 156
+w 281
+h 15
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 7
 value {
-  "  POS3  "
+  "  POS3 - "
 }
-autoSize
 border
 endObjectProperties
 
@@ -714,7 +676,7 @@ major 4
 minor 0
 release 1
 x 30
-y 210
+y 265
 w 270
 h 0
 lineColor index 14
@@ -725,8 +687,8 @@ xPoints {
   1 300
 }
 yPoints {
-  0 210
-  1 210
+  0 265
+  1 265
 }
 endObjectProperties
 
@@ -736,9 +698,9 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 175
-y 150
-w 125
+x 165
+y 205
+w 135
 h 25
 controlPv "$(zebra):M3:RBV"
 fgColor index 16
@@ -753,10 +715,10 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
+release 1
 x 30
-y 180
-w 140
+y 235
+w 130
 h 25
 font "helvetica-bold-r-14.0"
 fgColor index 14
@@ -773,9 +735,9 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 175
-y 180
-w 125
+x 165
+y 235
+w 135
 h 25
 controlPv "$(zebra):POS3_SET"
 fgColor index 25
@@ -789,10 +751,10 @@ endObjectProperties
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 30
-y 215
+y 270
 w 270
 h 25
 fgColor index 25
@@ -809,94 +771,17 @@ useEnumNumeric
 font "helvetica-bold-r-14.0"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 335
-y 145
-w 280
-h 100
-lineColor index 14
-fill
-fillColor index 3
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 340
-y 150
-w 140
-h 25
-font "helvetica-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Motor current pos"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 335
-y 135
-w 50
-h 14
-font "helvetica-bold-r-12.0"
-fgColor index 14
-bgColor index 7
-value {
-  "  POS4  "
-}
-autoSize
-border
-endObjectProperties
-
-# (Lines)
-object activeLineClass
-beginObjectProperties
-major 4
-minor 0
-release 1
-x 340
-y 210
-w 270
-h 0
-lineColor index 14
-fillColor index 3
-numPoints 2
-xPoints {
-  0 340
-  1 610
-}
-yPoints {
-  0 210
-  1 210
-}
-endObjectProperties
-
 # (Textupdate)
 object TextupdateClass
 beginObjectProperties
 major 10
 minor 0
 release 0
-x 485
-y 150
-w 125
+x 165
+y 175
+w 135
 h 25
-controlPv "$(zebra):M4:RBV"
+controlPv "$(zebra):M3:DESC"
 fgColor index 16
 fgAlarm
 bgColor index 10
@@ -909,10 +794,83 @@ object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
+release 1
+x 30
+y 175
+w 130
+h 25
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Description"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
 release 0
+x 80
+y 154
+w 220
+h 16
+controlPv "$(zebra):M3"
+fgColor index 14
+fgAlarm
+bgColor index 10
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
 x 340
-y 180
-w 140
+y 55
+w 130
+h 25
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Motor current pos"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 475
+y 55
+w 135
+h 25
+controlPv "$(zebra):M2:RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "helvetica-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 340
+y 85
+w 130
 h 25
 font "helvetica-bold-r-14.0"
 fgColor index 14
@@ -929,9 +887,194 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 485
-y 180
-w 125
+x 475
+y 85
+w 135
+h 25
+controlPv "$(zebra):POS2_SET"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "helvetica-bold-r-14.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 165
+y 25
+w 135
+h 25
+controlPv "$(zebra):M1:DESC"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "helvetica-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 30
+y 25
+w 130
+h 25
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Description"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 4
+w 220
+h 16
+controlPv "$(zebra):M2"
+fgColor index 14
+fgAlarm
+bgColor index 10
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 335
+y 170
+w 280
+h 130
+lineColor index 14
+fill
+fillColor index 3
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 335
+y 156
+w 281
+h 15
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 7
+value {
+  "  POS4 - "
+}
+border
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 340
+y 205
+w 130
+h 25
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Motor current pos"
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 340
+y 265
+w 270
+h 0
+lineColor index 14
+fillColor index 3
+numPoints 2
+xPoints {
+  0 340
+  1 610
+}
+yPoints {
+  0 265
+  1 265
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 475
+y 205
+w 135
+h 25
+controlPv "$(zebra):M4:RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "helvetica-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 340
+y 235
+w 130
+h 25
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Set Zebra pos"
+}
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 475
+y 235
+w 135
 h 25
 controlPv "$(zebra):POS4_SET"
 fgColor index 25
@@ -945,10 +1088,10 @@ endObjectProperties
 object activeMessageButtonClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 340
-y 215
+y 270
 w 270
 h 25
 fgColor index 25
@@ -965,25 +1108,94 @@ useEnumNumeric
 font "helvetica-bold-r-14.0"
 endObjectProperties
 
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 390
+y 154
+w 220
+h 16
+controlPv "$(zebra):M4"
+fgColor index 14
+fgAlarm
+bgColor index 10
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 475
+y 175
+w 135
+h 25
+controlPv "$(zebra):M4:DESC"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "helvetica-bold-r-14.0"
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
-release 0
-x 120
-y 265
-w 445
-h 48
+release 1
+x 340
+y 175
+w 130
+h 25
 font "helvetica-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "If you zero the motor on the motor controller by homing, "
-  "then you must write down the new position of the motor to Zebra"
-  "by pressing the copy button above"
+  "Description"
 }
-autoSize
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 475
+y 25
+w 135
+h 25
+controlPv "$(zebra):M2:DESC"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "helvetica-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 340
+y 25
+w 130
+h 25
+font "helvetica-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Description"
+}
 endObjectProperties
 
