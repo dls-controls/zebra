@@ -11934,6 +11934,7 @@ record(ao, "$(P)$(Q):SOFT_IN:SET") {
 # end(SOFT_IN)
 
 record(motor, "$(P)$(Q):NOMOTOR") {
+  field(DESC, "N/A")
   field(DTYP, "Soft Channel")
   field(ERES, "1")
   field(OFF, "0")
