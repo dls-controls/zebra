@@ -933,6 +933,7 @@ record(motor, "$(P)$(Q):NOMOTOR") {
   field(DTYP, "Soft Channel")
   field(ERES, "1")
   field(OFF, "0")
+  field(DESC, "N/A")
 }
 
 record(ai, "$(P)$(Q):NOMOTOR:ERES") {
@@ -1179,7 +1180,7 @@ record(dfanout, "$(P)$(Q):PC_GATE_SEL:DFANOUT") {
   field(DOL, "$(P)$(Q):PC_GATE_SEL")
   field(OUTA, "$(P)$(Q):GATE:ERES.SELN PP")
   field(OUTB, "$(P)$(Q):STARTGATE:ERES.SELN PP")
-  field(OUTC, "$(P)$(Q):STARTGATE:OFF.SELN PP")      
+  field(OUTC, "$(P)$(Q):STARTGATE:OFF.SELN PP")
 }
 
 expand("zebraRegisterWrite32.vdb", PC_GATE_START) {
@@ -1229,7 +1230,6 @@ expand("zebraRegisterWritePosCompInp.vdb", PC_PULSE_SEL) {
   macro(PARAM, "PC_PULSE_SEL")
 }
 
-
 record(ao, "$(P)$(Q):PC_PULSE_SEL:SET") {
   field(FLNK, "$(P)$(Q):PC_PULSE_SEL:DFANOUT")
 }
@@ -1237,8 +1237,8 @@ record(ao, "$(P)$(Q):PC_PULSE_SEL:SET") {
 record(dfanout, "$(P)$(Q):PC_PULSE_SEL:DFANOUT") {
   field(DOL, "$(P)$(Q):PC_PULSE_SEL")
   field(OUTA, "$(P)$(Q):PULSE:ERES.SELN PP")
-  field(OUTB, "$(P)$(Q):PC_PULSE_STEP:DRVL.A PP")  
-  field(OUTC, "$(P)$(Q):PC_PULSE:VALID.D PP")  
+  field(OUTB, "$(P)$(Q):PC_PULSE_STEP:DRVL.A PP")
+  field(OUTC, "$(P)$(Q):PC_PULSE:VALID.D PP")
 }
 
 expand("zebraRegisterWrite32.vdb", PC_PULSE_START) {
@@ -1924,178 +1924,191 @@ record(calcout, "$(P)$(Q):MAV:ERES") {
 }
 
 #----------------------- areaDetector overrides for CAM plugin -----------------------
-
-record(mbbo, "$(P)$(Q):DataType")
-{
-   field(ZRST, "$(EMPTY=)")
-   field(ZRVL, "$(EMPTY=)")
-   field(ONST, "$(EMPTY=)")
-   field(ONVL, "$(EMPTY=)")
-   field(TWST, "$(EMPTY=)")
-   field(TWVL, "$(EMPTY=)")
-   field(THST, "$(EMPTY=)")
-   field(THVL, "$(EMPTY=)")
-   field(FRST, "$(EMPTY=)")
-   field(FRVL, "$(EMPTY=)")
-   field(FVST, "$(EMPTY=)")
-   field(FVVL, "$(EMPTY=)")
-   field(SXST, "$(EMPTY=)")
-   field(SXVL, "$(EMPTY=)")
-   field(VAL, "7")
+record(mbbo, "$(P)$(Q):DataType") {
+  field(ZRST, "$(EMPTY=)")
+  field(ZRVL, "$(EMPTY=)")
+  field(ONST, "$(EMPTY=)")
+  field(ONVL, "$(EMPTY=)")
+  field(TWST, "$(EMPTY=)")
+  field(TWVL, "$(EMPTY=)")
+  field(THST, "$(EMPTY=)")
+  field(THVL, "$(EMPTY=)")
+  field(FRST, "$(EMPTY=)")
+  field(FRVL, "$(EMPTY=)")
+  field(FVST, "$(EMPTY=)")
+  field(FVVL, "$(EMPTY=)")
+  field(SXST, "$(EMPTY=)")
+  field(SXVL, "$(EMPTY=)")
+  field(VAL, "7")
 }
 
-record(mbbo, "$(P)$(Q):ColorMode")
-{
-   field(DISA, "1")
+record(mbbo, "$(P)$(Q):ColorMode") {
+  field(DISA, "1")
 }
 
-record(ao, "$(P)$(Q):Gain")
-{
-   field(DISA, "1")
+record(ao, "$(P)$(Q):Gain") {
+  field(DISA, "1")
 }
 
-record(ai, "$(P)$(Q):Gain_RBV")
-{
-   field(DISA, "1")
+record(ai, "$(P)$(Q):Gain_RBV") {
+  field(DISA, "1")
 }
 
-record(longout, "$(P)$(Q):BinX")
-{
-   field(DISA, "1")
+record(longout, "$(P)$(Q):BinX") {
+  field(DISA, "1")
 }
 
-record(longin, "$(P)$(Q):BinX_RBV")
-{
-   field(DISA, "1")
+record(longin, "$(P)$(Q):BinX_RBV") {
+  field(DISA, "1")
 }
 
-record(longout, "$(P)$(Q):BinY")
-{
-   field(DISA, "1")
+record(longout, "$(P)$(Q):BinY") {
+  field(DISA, "1")
 }
 
-record(longin, "$(P)$(Q):BinY_RBV")
-{
-   field(DISA, "1")
+record(longin, "$(P)$(Q):BinY_RBV") {
+  field(DISA, "1")
 }
 
-record(longout, "$(P)$(Q):MinX")
-{
-   field(DISA, "1")
+record(longout, "$(P)$(Q):MinX") {
+  field(DISA, "1")
 }
 
-record(longin, "$(P)$(Q):MinX_RBV")
-{
-   field(DISA, "1")
+record(longin, "$(P)$(Q):MinX_RBV") {
+  field(DISA, "1")
 }
 
-record(longout, "$(P)$(Q):MinY")
-{
-   field(DISA, "1")
+record(longout, "$(P)$(Q):MinY") {
+  field(DISA, "1")
 }
 
-record(longin, "$(P)$(Q):MinY_RBV")
-{
-   field(DISA, "1")
+record(longin, "$(P)$(Q):MinY_RBV") {
+  field(DISA, "1")
 }
 
-record(longout, "$(P)$(Q):SizeX")
-{
-   field(DISA, "1")
+record(longout, "$(P)$(Q):SizeX") {
+  field(DISA, "1")
 }
 
-record(longin, "$(P)$(Q):SizeX_RBV")
-{
-   field(DISA, "1")
+record(longin, "$(P)$(Q):SizeX_RBV") {
+  field(DISA, "1")
 }
 
-record(longout, "$(P)$(Q):SizeY")
-{
-   field(DISA, "1")
+record(longout, "$(P)$(Q):SizeY") {
+  field(DISA, "1")
 }
 
-record(longin, "$(P)$(Q):SizeY_RBV")
-{
-   field(DISA, "1")
+record(longin, "$(P)$(Q):SizeY_RBV") {
+  field(DISA, "1")
 }
 
-record(bo, "$(P)$(Q):ReverseX")
-{
-   field(DISA, "1")
+record(bo, "$(P)$(Q):ReverseX") {
+  field(DISA, "1")
 }
 
-record(bi, "$(P)$(Q):ReverseX_RBV")
-{
-   field(DISA, "1")
+record(bi, "$(P)$(Q):ReverseX_RBV") {
+  field(DISA, "1")
 }
 
-record(bo, "$(P)$(Q):ReverseY")
-{
-   field(DISA, "1")
+record(bo, "$(P)$(Q):ReverseY") {
+  field(DISA, "1")
 }
 
-record(bi, "$(P)$(Q):ReverseY_RBV")
-{
-   field(DISA, "1")
+record(bi, "$(P)$(Q):ReverseY_RBV") {
+  field(DISA, "1")
 }
 
-record(ao, "$(P)$(Q):AcquireTime")
-{
-   field(DISA, "1")
+record(ao, "$(P)$(Q):AcquireTime") {
+  field(DISA, "1")
 }
 
-record(ai, "$(P)$(Q):AcquireTime_RBV")
-{
-   field(DISA, "1")
+record(ai, "$(P)$(Q):AcquireTime_RBV") {
+  field(DISA, "1")
 }
 
-record(ao, "$(P)$(Q):AcquirePeriod")
-{
-   field(DISA, "1")
+record(ao, "$(P)$(Q):AcquirePeriod") {
+  field(DISA, "1")
 }
 
-record(ai, "$(P)$(Q):AcquirePeriod_RBV")
-{
-   field(DISA, "1")
+record(ai, "$(P)$(Q):AcquirePeriod_RBV") {
+  field(DISA, "1")
 }
 
-record(longout, "$(P)$(Q):NumExposures")
-{
-   field(DISA, "1")
+record(longout, "$(P)$(Q):NumExposures") {
+  field(DISA, "1")
 }
 
-record(longin, "$(P)$(Q):NumExposures_RBV")
-{
-   field(DISA, "1")
+record(longin, "$(P)$(Q):NumExposures_RBV") {
+  field(DISA, "1")
 }
 
-record(mbbo, "$(P)$(Q):ImageMode")
-{
-   field(ZRST, "$(EMPTY=)")
-   field(ZRVL, "$(EMPTY=)")
-   field(ONST, "$(EMPTY=)")
-   field(ONVL, "$(EMPTY=)")
-   field(VAL, "2")
+record(mbbo, "$(P)$(Q):ImageMode") {
+  field(ZRST, "$(EMPTY=)")
+  field(ZRVL, "$(EMPTY=)")
+  field(ONST, "$(EMPTY=)")
+  field(ONVL, "$(EMPTY=)")
+  field(VAL, "2")
 }
 
-record(mbbo, "$(P)$(Q):TriggerMode")
-{
-   field(ZRST, "Triggered")
-   field(ONST, "$(EMPTY=)")
-   field(ONVL, "$(EMPTY=)")
-   field(VAL, "0")
+record(mbbo, "$(P)$(Q):TriggerMode") {
+  field(ZRST, "Triggered")
+  field(ONST, "$(EMPTY=)")
+  field(ONVL, "$(EMPTY=)")
+  field(VAL, "0")
 }
 
-record(mbbi, "$(P)$(Q):TriggerMode_RBV")
-{
-   field(ZRST, "Triggered")
-   field(ONST, "$(EMPTY=)")
-   field(ONVL, "$(EMPTY=)")
+record(mbbi, "$(P)$(Q):TriggerMode_RBV") {
+  field(ZRST, "Triggered")
+  field(ONST, "$(EMPTY=)")
+  field(ONVL, "$(EMPTY=)")
+}
+
+record(stringin, "$(P)$(Q):M1") {
+  field(PINI, "YES")
+  field(VAL, "$(M1=$(P)$(Q):NOMOTOR)")
+}
+
+record(stringin, "$(P)$(Q):M2") {
+  field(PINI, "YES")
+  field(VAL, "$(M2=$(P)$(Q):NOMOTOR)")
+}
+
+record(stringin, "$(P)$(Q):M3") {
+  field(PINI, "YES")
+  field(VAL, "$(M3=$(P)$(Q):NOMOTOR)")
+}
+
+record(stringin, "$(P)$(Q):M4") {
+  field(PINI, "YES")
+  field(VAL, "$(M4=$(P)$(Q):NOMOTOR)")
+}
+
+
+record(stringin, "$(P)$(Q):M1:DESC") {
+  field(PINI, "YES")
+  field(INP, "$(M1=$(P)$(Q):NOMOTOR).DESC CP")
+}
+
+
+record(stringin, "$(P)$(Q):M2:DESC") {
+  field(PINI, "YES")
+  field(INP, "$(M2=$(P)$(Q):NOMOTOR).DESC CP")
+}
+
+record(stringin, "$(P)$(Q):M3:DESC") {
+  field(PINI, "YES")
+  field(INP, "$(M3=$(P)$(Q):NOMOTOR).DESC CP")
+}
+
+record(stringin, "$(P)$(Q):M4:DESC") {
+  field(PINI, "YES")
+  field(INP, "$(M4=$(P)$(Q):NOMOTOR).DESC CP")
 }
 
 #! Further lines contain data used by VisualDCT
-#! View(476,3127,1.0)
+#! View(315,2598,1.0)
 #! Record("$(P)$(Q):CONNECTED",4720,2646,0,0,"$(P)$(Q):CONNECTED")
+#! Record("$(P)$(Q):INITIAL_POLL_DONE",20,26,0,0,"$(P)$(Q):INITIAL_POLL_DONE")
 #! Record("$(P)$(Q):STORE",3860,2682,0,0,"$(P)$(Q):STORE")
 #! Record("$(P)$(Q):RESTORE",3860,2802,0,0,"$(P)$(Q):RESTORE")
 #! Record("$(P)$(Q):CONFIG_WRITE",3860,3042,0,0,"$(P)$(Q):CONFIG_WRITE")
@@ -2765,29 +2778,33 @@ record(mbbi, "$(P)$(Q):TriggerMode_RBV")
 #! TemplateField("SOFT_IN","DISP",16777215,0,1)
 #! TemplateField("SOFT_IN","PARAM",16777215,0,1)
 
-#! Record("$(P)$(Q):NOMOTOR",1140,2862,0,0,"$(P)$(Q):NOMOTOR")
+#! Record("$(P)$(Q):NOMOTOR",1140,2848,0,0,"$(P)$(Q):NOMOTOR")
 #! Record("$(P)$(Q):NOMOTOR:ERES",1740,3930,0,0,"$(P)$(Q):NOMOTOR:ERES")
 #! Record("$(P)$(Q):NOMOTOR:SCALE",1140,2970,0,0,"$(P)$(Q):NOMOTOR:SCALE")
-#! Record("$(P)$(Q):M1:ERES",1680,3054,0,1,"$(P)$(Q):M1:ERES")
+#! Record("$(P)$(Q):M1:ERES",1680,3060,0,1,"$(P)$(Q):M1:ERES")
 #! Field("$(P)$(Q):M1:ERES.VAL",16777215,1,"$(P)$(Q):M1:ERES.VAL")
 #! Field("$(P)$(Q):M1:ERES.INPA",16777215,1,"$(P)$(Q):M1:ERES.INPA")
 #! Field("$(P)$(Q):M1:ERES.INPB",16777215,1,"$(P)$(Q):M1:ERES.INPB")
 #! Field("$(P)$(Q):M1:ERES.INPC",16777215,1,"$(P)$(Q):M1:ERES.INPC")
-#! Record("$(P)$(Q):M2:ERES",1680,3274,0,1,"$(P)$(Q):M2:ERES")
+#! Field("$(P)$(Q):M1:ERES.INPD",16777215,1,"$(P)$(Q):M1:ERES.INPD")
+#! Record("$(P)$(Q):M2:ERES",1680,3280,0,1,"$(P)$(Q):M2:ERES")
 #! Field("$(P)$(Q):M2:ERES.VAL",16777215,1,"$(P)$(Q):M2:ERES.VAL")
 #! Field("$(P)$(Q):M2:ERES.INPA",16777215,1,"$(P)$(Q):M2:ERES.INPA")
 #! Field("$(P)$(Q):M2:ERES.INPB",16777215,1,"$(P)$(Q):M2:ERES.INPB")
 #! Field("$(P)$(Q):M2:ERES.INPC",16777215,1,"$(P)$(Q):M2:ERES.INPC")
-#! Record("$(P)$(Q):M3:ERES",1700,3494,0,1,"$(P)$(Q):M3:ERES")
+#! Field("$(P)$(Q):M2:ERES.INPD",16777215,1,"$(P)$(Q):M2:ERES.INPD")
+#! Record("$(P)$(Q):M3:ERES",1700,3500,0,1,"$(P)$(Q):M3:ERES")
 #! Field("$(P)$(Q):M3:ERES.VAL",16777215,1,"$(P)$(Q):M3:ERES.VAL")
 #! Field("$(P)$(Q):M3:ERES.INPA",16777215,1,"$(P)$(Q):M3:ERES.INPA")
 #! Field("$(P)$(Q):M3:ERES.INPB",16777215,1,"$(P)$(Q):M3:ERES.INPB")
 #! Field("$(P)$(Q):M3:ERES.INPC",16777215,1,"$(P)$(Q):M3:ERES.INPC")
-#! Record("$(P)$(Q):M4:ERES",1720,3714,0,1,"$(P)$(Q):M4:ERES")
+#! Field("$(P)$(Q):M3:ERES.INPD",16777215,1,"$(P)$(Q):M3:ERES.INPD")
+#! Record("$(P)$(Q):M4:ERES",1720,3720,0,1,"$(P)$(Q):M4:ERES")
 #! Field("$(P)$(Q):M4:ERES.VAL",16777215,1,"$(P)$(Q):M4:ERES.VAL")
 #! Field("$(P)$(Q):M4:ERES.INPA",16777215,1,"$(P)$(Q):M4:ERES.INPA")
 #! Field("$(P)$(Q):M4:ERES.INPB",16777215,1,"$(P)$(Q):M4:ERES.INPB")
 #! Field("$(P)$(Q):M4:ERES.INPC",16777215,1,"$(P)$(Q):M4:ERES.INPC")
+#! Field("$(P)$(Q):M4:ERES.INPD",16777215,1,"$(P)$(Q):M4:ERES.INPD")
 #! Visibility("$(P)$(Q):M4:ERES.CALC",1)
 #! Record("$(P)$(Q):M1:ERES:OUT",1420,3048,0,0,"$(P)$(Q):M1:ERES:OUT")
 #! Field("$(P)$(Q):M1:ERES:OUT.DOL",16777215,1,"$(P)$(Q):M1:ERES:OUT.DOL")
@@ -2860,6 +2877,7 @@ record(mbbi, "$(P)$(Q):TriggerMode_RBV")
 #! Field("$(P)$(Q):PULSE:ERES.INPC",16777215,0,"$(P)$(Q):PULSE:ERES.INPC")
 #! Field("$(P)$(Q):PULSE:ERES.NVL",16777215,1,"$(P)$(Q):PULSE:ERES.NVL")
 #! Field("$(P)$(Q):PULSE:ERES.VAL",16777215,0,"$(P)$(Q):PULSE:ERES.VAL")
+#! Field("$(P)$(Q):PULSE:ERES.SELN",16777215,0,"$(P)$(Q):PULSE:ERES.SELN")
 
 #! TemplateInstance("POS1_SET",100,2860,0,"")
 #! TemplateField("POS1_SET","DRVL",16777215,0,1)
@@ -2906,9 +2924,10 @@ record(mbbi, "$(P)$(Q):TriggerMode_RBV")
 #! Field("$(P)$(Q):PC_ARM.FLNK",16777215,1,"$(P)$(Q):PC_ARM.FLNK")
 #! Link("$(P)$(Q):PC_ARM.FLNK","$(P)$(Q):ARM_SET_BUSY")
 #! Field("$(P)$(Q):PC_ARM.DISP",16777215,1,"$(P)$(Q):PC_ARM.DISP")
-#! Record("$(P)$(Q):ARM_SET_BUSY",660,4836,0,0,"$(P)$(Q):ARM_SET_BUSY")
+#! Record("$(P)$(Q):ARM_SET_BUSY",660,4842,0,0,"$(P)$(Q):ARM_SET_BUSY")
 #! Field("$(P)$(Q):ARM_SET_BUSY.OUTA",16777215,1,"$(P)$(Q):ARM_SET_BUSY.OUTA")
 #! Link("$(P)$(Q):ARM_SET_BUSY.OUTA","$(P)$(Q):ARM_BUSY.VAL")
+#! Field("$(P)$(Q):ARM_SET_BUSY.OUTB",16777215,1,"$(P)$(Q):ARM_SET_BUSY.OUTB")
 #! Record("$(P)$(Q):ARM_BUSY",900,4863,0,0,"$(P)$(Q):ARM_BUSY")
 #! Field("$(P)$(Q):ARM_BUSY.VAL",16777215,1,"$(P)$(Q):ARM_BUSY.VAL")
 #! Record("$(P)$(Q):PC_DISARM",180,4856,0,0,"$(P)$(Q):PC_DISARM")
@@ -2927,6 +2946,17 @@ record(mbbi, "$(P)$(Q):TriggerMode_RBV")
 #! TemplateField("PC_GATE_SEL","TWST",16777215,0,1)
 #! TemplateField("PC_GATE_SEL","PARAM",16777215,0,1)
 
+#! Record("$(P)$(Q):PC_GATE_SEL:SET",260,10,0,0,"$(P)$(Q):PC_GATE_SEL:SET")
+#! Field("$(P)$(Q):PC_GATE_SEL:SET.FLNK",16777215,1,"$(P)$(Q):PC_GATE_SEL:SET.FLNK")
+#! Link("$(P)$(Q):PC_GATE_SEL:SET.FLNK","$(P)$(Q):PC_GATE_SEL:DFANOUT")
+#! Record("$(P)$(Q):PC_GATE_SEL:DFANOUT",500,28,0,1,"$(P)$(Q):PC_GATE_SEL:DFANOUT")
+#! Field("$(P)$(Q):PC_GATE_SEL:DFANOUT.DOL",16777215,1,"$(P)$(Q):PC_GATE_SEL:DFANOUT.DOL")
+#! Field("$(P)$(Q):PC_GATE_SEL:DFANOUT.OUTA",16777215,1,"$(P)$(Q):PC_GATE_SEL:DFANOUT.OUTA")
+#! Link("$(P)$(Q):PC_GATE_SEL:DFANOUT.OUTA","$(P)$(Q):GATE:ERES.SELN")
+#! Field("$(P)$(Q):PC_GATE_SEL:DFANOUT.OUTB",16777215,1,"$(P)$(Q):PC_GATE_SEL:DFANOUT.OUTB")
+#! Link("$(P)$(Q):PC_GATE_SEL:DFANOUT.OUTB","$(P)$(Q):STARTGATE:ERES.SELN")
+#! Field("$(P)$(Q):PC_GATE_SEL:DFANOUT.OUTC",16777215,0,"$(P)$(Q):PC_GATE_SEL:DFANOUT.OUTC")
+#! Link("$(P)$(Q):PC_GATE_SEL:DFANOUT.OUTC","$(P)$(Q):STARTGATE:OFF.SELN")
 
 #! TemplateInstance("PC_GATE_START",520,1100,0,"")
 #! TemplateField("PC_GATE_START","DRVL",16777215,0,1)
@@ -2974,6 +3004,17 @@ record(mbbi, "$(P)$(Q):TriggerMode_RBV")
 #! TemplateField("PC_PULSE_SEL","TWST",16777215,0,1)
 #! TemplateField("PC_PULSE_SEL","PARAM",16777215,0,1)
 
+#! Record("$(P)$(Q):PC_PULSE_SEL:SET",740,10,0,0,"$(P)$(Q):PC_PULSE_SEL:SET")
+#! Field("$(P)$(Q):PC_PULSE_SEL:SET.FLNK",16777215,1,"$(P)$(Q):PC_PULSE_SEL:SET.FLNK")
+#! Link("$(P)$(Q):PC_PULSE_SEL:SET.FLNK","$(P)$(Q):PC_PULSE_SEL:DFANOUT")
+#! Record("$(P)$(Q):PC_PULSE_SEL:DFANOUT",980,28,0,1,"$(P)$(Q):PC_PULSE_SEL:DFANOUT")
+#! Field("$(P)$(Q):PC_PULSE_SEL:DFANOUT.DOL",16777215,1,"$(P)$(Q):PC_PULSE_SEL:DFANOUT.DOL")
+#! Field("$(P)$(Q):PC_PULSE_SEL:DFANOUT.OUTA",16777215,1,"$(P)$(Q):PC_PULSE_SEL:DFANOUT.OUTA")
+#! Link("$(P)$(Q):PC_PULSE_SEL:DFANOUT.OUTA","$(P)$(Q):PULSE:ERES.SELN")
+#! Field("$(P)$(Q):PC_PULSE_SEL:DFANOUT.OUTB",16777215,0,"$(P)$(Q):PC_PULSE_SEL:DFANOUT.OUTB")
+#! Link("$(P)$(Q):PC_PULSE_SEL:DFANOUT.OUTB","$(P)$(Q):PC_PULSE_STEP:DRVL.A")
+#! Field("$(P)$(Q):PC_PULSE_SEL:DFANOUT.OUTC",16777215,1,"$(P)$(Q):PC_PULSE_SEL:DFANOUT.OUTC")
+#! Link("$(P)$(Q):PC_PULSE_SEL:DFANOUT.OUTC","$(P)$(Q):PC_PULSE:VALID.D")
 
 #! TemplateInstance("PC_PULSE_START",520,1540,0,"")
 #! TemplateField("PC_PULSE_START","DRVL",16777215,0,1)
@@ -3127,6 +3168,7 @@ record(mbbi, "$(P)$(Q):TriggerMode_RBV")
 #! Link("$(P)$(Q):STARTGATE:ERES.INPD","$(P)$(Q):MOTOR:ERES.VAL")
 #! Field("$(P)$(Q):STARTGATE:ERES.INPB",16777215,1,"$(P)$(Q):STARTGATE:ERES.INPB")
 #! Link("$(P)$(Q):STARTGATE:ERES.INPB","$(P)$(Q):TIME:ERES.VAL")
+#! Field("$(P)$(Q):STARTGATE:ERES.SELN",16777215,0,"$(P)$(Q):STARTGATE:ERES.SELN")
 #! Record("$(P)$(Q):STARTGATE:OFF",200,3900,0,1,"$(P)$(Q):STARTGATE:OFF")
 #! Field("$(P)$(Q):STARTGATE:OFF.INPA",16777215,0,"$(P)$(Q):STARTGATE:OFF.INPA")
 #! Link("$(P)$(Q):STARTGATE:OFF.INPA","$(P)$(Q):MOTOR:OFF.VAL")
@@ -3135,6 +3177,7 @@ record(mbbi, "$(P)$(Q):TriggerMode_RBV")
 #! Field("$(P)$(Q):STARTGATE:OFF.NVL",16777215,1,"$(P)$(Q):STARTGATE:OFF.NVL")
 #! Field("$(P)$(Q):STARTGATE:OFF.INPD",16777215,0,"$(P)$(Q):STARTGATE:OFF.INPD")
 #! Link("$(P)$(Q):STARTGATE:OFF.INPD","$(P)$(Q):MOTOR:OFF.VAL")
+#! Field("$(P)$(Q):STARTGATE:OFF.SELN",16777215,1,"$(P)$(Q):STARTGATE:OFF.SELN")
 #! Record("$(P)$(Q):GATE:OFF",180,4190,0,1,"$(P)$(Q):GATE:OFF")
 #! Record("$(P)$(Q):MOTOR:ABSERES",2020,3296,0,1,"$(P)$(Q):MOTOR:ABSERES")
 #! Field("$(P)$(Q):MOTOR:ABSERES.INPA",16777215,1,"$(P)$(Q):MOTOR:ABSERES.INPA")
@@ -3149,6 +3192,7 @@ record(mbbi, "$(P)$(Q):TriggerMode_RBV")
 #! Link("$(P)$(Q):GATE:ERES.INPD","$(P)$(Q):MOTOR:ABSERES.VAL")
 #! Field("$(P)$(Q):GATE:ERES.INPB",16777215,1,"$(P)$(Q):GATE:ERES.INPB")
 #! Link("$(P)$(Q):GATE:ERES.INPB","$(P)$(Q):TIME:ERES.VAL")
+#! Field("$(P)$(Q):GATE:ERES.SELN",16777215,0,"$(P)$(Q):GATE:ERES.SELN")
 
 #! TemplateInstance("PC_ENC",900,280,0,"")
 #! TemplateField("PC_ENC","ZRST",16777215,0,1)
@@ -3318,12 +3362,14 @@ record(mbbi, "$(P)$(Q):TriggerMode_RBV")
 #! Field("$(P)$(Q):PC_PULSE_STEP:DRVL.OUT",16777215,1,"$(P)$(Q):PC_PULSE_STEP:DRVL.OUT")
 #! Field("$(P)$(Q):PC_PULSE_STEP:DRVL.INPI",16777215,1,"$(P)$(Q):PC_PULSE_STEP:DRVL.INPI")
 #! Link("$(P)$(Q):PC_PULSE_STEP:DRVL.INPI","$(P)$(Q):PULSE:ERES.VAL")
+#! Field("$(P)$(Q):PC_PULSE_STEP:DRVL.A",16777215,0,"$(P)$(Q):PC_PULSE_STEP:DRVL.A")
 #! Record("$(P)$(Q):PC_PULSE:VALID",1560,1554,0,0,"$(P)$(Q):PC_PULSE:VALID")
 #! Field("$(P)$(Q):PC_PULSE:VALID.INPA",16777215,1,"$(P)$(Q):PC_PULSE:VALID.INPA")
 #! Field("$(P)$(Q):PC_PULSE:VALID.INPB",16777215,1,"$(P)$(Q):PC_PULSE:VALID.INPB")
 #! Field("$(P)$(Q):PC_PULSE:VALID.INPC",16777215,1,"$(P)$(Q):PC_PULSE:VALID.INPC")
 #! Field("$(P)$(Q):PC_PULSE:VALID.INPD",16777215,1,"$(P)$(Q):PC_PULSE:VALID.INPD")
-#! Record("$(P)$(Q):MAV:OFF",580,3380,0,1,"$(P)$(Q):MAV:OFF")
+#! Field("$(P)$(Q):PC_PULSE:VALID.D",16777215,0,"$(P)$(Q):PC_PULSE:VALID.D")
+#! Record("$(P)$(Q):MAV:OFF",560,3400,0,1,"$(P)$(Q):MAV:OFF")
 #! Field("$(P)$(Q):MAV:OFF.INPA",16777215,0,"$(P)$(Q):MAV:OFF.INPA")
 #! Link("$(P)$(Q):MAV:OFF.INPA","$(P)$(Q):M1:OFF.VAL")
 #! Field("$(P)$(Q):MAV:OFF.INPB",16777215,0,"$(P)$(Q):MAV:OFF.INPB")
@@ -3343,3 +3389,44 @@ record(mbbi, "$(P)$(Q):TriggerMode_RBV")
 #! Link("$(P)$(Q):MAV:ERES.INPC","$(P)$(Q):M3:ERES.VAL")
 #! Field("$(P)$(Q):MAV:ERES.INPD",16777215,0,"$(P)$(Q):MAV:ERES.INPD")
 #! Link("$(P)$(Q):MAV:ERES.INPD","$(P)$(Q):M4:ERES.VAL")
+#! Record("$(P)$(Q):DataType",1220,15,0,0,"$(P)$(Q):DataType")
+#! Record("$(P)$(Q):ColorMode",1460,10,0,0,"$(P)$(Q):ColorMode")
+#! Record("$(P)$(Q):Gain",1700,10,0,0,"$(P)$(Q):Gain")
+#! Record("$(P)$(Q):Gain_RBV",1940,10,0,0,"$(P)$(Q):Gain_RBV")
+#! Record("$(P)$(Q):BinX",2180,10,0,0,"$(P)$(Q):BinX")
+#! Record("$(P)$(Q):BinX_RBV",2420,10,0,0,"$(P)$(Q):BinX_RBV")
+#! Record("$(P)$(Q):BinY",2660,10,0,0,"$(P)$(Q):BinY")
+#! Record("$(P)$(Q):BinY_RBV",2900,10,0,0,"$(P)$(Q):BinY_RBV")
+#! Record("$(P)$(Q):MinX",3140,10,0,0,"$(P)$(Q):MinX")
+#! Record("$(P)$(Q):MinX_RBV",3380,10,0,0,"$(P)$(Q):MinX_RBV")
+#! Record("$(P)$(Q):MinY",3620,10,0,0,"$(P)$(Q):MinY")
+#! Record("$(P)$(Q):MinY_RBV",3860,10,0,0,"$(P)$(Q):MinY_RBV")
+#! Record("$(P)$(Q):SizeX",4100,10,0,0,"$(P)$(Q):SizeX")
+#! Record("$(P)$(Q):SizeX_RBV",4340,10,0,0,"$(P)$(Q):SizeX_RBV")
+#! Record("$(P)$(Q):SizeY",4580,10,0,0,"$(P)$(Q):SizeY")
+#! Record("$(P)$(Q):SizeY_RBV",20,290,0,0,"$(P)$(Q):SizeY_RBV")
+#! Record("$(P)$(Q):ReverseX",260,290,0,0,"$(P)$(Q):ReverseX")
+#! Record("$(P)$(Q):ReverseX_RBV",500,290,0,0,"$(P)$(Q):ReverseX_RBV")
+#! Record("$(P)$(Q):ReverseY",740,290,0,0,"$(P)$(Q):ReverseY")
+#! Record("$(P)$(Q):ReverseY_RBV",980,290,0,0,"$(P)$(Q):ReverseY_RBV")
+#! Record("$(P)$(Q):AcquireTime",1220,290,0,0,"$(P)$(Q):AcquireTime")
+#! Record("$(P)$(Q):AcquireTime_RBV",1460,290,0,0,"$(P)$(Q):AcquireTime_RBV")
+#! Record("$(P)$(Q):AcquirePeriod",1700,290,0,0,"$(P)$(Q):AcquirePeriod")
+#! Record("$(P)$(Q):AcquirePeriod_RBV",1940,290,0,0,"$(P)$(Q):AcquirePeriod_RBV")
+#! Record("$(P)$(Q):NumExposures",2180,290,0,0,"$(P)$(Q):NumExposures")
+#! Record("$(P)$(Q):NumExposures_RBV",2420,290,0,0,"$(P)$(Q):NumExposures_RBV")
+#! Record("$(P)$(Q):ImageMode",2660,294,0,0,"$(P)$(Q):ImageMode")
+#! Record("$(P)$(Q):TriggerMode",2900,288,0,0,"$(P)$(Q):TriggerMode")
+#! Record("$(P)$(Q):TriggerMode_RBV",3140,302,0,0,"$(P)$(Q):TriggerMode_RBV")
+#! Record("$(P)$(Q):M1",120,3196,0,1,"$(P)$(Q):M1")
+#! Record("$(P)$(Q):M2",360,3196,0,1,"$(P)$(Q):M2")
+#! Record("$(P)$(Q):M3",640,3196,0,1,"$(P)$(Q):M3")
+#! Record("$(P)$(Q):M4",900,3196,0,1,"$(P)$(Q):M4")
+#! Record("$(P)$(Q):M1:DESC",120,3276,0,1,"$(P)$(Q):M1:DESC")
+#! Field("$(P)$(Q):M1:DESC.INP",16777215,1,"$(P)$(Q):M1:DESC.INP")
+#! Record("$(P)$(Q):M2:DESC",360,3276,0,1,"$(P)$(Q):M2:DESC")
+#! Field("$(P)$(Q):M2:DESC.INP",16777215,1,"$(P)$(Q):M2:DESC.INP")
+#! Record("$(P)$(Q):M3:DESC",640,3276,0,1,"$(P)$(Q):M3:DESC")
+#! Field("$(P)$(Q):M3:DESC.INP",16777215,1,"$(P)$(Q):M3:DESC.INP")
+#! Record("$(P)$(Q):M4:DESC",900,3276,0,1,"$(P)$(Q):M4:DESC")
+#! Field("$(P)$(Q):M4:DESC.INP",16777215,1,"$(P)$(Q):M4:DESC.INP")
