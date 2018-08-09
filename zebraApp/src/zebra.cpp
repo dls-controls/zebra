@@ -598,7 +598,7 @@ void zebra::interruptTask() {
 					// save value as an NDAttribute
 					if (pAttrs != NULL) {
 					    pAttr = pAttrs->next(pAttr);
-					    if (pAttr != NULL) pAttr->setValue(NDAttrFloat64, &dvalue);
+					    if (pAttr != NULL) pAttr->setValue((void *)&dvalue);
 					}
 					// Note: don't do callParamCallbacks here, or we'll swamp asyn
 				}
@@ -610,7 +610,7 @@ void zebra::interruptTask() {
 				if (pAttrs != NULL) {
 					    pAttr = pAttrs->next(pAttr);
 					    double ts = this->PCTime[this->currPt];
-					    if (pAttr != NULL) pAttr->setValue(NDAttrFloat64, &ts);
+					    if (pAttr != NULL) pAttr->setValue((void *)&ts);
 					}
 				// sanity check
 				if (ptr[0] != '\0') {
@@ -1108,7 +1108,7 @@ void zebra::allocateFrame() {
         for (int i = 0; i < NARRAYS + 1; i++) {
             std::stringstream name;
             name << values[i];
-            NDAttribute *pAttribute = new NDAttribute(name.str().c_str(), desc.c_str(), NDAttrFloat64, 0);
+            NDAttribute *pAttribute = new NDAttribute(name.str().c_str(), desc.c_str(), NDAttrSourceUndefined, NULL, NDAttrFloat64, 0);
             this->pArray->pAttributeList->add(pAttribute);
         }
     }
