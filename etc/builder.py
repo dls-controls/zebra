@@ -1,6 +1,6 @@
 from iocbuilder import AutoSubstitution, Device
 from iocbuilder.modules.asyn import Asyn, AsynPort, _AsynOctetInterface
-from iocbuilder.modules.ADCore import ADCore, ADBaseTemplate
+from iocbuilder.modules.ADCore import ADCore, ADBaseTemplate, makeTemplateInstance
 from iocbuilder.modules.busy import Busy
 from iocbuilder.modules.motor import MotorLib
 from iocbuilder.arginfo import *
@@ -22,6 +22,9 @@ class zebra(AsynPort):
         self.serialPort = serialPort
         self.MAXBUF = MAXBUF
         self.MAXMEM = MAXMEM
+
+        # Make an instance of our template
+        makeTemplateInstance(self._SpecificTemplate, locals(), args)
     
     def Initialise(self):
         print '#zebraConfig(Port, SerialPort, MaxPosCompPoints, MaxBuffers, MaxMemory)'
