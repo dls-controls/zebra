@@ -20,14 +20,14 @@
 # CONFIG_SITE file.
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
-WORK=/dls_sw/work/R3.14.12.3/support
-SUPPORT=/dls_sw/prod/R3.14.12.3/support
+WORK=/dls_sw/work/R3.14.12.7/support
+SUPPORT=/dls_sw/prod/R3.14.12.7/support
 
-ASYN=$(SUPPORT)/asyn/4-21
-AREADETECTOR=$(SUPPORT)/areaDetector/1-9dls17
-ADUTIL=$(SUPPORT)/adUtil/1-16
-BUSY=$(SUPPORT)/busy/1-4dls1
-MOTOR=$(SUPPORT)/motor/6-8-1dls4-3
+ASYN=$(SUPPORT)/asyn/4-34
+AREADETECTOR=$(SUPPORT)/ADCore/3-3-2dls1
+ADUTIL=$(SUPPORT)/adUtil/1-18
+BUSY=$(SUPPORT)/busy/1-7dls1
+MOTOR=$(SUPPORT)/motor/6-10-1dls1-1
 
 # If using the sequencer, point SNCSEQ at its top directory:
 #SNCSEQ=$(EPICS_BASE)/../modules/soft/seq
