@@ -1,6 +1,0 @@
-<?xml version="1.0" ?>
-<components arch="linux-x86">
-	<asyn.AsynSerial baud="115200" bits="8" name="ty_zebra" parity="None" port="/dev/ttyUSB0" simulation="localhost:7001" stop="1"/>
-	<!--<asyn.AsynIP name="ty_zebra" port="bl22b-nt-tserv-01:7030"/>-->
-	<zebra.zebra ADDR="0" P="$(ZEBRAPREFIX)" PORT="ZEBRA" Q="" TIMEOUT="1" serialPort="ty_zebra"/>
-</components>
