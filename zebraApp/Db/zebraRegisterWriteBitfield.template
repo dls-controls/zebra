@@ -218,46 +218,46 @@ record(calcout, "$(P)$(Q):$(PARAM):DISPB9") {
   field(OUT, "$(P)$(Q):$(PARAM):B9.DISP")
 }
 
-record(calcout, "$(P)$(Q):$(PARAM):DISPB10") {
+record(calcout, "$(P)$(Q):$(PARAM):DISPBA") {
   field(DESC, "Disable caputs")
   field(CALC, "A")
   field(INPA, "$(DISP)")
-  field(OUT, "$(P)$(Q):$(PARAM):B10.DISP")
+  field(OUT, "$(P)$(Q):$(PARAM):BA.DISP")
 }
 
-record(calcout, "$(P)$(Q):$(PARAM):DISPB11") {
+record(calcout, "$(P)$(Q):$(PARAM):DISPBB") {
   field(DESC, "Disable caputs")
   field(CALC, "A")
   field(INPA, "$(DISP)")
-  field(OUT, "$(P)$(Q):$(PARAM):B11.DISP")
+  field(OUT, "$(P)$(Q):$(PARAM):BB.DISP")
 }
 
-record(calcout, "$(P)$(Q):$(PARAM):DISPB12") {
+record(calcout, "$(P)$(Q):$(PARAM):DISPBC") {
   field(DESC, "Disable caputs")
   field(CALC, "A")
   field(INPA, "$(DISP)")
-  field(OUT, "$(P)$(Q):$(PARAM):B12.DISP")
+  field(OUT, "$(P)$(Q):$(PARAM):BC.DISP")
 }
 
-record(calcout, "$(P)$(Q):$(PARAM):DISPB13") {
+record(calcout, "$(P)$(Q):$(PARAM):DISPBD") {
   field(DESC, "Disable caputs")
   field(CALC, "A")
   field(INPA, "$(DISP)")
-  field(OUT, "$(P)$(Q):$(PARAM):B13.DISP")
+  field(OUT, "$(P)$(Q):$(PARAM):BD.DISP")
 }
 
-record(calcout, "$(P)$(Q):$(PARAM):DISPB14") {
+record(calcout, "$(P)$(Q):$(PARAM):DISPBE") {
   field(DESC, "Disable caputs")
   field(CALC, "A")
   field(INPA, "$(DISP)")
-  field(OUT, "$(P)$(Q):$(PARAM):B14.DISP")
+  field(OUT, "$(P)$(Q):$(PARAM):BE.DISP")
 }
 
-record(calcout, "$(P)$(Q):$(PARAM):DISPB15") {
+record(calcout, "$(P)$(Q):$(PARAM):DISPBF") {
   field(DESC, "Disable caputs")
   field(CALC, "A")
   field(INPA, "$(DISP)")
-  field(OUT, "$(P)$(Q):$(PARAM):B15.DISP")
+  field(OUT, "$(P)$(Q):$(PARAM):BF.DISP")
 }
 record(bo, "$(P)$(Q):$(PARAM):B0") {
   field(ZNAM, "No")
